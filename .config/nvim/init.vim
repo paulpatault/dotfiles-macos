@@ -44,11 +44,11 @@ vnoremap K :m '<-2<CR>gv=gv
 
 
 "ocaml ??
-let g:opamshare = substitute(system('opam config var share'),'\n$','','''')
-execute "set rtp+=" . g:opamshare . "/merlin/vim"
-execute "set rtp+=" . g:opamshare . "/ocp-indent/vim"
-let g:merlin_python_version = 3
-let g:python3_host_prog = '/usr/local/bin/python3'
+"let g:opamshare = substitute(system('opam config var share'),'\n$','','''')
+"execute "set rtp+=" . g:opamshare . "/merlin/vim"
+"execute "set rtp+=" . g:opamshare . "/ocp-indent/vim"
+"let g:merlin_python_version = 3
+"let g:python3_host_prog = '/usr/local/bin/python3'
 
 
 """"""""""""""""""""""Plugins""""""""""""""""""""""

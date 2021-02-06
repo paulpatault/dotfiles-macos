@@ -19,9 +19,9 @@ CASE_SENSITIVE="true"
 COMPLETION_WAITING_DOTS="true"
 
 plugins=(
-	git
-	zsh-syntax-highlighting
-	zsh-autosuggestions
+  git
+  zsh-syntax-highlighting
+  zsh-autosuggestions
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -45,8 +45,15 @@ source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 export PATH="/usr/local/opt/ncurses/bin:$PATH"
 
 # opam configuration
-test -r /Users/paulpatault/.opam/opam-init/init.zsh && . /Users/paulpatault/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
+# test -r /Users/paulpatault/.opam/opam-init/init.zsh && . /Users/paulpatault/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
 
 export PATH=$PATH:/usr/local/opt/llvm/bin
+export PATH="/usr/local/opt/opencv@2/bin:$PATH"
 
 bindkey -v
+
+# alias
+
+alias edt="open ~/Documents/Université/ADMIN/EDT/EDT\ S6.png"
+alias fac="cd ~/Documents/Université/S6"
+
