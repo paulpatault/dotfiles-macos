@@ -51,9 +51,6 @@ defaults write com.apple.screencapture location /Users/patault/Documents/Screens
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # WALLPAPER
 
-# install wget
-brew install wget
-
 # download images
 wget https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Jacques-Louis_David%2C_The_Coronation_of_Napoleon.jpg/1920px-Jacques-Louis_David%2C_The_Coronation_of_Napoleon.jpg
 wget https://upload.wikimedia.org/wikipedia/commons/2/2b/Christoffer_Wilhelm_Eckersberg_-_Ulysses%27_revenge_on_Penelope%27s_suitors_-_Google_Art_Project.jpg

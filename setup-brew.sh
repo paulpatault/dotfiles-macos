@@ -9,9 +9,15 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 echo "Installing Homebrew"
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # NEOVIM
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # BASICS
 
 brew install neovim --HEAD
+brew install cmake
+brew install tree-sitter
+brew install wget
+brew install nvm
+brew install node
+brew install stockfish
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # OCAML
 
@@ -27,11 +33,14 @@ opam install ocamlformat
 # brew install xquartz
 # opam install graphics
 
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # BREW
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # OPENGL
 
-brew install cmake tree-sitter wget nvm stockfish
+brew install glm
+brew install glew
+brew install glfw
+brew install opencv@2
 
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # CASKS BREW
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # CASKS
 
 # programming
 brew install --cask github
@@ -59,7 +68,6 @@ brew install --cask microsoft-excel
 brew install --cask microsoft-powerpoint
 brew install --cask microsoft-teams
 brew install --cask zoomus
-
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # END
 
