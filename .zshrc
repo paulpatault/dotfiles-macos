@@ -42,11 +42,8 @@ source ~/powerlevel10k/powerlevel10k.zsh-theme
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
 export PATH="/usr/local/opt/ncurses/bin:$PATH"
-
-# opam configuration
-# test -r /Users/paulpatault/.opam/opam-init/init.zsh && . /Users/paulpatault/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
-
 export PATH=$PATH:/usr/local/opt/llvm/bin
 export PATH="/usr/local/opt/opencv@2/bin:$PATH"
 
