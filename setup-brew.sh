@@ -31,19 +31,36 @@ opam install ocamlformat
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # BREW
 
-brew install cmake tree-sitter wget nvm
+brew install cmake tree-sitter wget nvm stockfish
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # CASKS BREW
 
-brew cask install \
-github \
-firefox \
-visual-studio-code \
-iterm2 \
-spotify \
-vlc \
-microsoft-office \
-sublime-text
+# programming
+brew install --cask github
+brew install --cask visual-studio-code
+brew install --cask iterm2
+brew install --cask jetbrains-toolbox
+
+# browser
+brew install --cask firefox
+brew install --cask google-chrome
+
+# reader
+brew install --cask spotify
+brew install --cask vlc
+
+# communication
+brew install --cask messenger
+brew install --cask slack
+brew install --cask telegram
+brew install --cask discord
+
+# courses
+brew install --cask microsoft-word
+brew install --cask microsoft-excel
+brew install --cask microsoft-powerpoint
+brew install --cask microsoft-teams
+brew install --cask zoomus
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # ZSH, OH-MY-ZSH
 
