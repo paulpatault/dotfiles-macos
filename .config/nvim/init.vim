@@ -5,7 +5,7 @@ set encoding=utf-8
 set nowrap
 set colorcolumn=80
 set relativenumber
-set nu
+set number
 set mouse=a
 set clipboard=unnamedplus
 set backspace=indent,eol,start
@@ -39,17 +39,9 @@ nnoremap <silent> <Leader>- :exe "vertical resize -10"<CR>
 nnoremap <silent> <Leader>h= :exe "resize +10"<CR>
 nnoremap <silent> <Leader>h- :exe "resize -10"<CR>
 
+" Move selection up and down
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
-
-
-"ocaml ??
-"let g:opamshare = substitute(system('opam config var share'),'\n$','','''')
-"execute "set rtp+=" . g:opamshare . "/merlin/vim"
-"execute "set rtp+=" . g:opamshare . "/ocp-indent/vim"
-"let g:merlin_python_version = 3
-"let g:python3_host_prog = '/usr/local/bin/python3'
-
 
 """"""""""""""""""""""Plugins""""""""""""""""""""""
 
@@ -57,24 +49,19 @@ call plug#begin(stdpath('data') . '/plugged')
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
   Plug 'scrooloose/nerdtree'
   Plug 'scrooloose/nerdcommenter'
-  Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
   Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
   Plug 'morhetz/gruvbox'
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'junegunn/fzf.vim'
   Plug 'ryanoasis/vim-devicons'
   Plug 'sheerun/vim-polyglot'
-  Plug 'arthurxavierx/vim-unicoder'
   Plug 'vim-airline/vim-airline'
   Plug 'jiangmiao/auto-pairs'
   "Plug 'dense-analysis/ale'
-  Plug 'mhinz/vim-startify'
   Plug 'mbbill/undotree'
   Plug 'lervag/vimtex'
   Plug 'cdelledonne/vim-cmake'
 call plug#end()
-
-
 
 nmap <C-n> :NERDTreeToggle<CR>
 nmap <Leader>r :NERDTreeFocus<cr>R<c-w><c-p>
@@ -86,11 +73,31 @@ set cmdheight=2
 set updatetime=300
 set shortmess+=c
 set signcolumn=yes
+" GoTo code navigation.
 nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
 nmap <leader>rn <Plug>(coc-rename)
 
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+xmap <leader>f  <Plug>(coc-format-selected)
+nmap <leader>f  <Plug>(coc-format-selected)
+
 nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+nnoremap <silent> <leader>x :CocCommand clangd.switchSourceHeader<CR>
 
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
@@ -111,8 +118,8 @@ command! -nargs=+ Silent
 \   execute 'silent ! <args>'
 \ | redraw!
 
-nnoremap <silent> <F5> :Silent pdflatex % && open -a Preview && open -a iTerm && rm *.log *.aux<CR>
-nnoremap <silent> <F6> :Silent mdpdf % && open -a Preview && open -a iTerm && rm *.log *.aux<CR>
+nnoremap <silent> <F5> :Silent pdflatex % && open -a Preview && open -a Kitty && rm *.log *.aux<CR>
+nnoremap <silent> <F6> :Silent mdpdf % && open -a Preview && open -a Kitty<CR>
 
 """""""""""""""""""""""Theme"""""""""""""""""""""""""
 colorscheme gruvbox
@@ -127,15 +134,16 @@ function! ToggleSpellLang()
         :set spelllang=fr,en
     endif
 endfunction
+
 nnoremap <leader>sp :setlocal spell!<CR> " toggle spell on or off
 nnoremap <F8> :call ToggleSpellLang()<CR> " toggle language
 
 augroup YEPLA
   autocmd!
   autocmd Filetype c setlocal tabstop=4 shiftwidth=4 softtabstop=4
+  autocmd Filetype cpp setlocal tabstop=4 shiftwidth=4 softtabstop=4
   autocmd Filetype java setlocal tabstop=4 shiftwidth=4 softtabstop=4
   autocmd BufWritePre * %s/\s\+$//e
-  autocmd BufWritePost *.tex :exe "normal \<F5>"
-  autocmd BufWritePost *.md :exe "normal \<F6>"
-  autocmd Filetype markdown setlocal wrapmargin=80 wrap
+  "autocmd BufWritePost *.tex :exe "normal \<F5>"
+  "autocmd BufWritePost *.md :exe "normal \<F6>"
 augroup END

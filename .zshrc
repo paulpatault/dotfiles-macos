@@ -52,5 +52,9 @@ bindkey -v
 # alias
 
 alias edt="open ~/Documents/Université/ADMIN/EDT/EDT\ S6.png"
-alias fac="cd ~/Documents/Université/S6"
+alias fac="cd ~/Documents/Université"
+alias fac6="cd ~/Documents/Université/S6"
+alias fac5="cd ~/Documents/Université/S5"
+alias pcii="cd ~/IdeaProjects/ProjetPCII/"
 
+export PATH="/usr/local/sbin:$PATH"
