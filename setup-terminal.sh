@@ -39,3 +39,5 @@ git clone https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pac
 brew install bat
 brew install thefuck
 brew install tree
+brew install htop
+brew install lazygit

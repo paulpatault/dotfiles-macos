@@ -18,6 +18,10 @@ brew install wget
 brew install nvm
 brew install node
 brew install stockfish
+brew install rust
+brew install lua
+brew install luajit
+brew install luarocks
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # OCAML
 
@@ -45,10 +49,9 @@ brew install opencv@2
 # programming
 brew install --cask github
 brew install --cask visual-studio-code
-brew install --cask brackets
+brew install --cask atom
 brew install --cask kitty
 # brew install --cask iterm2
-# brew install --cask jetbrains-toolbox
 brew install --cask clion
 brew install --cask intellij-idea
 brew install --cask gimp

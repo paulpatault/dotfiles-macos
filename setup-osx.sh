@@ -1,5 +1,8 @@
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # SUDO
 
+
+# VOIR brew install mackup
+
 # Activation sudo
 sudo -v
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
@@ -13,7 +16,7 @@ defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
 defaults write com.apple.dock show-process-indicators -bool true
 
 # taille du Dock
-defaults write com.apple.dock tilesize -int 53
+defaults write com.apple.dock tilesize -int 49
 
 # effet de minimisation des apps
 defaults write com.apple.dock mineffect -string "genie"
