@@ -28,9 +28,8 @@ brew install luarocks
 brew install ocaml opam
 opam init
 opam install merlin ocaml-lsp-server
-opam user-setup install
-opam install ocp-indent
-opam install ocamlformat
+opam install dune
+opam install menhir
 
 # Graphics stuff
 # brew install Caskroom/cask/xquartz
@@ -51,15 +50,15 @@ brew install --cask github
 brew install --cask visual-studio-code
 brew install --cask atom
 brew install --cask kitty
-# brew install --cask iterm2
 brew install --cask clion
 brew install --cask intellij-idea
 brew install --cask gimp
 brew install --cask mactex
+brew install --cask devbook
 
 # fonts
-# font-hack-nerd-font
-# font-latin-modern
+brew install --cask font-hack-nerd-font
+brew install --cask font-latin-modern
 
 # browser
 brew install --cask firefox
@@ -81,6 +80,12 @@ brew install --cask microsoft-excel
 brew install --cask microsoft-powerpoint
 brew install --cask microsoft-teams
 brew install --cask zoomus
+brew install --cask drawio
+brew install --cask typora
+
+# other
+brew tap homebrew/cask-versions
+brew install --cask background-music-pre
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # END
 
