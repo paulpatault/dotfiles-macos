@@ -5,18 +5,21 @@ return require('packer').startup({
 
     use {'wbthomason/packer.nvim', opt = true}
 
+    ----- lsp -----
     use 'neovim/nvim-lspconfig'
     use 'wbthomason/lsp-status.nvim'
+    use 'glepnir/lspsaga.nvim'
+    use 'sublimelsp/LSP-pyls'
+    use 'ocaml/ocaml-lsp'
     use 'hrsh7th/nvim-compe'
 
-    use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
+    ----- languages -----
+    use 'ocaml/vim-ocaml'
+    use 'cdelledonne/vim-cmake'
+    use 'tpope/vim-markdown'
+    -- use 'lervag/vimtex'
 
-    -- use 'emilienlemaire/clang-tidy.nvim'
-
-    use 'glepnir/lspsaga.nvim'
-
-    use 'cohama/lexima.vim' -- autopairs
-
+    ----- telescope -----
     use 'nvim-lua/popup.nvim'
     use {
       'nvim-telescope/telescope.nvim',
@@ -25,36 +28,27 @@ return require('packer').startup({
         {'nvim-lua/plenary.nvim'}
       }
     }
-
     use 'nvim-telescope/telescope-fzy-native.nvim'
 
-
+    ----- utils -----
     use 'arthurxavierx/vim-unicoder'
     use 'machakann/vim-sandwich'
-
+    use 'cohama/lexima.vim' -- autopairs
     use 'pbrisbin/vim-mkdir'
-    -- use 'junegunn/vim-easy-align' 
-
-
     use 'mbbill/undotree'
     use 'voldikss/vim-floaterm'
-
-    -- use 'lervag/vimtex'
-
     use 'jesseleite/vim-noh'
     use 'b3nj5m1n/kommentary'
-
     use 'kevinhwang91/nvim-hlslens' -- better search
+    -- use 'junegunn/vim-easy-align'
 
-    use 'sublimelsp/LSP-pyls'
-    use 'ocaml/ocaml-lsp'
-    use 'ocaml/vim-ocaml'
-    use 'cdelledonne/vim-cmake'
-    use 'tpope/vim-markdown'
-
+    ----- theme -----
+    use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
     use 'morhetz/gruvbox'
+    use 'kyazdani42/nvim-web-devicons'
     use 'tjdevries/express_line.nvim'
     use 'lilydjwg/colorizer'
+
   end,
   config =  {
     display = {

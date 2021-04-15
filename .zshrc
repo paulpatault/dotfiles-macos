@@ -50,7 +50,6 @@ alias edt="open ~/Documents/Université/ADMIN/EDT/EDT\ S6.png"
 alias fac="cd ~/Documents/Université"
 alias fac6="cd ~/Documents/Université/S6"
 alias fac5="cd ~/Documents/Université/S5"
-alias pcii="cd ~/IdeaProjects/ProjetPCII/"
 alias so_ml="source ~/Documents/Université/S6/IAS/venv/bin/activate"
 export PATH="/usr/local/sbin:$PATH"
 

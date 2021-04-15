@@ -7,6 +7,7 @@ local utils = require('utils')
 local cmd = vim.cmd
 
 g.mapleader = ' '
+g.langmenu = [[en_US.UTF-8]]
 
 b.autoindent = true
 b.expandtab = true
@@ -42,7 +43,10 @@ end
 w.colorcolumn = [[100]]
 w.wrap = false
 
+o.encoding = 'utf-8'
+
 o.termguicolors = true
+
 
 o.clipboard = [[unnamed,unnamedplus]]
 
@@ -80,6 +84,7 @@ utils.create_augroup({
 
 utils.create_augroup({
   {'BufNewFile,BufReadPost', '*.md', 'set', 'filetype=markdown'},
+  {'BufWritePre', '*',  [[%s/\s\+$//e]]}
 }, 'BufE')
 
 

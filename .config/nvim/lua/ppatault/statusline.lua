@@ -7,9 +7,11 @@ local lsp_statusline = require('el.plugins.lsp_status')
 
 local generator = function()
   local el_segments = {}
+
   table.insert(el_segments, extensions.gen_mode {
     format_string = '[%s]'
   })
+
 
   table.insert(el_segments,
     subscribe.buf_autocmd(
@@ -67,9 +69,9 @@ local generator = function()
 
   local lines_info = {
     '[',
-    builtin.line_with_width(3),
+    builtin.line_with_width(1),
     ':',
-    builtin.column_with_width(2),
+    builtin.column_with_width(1),
     ':',
     builtin.number_of_lines,
     ']',
@@ -81,9 +83,9 @@ local generator = function()
     }
   }
 
-  table.insert(el_segments, lines_info)
 
   table.insert(el_segments, builtin.filetype)
+  table.insert(el_segments, lines_info)
 
   return el_segments
 end
