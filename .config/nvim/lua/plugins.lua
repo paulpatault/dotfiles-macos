@@ -42,6 +42,10 @@ return require('packer').startup({
     use 'kevinhwang91/nvim-hlslens' -- better search
     -- use 'junegunn/vim-easy-align'
 
+
+    --[[ use 'hrsh7th/vim-vsnip'
+    use 'hrsh7th/vim-vsnip-integ' ]]
+
     ----- theme -----
     use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
     use 'morhetz/gruvbox'

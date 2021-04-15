@@ -66,8 +66,6 @@ utils.map('n', '<C-f>', [[:!open . && open -a Finder<CR>]], {noremap = true})
 utils.map('v', 'J', [[:m '>+1<cr>gv=gv]], {noremap = true})
 utils.map('v', 'K', [[:m '<-2<cr>gv=gv]], {noremap = true})
 
-utils.map('n', '<C-p>', [[:FZF<cr>]], {noremap = true})
-
 utils.map('n', '<A-Tab>', ':tabnext<cr>', {noremap = true})
 utils.map('n', '<A-S-Tab>', ':tabprev<cr>', {noremap = true})
 

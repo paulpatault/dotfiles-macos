@@ -57,11 +57,13 @@ function M.reload_plugins()
     packer.compile()
 end
 
+local t = function(str)
+  return vim.api.nvim_replace_termcodes(str, true, true, true)
+end
+
 function M.tab_complete()
   if vim.fn.pumvisible() == 1 then
     return t "<C-n>"
-  elseif vim.fn.call("vsnip#available", {1}) == 1 then
-    return t "<Plug>(vsnip-expand-or-jump)"
   elseif check_back_space() then
     return t "<Tab>"
   else
@@ -72,8 +74,6 @@ end
 function M.s_tab_complete()
   if vim.fn.pumvisible() then
     return t "<C-p>"
-  elseif vim.fn.call("vsnip#jumpable", {-1}) == 1 then
-    t "<Plug>(vsnip-jump-prev)"
   else
     return t "<S-Tab>"
   end
