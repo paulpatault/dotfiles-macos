@@ -1,3 +1,7 @@
+#!/bin/bash
+# File              : setup-iterm2.sh
+# Date              : 13.04.2021
+# Last Modified Date: 13.04.2021
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # SUDO
 
 # Activation sudo
@@ -24,9 +28,14 @@ upgrade_oh_my_zsh
 brew install zsh-syntax-highlighting
 brew install zsh-autosuggestions
 
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # VIM
+
+git clone https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+
 # help: https://www.freecodecamp.org/news/how-to-configure-your-macos-terminal-with-zsh-like-a-pro-c0ab3f3c1156/
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # SCRIPTS
 
 brew install bat
 brew install thefuck
+brew install tree

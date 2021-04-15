@@ -47,8 +47,6 @@ export PATH="/usr/local/opt/ncurses/bin:$PATH"
 export PATH=$PATH:/usr/local/opt/llvm/bin
 export PATH="/usr/local/opt/opencv@2/bin:$PATH"
 
-bindkey -v
-
 # alias
 
 alias edt="open ~/Documents/Université/ADMIN/EDT/EDT\ S6.png"
@@ -56,5 +54,8 @@ alias fac="cd ~/Documents/Université"
 alias fac6="cd ~/Documents/Université/S6"
 alias fac5="cd ~/Documents/Université/S5"
 alias pcii="cd ~/IdeaProjects/ProjetPCII/"
-
+alias so_ml="source ~/Documents/Université/S6/IAS/venv/bin/activate"
 export PATH="/usr/local/sbin:$PATH"
+
+# opam configuration
+test -r /Users/paulpatault/.opam/opam-init/init.zsh && . /Users/paulpatault/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true

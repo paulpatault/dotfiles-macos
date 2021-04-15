@@ -45,8 +45,18 @@ brew install opencv@2
 # programming
 brew install --cask github
 brew install --cask visual-studio-code
-brew install --cask iterm2
-brew install --cask jetbrains-toolbox
+brew install --cask brackets
+brew install --cask kitty
+# brew install --cask iterm2
+# brew install --cask jetbrains-toolbox
+brew install --cask clion
+brew install --cask intellij-idea
+brew install --cask gimp
+brew install --cask mactex
+
+# fonts
+# font-hack-nerd-font
+# font-latin-modern
 
 # browser
 brew install --cask firefox
