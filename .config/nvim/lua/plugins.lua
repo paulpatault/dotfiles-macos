@@ -17,8 +17,16 @@ return require('packer').startup({
 
     use 'cohama/lexima.vim' -- autopairs
 
-    use 'junegunn/fzf.vim'
-    use 'junegunn/fzf'
+    use 'nvim-lua/popup.nvim'
+    use {
+      'nvim-telescope/telescope.nvim',
+      requires = {
+        {'nvim-lua/popup.nvim'},
+        {'nvim-lua/plenary.nvim'}
+      }
+    }
+
+    use 'nvim-telescope/telescope-fzy-native.nvim'
 
 
     use 'arthurxavierx/vim-unicoder'
@@ -45,7 +53,6 @@ return require('packer').startup({
     use 'tpope/vim-markdown'
 
     use 'morhetz/gruvbox'
-    use 'nvim-lua/plenary.nvim'
     use 'tjdevries/express_line.nvim'
     use 'lilydjwg/colorizer'
   end,

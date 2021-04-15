@@ -6,7 +6,7 @@ local b = vim.bo
 local utils = require('utils')
 local cmd = vim.cmd
 
-g.mapleader = '\\'
+g.mapleader = ' '
 
 b.autoindent = true
 b.expandtab = true
@@ -55,7 +55,6 @@ o.mouse = 'a'
 o.completeopt = [[menuone,noinsert,noselect]]
 
 -- General mappings, not depending on any plugins
-
 utils.map('n', '<leader>sp', [[:setlocal spell!<CR>]], {noremap = true})
 
 utils.map('n', '<C-f>', [[:!open . && open -a Finder<CR>]], {noremap = true})
@@ -93,7 +92,7 @@ utils.add_rtp(home .. '/.opam/default/share/merlin/vim/doc')
 utils.add_rtp(home .. '/.opam/default/share/merlin/vim')
 utils.add_rtp(home .. '/.opam/default/share/merlin/vimbufsync')
 
--- require
+-- RELOAD
 
 cmd [[packadd vimball]]
 
@@ -113,6 +112,7 @@ end
 R('plugins')
 RELOADER = function()
     R('ppatault.treesitter')
+    R('ppatault.telescope')
     R('ppatault.plenary')
     R('ppatault.kommentary')
     R('ppatault.nvim-compe')
@@ -127,4 +127,4 @@ utils.map_lua('n', '<leader>rc', 'RELOADER()', {noremap = true})
 
 cmd [[colorscheme gruvbox]]
 
--- cmd [[highlight LspDiagnosticsUnderline cterm=undercurl gui=undercurl]]
+cmd [[highlight LspDiagnosticsUnderline cterm=undercurl gui=undercurl]]
