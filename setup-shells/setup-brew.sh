@@ -17,6 +17,7 @@ brew install tree-sitter
 brew install wget
 brew install nvm
 brew install node
+brew install llvm
 brew install stockfish
 brew install rust
 brew install lua
