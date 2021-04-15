@@ -15,6 +15,7 @@ b.shiftwidth = 4
 b.tabstop = 4
 b.smartindent = true
 b.modeline = false
+b.spelllang = [[fr,en]]
 
 o.backspace = [[indent,eol,start]]
 o.hidden = true
@@ -54,6 +55,11 @@ o.mouse = 'a'
 o.completeopt = [[menuone,noinsert,noselect]]
 
 -- General mappings, not depending on any plugins
+
+utils.map('n', '<leader>sp', [[:setlocal spell!<CR>]], {noremap = true})
+
+utils.map('n', '<C-f>', [[:!open . && open -a Finder<CR>]], {noremap = true})
+
 utils.map('v', 'J', [[:m '>+1<cr>gv=gv]], {noremap = true})
 utils.map('v', 'K', [[:m '<-2<cr>gv=gv]], {noremap = true})
 
