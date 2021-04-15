@@ -45,7 +45,7 @@ utils.map('n', '<leader>tg', ':FloatermNew lazygit<cr>', options)
 -- }}}
 
 -- {{{ lsp
-utils.map_lua('n', '<c-]>', [[vim.lsp.buf.definition()]], options)
+utils.map_lua('n', 'gd', [[vim.lsp.buf.definition()]], options)
 utils.map_lua('n', '<leader>rn', [[vim.lsp.buf.rename()]], options)
 utils.map_lua('n', 'gD', [[vim.lsp.buf.implementation()]], options)
 utils.map_lua('n', '<c-K>', [[vim.lsp.buf.signature_help()]], options)
