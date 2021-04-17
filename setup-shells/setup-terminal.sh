@@ -41,3 +41,4 @@ brew install thefuck
 brew install tree
 brew install htop
 brew install lazygit
+brew install insect

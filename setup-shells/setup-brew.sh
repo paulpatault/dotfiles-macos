@@ -1,13 +1,13 @@
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # SUDO
 
-# Activation sudo
-sudo -v
-while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
+# # Activation sudo
+# sudo -v
+# while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # HOMEBREW
 
 echo "Installing Homebrew"
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # BASICS
 
@@ -23,6 +23,7 @@ brew install rust
 brew install lua
 brew install luajit
 brew install luarocks
+brew install texlab
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # OCAML
 

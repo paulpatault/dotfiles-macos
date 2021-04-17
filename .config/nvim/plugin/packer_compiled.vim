@@ -44,14 +44,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/paulpatault/.local/share/nvim/site/pack/packer/start/express_line.nvim"
   },
-  fzf = {
-    loaded = true,
-    path = "/Users/paulpatault/.local/share/nvim/site/pack/packer/start/fzf"
-  },
-  ["fzf.vim"] = {
-    loaded = true,
-    path = "/Users/paulpatault/.local/share/nvim/site/pack/packer/start/fzf.vim"
-  },
   gruvbox = {
     loaded = true,
     path = "/Users/paulpatault/.local/share/nvim/site/pack/packer/start/gruvbox"
@@ -88,6 +80,10 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/paulpatault/.local/share/nvim/site/pack/packer/start/nvim-treesitter"
   },
+  ["nvim-web-devicons"] = {
+    loaded = true,
+    path = "/Users/paulpatault/.local/share/nvim/site/pack/packer/start/nvim-web-devicons"
+  },
   ["ocaml-lsp"] = {
     loaded = true,
     path = "/Users/paulpatault/.local/share/nvim/site/pack/packer/start/ocaml-lsp"
@@ -96,6 +92,22 @@ _G.packer_plugins = {
     loaded = false,
     needs_bufread = false,
     path = "/Users/paulpatault/.local/share/nvim/site/pack/packer/opt/packer.nvim"
+  },
+  ["plenary.nvim"] = {
+    loaded = true,
+    path = "/Users/paulpatault/.local/share/nvim/site/pack/packer/start/plenary.nvim"
+  },
+  ["popup.nvim"] = {
+    loaded = true,
+    path = "/Users/paulpatault/.local/share/nvim/site/pack/packer/start/popup.nvim"
+  },
+  ["telescope-fzy-native.nvim"] = {
+    loaded = true,
+    path = "/Users/paulpatault/.local/share/nvim/site/pack/packer/start/telescope-fzy-native.nvim"
+  },
+  ["telescope.nvim"] = {
+    loaded = true,
+    path = "/Users/paulpatault/.local/share/nvim/site/pack/packer/start/telescope.nvim"
   },
   undotree = {
     loaded = true,
@@ -116,6 +128,10 @@ _G.packer_plugins = {
   ["vim-mkdir"] = {
     loaded = true,
     path = "/Users/paulpatault/.local/share/nvim/site/pack/packer/start/vim-mkdir"
+  },
+  ["vim-noh"] = {
+    loaded = true,
+    path = "/Users/paulpatault/.local/share/nvim/site/pack/packer/start/vim-noh"
   },
   ["vim-ocaml"] = {
     loaded = true,
