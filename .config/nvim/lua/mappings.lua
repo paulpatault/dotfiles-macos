@@ -55,6 +55,8 @@ utils.map_lua('n', 'g0', [[vim.lsp.buf.document_symbol()]], options)
 utils.map_lua('n', 'gW', [[vim.lsp.buf.workspace_symbol()]], options)
 utils.map('n', '<leader>sh', ':ClangdSwitchSourceHeader<cr>', options)
 -- }}}
+
 -- {{{ vimtex
 utils.map('n', 'tc', ':VimtexCompile<cr>', options)
+utils.map('n', '<F5>', '!open -a Preview && open -a Kitty', options)
 -- }}}
