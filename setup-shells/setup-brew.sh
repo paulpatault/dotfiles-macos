@@ -65,10 +65,11 @@ brew install --cask mactex
 brew install --cask devbook
 
 # fonts
+brew tap homebrew/cask-fonts
 brew install --cask font-hack-nerd-font
 brew install --cask font-latin-modern
 brew install --cask font-dejavu-sans-mono-nerd-font
-
+brew install --cask font-jetbrains-mono-nerd-font
 # browser
 brew install --cask firefox
 brew install --cask google-chrome
