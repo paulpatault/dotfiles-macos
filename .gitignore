@@ -1,6 +1,7 @@
 .DS_Store
 undodir
 .config/coc
+.config/thefuck
 
 .config/nvim/_init.vim
 .config/htop/htoprc
