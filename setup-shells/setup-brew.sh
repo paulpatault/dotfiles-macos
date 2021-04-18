@@ -9,27 +9,33 @@
 echo "Installing Homebrew"
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # BASICS
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # NEOVIM
+
+git clone https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 
 brew install neovim --HEAD
-brew install cmake
 brew install tree-sitter
+brew install lua
+brew install luajit
+brew install luarocks
+brew install texlab
+
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # BASICS
+
+brew install cmake
 brew install wget
 brew install nvm
 brew install node
 brew install llvm
 brew install stockfish
 brew install rust
-brew install lua
-brew install luajit
-brew install luarocks
-brew install texlab
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # OCAML
 
 brew install ocaml opam
 opam init
-opam install merlin ocaml-lsp-server
+opam install merlin
+opam install ocaml-lsp-server
 opam install dune
 opam install menhir
 
@@ -61,6 +67,7 @@ brew install --cask devbook
 # fonts
 brew install --cask font-hack-nerd-font
 brew install --cask font-latin-modern
+brew install --cask font-dejavu-sans-mono-nerd-font
 
 # browser
 brew install --cask firefox
@@ -88,6 +95,32 @@ brew install --cask typora
 # other
 brew tap homebrew/cask-versions
 brew install --cask background-music-pre
+
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # THEME
+
+brew install romkatv/powerlevel10k/powerlevel10k
+
+
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # ZSH, OH-MY-ZSH
+
+### CHECK https://gist.github.com/kevin-smets/8568070
+
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+upgrade_oh_my_zsh
+
+brew install zsh-syntax-highlighting
+brew install zsh-autosuggestions
+
+# help: https://www.freecodecamp.org/news/how-to-configure-your-macos-terminal-with-zsh-like-a-pro-c0ab3f3c1156/
+
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # SCRIPTS
+
+brew install bat
+brew install thefuck
+brew install tree
+brew install htop
+brew install lazygit
+brew install insect
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # END
 

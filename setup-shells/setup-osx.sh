@@ -1,8 +1,5 @@
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # SUDO
 
-
-# VOIR brew install mackup
-
 # Activation sudo
 sudo -v
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
@@ -49,8 +46,8 @@ defaults write com.apple.Finder FXPreferredViewStyle clmv
 
 # dossier pour capture d'écran
 
-mkdir /Users/patault/Documents/Screenshots
-defaults write com.apple.screencapture location /Users/patault/Documents/Screenshots
+mkdir ~/Documents/Screenshots
+defaults write com.apple.screencapture location ~/Documents/Screenshots
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # WALLPAPER
 
