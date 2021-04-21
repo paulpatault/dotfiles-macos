@@ -66,7 +66,7 @@ mv Orleans_MBA_L_Le_nain_bacchus_et_ariane.jpg ~/Documents/Divers/Wallpaper
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # KILLALL
 
 # Kill affected apps
-for app in "Dock" "Finder"; do
+for app in "Dock" "Finder" "SystemUIServer"; do
   killall "${app}" > /dev/null 2>&1
 done
 
