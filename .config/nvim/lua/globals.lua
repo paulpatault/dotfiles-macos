@@ -8,5 +8,5 @@ vim.g.floaterm_keymap_toggle = '<F36>'
 
 
 vim.g.markdown_fenced_languages = {
-  'plsql', 'sql', 'python', 'lua', 'html'
+  'plsql', 'sql', 'python', 'lua', 'html', 'php'
 }

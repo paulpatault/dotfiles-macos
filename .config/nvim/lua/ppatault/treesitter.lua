@@ -1,7 +1,6 @@
 vim.cmd [[ packadd nvim-treesitter ]]
 
 local parser_config = require('nvim-treesitter.parsers').get_parser_configs()
-
 parser_config.ocaml_interface.used_by = "ocaml_interface"
 
 require('nvim-treesitter.configs').setup {
