@@ -20,6 +20,12 @@ export EDITOR='nvim'
 export KITTY_CONFIG_EDITOR='nvim'
 
 #=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# PLUGINS
+
+autoload -Uz compinit
+compinit
+# Completion for kitty
+kitty + complete setup zsh | source /dev/stdin
+
 plugins=(
   git
   zsh-syntax-highlighting
