@@ -82,7 +82,8 @@ utils.create_augroup({
 
 utils.create_augroup({
   {'BufNewFile,BufReadPost', '*.md', 'set', 'filetype=markdown'},
-  {'BufWritePre', '*',  [[%s/\s\+$//e]]}
+  {'BufWritePre', '*',  [[%s/\s\+$//e]]},
+  {'BufRead,BufNewFile', '*.mli', 'set', 'filetype=ocaml_interface'}
 }, 'BufE')
 
 
