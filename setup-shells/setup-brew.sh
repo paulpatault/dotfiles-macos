@@ -13,12 +13,25 @@ echo "Installing Homebrew"
 
 git clone https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 
+brew install cask
+brew install git
+brew install mas
 brew install neovim --HEAD
 brew install tree-sitter
 brew install lua
 brew install luajit
 brew install luarocks
 brew install texlab
+
+
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # MACOS APPS
+brew install mas
+
+mas install 1176895641 # spark email
+mas install 497799835  # XCODE
+mas install 1244649277 # Photo Image Editor Pixelstyle
+mas install 1494457680 # Smash: File transfer
+mas install 1440147259 # AddGuard for Safari
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # BASICS
 
