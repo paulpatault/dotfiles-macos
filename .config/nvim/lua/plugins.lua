@@ -43,8 +43,8 @@ return require('packer').startup({
     -- use 'junegunn/vim-easy-align'
 
 
-    --[[ use 'hrsh7th/vim-vsnip'
-    use 'hrsh7th/vim-vsnip-integ' ]]
+    use 'hrsh7th/vim-vsnip'
+    use 'hrsh7th/vim-vsnip-integ'
 
     ----- theme -----
     use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
