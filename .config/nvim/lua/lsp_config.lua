@@ -63,6 +63,6 @@ lsp.ocamllsp.setup{
 
 --------- LATEX ---------
 
-lsp.texlab.setup({
+--[[ lsp.texlab.setup({
   on_attach = custom_attach,
-})
+}) ]]
