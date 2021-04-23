@@ -60,3 +60,15 @@ utils.map('n', '<leader>sh', ':ClangdSwitchSourceHeader<cr>', options)
 utils.map('n', 'tc', ':VimtexCompile<cr>', options)
 utils.map('n', '<F5>', '!open -a Preview && open -a Kitty', options)
 -- }}}
+
+-- {{{ TreeSitter
+
+function reloadTS()
+  vim.cmd [[ TSDisableAll highlight ]]
+  vim.cmd [[ TSEnableAll highlight ]]
+  vim.cmd [[ e ]]
+  vim.cmd [[ w ]]
+end
+
+utils.map_lua('n', '<leader>rts', 'reloadTS()', options)
+-- }}}
