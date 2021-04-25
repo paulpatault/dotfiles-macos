@@ -9,6 +9,11 @@ local cmd = vim.cmd
 g.mapleader = ' '
 g.langmenu = [[en_US.UTF-8]]
 
+g.gruvbox_invert_selection = false
+g.background = [[dark]]
+
+
+
 b.autoindent = true
 b.expandtab = true
 b.softtabstop = 4
@@ -96,6 +101,7 @@ utils.add_rtp(home .. '/.opam/default/share/merlin/vim/doc')
 utils.add_rtp(home .. '/.opam/default/share/merlin/vim')
 utils.add_rtp(home .. '/.opam/default/share/merlin/vimbufsync')
 
+
 -- RELOAD
 
 cmd [[packadd vimball]]
@@ -130,5 +136,7 @@ RELOADER()
 utils.map_lua('n', '<leader>rc', 'RELOADER()', {noremap = true})
 
 cmd [[colorscheme gruvbox]]
+
+cmd [[highlight LspDiagnosticsUnderline cterm=undercurl gui=undercurl]]
 
 cmd [[highlight LspDiagnosticsUnderline cterm=undercurl gui=undercurl]]
