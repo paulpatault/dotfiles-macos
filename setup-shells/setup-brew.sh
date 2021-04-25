@@ -23,7 +23,6 @@ brew install luajit
 brew install luarocks
 brew install texlab
 
-
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # MACOS APPS
 brew install mas
 
@@ -45,7 +44,9 @@ brew install rust
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # OCAML
 
-brew install ocaml opam
+brew install ocaml
+brew install opam
+
 opam init
 opam install merlin
 opam install ocaml-lsp-server
@@ -110,14 +111,7 @@ brew install --cask typora
 brew tap homebrew/cask-versions
 brew install --cask background-music-pre
 
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # THEME
-
-brew install romkatv/powerlevel10k/powerlevel10k
-
-
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # ZSH, OH-MY-ZSH
-
-### CHECK https://gist.github.com/kevin-smets/8568070
 
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 upgrade_oh_my_zsh
@@ -126,7 +120,7 @@ brew install zsh-syntax-highlighting
 brew install zsh-autosuggestions
 brew install zsh-completions
 
-# help: https://www.freecodecamp.org/news/how-to-configure-your-macos-terminal-with-zsh-like-a-pro-c0ab3f3c1156/
+npm install --global pure-prompt
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # SCRIPTS
 

@@ -1,13 +1,3 @@
-#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# p10k
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-source ~/powerlevel10k/powerlevel10k.zsh-theme
-
 #=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# OH-MY-ZSH
 export ZSH="/Users/paulpatault/.oh-my-zsh"
 source $ZSH/oh-my-zsh.sh
@@ -37,6 +27,27 @@ export PATH="/usr/local/opt/ncurses/bin:$PATH"
 export PATH=$PATH:/usr/local/opt/llvm/bin
 export PATH="/usr/local/opt/opencv@2/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
+
+#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# THEME
+# autoload -U promptinit; promptinit
+# prompt pure
+
+ZSH_THEME=""
+
+autoload -U promptinit; promptinit
+prompt pure
+
+# autoload -U promptinit; promptinit
+# prompt pure
+
+# if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+#   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+# fi
+
+# # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+# [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# source ~/powerlevel10k/powerlevel10k.zsh-theme
 
 #=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# THE FUCK
 eval $(thefuck --alias)
