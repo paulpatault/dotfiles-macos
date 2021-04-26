@@ -12,6 +12,10 @@ g.langmenu = [[en_US.UTF-8]]
 g.gruvbox_invert_selection = false
 g.background = [[dark]]
 
+g.vimtex_compiler_progname = 'nvr'
+g.python3_host_prog = "/usr/bin/python3"
+
+
 b.autoindent = true
 b.expandtab = true
 b.softtabstop = 4
@@ -93,7 +97,12 @@ utils.create_augroup({
 -- OCAML
 local home = os.getenv('HOME')
 
+
+vim.api.nvim_set_var('python_host_prog', home .. '/usr/bin/python')
+vim.api.nvim_set_var('python3_host_prog', home .. '/usr/bin/python3')
+
 vim.api.nvim_set_var('opamshare', home .. '/.opam/default/share')
+
 vim.api.nvim_set_var('merlin_python_version', 3)
 utils.add_rtp(home .. '/.opam/default/share/merlin/vim/doc')
 utils.add_rtp(home .. '/.opam/default/share/merlin/vim')
