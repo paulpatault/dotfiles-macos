@@ -30,6 +30,9 @@ export PATH=$PATH:/usr/local/opt/llvm/bin
 export PATH="/usr/local/opt/opencv@2/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
 
+export PATH="/usr/local/lib/ruby/gems/3.0.0/bin:$PATH"
+export PATH="/usr/local/opt/ruby/bin:$PATH"
+
 #=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# THEME
 # autoload -U promptinit; promptinit
 # prompt pure
