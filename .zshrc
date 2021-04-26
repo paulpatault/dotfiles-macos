@@ -23,6 +23,8 @@ kitty + complete setup zsh | source /dev/stdin
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 #=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# PATH
+fpath+=$HOME/.zsh/pure
+
 export PATH="/usr/local/opt/ncurses/bin:$PATH"
 export PATH=$PATH:/usr/local/opt/llvm/bin
 export PATH="/usr/local/opt/opencv@2/bin:$PATH"
@@ -35,6 +37,9 @@ export PATH="/usr/local/sbin:$PATH"
 ZSH_THEME=""
 
 autoload -U promptinit; promptinit
+
+PURE_PROMPT_SYMBOL="λ"
+
 prompt pure
 
 #=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# THE FUCK
