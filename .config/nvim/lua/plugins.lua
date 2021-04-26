@@ -34,10 +34,8 @@ return require('packer').startup({
     use 'arthurxavierx/vim-unicoder'
     use 'machakann/vim-sandwich'
     use 'cohama/lexima.vim' -- autopairs
-    use 'pbrisbin/vim-mkdir'
     use 'mbbill/undotree'
     use 'voldikss/vim-floaterm'
-    use 'jesseleite/vim-noh'
     use 'b3nj5m1n/kommentary'
     use 'kevinhwang91/nvim-hlslens' -- better search
     -- use 'junegunn/vim-easy-align'

@@ -15,7 +15,6 @@ g.background = [[dark]]
 g.vimtex_compiler_progname = 'nvr'
 g.python3_host_prog = "/usr/bin/python3"
 
-
 b.autoindent = true
 b.expandtab = true
 b.softtabstop = 4
@@ -66,7 +65,7 @@ o.mouse = 'a'
 o.completeopt = [[menuone,noinsert,noselect]]
 
 -- General mappings, not depending on any plugins
-utils.map('n', '<leader>sp', [[:setlocal spell!<CR>]], {noremap = true})
+utils.map('n', '<leader>sp', [[:setlocal spell!<CR><CR>]], {noremap = true, silent = true})
 
 utils.map('n', '<C-f>', [[:!open . && open -a Finder<CR>]], {noremap = true})
 
@@ -83,8 +82,8 @@ utils.map('n', '<Right>', [[:echoerr "Do not do that!!"<cr>]], {noremap = true})
 
 utils.create_augroup({
   {'FileType', '*', 'setlocal', 'shiftwidth=4'},
-  {'FileType', 'ocaml,lua', 'setlocal', 'shiftwidth=2'},
-  {'FileType', 'dap-rel', [[lua require('dap.ext.autocompl').attach()]]}
+  {'FileType', 'ocaml,lua,markdown', 'setlocal', 'shiftwidth=2'},
+  -- {'FileType', 'dap-rel', [[lua require('dap.ext.autocompl').attach()]]}
 }, 'Tab2')
 
 utils.create_augroup({
@@ -94,9 +93,8 @@ utils.create_augroup({
 }, 'BufE')
 
 
--- OCAML
+-- OCAML / PYTHON
 local home = os.getenv('HOME')
-
 
 vim.api.nvim_set_var('python_host_prog', home .. '/usr/bin/python')
 vim.api.nvim_set_var('python3_host_prog', home .. '/usr/bin/python3')
@@ -107,7 +105,6 @@ vim.api.nvim_set_var('merlin_python_version', 3)
 utils.add_rtp(home .. '/.opam/default/share/merlin/vim/doc')
 utils.add_rtp(home .. '/.opam/default/share/merlin/vim')
 utils.add_rtp(home .. '/.opam/default/share/merlin/vimbufsync')
-
 
 -- RELOAD
 cmd [[packadd vimball]]

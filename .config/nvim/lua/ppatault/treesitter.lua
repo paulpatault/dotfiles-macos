@@ -66,5 +66,16 @@ require('nvim-treesitter.configs').setup {
        ['im'] = '@call.inner',
      },
    },
-  ensure_installed = 'all', -- one of 'all', 'language', or a list of languages
+   ensure_installed = {
+     "ocaml",
+     "ocaml_interface",
+     "ocamllex",
+     "cpp",
+     "c",
+     "python",
+     "lua",
+     "latex",
+     "bash"
+   },
+   -- ignore_install = { "javascript" }, -- List of parsers to ignore installing
 }

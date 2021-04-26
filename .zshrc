@@ -12,15 +12,15 @@ export KITTY_CONFIG_EDITOR='nvim'
 #=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# PLUGINS
 plugins=(
   git
-  zsh-syntax-highlighting
-  zsh-autosuggestions
 )
 
-autoload -U compinit && compinit
+autoload -Uz compinit
+compinit
 # Completion for kitty
 kitty + complete setup zsh | source /dev/stdin
 
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 #=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# PATH
 fpath+=$HOME/.zsh/pure
@@ -29,7 +29,7 @@ export PATH="/usr/local/opt/ncurses/bin:$PATH"
 export PATH=$PATH:/usr/local/opt/llvm/bin
 export PATH="/usr/local/opt/opencv@2/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
-
+export PATH="/usr/local/opt/gnu-getopt/bin:$PATH"
 export PATH="/usr/local/lib/ruby/gems/3.0.0/bin:$PATH"
 export PATH="/usr/local/opt/ruby/bin:$PATH"
 
@@ -46,7 +46,7 @@ PURE_PROMPT_SYMBOL="λ"
 prompt pure
 
 #=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# THE FUCK
-eval $(thefuck --alias)
+# eval $(thefuck --alias)
 
 #=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# ALIAS
 alias edt="open ~/Documents/Université/ADMIN/EDT/EDT\ S6.png"
@@ -54,6 +54,11 @@ alias fac="cd ~/Documents/Université"
 alias fac6="cd ~/Documents/Université/S6"
 alias fac5="cd ~/Documents/Université/S5"
 alias so_ml="source ~/Documents/Université/S6/IAS/venv/bin/activate"
+alias ec="nvim ~/.zshrc"
+alias sc="source ~/.zshrc"
+alias icat="kitty +kitten icat"
 
 #=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# OPAM CONFIGURATION
 test -r /Users/paulpatault/.opam/opam-init/init.zsh && . /Users/paulpatault/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
+
+eval "$(/opt/homebrew/bin/brew shellenv)"

@@ -1,6 +1,6 @@
 ###################################################################################################
 
-echo "Installing Homebrew"
+# echo "Installing Homebrew"
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 ###################################################################################################
@@ -10,12 +10,12 @@ BREW=(
 cask
 git
 mas
-neovim --HEAD
 tree-sitter
 lua
 luajit
 luarocks
 texlab
+emscripten
 
 # basics
 cmake
@@ -40,7 +40,6 @@ opencv@2
 # zsh
 zsh-syntax-highlighting
 zsh-autosuggestions
-zsh-completions
 
 # scripts
 bat
@@ -49,6 +48,8 @@ tree
 htop
 lazygit
 insect
+imlib2
+imagemagick
 )
 
 ###################################################################################################
@@ -64,11 +65,9 @@ intellij-idea
 gimp
 mactex
 devbook
-Caskroom/cask/xquartz
 xquartz
 
 # fonts
-brew tap homebrew/cask-fonts
 font-hack-nerd-font
 font-latin-modern
 font-dejavu-sans-mono-nerd-font
@@ -95,9 +94,6 @@ microsoft-teams
 zoomus
 drawio
 typora
-
-#others
-background-music-pre
 )
 
 ###################################################################################################
@@ -130,10 +126,16 @@ graphics
 
 ###################################################################################################
 
-brew install ${BREW[@]}
-brew install --cask ${CASK[@]}
+arch -arm64 brew install neovim --HEAD
+brew tap homebrew/cask-fonts
+
+arch -arm64 brew install ${BREW[@]}
+arch -arm64 brew install --cask ${CASK[@]}
+
 pip3 install ${PIP3[@]}
+
 mas install ${MAS[@]}
+
 opam init
 opam install ${OPAM[@]}
 
