@@ -10,7 +10,7 @@ vim.g.floaterm_keymap_toggle = '<F36>'
 
 
 vim.g.markdown_fenced_languages = {
-  'plsql', 'sql', 'python', 'lua', 'html', 'php', 'c', 'cpp'
+  'plsql', 'sql', 'python', 'lua', 'html', 'php', 'c', 'cpp', 'ocaml'
 }
 
 
@@ -26,13 +26,4 @@ vim.g.vimtex_compiler_latexmk = {
     '-interaction=nonstopmode'
   }
 }
--- }}
-
-
-
--- {{ LSP
--- cmd [[ sign_define("LspDiagnosticsErrorSign", {"text" : "E", "texthl" : "LspDiagnosticsError"}) ]]
--- cmd [[ sign_define("LspDiagnosticsWarningSign", {"text" : "W", "texthl" : "LspDiagnosticsWarning"}) ]]
--- cmd [[ sign_define("LspDiagnosticInformationSign", {"text" : "I", "texthl" : "LspDiagnosticsInformation"}) ]]
--- cmd [[ sign_define("LspDiagnosticHintSign", {"text" : "H", "texthl" : "LspDiagnosticsHint"}) ]]
 -- }}

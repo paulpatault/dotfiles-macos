@@ -22,7 +22,6 @@ end
 status.activate = function()
   nvim_status.config {
     select_symbol = status.select_symbol,
-
     indicator_errors = '',
     indicator_warnings = '',
     indicator_info = '🛈',
@@ -38,7 +37,7 @@ status.on_attach = function(client)
   nvim_status.on_attach(client)
 
   vim.cmd [[augroup tj_lsp_status]]
-  vim.cmd [[  autocmd CursorHold,BufEnter <buffer> lua require('lsp-status').update_current_function()]]
+  vim.cmd [[autocmd CursorHold,BufEnter <buffer> lua require('lsp-status').update_current_function()]]
   vim.cmd [[augroup END]]
 end
 

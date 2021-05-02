@@ -1,3 +1,11 @@
-vim.api.nvim_set_keymap("n", "<leader>c", "<Plug>kommentary_line_default", {})
-vim.api.nvim_set_keymap("v", "<leader>c", "<Plug>kommentary_visual_default", {})
+local kommentary_conf = require('kommentary.config')
 
+kommentary_conf.configure_language("why3", {
+    prefer_multi_line_comments = true,
+    multi_line_comment_strings = {"(*", "*)"},
+})
+
+kommentary_conf.configure_language("default", {
+    use_consistent_indentation = true,
+    ignore_whitespace = true,
+})

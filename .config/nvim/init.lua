@@ -53,7 +53,6 @@ o.encoding = 'utf-8'
 
 o.termguicolors = true
 
-
 o.clipboard = [[unnamed,unnamedplus]]
 
 o.scrolloff = 8
@@ -65,9 +64,11 @@ o.mouse = 'a'
 o.completeopt = [[menuone,noinsert,noselect]]
 
 -- General mappings, not depending on any plugins
-utils.map('n', '<leader>sp', [[:setlocal spell!<CR><CR>]], {noremap = true, silent = true})
+utils.map('n', '<leader>sp', ':setlocal spell!<cr><cr>', {noremap = true, silent = true})
 
-utils.map('n', '<C-f>', [[:!open . && open -a Finder<CR>]], {noremap = true})
+utils.map('n', '<leader>sc', ':luafile ~/.config/nvim/init.lua<cr>', {noremap = true})
+
+utils.map('n', '<C-f>', ":!open . && open -a Finder<cr>", {noremap = true})
 
 utils.map('v', 'J', [[:m '>+1<cr>gv=gv]], {noremap = true})
 utils.map('v', 'K', [[:m '<-2<cr>gv=gv]], {noremap = true})
@@ -75,21 +76,26 @@ utils.map('v', 'K', [[:m '<-2<cr>gv=gv]], {noremap = true})
 utils.map('n', '<A-Tab>', ':tabnext<cr>', {noremap = true})
 utils.map('n', '<A-S-Tab>', ':tabprev<cr>', {noremap = true})
 
-utils.map('n', '<Up>', [[:echoerr "Do not do that!!"<cr>]], {noremap = true})
-utils.map('n', '<Down>', [[:echoerr "Do not do that!!"<cr>]], {noremap = true})
-utils.map('n', '<Left>', [[:echoerr "Do not do that!!"<cr>]], {noremap = true})
-utils.map('n', '<Right>', [[:echoerr "Do not do that!!"<cr>]], {noremap = true})
+utils.map('n', '<Up>',    [[:echoerr "[ Interdit ]"<cr>]], {noremap = true})
+utils.map('n', '<Down>',  [[:echoerr "[ Interdit ]"<cr>]], {noremap = true})
+utils.map('n', '<Left>',  [[:echoerr "[ Interdit ]"<cr>]], {noremap = true})
+utils.map('n', '<Right>', [[:echoerr "[ Interdit ]"<cr>]], {noremap = true})
+
+-- utils.map('n', '<leader>n', ':Lex!<cr>', options)
 
 utils.create_augroup({
   {'FileType', '*', 'setlocal', 'shiftwidth=4'},
-  {'FileType', 'ocaml,lua,markdown', 'setlocal', 'shiftwidth=2'},
+  {'FileType', 'ocaml,ocaml_interface,ocamllex,menhir,lua,markdown,why3', 'setlocal', 'shiftwidth=2'},
   -- {'FileType', 'dap-rel', [[lua require('dap.ext.autocompl').attach()]]}
 }, 'Tab2')
 
 utils.create_augroup({
   {'BufNewFile,BufReadPost', '*.md', 'set', 'filetype=markdown'},
-  {'BufWritePre', '*',  [[%s/\s\+$//e]]},
-  {'BufRead,BufNewFile', '*.mli', 'set', 'filetype=ocaml_interface'}
+  -- {'BufWritePre', '*',  [[:%s/\s\+$//e]]},
+  {'BufRead,BufNewFile', '*.mli', 'set', 'filetype=ocaml_interface'},
+  {'BufRead,BufNewFile', '*.mll', 'set', 'filetype=ocamllex'},
+  {'BufRead,BufNewFile', '*.mly', 'set', 'filetype=menhir'},
+  {'BufRead,BufNewFile', '*.mlw', 'set', 'filetype=why3'}
 }, 'BufE')
 
 
@@ -123,13 +129,15 @@ R = function(name)
 end
 
 R('plugins')
+R('nvim-web-devicons').setup()
 RELOADER = function()
-    R('ppatault.treesitter')
-    R('ppatault.telescope')
-    R('ppatault.plenary')
+    R('ppatault.lspsaga')
     R('ppatault.kommentary')
-    R('ppatault.nvim-compe')
+    R('ppatault.treesitter')
+    R('ppatault.plenary')
+    R('ppatault.telescope')
     R('ppatault.statusline')
+    R('ppatault.nvim-compe')
     R('mappings')
     R('globals')
 end

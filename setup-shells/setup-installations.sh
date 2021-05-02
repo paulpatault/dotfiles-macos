@@ -14,8 +14,8 @@ tree-sitter
 lua
 luajit
 luarocks
-texlab
 emscripten
+texlab
 
 # basics
 cmake
@@ -23,25 +23,25 @@ wget
 nvm
 node
 llvm
-stockfish
+# stockfish
 rust
 mas
 
 # ocaml
-ocaml
 opam
 
 # opengl
-glm
-glew
-glfw
-opencv@2
+# glm
+# glew
+# glfw
+# opencv@2
 
 # zsh
 zsh-syntax-highlighting
 zsh-autosuggestions
 
 # scripts
+autoconf
 bat
 thefuck
 tree
@@ -56,28 +56,28 @@ imagemagick
 
 CASK=(
 # programming
-github
-visual-studio-code
-atom
-kitty
-clion
-intellij-idea
+# github
+# visual-studio-code
+# kitty
+# clion
+# intellij-idea
 gimp
 mactex
-devbook
-xquartz
+# devbook
+# xquartz
 
 # fonts
 font-hack-nerd-font
 font-latin-modern
 font-dejavu-sans-mono-nerd-font
 font-jetbrains-mono-nerd-font
+
 # browser
-firefox
+# firefox
 google-chrome
 
 # reader
-spotify
+# spotify
 vlc
 
 # communication
@@ -87,11 +87,11 @@ telegram
 discord
 
 # courses
-microsoft-word
-microsoft-excel
-microsoft-powerpoint
-microsoft-teams
-zoomus
+# microsoft-word
+# microsoft-excel
+# microsoft-powerpoint
+# microsoft-teams
+# zoomus
 drawio
 typora
 )
@@ -108,7 +108,7 @@ pynvim
 
 MAS=(
 1176895641 # spark email
-497799835  # XCODE
+# 497799835  # XCODE
 1244649277 # Photo Image Editor Pixelstyle
 1494457680 # Smash: File transfer
 1440147259 # AddGuard for Safari
@@ -117,20 +117,28 @@ MAS=(
 ###################################################################################################
 
 OPAM=(
-merlin
-ocaml-lsp-server
+alt-ergo
+coq
+core
 dune
-menhir
 graphics
+menhir
+merlin
+ocamlfind
+ocaml-lsp-server
+ocaml-system
+utop
+why3
+why3-ide
 )
 
 ###################################################################################################
 
-arch -arm64 brew install neovim --HEAD
+brew install neovim --HEAD
 brew tap homebrew/cask-fonts
 
-arch -arm64 brew install ${BREW[@]}
-arch -arm64 brew install --cask ${CASK[@]}
+brew install ${BREW[@]}
+brew install --cask ${CASK[@]}
 
 pip3 install ${PIP3[@]}
 
@@ -138,6 +146,10 @@ mas install ${MAS[@]}
 
 opam init
 opam install ${OPAM[@]}
+
+
+#  kitty
+git clone https://github.com/kovidgoyal/kitty && cd kitty && make app
 
 ###################################################################################################
 

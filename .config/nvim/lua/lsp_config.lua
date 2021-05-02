@@ -1,17 +1,13 @@
 -- vim.cmd [[ packadd nlua.nvim ]]
 
 local lsp = require('lspconfig')
+local util = require('lspconfig/util')
 local nvim_status = require('lsp-status')
-local configs = require('lspconfig/configs')
 local status = require('ppatault.lsp_status')
-
--- local completion = require('completion')
 
 local mapper = function(mode, key, result)
   vim.api.nvim_buf_set_keymap(0, mode, key, "<cmd>lua "..result.."<cr>", {noremap = true, silent = true})
 end
-
--- require('vim.lsp.log').set_level("debug")
 
 status.activate()
 
@@ -36,7 +32,6 @@ lsp.clangd.setup{
   on_attach = custom_attach
 }
 
-
 --------- PYTHON ---------
 
 lsp.pyls.setup{
@@ -45,20 +40,21 @@ lsp.pyls.setup{
 
 --------- OCAML ---------
 
-configs.ocamllsp = {
-  default_config = {
+lsp.ocamllsp.setup{
     cmd = { 'ocamllsp' };
-    filtypes = {'ocaml'};
+    filetypes = {"ocaml", "ocaml_interface", "ocamllex", "menhir"};
     root_dir = function(fname)
-      return lsp.util.find_git_ancestor(fname) or vim.loop.os_homedir()
-    end;
+      return
+        lsp.util.find_git_ancestor(fname)
+        or vim.loop.os_homedir()
+        or util.root_pattern("*.opam", "esy.json", "package.json", ".git")
+      end;
     settings = {};
-  }
 }
 
-lsp.ocamllsp.setup{
+lsp.ocamllsp.setup({
   on_attach = custom_attach
-}
+})
 
 --------- LATEX ---------
 
