@@ -73,6 +73,8 @@ utils.map('n', '<C-f>', ":!open . && open -a Finder<cr>", {noremap = true})
 utils.map('v', 'J', [[:m '>+1<cr>gv=gv]], {noremap = true})
 utils.map('v', 'K', [[:m '<-2<cr>gv=gv]], {noremap = true})
 
+utils.map('n', '<leader>rt', [[:%s/\s\+$//e<cr>]], {noremap = true})
+
 utils.map('n', '<A-Tab>', ':tabnext<cr>', {noremap = true})
 utils.map('n', '<A-S-Tab>', ':tabprev<cr>', {noremap = true})
 
@@ -91,7 +93,6 @@ utils.create_augroup({
 
 utils.create_augroup({
   {'BufNewFile,BufReadPost', '*.md', 'set', 'filetype=markdown'},
-  -- {'BufWritePre', '*',  [[:%s/\s\+$//e]]},
   {'BufRead,BufNewFile', '*.mli', 'set', 'filetype=ocaml_interface'},
   {'BufRead,BufNewFile', '*.mll', 'set', 'filetype=ocamllex'},
   {'BufRead,BufNewFile', '*.mly', 'set', 'filetype=menhir'},

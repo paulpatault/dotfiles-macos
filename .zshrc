@@ -7,6 +7,7 @@ CASE_SENSITIVE="true"
 COMPLETION_WAITING_DOTS="true"
 
 export EDITOR='nvim'
+export OPAMEDITOR='nvim'
 export KITTY_CONFIG_EDITOR='nvim'
 
 if type brew &>/dev/null; then
@@ -57,6 +58,8 @@ alias cp="cp -i"
 alias mv="mv -i"
 alias rm="rm -i"
 
+alias diff="colordiff"
+
 alias v="nvim"
 alias vi="nvim"
 alias vim="nvim"
@@ -89,10 +92,12 @@ alias lg="lazygit"
 
 #=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# TMP
 
-alias runLocalWhy3="cd ~/Projets/why3 && rm -rf src/trywhy3/why3_worker.js src/trywhy3/trywhy3.js && make trywhy3 && cd src/trywhy3 && python3 -m http.server 8080 && cd ../.."
-alias todomd="cd ~/Projets/why3 && nvim avancement_et_questions.md"
+alias runLocalWhy3="cd ~/why3 && rm -rf src/trywhy3/why3_worker.js src/trywhy3/trywhy3.js && make -j8 trywhy3 && cd src/trywhy3 && python3 -m http.server 8080 && cd ../.."
+alias todomd="cd ~/why3 && nvim avancement_et_questions.md"
 
 #=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# OPAM CONFIGURATION
 test -r /Users/paulpatault/.opam/opam-init/init.zsh && . /Users/paulpatault/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
 
 eval "$(/opt/homebrew/bin/brew shellenv)"
+
+alias luamake=/Users/paulpatault/lua-language-server/3rd/luamake/luamake

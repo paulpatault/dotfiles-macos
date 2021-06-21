@@ -25,6 +25,8 @@ return require('packer').startup({
     use 'ocaml/ocaml-lsp'
     use 'hrsh7th/nvim-compe'
 
+    use 'junegunn/goyo.vim'
+
     ----- languages -----
     use 'ocaml/vim-ocaml'
     use 'cdelledonne/vim-cmake'
@@ -49,9 +51,7 @@ return require('packer').startup({
     use 'mbbill/undotree'
     use 'voldikss/vim-floaterm'
     use 'b3nj5m1n/kommentary'
-    use 'kevinhwang91/nvim-hlslens' -- better search
     -- use 'junegunn/vim-easy-align'
-
 
     use 'hrsh7th/vim-vsnip'
     use 'hrsh7th/vim-vsnip-integ'

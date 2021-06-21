@@ -31,7 +31,7 @@ require('telescope').setup{
       [[%.pyc]],
       [[%.pdf]]},
 
-    prompt_position = "top",
+    layout_config = {prompt_position = "bottom"},
 
     file_sorter = require("telescope.sorters").get_fzy_sorter,
 
@@ -49,36 +49,3 @@ require('telescope').setup{
 }
 
 pcall(require('telescope').load_extension, 'fzy_native')
-
-local M = {}
-
-function M.edit_config()
-  require('telescope.builtin').git_files {
-    prompt_title = "~ config ~",
-    shorten_path = false,
-    cwd = "~/.config/nixpkgs"
-  }
-end
-
-function M.curbuf()
-  local opts = themes.get_dropdown {
-    winblend = 10,
-    border = true,
-    previewer = false,
-    shorten_path = false
-  }
-
-  require('telescope.builtin').current_buffer_fuzzy_find(opts)
-end
-
-return setmetatable({}, {
-  __index = function(_, k)
-    reloader()
-
-    if M[k] then
-      return M[k]
-    else
-      return require('telescope.builtin')[k]
-    end
-  end
-})
