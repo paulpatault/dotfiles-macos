@@ -49,6 +49,11 @@ autoload -U promptinit; promptinit
 
 PURE_PROMPT_SYMBOL="λ"
 
+zstyle :prompt:pure:path color white
+
+zstyle :prompt:pure:prompt:success color cyan
+zstyle :prompt:pure:prompt:error color '#D73232'
+
 prompt pure
 
 #=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# ALIAS
@@ -70,6 +75,7 @@ alias sc="source ~/.zshrc"
 alias mk="make -j8"
 
 alias icat="kitty +kitten icat"
+alias ssh="kitty +kitten ssh"
 
 #=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# GIT
 alias g="git"
@@ -88,12 +94,10 @@ alias gcom="git commit -m"
 alias gp="git pull"
 alias gP="git push"
 
+#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# Perso
 alias lg="lazygit"
-
-#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# TMP
-
-alias runLocalWhy3="cd ~/why3 && rm -rf src/trywhy3/why3_worker.js src/trywhy3/trywhy3.js && make -j8 trywhy3 && cd src/trywhy3 && python3 -m http.server 8080 && cd ../.."
-alias todomd="cd ~/why3 && nvim avancement_et_questions.md"
+alias wedt="open https://sites.google.com/view/mastersagenda/mpri"
+alias ledt="open ~/MPRI/EDT/EDT-M1T1.pdf"
 
 #=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# OPAM CONFIGURATION
 test -r /Users/paulpatault/.opam/opam-init/init.zsh && . /Users/paulpatault/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
@@ -101,3 +105,18 @@ test -r /Users/paulpatault/.opam/opam-init/init.zsh && . /Users/paulpatault/.opa
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
 alias luamake=/Users/paulpatault/lua-language-server/3rd/luamake/luamake
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/Users/paulpatault/opt/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/Users/paulpatault/opt/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/Users/paulpatault/opt/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/Users/paulpatault/opt/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<

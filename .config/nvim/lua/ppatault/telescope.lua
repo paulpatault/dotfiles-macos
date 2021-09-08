@@ -18,6 +18,9 @@ local themes = require('telescope.themes')
 
 require('telescope').setup{
   defaults = {
+    --[[ vimgrep_arguments = {
+      'fzf'
+    }, ]]
     file_ignore_patterns = {
       [[undodir/%.*]],
       [[_build/*]],

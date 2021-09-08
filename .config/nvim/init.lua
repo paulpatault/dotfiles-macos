@@ -13,7 +13,9 @@ g.gruvbox_invert_selection = false
 g.background = [[dark]]
 
 g.vimtex_compiler_progname = 'nvr'
-g.python3_host_prog = "/usr/bin/python3"
+g.python3_host_prog = "/opt/miniconda3/bin/python3"
+
+vim.opt.guicursor = "i:block"
 
 b.autoindent = true
 b.expandtab = true
@@ -83,12 +85,9 @@ utils.map('n', '<Down>',  [[:echoerr "[ Interdit ]"<cr>]], {noremap = true})
 utils.map('n', '<Left>',  [[:echoerr "[ Interdit ]"<cr>]], {noremap = true})
 utils.map('n', '<Right>', [[:echoerr "[ Interdit ]"<cr>]], {noremap = true})
 
--- utils.map('n', '<leader>n', ':Lex!<cr>', options)
-
 utils.create_augroup({
   {'FileType', '*', 'setlocal', 'shiftwidth=4'},
   {'FileType', 'ocaml,ocaml_interface,ocamllex,menhir,lua,markdown,why3', 'setlocal', 'shiftwidth=2'},
-  -- {'FileType', 'dap-rel', [[lua require('dap.ext.autocompl').attach()]]}
 }, 'Tab2')
 
 utils.create_augroup({
@@ -99,12 +98,23 @@ utils.create_augroup({
   {'BufRead,BufNewFile', '*.mlw', 'set', 'filetype=why3'}
 }, 'BufE')
 
+_G.setHighlights = function()
+  cmd [[highlight LspDiagnosticsUnderlineError cterm=undercurl gui=undercurl]]
+  cmd [[highlight LspDiagnosticsUnderlineHint cterm=undercurl gui=undercurl]]
+  cmd [[highlight LspDiagnosticsUnderlineInformation cterm=undercurl gui=undercurl]]
+  cmd [[highlight LspDiagnosticsUnderlineWarning cterm=undercurl gui=undercurl]]
+  cmd [[highlight Normal guibg=NONE ctermbg=NONE]]
+-- cmd [[highlight LspDiagnosticsUnderline cterm=undercurl gui=undercurl]]
+end
+
+utils.create_augroup({
+  {"ColorScheme", "*", "call", "v:lua.setHighlights()"}
+}, "UndercurlDiags")
 
 -- OCAML / PYTHON
 local home = os.getenv('HOME')
-
-vim.api.nvim_set_var('python_host_prog', home .. '/usr/bin/python')
-vim.api.nvim_set_var('python3_host_prog', home .. '/usr/bin/python3')
+vim.api.nvim_set_var('python_host_prog', home .. "/opt/miniconda3/bin/python")
+vim.api.nvim_set_var('python3_host_prog', home .. "/opt/miniconda3/bin/python3")
 
 vim.api.nvim_set_var('opamshare', home .. '/.opam/default/share')
 
@@ -148,4 +158,3 @@ RELOADER()
 utils.map_lua('n', '<leader>rc', 'RELOADER()', {noremap = true})
 
 cmd [[colorscheme gruvbox]]
-cmd [[highlight LspDiagnosticsUnderline cterm=undercurl gui=undercurl]]

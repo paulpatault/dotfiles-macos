@@ -11,7 +11,7 @@ g.floaterm_keymap_kill = '<F10>'
 
 
 g.markdown_fenced_languages = {
-  'plsql', 'sql', 'python', 'lua', 'html', 'php', 'c', 'cpp', 'ocaml'
+  'plsql', 'sql', 'python', 'lua', 'html', 'php', 'c', 'cpp', 'ocaml', 'asm'
 }
 
 

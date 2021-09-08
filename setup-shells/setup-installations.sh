@@ -16,6 +16,7 @@ luajit
 luarocks
 emscripten
 texlab
+rg
 
 # basics
 cmake
