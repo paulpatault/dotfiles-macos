@@ -31,7 +31,11 @@ return require('packer').startup({
     use 'ocaml/vim-ocaml'
     use 'cdelledonne/vim-cmake'
     use 'tpope/vim-markdown'
-    use 'lervag/vimtex'
+
+    use {
+      'lervag/vimtex',
+      ft = { 'tex' }
+    }
 
     ----- telescope -----
     use 'nvim-lua/popup.nvim'
