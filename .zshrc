@@ -99,6 +99,9 @@ alias lg="lazygit"
 alias wedt="open https://sites.google.com/view/mastersagenda/mpri"
 alias ledt="open ~/MPRI/EDT/EDT-M1T1.pdf"
 
+export LUSTRE_INSTALL=~/MPRI/SystReact/Lustre/lustre-v4-III-e-macosx/
+source $LUSTRE_INSTALL/setenv.sh
+
 #=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# OPAM CONFIGURATION
 test -r /Users/paulpatault/.opam/opam-init/init.zsh && . /Users/paulpatault/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
 
