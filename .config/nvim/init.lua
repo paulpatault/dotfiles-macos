@@ -95,7 +95,8 @@ utils.create_augroup({
   {'BufRead,BufNewFile', '*.mli', 'set', 'filetype=ocaml_interface'},
   {'BufRead,BufNewFile', '*.mll', 'set', 'filetype=ocamllex'},
   {'BufRead,BufNewFile', '*.mly', 'set', 'filetype=menhir'},
-  {'BufRead,BufNewFile', '*.mlw', 'set', 'filetype=why3'}
+  {'BufRead,BufNewFile', '*.mlw', 'set', 'filetype=why3'},
+  {'BufRead,BufNewFile', '*.lus', 'set', 'filetype=lustre'},
 }, 'BufE')
 
 _G.setHighlights = function()
