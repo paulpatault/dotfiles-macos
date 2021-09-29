@@ -159,3 +159,5 @@ RELOADER()
 utils.map_lua('n', '<leader>rc', 'RELOADER()', {noremap = true})
 
 cmd [[colorscheme gruvbox]]
+
+cmd [[set nohlsearch]]
