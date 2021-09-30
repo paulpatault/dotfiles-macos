@@ -66,6 +66,7 @@ return require('packer').startup({
     use 'kyazdani42/nvim-web-devicons'
     use 'tjdevries/express_line.nvim'
     use 'lilydjwg/colorizer'
+    use 'Pocco81/Catppuccino.nvim'
 
   end,
   config =  {

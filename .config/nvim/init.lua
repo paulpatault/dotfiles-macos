@@ -149,6 +149,7 @@ RELOADER = function()
     R('ppatault.telescope')
     R('ppatault.statusline')
     R('ppatault.nvim-compe')
+    -- R('ppatault.catppuccino')
     R('mappings')
     R('globals')
 end
@@ -158,5 +159,6 @@ RELOADER()
 utils.map_lua('n', '<leader>rc', 'RELOADER()', {noremap = true})
 
 cmd [[colorscheme gruvbox]]
+-- cmd [[colorscheme catppuccino]]
 
 cmd [[set nohlsearch]]

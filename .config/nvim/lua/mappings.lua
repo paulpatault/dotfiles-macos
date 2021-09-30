@@ -24,8 +24,6 @@ utils.map('i', '<CR>', [[compe#confirm(lexima#expand('<LT>CR>', 'i'))]], {
 })
 utils.map('i', '<Tab>', [[v:lua.utils.tab_complete()]], { expr = true })
 utils.map('s', '<Tab>', [[v:lua.utils.tab_complete()]], { expr = true })
--- utils.map('i', '<S-Tab>', [[v:lua.utils.s_tab_complete()]],{ expr = true })
--- utils.map('s', '<S-Tab>', [[v:lua.utils.s_tab_complete()]],{ expr = true })
 -- }}}
 
 -- {{{ telescope
@@ -52,9 +50,6 @@ utils.map('n', '<leader>tg', ':FloatermNew lazygit<cr>', options)
 
 -- {{{ lspsaga
 utils.map_lua('n', 'ff', [[require'lspsaga.provider'.lsp_finder()]], options)
--- utils.map_lua('n', '<C-f>', [[require'lspsaga.action'.smart_scroll_with_saga(1)]], options)
--- utils.map_lua('n', '<C-d>', [[require'lspsaga.action'.smart_scroll_with_saga(2)]], options)
-
 -- }}}
 
 -- {{{ lsp
@@ -71,9 +66,6 @@ utils.map_lua('n', 'dn', [[vim.lsp.diagnostic.goto_next()]], options)
 utils.map_lua('n', 'dN', [[vim.lsp.diagnostic.goto_prev()]], options)
 utils.map_lua('n', 'do', [[vim.lsp.diagnostic.enable()]], options)
 utils.map_lua('n', 'df', [[vim.lsp.diagnostic.disable()]], options)
-
--- utils.map_lua('n', 'g0', [[vim.lsp.buf.document_symbol()]], options)
--- utils.map_lua('n', 'gW', [[vim.lsp.buf.workspace_symbol()]], options)
 -- utils.map('n', '<leader>sh', ':ClangdSwitchSourceHeader<cr>', options)
 -- }}}
 
