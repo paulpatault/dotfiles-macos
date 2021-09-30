@@ -115,7 +115,8 @@ require'lspconfig'.sumneko_lua.setup {
 --------- PYTHON ---------
 
 lsp.pylsp.setup({
-  on_attach = custom_attach
+  on_attach = custom_attach;
+  -- cmd = home .. [[/opt/miniconda3/bin/pylsp]]
 })
 --------- TS/JS ---------
 

@@ -13,7 +13,6 @@ g.gruvbox_invert_selection = false
 g.background = [[dark]]
 
 g.vimtex_compiler_progname = 'nvr'
-g.python3_host_prog = "/opt/miniconda3/bin/python3"
 
 vim.opt.guicursor = "i:block"
 

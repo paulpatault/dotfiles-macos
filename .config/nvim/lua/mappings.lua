@@ -51,24 +51,27 @@ utils.map('n', '<leader>tg', ':FloatermNew lazygit<cr>', options)
 -- }}}
 
 -- {{{ lspsaga
-utils.map_lua('n', 'ds', [[require'lspsaga.signaturehelp'.signature_help()]], options)
-utils.map_lua('n', 'df', [[require'lspsaga.provider'.preview_definition()]], options)
-utils.map_lua('n', 'dc', [[require'lspsaga.hover'.render_hover_doc()]], options)
-utils.map_lua('n', '<leader>rn', [[require'lspsaga.rename'.rename()]], options)
 utils.map_lua('n', 'ff', [[require'lspsaga.provider'.lsp_finder()]], options)
-utils.map_lua('n', 'dn', [[require'lspsaga.diagnostic'.lsp_jump_diagnostic_next()]], options)
-utils.map_lua('n', 'dN', [[require'lspsaga.diagnostic'.lsp_jump_diagnostic_prev()]], options)
-utils.map_lua('n', '<C-f>', [[require'lspsaga.action'.smart_scroll_with_saga(1)]], options)
-utils.map_lua('n', '<C-d>', [[require'lspsaga.action'.smart_scroll_with_saga(2)]], options)
+-- utils.map_lua('n', '<C-f>', [[require'lspsaga.action'.smart_scroll_with_saga(1)]], options)
+-- utils.map_lua('n', '<C-d>', [[require'lspsaga.action'.smart_scroll_with_saga(2)]], options)
 
 -- }}}
 
 -- {{{ lsp
 utils.map_lua('n', 'gd', [[vim.lsp.buf.definition()]], options)
 utils.map_lua('n', 'gD', [[vim.lsp.buf.implementation()]], options)
-utils.map_lua('n', '<c-K>', [[vim.lsp.buf.signature_help()]], options)
+utils.map_lua('n', 'dc', [[vim.lsp.buf.hover()]], options)
+utils.map_lua('n', 'ds', [[vim.lsp.buf.signature_help()]], options)
+-- utils.map_lua('n', 'df', [[vim.lsp.buf.preview_definition()]], options)
 utils.map_lua('n', 'gT', [[vim.lsp.buf.type_definition()]], options)
 utils.map_lua('n', 'grf', [[vim.lsp.buf.references()]], options)
+utils.map_lua('n', '<leader>rn', [[vim.lsp.buf.rename()]], options)
+
+utils.map_lua('n', 'dn', [[vim.lsp.diagnostic.goto_next()]], options)
+utils.map_lua('n', 'dN', [[vim.lsp.diagnostic.goto_prev()]], options)
+utils.map_lua('n', 'do', [[vim.lsp.diagnostic.enable()]], options)
+utils.map_lua('n', 'df', [[vim.lsp.diagnostic.disable()]], options)
+
 -- utils.map_lua('n', 'g0', [[vim.lsp.buf.document_symbol()]], options)
 -- utils.map_lua('n', 'gW', [[vim.lsp.buf.workspace_symbol()]], options)
 -- utils.map('n', '<leader>sh', ':ClangdSwitchSourceHeader<cr>', options)
