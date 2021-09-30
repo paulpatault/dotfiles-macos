@@ -81,10 +81,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/paulpatault/.local/share/nvim/site/pack/packer/start/colorizer"
   },
-  ["express_line.nvim"] = {
-    loaded = true,
-    path = "/Users/paulpatault/.local/share/nvim/site/pack/packer/start/express_line.nvim"
-  },
   ["goyo.vim"] = {
     loaded = true,
     path = "/Users/paulpatault/.local/share/nvim/site/pack/packer/start/goyo.vim"

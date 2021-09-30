@@ -64,9 +64,13 @@ return require('packer').startup({
     use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
     use 'morhetz/gruvbox'
     use 'kyazdani42/nvim-web-devicons'
-    use 'tjdevries/express_line.nvim'
+    -- use 'tjdevries/express_line.nvim'
+    use {
+      'hoob3rt/lualine.nvim',
+      requires = {'kyazdani42/nvim-web-devicons', opt = true}
+    }
     use 'lilydjwg/colorizer'
-    use 'Pocco81/Catppuccino.nvim'
+    -- use 'Pocco81/Catppuccino.nvim'
 
   end,
   config =  {
