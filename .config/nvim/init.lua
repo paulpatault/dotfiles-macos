@@ -86,7 +86,7 @@ utils.map('n', '<Right>', [[:echoerr "[ Interdit ]"<cr>]], {noremap = true})
 
 utils.create_augroup({
   {'FileType', '*', 'setlocal', 'shiftwidth=4'},
-  {'FileType', 'ocaml,ocaml_interface,ocamllex,menhir,lua,markdown,why3', 'setlocal', 'shiftwidth=2'},
+  {'FileType', 'ocaml,ocaml_interface,ocamllex,menhir,lua,markdown,why3,lustre', 'setlocal', 'shiftwidth=2'},
 }, 'Tab2')
 
 utils.create_augroup({
@@ -159,6 +159,5 @@ RELOADER()
 utils.map_lua('n', '<leader>rc', 'RELOADER()', {noremap = true})
 
 cmd [[colorscheme gruvbox]]
--- cmd [[colorscheme catppuccino]]
 
 cmd [[set nohlsearch]]
