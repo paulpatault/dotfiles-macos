@@ -98,6 +98,15 @@ alias gP="git push"
 alias lg="lazygit"
 alias wedt="open https://sites.google.com/view/mastersagenda/mpri"
 alias ledt="open ~/MPRI/EDT/EDT-M1T1.pdf"
+alias fac="cd ~/MPRI"
+alias mpri="cd ~/MPRI"
+alias avan="cd ~/MPRI/AlgoAv"
+alias dist="cd ~/MPRI/AlgoDist"
+alias para="cd ~/MPRI/AlgoPara"
+alias compil="cd ~/MPRI/Compilation"
+alias quantum="cd ~/MPRI/Quantum"
+alias sysreact="cd ~/MPRI/SystReact"
+alias verif="cd ~/MPRI/Verification"
 
 export LUSTRE_INSTALL=~/MPRI/SystReact/Lustre/lustre-v4-III-e-macosx/
 source $LUSTRE_INSTALL/setenv.sh
