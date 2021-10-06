@@ -97,6 +97,7 @@ utils.create_augroup({
   {'BufRead,BufNewFile', '*.mlw', 'set', 'filetype=why3'},
   {'BufRead,BufNewFile', '*.lus', 'set', 'filetype=lustre'},
   {'BufRead,BufNewFile', '*.ept', 'set', 'filetype=lustre'},
+  {'BufRead,BufNewFile', '*.imp', 'set', 'filetype=imp'},
 }, 'BufE')
 
 _G.setHighlights = function()
