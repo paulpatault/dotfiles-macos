@@ -113,6 +113,7 @@ source $LUSTRE_INSTALL/setenv.sh
 
 #=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# OPAM CONFIGURATION
 test -r /Users/paulpatault/.opam/opam-init/init.zsh && . /Users/paulpatault/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
+export OCAMLRUNPARAM=b
 
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
