@@ -62,6 +62,7 @@ utils.map_lua('n', 'gT', [[vim.lsp.buf.type_definition()]], options)
 utils.map_lua('n', 'grf', [[vim.lsp.buf.references()]], options)
 utils.map_lua('n', '<leader>rn', [[vim.lsp.buf.rename()]], options)
 
+utils.map_lua('n', 'dl', [[vim.lsp.diagnostic.show_line_diagnostics()]], options)
 utils.map_lua('n', 'dn', [[vim.lsp.diagnostic.goto_next()]], options)
 utils.map_lua('n', 'dN', [[vim.lsp.diagnostic.goto_prev()]], options)
 utils.map_lua('n', 'do', [[vim.lsp.diagnostic.enable()]], options)
