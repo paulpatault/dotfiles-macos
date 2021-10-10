@@ -10,6 +10,11 @@ kommentary_conf.configure_language("lustre", {
     multi_line_comment_strings = {"(*", "*)"},
 })
 
+kommentary_conf.configure_language("rml", {
+    prefer_multi_line_comments = true,
+    multi_line_comment_strings = {"(*", "*)"},
+})
+
 kommentary_conf.configure_language("default", {
     use_consistent_indentation = true,
     ignore_whitespace = true,

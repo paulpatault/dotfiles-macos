@@ -86,7 +86,9 @@ utils.map('n', '<Right>', [[:echoerr "[ Interdit ]"<cr>]], {noremap = true})
 
 utils.create_augroup({
   {'FileType', '*', 'setlocal', 'shiftwidth=4'},
-  {'FileType', 'ocaml,ocaml_interface,ocamllex,menhir,lua,markdown,why3,ept,lustre', 'setlocal', 'shiftwidth=2'},
+  {'FileType',
+    'ocaml,ocaml_interface,ocamllex,menhir,lua,markdown,why3,ept,lustre',
+    'setlocal', 'shiftwidth=2'},
 }, 'Tab2')
 
 utils.create_augroup({
@@ -98,6 +100,7 @@ utils.create_augroup({
   {'BufRead,BufNewFile', '*.lus,*.ept', 'set', 'filetype=lustre'},
   {'BufRead,BufNewFile', '*.imp', 'set', 'filetype=imp'},
   {'BufRead,BufNewFile', '*.vips,*.gips', 'set', 'filetype=asm'},
+  {'BufRead,BufNewFile', '*.rml', 'set', 'filetype=rml'},
 }, 'BufE')
 
 _G.setHighlights = function()
