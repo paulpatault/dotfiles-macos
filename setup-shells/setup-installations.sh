@@ -51,6 +51,9 @@ lazygit
 insect
 imlib2
 imagemagick
+
+# bazar
+vldmrkl/formulae/airdrop-cli
 )
 
 ###################################################################################################
