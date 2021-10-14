@@ -5,6 +5,14 @@ local options = {
   silent = true
 }
 
+--{{{ exit mode terminal
+utils.map('t', '<esc>', '<c-\\><c-n>', options)
+--[[ utils.map('t', '<c-w>h', '<c-\\><c-n><c-w>h', options)
+utils.map('t', '<c-w>j', '<c-\\><c-n>:wincmd j<cr>', options)
+utils.map('t', '<c-w>k', '<c-\\><c-n>:wincmd k<cr>', options)
+utils.map('t', '<c-w>l', '<c-\\><c-n>:wincmd l<cr>', options) ]]
+--}}}
+
 --{{{ kommentary
 vim.api.nvim_set_keymap("n", "<leader>c", "<Plug>kommentary_line_default", {})
 vim.api.nvim_set_keymap("v", "<leader>c", "<Plug>kommentary_visual_default", {})
