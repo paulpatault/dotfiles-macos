@@ -49,7 +49,7 @@ utils.map('n', '<leader>tg', ':FloatermNew lazygit<cr>', options)
 -- }}}
 
 -- {{{ lspsaga
-utils.map_lua('n', 'ff', [[require'lspsaga.provider'.lsp_finder()]], options)
+-- utils.map_lua('n', 'ff', [[require'lspsaga.provider'.lsp_finder()]], options)
 -- }}}
 
 -- {{{ lsp

@@ -69,6 +69,16 @@ return require('packer').startup({
     }
     use 'lilydjwg/colorizer'
 
+    ----- utils -----
+    use 'GCBallesteros/jupytext.vim'
+    use 'urbainvaes/vim-ripple'
+    use {
+      'GCBallesteros/vim-textobj-hydrogen',
+      requires = {
+        'kana/vim-textobj-user'
+      }
+    }
+
   end,
   config =  {
     display = {

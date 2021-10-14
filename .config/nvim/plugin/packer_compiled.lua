@@ -69,10 +69,6 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
-  ["Catppuccino.nvim"] = {
-    loaded = true,
-    path = "/Users/paulpatault/.local/share/nvim/site/pack/packer/start/Catppuccino.nvim"
-  },
   ["LSP-pyls"] = {
     loaded = true,
     path = "/Users/paulpatault/.local/share/nvim/site/pack/packer/start/LSP-pyls"
@@ -89,6 +85,10 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/paulpatault/.local/share/nvim/site/pack/packer/start/gruvbox"
   },
+  ["jupytext.vim"] = {
+    loaded = true,
+    path = "/Users/paulpatault/.local/share/nvim/site/pack/packer/start/jupytext.vim"
+  },
   kommentary = {
     loaded = true,
     path = "/Users/paulpatault/.local/share/nvim/site/pack/packer/start/kommentary"
@@ -104,6 +104,10 @@ _G.packer_plugins = {
   ["lspsaga.nvim"] = {
     loaded = true,
     path = "/Users/paulpatault/.local/share/nvim/site/pack/packer/start/lspsaga.nvim"
+  },
+  ["lualine.nvim"] = {
+    loaded = true,
+    path = "/Users/paulpatault/.local/share/nvim/site/pack/packer/start/lualine.nvim"
   },
   ["nvim-compe"] = {
     loaded = true,
@@ -166,9 +170,21 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/paulpatault/.local/share/nvim/site/pack/packer/start/vim-ocaml"
   },
+  ["vim-ripple"] = {
+    loaded = true,
+    path = "/Users/paulpatault/.local/share/nvim/site/pack/packer/start/vim-ripple"
+  },
   ["vim-sandwich"] = {
     loaded = true,
     path = "/Users/paulpatault/.local/share/nvim/site/pack/packer/start/vim-sandwich"
+  },
+  ["vim-textobj-hydrogen"] = {
+    loaded = true,
+    path = "/Users/paulpatault/.local/share/nvim/site/pack/packer/start/vim-textobj-hydrogen"
+  },
+  ["vim-textobj-user"] = {
+    loaded = true,
+    path = "/Users/paulpatault/.local/share/nvim/site/pack/packer/start/vim-textobj-user"
   },
   ["vim-unicoder"] = {
     loaded = true,
