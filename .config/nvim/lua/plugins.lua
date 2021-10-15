@@ -35,7 +35,7 @@ return require('packer').startup({
       'lervag/vimtex',
       ft = { 'tex' }
     }
-    use 'jubnzv/virtual-types.nvim'
+    use 'paulpatault/virtual-types.nvim'
 
     ----- telescope -----
     use 'nvim-lua/popup.nvim'
