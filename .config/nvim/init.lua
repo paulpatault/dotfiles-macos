@@ -1,4 +1,3 @@
-local gruvbox = require "lualine.themes.gruvbox"
 local home = os.getenv('HOME')
 local g = vim.g
 local o = vim.o
@@ -132,6 +131,7 @@ utils.add_rtp(home .. '/.opam/default/share/merlin/vimbufsync')
 -- RELOAD
 
 require('plugins')
+require('impatient')
 
 local ok, res = pcall(function() require('lsp_config') end)
 

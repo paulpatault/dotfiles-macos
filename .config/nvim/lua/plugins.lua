@@ -63,6 +63,7 @@ return require('packer').startup({
     use 'lilydjwg/colorizer'
 
     ----- utils -----
+    use 'lewis6991/impatient.nvim'
     use 'arthurxavierx/vim-unicoder'
     use 'machakann/vim-sandwich'
     use 'cohama/lexima.vim' -- autopairs
@@ -86,6 +87,10 @@ return require('packer').startup({
     use {
       "folke/trouble.nvim",
       requires = "kyazdani42/nvim-web-devicons",
+    }
+    use {
+      "folke/zen-mode.nvim",
+      config = function() require("zen-mode").setup { } end
     }
   end,
   config =  {
