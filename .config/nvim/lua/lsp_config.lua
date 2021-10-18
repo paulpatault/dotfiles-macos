@@ -1,12 +1,5 @@
 local lsp = require('lspconfig')
 local util = require('lspconfig/util')
-local status = require('ppatault.lsp_status')
-
-status.activate()
-
-local custom_attach = function(client)
-  status.on_attach(client)
-end
 
 --------- C/C++  ---------
 
@@ -19,7 +12,6 @@ lsp.clangd.setup{
     end;
     settings = {};
   };
-  on_attach = custom_attach
 }
 
 --------- OCAML ---------
@@ -33,9 +25,8 @@ lsp.ocamllsp.setup{
         or vim.loop.os_homedir()
         or util.root_pattern("*.opam", "esy.json", "package.json", ".git")
       end;
-    settings = {};
+    -- settings = {};
     on_attach = function(client)
-      custom_attach(client)
       require'virtualtypes'.on_attach()
     end
 }
@@ -46,14 +37,12 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 lsp.html.setup{
-  capabilities = capabilities,
-  on_attach = custom_attach
+  capabilities = capabilities
 }
 
 --------- LATEX ---------
 
 lsp.texlab.setup({
-  on_attach = custom_attach,
 })
 
 --------- LUA ---------
@@ -100,8 +89,8 @@ lsp.sumneko_lua.setup {
 --------- PYTHON ---------
 
 lsp.pylsp.setup({
-  on_attach = custom_attach;
 })
+
 --------- TS/JS ---------
 
 -- lsp.tsserver.setup{}
