@@ -58,24 +58,25 @@ prompt pure
 
 #=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# ALIAS
 
-#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# CMD
+#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# SAFE
 alias cp="cp -i"
 alias mv="mv -i"
 alias rm="rm -i"
 
-alias diff="colordiff"
+#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# KITTY
+alias ssh="kitty +kitten ssh"
+alias icat="kitty +kitten icat"
 
+
+#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# SHORT
 alias v="nvim"
 alias vi="nvim"
 alias vim="nvim"
+alias diff="colordiff"
 
+#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# ZSHRC
 alias ec="nvim ~/.zshrc"
 alias sc="source ~/.zshrc"
-
-alias mk="make -j8"
-
-alias icat="kitty +kitten icat"
-alias ssh="kitty +kitten ssh"
 
 #=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# GIT
 alias g="git"
@@ -94,8 +95,15 @@ alias gcom="git commit -m"
 alias gp="git pull"
 alias gP="git push"
 
-#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# Perso
+#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# APPS
 alias lg="lazygit"
+alias spark="open /Applications/Spark.app"
+alias safari="open /Applications/Safari.app"
+alias discord="open /Applications/Discord.app"
+alias whatsapp="open /Applications/WhatsApp.app"
+alias todo="open /Applications/Microsoft\ To\ Do.app"
+
+#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# M1MPRI
 alias wedt="open https://sites.google.com/view/mastersagenda/mpri"
 alias ledt="open ~/MPRI/EDT/EDT-M1T1.pdf"
 alias fac="cd ~/MPRI"
