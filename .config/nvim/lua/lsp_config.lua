@@ -5,7 +5,37 @@ local signs = { Error = "", Warn = "", Hint = "", Info = "" }
 
 for type, icon in pairs(signs) do
   local hl = "DiagnosticSign" .. type
-  vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "LineNr" })
+  vim.fn.sign_define(hl, { text = icon })
+end
+
+
+vim.cmd [[autocmd ColorScheme * highlight NormalFloat guibg=#3c3836]]
+vim.cmd [[autocmd ColorScheme * highlight FloatBorder guifg=white guibg=#3c3836]]
+
+local border = {
+      -- {"🭽", "FloatBorder"},
+      {"╭", "FloatBorder"},
+      -- {"▔", "FloatBorder"},
+      {"-", "FloatBorder"},
+      -- {"🭾", "FloatBorder"},
+      {"╮", "FloatBorder"},
+      -- {"▕", "FloatBorder"},
+      {"|", "FloatBorder"},
+      -- {"🭿", "FloatBorder"},
+      {"╯", "FloatBorder"},
+      -- {"▁", "FloatBorder"},
+      {"-", "FloatBorder"},
+      -- {"🭼", "FloatBorder"},
+      {"╰", "FloatBorder"},
+      -- {"▏", "FloatBorder"},
+      {"|", "FloatBorder"},
+}
+
+
+-- LSP settings
+local on_attach = function(client)
+  --[[ vim.lsp.handlers["textDocument/hover"] =  vim.lsp.with(vim.lsp.handlers.hover, {border = border})
+  vim.lsp.handlers["textDocument/signatureHelp"] =  vim.lsp.with(vim.lsp.handlers.signature_help, {border = border}) ]]
 end
 
 --------- C/C++  ---------
@@ -19,6 +49,7 @@ lsp.clangd.setup{
     end;
     settings = {};
   };
+  on_attach = on_attach
 }
 
 --------- OCAML ---------
@@ -34,6 +65,7 @@ lsp.ocamllsp.setup{
       end;
     -- settings = {};
     on_attach = function(client)
+      on_attach(client)
       require'virtualtypes'.on_attach()
     end
 }

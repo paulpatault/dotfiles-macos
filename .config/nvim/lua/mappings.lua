@@ -25,14 +25,15 @@ utils.map_lua('n', '<leader>ca', [[require'telescope.builtin'.lsp_code_actions{}
 
 utils.map_lua('n', '<leader>sf', [[require'telescope.builtin'.git_files{}]], options)
 utils.map_lua('n', '<leader>rg', [[require'telescope.builtin'.live_grep{}]], options)
--- utils.map_lua('n', '<leader>ls', [[require'telescope.builtin'.lsp_references{}]], options)
--- utils.map_lua('n', '<leader>ws', [[require'telescope.builtin'.lsp_workspace_symbols{}]], options)
--- utils.map_lua('n', '<leader>wg', [[require'telescope.builtin'.lsp_workspace_diagnostics{}]], options)
--- utils.map('v', '<leader>ca', [[<cmd>'<,'>lua require'telescope.builtin'.lsp_range_code_actions{}<CR>]], options)
 -- }}}
 
 -- {{{ Floaterm
 utils.map('n', '<leader>tg', ':FloatermNew lazygit<cr>', options)
+-- }}}
+
+-- {{{ Todo + trouble
+utils.map('n', '<leader>tt', ':TodoTelescope<cr>', options)
+utils.map('n', '<leader>tr', ':TroubleToggle<cr>', options)
 -- }}}
 
 -- {{{ lsp

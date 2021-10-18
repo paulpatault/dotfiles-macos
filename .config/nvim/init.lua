@@ -1,3 +1,4 @@
+local gruvbox = require "lualine.themes.gruvbox"
 local home = os.getenv('HOME')
 local g = vim.g
 local o = vim.o
@@ -80,10 +81,10 @@ utils.map('n', '<leader>rt', [[:%s/\s\+$//e<cr>]], {noremap = true})
 utils.map('n', '<A-Tab>', ':tabnext<cr>', {noremap = true})
 utils.map('n', '<A-S-Tab>', ':tabprev<cr>', {noremap = true})
 
-utils.map('n', '<Up>',    [[:echoerr "[ Interdit ]"<cr>]], {noremap = true})
-utils.map('n', '<Down>',  [[:echoerr "[ Interdit ]"<cr>]], {noremap = true})
-utils.map('n', '<Left>',  [[:echoerr "[ Interdit ]"<cr>]], {noremap = true})
-utils.map('n', '<Right>', [[:echoerr "[ Interdit ]"<cr>]], {noremap = true})
+-- utils.map('n', '<Up>',    [[:echoerr "[ Interdit ]"<cr>]], {noremap = true})
+-- utils.map('n', '<Down>',  [[:echoerr "[ Interdit ]"<cr>]], {noremap = true})
+-- utils.map('n', '<Left>',  [[:echoerr "[ Interdit ]"<cr>]], {noremap = true})
+-- utils.map('n', '<Right>', [[:echoerr "[ Interdit ]"<cr>]], {noremap = true})
 
 utils.create_augroup({
   {'FileType', '*', 'setlocal', 'shiftwidth=4'},
@@ -129,12 +130,14 @@ utils.add_rtp(home .. '/.opam/default/share/merlin/vim')
 utils.add_rtp(home .. '/.opam/default/share/merlin/vimbufsync')
 
 -- RELOAD
-cmd [[packadd vimball]]
 
-local ok, _ = pcall(function() require('lsp_config') end)
+require('plugins')
+
+local ok, res = pcall(function() require('lsp_config') end)
 
 if not ok then
   print("No LSP")
+  print(res)
 end
 
 RELOAD = require('plenary.reload').reload_module
@@ -144,18 +147,19 @@ R = function(name)
   return require(name)
 end
 
-R('plugins')
 R('nvim-web-devicons').setup()
+R('lspkind').init()
 RELOADER = function()
-    R('ppatault.ripple')
-    R('ppatault.kommentary')
-    R('ppatault.treesitter')
-    R('ppatault.plenary')
-    R('ppatault.telescope')
-    R('ppatault.statusline')
-    R('ppatault.nvim-cmp')
-    R('mappings')
-    R('globals')
+  R('ppatault.nvim-cmp')
+  R('ppatault.treesitter')
+  R('ppatault.statusline')
+  R('ppatault.plenary')
+  R('ppatault.telescope')
+  R('ppatault.ripple')
+  R('ppatault.kommentary')
+  R('ppatault.todo')
+  R('mappings')
+  R('globals')
 end
 
 RELOADER()
