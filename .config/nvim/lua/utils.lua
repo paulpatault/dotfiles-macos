@@ -4,7 +4,7 @@ local cmd = vim.cmd
 -- We will create a few autogroup, this function will help to avoid
 -- always writing cmd('augroup' .. group) etc..
 function M.create_augroup(autocmds, name)
-  cmd ('augroup ' .. name)
+  cmd('augroup ' .. name)
   cmd('autocmd!')
   for _, autocmd in ipairs(autocmds) do
     cmd('autocmd ' .. table.concat(autocmd, ' '))
@@ -70,19 +70,6 @@ local check_back_space = function()
   end
 end
 
-function M.tab_complete()
-  if vim.fn.pumvisible() == 1 then
-    print("pumvisible")
-    return t "<C-n>"
-  elseif vim.fn.call("vsnip#available", {1}) == 1 then
-    return t "<Plug>(vsnip-expand-or-jump)"
-  elseif check_back_space() then
-    return t "<Tab>"
-  else
-    return vim.fn['compe#complete']()
-  end
-end
-
 function M.s_tab_complete()
   if vim.fn.pumvisible() then
     return t "<C-p>"
@@ -109,4 +96,4 @@ end
 -- We want to be able to access utils in all our configuration files
 -- so we add the module to the _G global variable.
 _G.utils = M
-return M -- Export the modulen
+return M

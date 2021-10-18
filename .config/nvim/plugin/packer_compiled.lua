@@ -73,6 +73,30 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/paulpatault/.local/share/nvim/site/pack/packer/start/LSP-pyls"
   },
+  ["cmp-buffer"] = {
+    loaded = true,
+    path = "/Users/paulpatault/.local/share/nvim/site/pack/packer/start/cmp-buffer"
+  },
+  ["cmp-latex-symbols"] = {
+    loaded = true,
+    path = "/Users/paulpatault/.local/share/nvim/site/pack/packer/start/cmp-latex-symbols"
+  },
+  ["cmp-nvim-lsp"] = {
+    loaded = true,
+    path = "/Users/paulpatault/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp"
+  },
+  ["cmp-nvim-lua"] = {
+    loaded = true,
+    path = "/Users/paulpatault/.local/share/nvim/site/pack/packer/start/cmp-nvim-lua"
+  },
+  ["cmp-path"] = {
+    loaded = true,
+    path = "/Users/paulpatault/.local/share/nvim/site/pack/packer/start/cmp-path"
+  },
+  ["cmp-vsnip"] = {
+    loaded = true,
+    path = "/Users/paulpatault/.local/share/nvim/site/pack/packer/start/cmp-vsnip"
+  },
   colorizer = {
     loaded = true,
     path = "/Users/paulpatault/.local/share/nvim/site/pack/packer/start/colorizer"
@@ -101,17 +125,17 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/paulpatault/.local/share/nvim/site/pack/packer/start/lsp-status.nvim"
   },
-  ["lspsaga.nvim"] = {
+  ["lspkind-nvim"] = {
     loaded = true,
-    path = "/Users/paulpatault/.local/share/nvim/site/pack/packer/start/lspsaga.nvim"
+    path = "/Users/paulpatault/.local/share/nvim/site/pack/packer/start/lspkind-nvim"
   },
   ["lualine.nvim"] = {
     loaded = true,
     path = "/Users/paulpatault/.local/share/nvim/site/pack/packer/start/lualine.nvim"
   },
-  ["nvim-compe"] = {
+  ["nvim-cmp"] = {
     loaded = true,
-    path = "/Users/paulpatault/.local/share/nvim/site/pack/packer/start/nvim-compe"
+    path = "/Users/paulpatault/.local/share/nvim/site/pack/packer/start/nvim-cmp"
   },
   ["nvim-lspconfig"] = {
     loaded = true,
@@ -151,9 +175,12 @@ _G.packer_plugins = {
     path = "/Users/paulpatault/.local/share/nvim/site/pack/packer/start/telescope.nvim"
   },
   ["todo-comments.nvim"] = {
-    config = { "\27LJ\2\n?\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\18todo-comments\frequire\0" },
     loaded = true,
     path = "/Users/paulpatault/.local/share/nvim/site/pack/packer/start/todo-comments.nvim"
+  },
+  ["trouble.nvim"] = {
+    loaded = true,
+    path = "/Users/paulpatault/.local/share/nvim/site/pack/packer/start/trouble.nvim"
   },
   undotree = {
     loaded = true,
@@ -199,10 +226,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/paulpatault/.local/share/nvim/site/pack/packer/start/vim-vsnip"
   },
-  ["vim-vsnip-integ"] = {
-    loaded = true,
-    path = "/Users/paulpatault/.local/share/nvim/site/pack/packer/start/vim-vsnip-integ"
-  },
   vimtex = {
     loaded = false,
     needs_bufread = true,
@@ -215,10 +238,6 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: todo-comments.nvim
-time([[Config for todo-comments.nvim]], true)
-try_loadstring("\27LJ\2\n?\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\18todo-comments\frequire\0", "config", "todo-comments.nvim")
-time([[Config for todo-comments.nvim]], false)
 vim.cmd [[augroup packer_load_aucmds]]
 vim.cmd [[au!]]
   -- Filetype lazy-loads

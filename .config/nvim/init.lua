@@ -1,3 +1,4 @@
+local home = os.getenv('HOME')
 local g = vim.g
 local o = vim.o
 local w = vim.wo
@@ -108,8 +109,10 @@ _G.setHighlights = function()
   cmd [[highlight LspDiagnosticsUnderlineHint cterm=undercurl gui=undercurl]]
   cmd [[highlight LspDiagnosticsUnderlineInformation cterm=undercurl gui=undercurl]]
   cmd [[highlight LspDiagnosticsUnderlineWarning cterm=undercurl gui=undercurl]]
+  cmd [[highlight CmpItemAbbr guifg=#a89984]]
+  cmd [[highlight CmpItemKind guifg=#fabd2f]]
+  cmd [[highlight CmpItemMenu guifg=#83a598]]
   cmd [[highlight Normal guibg=NONE ctermbg=NONE]]
--- cmd [[highlight LspDiagnosticsUnderline cterm=undercurl gui=undercurl]]
 end
 
 utils.create_augroup({
@@ -117,12 +120,9 @@ utils.create_augroup({
 }, "UndercurlDiags")
 
 -- OCAML / PYTHON
-local home = os.getenv('HOME')
 vim.api.nvim_set_var('python_host_prog', home .. "/opt/miniconda3/bin/python")
 vim.api.nvim_set_var('python3_host_prog', home .. "/opt/miniconda3/bin/python3")
-
 vim.api.nvim_set_var('opamshare', home .. '/.opam/default/share')
-
 vim.api.nvim_set_var('merlin_python_version', 3)
 utils.add_rtp(home .. '/.opam/default/share/merlin/vim/doc')
 utils.add_rtp(home .. '/.opam/default/share/merlin/vim')
@@ -153,7 +153,7 @@ RELOADER = function()
     R('ppatault.plenary')
     R('ppatault.telescope')
     R('ppatault.statusline')
-    R('ppatault.nvim-compe')
+    R('ppatault.nvim-cmp')
     R('mappings')
     R('globals')
 end

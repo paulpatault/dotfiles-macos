@@ -1,38 +1,17 @@
 local utils = require('utils')
-
 local options = {
   noremap = true,
   silent = true
 }
 
---{{{ exit mode terminal
+--{{{ Terminal Mode
 utils.map('t', '<esc>', '<c-\\><c-n>', options)
---[[ utils.map('t', '<c-w>h', '<c-\\><c-n><c-w>h', options)
-utils.map('t', '<c-w>j', '<c-\\><c-n>:wincmd j<cr>', options)
-utils.map('t', '<c-w>k', '<c-\\><c-n>:wincmd k<cr>', options)
-utils.map('t', '<c-w>l', '<c-\\><c-n>:wincmd l<cr>', options) ]]
 --}}}
 
 --{{{ kommentary
 vim.api.nvim_set_keymap("n", "<leader>c", "<Plug>kommentary_line_default", {})
 vim.api.nvim_set_keymap("v", "<leader>c", "<Plug>kommentary_visual_default", {})
 --}}}
-
---{{{ compe
-vim.cmd [[call lexima#set_default_rules()]]
-utils.map('i', '<C-Space>', 'compe#complete()', {
-  noremap = true,
-  silent = true,
-  expr = true
-})
-utils.map('i', '<CR>', [[compe#confirm(lexima#expand('<LT>CR>', 'i'))]], {
-  noremap = true,
-  silent = true,
-  expr = true
-})
-utils.map('i', '<Tab>', [[v:lua.utils.tab_complete()]], { expr = true })
-utils.map('s', '<Tab>', [[v:lua.utils.tab_complete()]], { expr = true })
--- }}}
 
 -- {{{ telescope
 utils.map_lua('n', '<leader>p',  [[require'telescope.builtin'.find_files{}]], options)
@@ -56,16 +35,11 @@ utils.map_lua('n', '<leader>rg', [[require'telescope.builtin'.live_grep{}]], opt
 utils.map('n', '<leader>tg', ':FloatermNew lazygit<cr>', options)
 -- }}}
 
--- {{{ lspsaga
--- utils.map_lua('n', 'ff', [[require'lspsaga.provider'.lsp_finder()]], options)
--- }}}
-
 -- {{{ lsp
 utils.map_lua('n', 'gd', [[vim.lsp.buf.definition()]], options)
 utils.map_lua('n', 'gD', [[vim.lsp.buf.implementation()]], options)
 utils.map_lua('n', 'dc', [[vim.lsp.buf.hover()]], options)
 utils.map_lua('n', 'ds', [[vim.lsp.buf.signature_help()]], options)
--- utils.map_lua('n', 'df', [[vim.lsp.buf.preview_definition()]], options)
 utils.map_lua('n', 'gT', [[vim.lsp.buf.type_definition()]], options)
 utils.map_lua('n', 'grf', [[vim.lsp.buf.references()]], options)
 utils.map_lua('n', '<leader>rn', [[vim.lsp.buf.rename()]], options)

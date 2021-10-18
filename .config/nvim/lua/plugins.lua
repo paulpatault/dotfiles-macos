@@ -1,4 +1,4 @@
-local execute = vim.api.nvim_command
+--[[ local execute = vim.api.nvim_command
 local fn = vim.fn
 
 local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
@@ -6,11 +6,9 @@ local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
 if fn.empty(fn.glob(install_path)) > 0 then
   fn.system({'git', 'clone', 'https://github.com/wbthomason/packer.nvim', install_path})
   execute 'packadd packer.nvim'
-end
+end ]]
 
---vim.cmd('packadd packer.nvim')
 vim.cmd [[packadd packer.nvim]]
-
 
 return require('packer').startup({
   function(use)
@@ -20,12 +18,18 @@ return require('packer').startup({
     ----- lsp -----
     use 'neovim/nvim-lspconfig'
     use 'wbthomason/lsp-status.nvim'
-    use 'glepnir/lspsaga.nvim'
     use 'sublimelsp/LSP-pyls'
     use 'ocaml/ocaml-lsp'
-    use 'hrsh7th/nvim-compe'
 
-    use 'junegunn/goyo.vim'
+    ----- cmp -----
+    use 'hrsh7th/nvim-cmp'
+    use 'hrsh7th/cmp-buffer'
+    use 'hrsh7th/cmp-path'
+    use 'hrsh7th/cmp-nvim-lua'
+    use 'hrsh7th/cmp-nvim-lsp'
+    use 'hrsh7th/cmp-vsnip'
+    use 'hrsh7th/vim-vsnip'
+    use 'kdheepak/cmp-latex-symbols'
 
     ----- languages -----
     use 'ocaml/vim-ocaml'
@@ -48,18 +52,6 @@ return require('packer').startup({
     }
     use 'nvim-telescope/telescope-fzy-native.nvim'
 
-    ----- utils -----
-    use 'arthurxavierx/vim-unicoder'
-    use 'machakann/vim-sandwich'
-    use 'cohama/lexima.vim' -- autopairs
-    use 'mbbill/undotree'
-    use 'voldikss/vim-floaterm'
-    use 'b3nj5m1n/kommentary'
-    -- use 'junegunn/vim-easy-align'
-
-    use 'hrsh7th/vim-vsnip'
-    use 'hrsh7th/vim-vsnip-integ'
-
     ----- theme -----
     use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
     use 'morhetz/gruvbox'
@@ -71,6 +63,14 @@ return require('packer').startup({
     use 'lilydjwg/colorizer'
 
     ----- utils -----
+    use 'arthurxavierx/vim-unicoder'
+    use 'machakann/vim-sandwich'
+    use 'cohama/lexima.vim' -- autopairs
+    use 'mbbill/undotree'
+    use 'voldikss/vim-floaterm'
+    use 'b3nj5m1n/kommentary'
+    use 'onsails/lspkind-nvim'
+    use 'junegunn/goyo.vim'
     use 'GCBallesteros/jupytext.vim'
     use 'urbainvaes/vim-ripple'
     use {
@@ -82,13 +82,10 @@ return require('packer').startup({
     use {
       "folke/todo-comments.nvim",
       requires = "nvim-lua/plenary.nvim",
-      config = function()
-        require("todo-comments").setup {
-          -- your configuration comes here
-          -- or leave it empty to use the default settings
-          -- refer to the configuration section below
-        }
-      end
+    }
+    use {
+      "folke/trouble.nvim",
+      requires = "kyazdani42/nvim-web-devicons",
     }
   end,
   config =  {
