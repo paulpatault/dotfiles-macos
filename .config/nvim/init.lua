@@ -88,7 +88,7 @@ utils.map('n', '<A-S-Tab>', ':tabprev<cr>', {noremap = true})
 utils.create_augroup({
   {'FileType', '*', 'setlocal', 'shiftwidth=4'},
   {'FileType',
-    'ocaml,ocaml_interface,ocamllex,menhir,lua,markdown,why3,ept,lustre',
+    'ocaml,ocaml_interface,ocamllex,menhir,lua,markdown,why3,ept,lustre,kawa',
     'setlocal', 'shiftwidth=2'},
 }, 'Tab2')
 
@@ -100,6 +100,7 @@ utils.create_augroup({
   {'BufRead,BufNewFile', '*.mlw', 'set', 'filetype=why3'},
   {'BufRead,BufNewFile', '*.lus,*.ept', 'set', 'filetype=lustre'},
   {'BufRead,BufNewFile', '*.imp', 'set', 'filetype=imp'},
+  {'BufRead,BufNewFile', '*.kawa', 'set', 'filetype=kawa'},
   {'BufRead,BufNewFile', '*.vips,*.vipsopt,*.gips,*.gipsopt', 'set', 'filetype=asm'},
   {'BufRead,BufNewFile', '*.rml', 'set', 'filetype=rml'},
 }, 'BufE')
