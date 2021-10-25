@@ -105,18 +105,19 @@ alias todo="open /Applications/Microsoft\ To\ Do.app"
 
 #=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# M1MPRI
 alias wedt="open https://sites.google.com/view/mastersagenda/mpri"
-alias ledt="open ~/MPRI/EDT/EDT-M1T1.pdf"
+alias ledt="open ~/MPRI/EDT/EDT-M1T2.pdf"
 alias fac="cd ~/MPRI"
 alias mpri="cd ~/MPRI"
-alias avan="cd ~/MPRI/AlgoAv"
-alias dist="cd ~/MPRI/AlgoDist"
-alias para="cd ~/MPRI/AlgoPara"
-alias compil="cd ~/MPRI/Compilation"
-alias quantum="cd ~/MPRI/Quantum"
-alias sysreact="cd ~/MPRI/SystReact"
-alias verif="cd ~/MPRI/Verification"
+alias avan="cd ~/MPRI/T1/AlgoAv"
+alias dist="cd ~/MPRI/T1/AlgoDist"
+alias para="cd ~/MPRI/T1/AlgoPara"
+alias compil="cd ~/MPRI/T1/Compilation"
+alias kawa="cd ~/MPRI/T1/Compilation/Kawa"
+alias quantum="cd ~/MPRI/T1/Quantum"
+alias sysreact="cd ~/MPRI/ENS/SystReact"
+alias verif="cd ~/MPRI/ENS/Verification"
 
-export LUSTRE_INSTALL=~/MPRI/SystReact/Lustre/lustre-v4-III-e-macosx/
+export LUSTRE_INSTALL=~/MPRI/ENS/SystReact/Lustre/lustre-v4-III-e-macosx/
 source $LUSTRE_INSTALL/setenv.sh
 
 #=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# OPAM CONFIGURATION
