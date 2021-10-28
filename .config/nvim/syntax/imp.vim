@@ -6,7 +6,7 @@ syn clear
 
 syn case ignore
 
-syn keyword impStatement       return var putchar
+syn keyword impStatement       return var putchar alloc addr write read staticwrite
 syn keyword impConditional     if else while
 
 syn keyword impTodo contained   TODO
