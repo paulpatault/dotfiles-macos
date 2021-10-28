@@ -80,6 +80,10 @@ utils.map('n', '<leader>rt', [[:%s/\s\+$//e<cr>]], {noremap = true})
 utils.map('n', '<A-Tab>', ':tabnext<cr>', {noremap = true})
 utils.map('n', '<A-S-Tab>', ':tabprev<cr>', {noremap = true})
 
+utils.map('n', 'nn', 'A<esc>*')
+utils.map('n', '<leader>cpa', ':e tests/simple.asm<cr>ggVGy')
+
+
 -- utils.map('n', '<Up>',    [[:echoerr "[ Interdit ]"<cr>]], {noremap = true})
 -- utils.map('n', '<Down>',  [[:echoerr "[ Interdit ]"<cr>]], {noremap = true})
 -- utils.map('n', '<Left>',  [[:echoerr "[ Interdit ]"<cr>]], {noremap = true})
