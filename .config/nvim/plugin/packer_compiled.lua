@@ -233,6 +233,7 @@ _G.packer_plugins = {
   vimtex = {
     loaded = false,
     needs_bufread = true,
+    only_cond = false,
     path = "/Users/paulpatault/.local/share/nvim/site/pack/packer/opt/vimtex"
   },
   ["virtual-types.nvim"] = {

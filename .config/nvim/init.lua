@@ -99,7 +99,7 @@ utils.create_augroup({
   {'BufRead,BufNewFile', '*.mly', 'set', 'filetype=menhir'},
   {'BufRead,BufNewFile', '*.mlw', 'set', 'filetype=why3'},
   {'BufRead,BufNewFile', '*.lus,*.ept', 'set', 'filetype=lustre'},
-  {'BufRead,BufNewFile', '*.imp', 'set', 'filetype=imp'},
+  {'BufRead,BufNewFile', '*.imp,*.pimp,*.pmimp', 'set', 'filetype=imp'},
   {'BufRead,BufNewFile', '*.kawa', 'set', 'filetype=kawa'},
   {'BufRead,BufNewFile', '*.vips,*.vipsopt,*.gips,*.gipsopt', 'set', 'filetype=asm'},
   {'BufRead,BufNewFile', '*.rml', 'set', 'filetype=rml'},
