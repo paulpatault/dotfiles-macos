@@ -24,18 +24,9 @@ wget
 nvm
 node
 llvm
-# stockfish
 rust
 mas
-
-# ocaml
 opam
-
-# opengl
-# glm
-# glew
-# glfw
-# opencv@2
 
 # zsh
 zsh-syntax-highlighting
@@ -44,11 +35,8 @@ zsh-autosuggestions
 # scripts
 autoconf
 bat
-thefuck
 tree
-htop
 lazygit
-insect
 imlib2
 imagemagick
 
@@ -60,15 +48,9 @@ vldmrkl/formulae/airdrop-cli
 
 CASK=(
 # programming
-# github
-# visual-studio-code
-# kitty
-# clion
-# intellij-idea
+kitty
 gimp
 mactex
-# devbook
-# xquartz
 
 # fonts
 font-hack-nerd-font
@@ -77,12 +59,13 @@ font-dejavu-sans-mono-nerd-font
 font-jetbrains-mono-nerd-font
 
 # browser
-# firefox
+firefox
 google-chrome
 
 # reader
 # spotify
 vlc
+folx
 
 # communication
 messenger
@@ -91,22 +74,16 @@ telegram
 discord
 
 # courses
-# microsoft-word
-# microsoft-excel
-# microsoft-powerpoint
-# microsoft-teams
-# zoomus
 drawio
-typora
 )
 
 ###################################################################################################
 
-PIP3=(
-neovim-remote
-virtualenv
-pynvim
-)
+# PIP3=(
+# neovim-remote
+# virtualenv
+# pynvim
+# )
 
 ###################################################################################################
 
@@ -151,9 +128,6 @@ mas install ${MAS[@]}
 opam init
 opam install ${OPAM[@]}
 
-
-#  kitty
-git clone https://github.com/kovidgoyal/kitty && cd kitty && make app
 
 ###################################################################################################
 

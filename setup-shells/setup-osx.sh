@@ -52,16 +52,16 @@ defaults write com.apple.screencapture location ~/Documents/Screenshots
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # WALLPAPER
 
 # download images
-wget https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Jacques-Louis_David%2C_The_Coronation_of_Napoleon.jpg/1920px-Jacques-Louis_David%2C_The_Coronation_of_Napoleon.jpg
-wget https://upload.wikimedia.org/wikipedia/commons/2/2b/Christoffer_Wilhelm_Eckersberg_-_Ulysses%27_revenge_on_Penelope%27s_suitors_-_Google_Art_Project.jpg
-wget https://ltshs.hypotheses.org/files/2019/06/Napoleon-a-Sainte-Helene-1.jpg
-wget https://upload.wikimedia.org/wikipedia/commons/6/6c/Orleans_MBA_L_Le_nain_bacchus_et_ariane.jpg
+# wget https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Jacques-Louis_David%2C_The_Coronation_of_Napoleon.jpg/1920px-Jacques-Louis_David%2C_The_Coronation_of_Napoleon.jpg
+# wget https://upload.wikimedia.org/wikipedia/commons/2/2b/Christoffer_Wilhelm_Eckersberg_-_Ulysses%27_revenge_on_Penelope%27s_suitors_-_Google_Art_Project.jpg
+# wget https://ltshs.hypotheses.org/files/2019/06/Napoleon-a-Sainte-Helene-1.jpg
+# wget https://upload.wikimedia.org/wikipedia/commons/6/6c/Orleans_MBA_L_Le_nain_bacchus_et_ariane.jpg
 # deplacement dans le dossier wallpaper
-mkdir -p ~/Documents/Divers/Wallpaper
-mv 1920px-Jacques-Louis_David,_The_Coronation_of_Napoleon.jpg ~/Documents/Divers/Wallpaper
-mv Christoffer_Wilhelm_Eckersberg_-_Ulysses\'_revenge_on_Penelope\'s_suitors_-_Google_Art_Project.jpg ~/Documents/Divers/Wallpaper
-mv Napoleon-a-Sainte-Helene-1.jpg ~/Documents/Divers/Wallpaper
-mv Orleans_MBA_L_Le_nain_bacchus_et_ariane.jpg ~/Documents/Divers/Wallpaper
+# mkdir -p ~/Documents/Divers/Wallpaper
+# mv 1920px-Jacques-Louis_David,_The_Coronation_of_Napoleon.jpg ~/Documents/Divers/Wallpaper
+# mv Christoffer_Wilhelm_Eckersberg_-_Ulysses\'_revenge_on_Penelope\'s_suitors_-_Google_Art_Project.jpg ~/Documents/Divers/Wallpaper
+# mv Napoleon-a-Sainte-Helene-1.jpg ~/Documents/Divers/Wallpaper
+# mv Orleans_MBA_L_Le_nain_bacchus_et_ariane.jpg ~/Documents/Divers/Wallpaper
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # KILLALL
 

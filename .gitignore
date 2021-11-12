@@ -6,3 +6,5 @@ undodir
 .config/nvim/_init.vim
 .config/htop/htoprc
 .config/gtk-2.0/gtkfilechooser.ini
+
+.config/nvim/plugin/packer_compiled.lua

@@ -41,6 +41,14 @@ export PATH="/usr/local/lib/ruby/gems/3.0.0/bin:$PATH"
 export PATH="/usr/local/opt/ruby/bin:$PATH"
 export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
 
+export PATH="/opt/homebrew/opt/openssl@1.1/bin:$PATH"
+
+export LDFLAGS="-L/opt/homebrew/lib $LDFLAGS"
+export LDFLAGS="-L/opt/homebrew/Cellar/openssl@1.1/1.1.1l_1/lib $LDFLAGS"
+
+export CFLAGS="-I/opt/homebrew/include $CFLAGS"
+export CXXFLAGS="-I/opt/homebrew/include $CXXFLAGS"
+
 #=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# THEME
 
 ZSH_THEME=""

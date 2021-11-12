@@ -1,0 +1,4 @@
+user: paulpatault
+remote: git@github.com:paulpatault/opam-repository
+local: Users/paulpatault/Dev/Ocaml/opam-repository
+keep-v: true

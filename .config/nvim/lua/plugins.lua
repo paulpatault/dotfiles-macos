@@ -20,6 +20,7 @@ return require('packer').startup({
     use 'wbthomason/lsp-status.nvim'
     use 'sublimelsp/LSP-pyls'
     use 'ocaml/ocaml-lsp'
+    use 'instant-markdown/vim-instant-markdown'
 
     ----- cmp -----
     use 'hrsh7th/nvim-cmp'
@@ -34,7 +35,7 @@ return require('packer').startup({
     ----- languages -----
     use 'ocaml/vim-ocaml'
     use 'cdelledonne/vim-cmake'
-    use 'tpope/vim-markdown'
+
     use {
       'lervag/vimtex',
       ft = { 'tex' }
