@@ -14,7 +14,7 @@ end
 
 reloader()
 
-local themes = require('telescope.themes')
+-- local themes = require('telescope.themes')
 
 require('telescope').setup{
   defaults = {

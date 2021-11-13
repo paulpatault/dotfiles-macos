@@ -20,7 +20,7 @@ return require('packer').startup({
     use 'wbthomason/lsp-status.nvim'
     use 'sublimelsp/LSP-pyls'
     use 'ocaml/ocaml-lsp'
-    use 'instant-markdown/vim-instant-markdown'
+    -- use 'instant-markdown/vim-instant-markdown'
 
     ----- cmp -----
     use 'hrsh7th/nvim-cmp'
