@@ -40,14 +40,19 @@ export PATH="/usr/local/opt/gnu-getopt/bin:$PATH"
 export PATH="/usr/local/lib/ruby/gems/3.0.0/bin:$PATH"
 export PATH="/usr/local/opt/ruby/bin:$PATH"
 export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
-
 export PATH="/opt/homebrew/opt/openssl@1.1/bin:$PATH"
+export PATH="/opt/homebrew/opt/openssl@3/bin:$PATH"
 
+export LDFLAGS="-L/opt/homebrew/opt/openssl@3/lib $LDFLAGS"
 export LDFLAGS="-L/opt/homebrew/lib $LDFLAGS"
 export LDFLAGS="-L/opt/homebrew/Cellar/openssl@1.1/1.1.1l_1/lib $LDFLAGS"
 
 export CFLAGS="-I/opt/homebrew/include $CFLAGS"
+
+export CXXFLAGS="-I/opt/homebrew/opt/openssl@3/include $CXXFLAGS"
 export CXXFLAGS="-I/opt/homebrew/include $CXXFLAGS"
+
+export PKG_CONFIG_PATH="/opt/homebrew/opt/openssl@3/lib/pkgconfig"
 
 #=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# THEME
 

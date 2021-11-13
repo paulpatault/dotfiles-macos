@@ -11,20 +11,20 @@ cask
 git
 mas
 tree-sitter
-lua
-luajit
-luarocks
-emscripten
+# lua
+# luajit
+# luarocks
+# emscripten
 texlab
 rg
 
 # basics
-cmake
+# cmake
 wget
-nvm
+# nvm
 node
-llvm
-rust
+# llvm
+# rust
 mas
 opam
 
@@ -42,6 +42,7 @@ imagemagick
 
 # bazar
 vldmrkl/formulae/airdrop-cli
+koekeishiya/formulae/skhd
 )
 
 ###################################################################################################
@@ -121,7 +122,7 @@ brew tap homebrew/cask-fonts
 brew install ${BREW[@]}
 brew install --cask ${CASK[@]}
 
-pip3 install ${PIP3[@]}
+# pip3 install ${PIP3[@]}
 
 mas install ${MAS[@]}
 
@@ -131,12 +132,12 @@ opam install ${OPAM[@]}
 
 ###################################################################################################
 
-git clone https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 
 ###################################################################################################
 
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-upgrade_oh_my_zsh
+omz update
 
 ###################################################################################################
 
