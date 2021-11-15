@@ -11,27 +11,24 @@ syn keyword kawaType            int bool void
 
 syn keyword kawaTodo contained  TODO
 
-syn match  kawaIdentifier       "\<[a-zA-Z_][a-zA-Z0-9_]*\>"
+syn match  kawaIdentifier    "\<[a-zA-Z_][a-zA-Z0-9_]*\>"
 
 syn match  kawaDelimiter     "[({})]"
-
 
 syn match kawaNumber    "\<[0-9]\+\>"
 syn match kawaFloat     "\<[0-9]\+\.[0-9]*\(e[-+]\=[0-9]\+\)\=\>"
 syn match kawaFloat     "\.[0-9]\+\(e[-+]\=[0-9]\+\)\=\>"
 syn match kawaFloat     "\<[0-9]\+e[-+]\=[0-9]\+\>"
 
-syn match kawaOperator "[#+/*=><^]"
+syn match kawaOperator "[#+-/*=><^]"
 syn match kawaOperator ">="
 syn match kawaOperator ">="
 syn match kawaOperator "!="
 
-syn region kawaComment  start="/\*" end="\*/" contains=impTodo
-syn region kawaComment  start="//"  end="\n"  contains=impTodo
-syn region kawaConstant start="'"   end="'"
-" syn region kawaConstant start='"'   end='"'
-
-syn match kawaOperator "-"
+syn region kawaComment    start="/\*" end="\*/" contains=impTodo
+syn region kawaComment    start="//"  end="\n"  contains=impTodo
+syn region kawaConstant   start="'"   end="'"
+syn region kawaAnnotation start="@"   end="\n"
 
 syn keyword kawaConstant true false
 syn keyword kawaFunction return putchar main putascii
@@ -54,6 +51,7 @@ if !exists("did_kawa_syntax_inits")
   hi link kawaStatement      Statement
   hi link kawaPack           Type
   hi link kawaDelimiter      Identifier
+  hi link kawaAnnotation     PreProc
 endif
 
 let b:current_syntax = "kawa"
