@@ -64,6 +64,7 @@ return require('packer').startup({
     use 'lilydjwg/colorizer'
 
     ----- utils -----
+    use 'wellle/targets.vim'
     use 'lewis6991/impatient.nvim'
     use 'arthurxavierx/vim-unicoder'
     use 'machakann/vim-sandwich'
@@ -72,7 +73,6 @@ return require('packer').startup({
     use 'voldikss/vim-floaterm'
     use 'b3nj5m1n/kommentary'
     use 'onsails/lspkind-nvim'
-    use 'junegunn/goyo.vim'
     use 'GCBallesteros/jupytext.vim'
     use 'urbainvaes/vim-ripple'
     use {
