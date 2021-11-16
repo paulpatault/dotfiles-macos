@@ -28,10 +28,11 @@ syn match kawaOperator "!="
 syn region kawaComment    start="/\*" end="\*/" contains=impTodo
 syn region kawaComment    start="//"  end="\n"  contains=impTodo
 syn region kawaConstant   start="'"   end="'"
+syn region kawaConstant   start='"'   end='"'
 syn region kawaAnnotation start="@"   end="\n"
 
 syn keyword kawaConstant true false
-syn keyword kawaFunction return putchar main putascii
+syn keyword kawaFunction return putchar main putascii printf
 
 syn sync lines=250
 
