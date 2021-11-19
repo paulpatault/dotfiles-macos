@@ -66,49 +66,56 @@ o.mouse = 'a'
 o.completeopt = [[menuone,noinsert,noselect]]
 
 -- General mappings, not depending on any plugins
-utils.map('n', '<leader>sp', ':setlocal spell!<cr><cr>', {noremap = true, silent = true})
+local n_map_tbl = {
+  ['<leader>sp']  = {'n', [[:setlocal spell!<cr><cr>]], {noremap = true, silent = true}},
+  ['<leader>sc']  = {'n', [[:luafile ~/.config/nvim/init.lua<cr>]], {noremap = true}},
+  ['<leader>rt']  = {'n', [[:%s/\s\+$//e<cr>]], {noremap = true}},
+  ['<A-Tab>']     = {'n', [[:tabnext<cr>]], {noremap = true}},
+  ['<A-S-Tab>']   = {'n', [[:tabprev<cr>]], {noremap = true}},
+  ['J']           = {'v', [[:m '>+1<cr>gv=gv]], {noremap = true}},
+  ['K']           = {'v', [[:m '<-2<cr>gv=gv]], {noremap = true}},
+}
 
-utils.map('n', '<leader>sc', ':luafile ~/.config/nvim/init.lua<cr>', {noremap = true})
+for key, value in pairs(n_map_tbl) do
+    utils.map(value[1], key, value[2], value[3])
+end
 
-utils.map('n', '<C-f>', ":!open . && open -a Finder<cr>", {noremap = true})
+local tabW_assoc = {
+  ['*'] = '4',
+  ['markdown'] = '2',
+  ['lua'] = '2',
+  ['kawa'] = '2',
+  ['ept,lustre'] = '2',
+  ['ocaml,ocaml_interface'] = '2',
+  ['ocamllex,menhir'] = '2',
+  ['why3'] = '2'
+}
 
-utils.map('v', 'J', [[:m '>+1<cr>gv=gv]], {noremap = true})
-utils.map('v', 'K', [[:m '<-2<cr>gv=gv]], {noremap = true})
+local ft_assoc = {
+  ['*.md'] = 'markdown',
+  ['*.mli'] = 'ocaml_interface',
+  ['*.mll'] = 'ocamllex',
+  ['*.mly'] = 'menhir',
+  ['*.mlw'] = 'why3',
+  ['*.lus,*.ept'] = 'lustre',
+  ['*.imp,*.pimp,*.pmimp'] = 'imp',
+  ['*.kawa'] = 'kawa',
+  ['*.vips,*.vipsopt,*.gips,*.gipsopt'] = 'asm',
+  ['*.rml'] = 'rml'
+}
 
-utils.map('n', '<leader>rt', [[:%s/\s\+$//e<cr>]], {noremap = true})
+local tabWtbl = {}
+for key, value in pairs(tabW_assoc) do
+  table.insert(tabWtbl, {'FileType', key, 'setlocal', 'shiftwidth=' .. value})
+end
 
-utils.map('n', '<A-Tab>', ':tabnext<cr>', {noremap = true})
-utils.map('n', '<A-S-Tab>', ':tabprev<cr>', {noremap = true})
+local ftTable = {}
+for key, value in pairs(ft_assoc) do
+  table.insert(ftTable, {'BufRead,BufNewFile', key, 'set', 'filetype=' .. value})
+end
 
-utils.map('n', '<leader>nn', 'A<esc>*')
-utils.map('n', '<leader>cpa', ':e tests/simple.asm<cr>ggVGy<c-o>')
-utils.map('n', '<leader>fw', '<leader>rgfailwith')
-
-
--- utils.map('n', '<Up>',    [[:echoerr "[ Interdit ]"<cr>]], {noremap = true})
--- utils.map('n', '<Down>',  [[:echoerr "[ Interdit ]"<cr>]], {noremap = true})
--- utils.map('n', '<Left>',  [[:echoerr "[ Interdit ]"<cr>]], {noremap = true})
--- utils.map('n', '<Right>', [[:echoerr "[ Interdit ]"<cr>]], {noremap = true})
-
-utils.create_augroup({
-  {'FileType', '*', 'setlocal', 'shiftwidth=4'},
-  {'FileType',
-    'ocaml,ocaml_interface,ocamllex,menhir,lua,markdown,why3,ept,lustre,kawa',
-    'setlocal', 'shiftwidth=2'},
-}, 'Tab2')
-
-utils.create_augroup({
-  {'BufNewFile,BufReadPost', '*.md', 'set', 'filetype=markdown'},
-  {'BufRead,BufNewFile', '*.mli', 'set', 'filetype=ocaml_interface'},
-  {'BufRead,BufNewFile', '*.mll', 'set', 'filetype=ocamllex'},
-  {'BufRead,BufNewFile', '*.mly', 'set', 'filetype=menhir'},
-  {'BufRead,BufNewFile', '*.mlw', 'set', 'filetype=why3'},
-  {'BufRead,BufNewFile', '*.lus,*.ept', 'set', 'filetype=lustre'},
-  {'BufRead,BufNewFile', '*.imp,*.pimp,*.pmimp', 'set', 'filetype=imp'},
-  {'BufRead,BufNewFile', '*.kawa', 'set', 'filetype=kawa'},
-  {'BufRead,BufNewFile', '*.vips,*.vipsopt,*.gips,*.gipsopt', 'set', 'filetype=asm'},
-  {'BufRead,BufNewFile', '*.rml', 'set', 'filetype=rml'},
-}, 'BufE')
+utils.create_augroup(tabWtbl, 'Tab2')
+utils.create_augroup(ftTable, 'BufE')
 
 _G.setHighlights = function()
   cmd [[highlight LspDiagnosticsUnderlineError cterm=undercurl gui=undercurl]]
@@ -169,8 +176,6 @@ RELOADER = function()
 end
 
 RELOADER()
-
-utils.map_lua('n', '<leader>rc', 'RELOADER()', {noremap = true})
 
 cmd [[colorscheme gruvbox]]
 
