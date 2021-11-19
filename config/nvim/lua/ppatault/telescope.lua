@@ -14,13 +14,31 @@ end
 
 reloader()
 
--- local themes = require('telescope.themes')
+local tbl  = {
+  ['md'] = 'markdown',
+  ['mli'] = 'ocaml_interface',
+  ['mll'] = 'ocamllex',
+  ['mly'] = 'menhir',
+  ['mlw'] = 'why3',
+  ['lus,ept'] = 'lustre',
+  ['imp'] = 'imp',
+  ['pimp'] = 'imp',
+  ['pmimp'] = 'imp',
+  ['kawa'] = 'kawa',
+  ['vips'] = 'asm',
+  ['vipsopt'] = 'asm',
+  ['gips'] = 'asm',
+  ['gipsopt'] = 'asm',
+  ['rml'] = 'rml'
+}
+
+require('plenary.filetype').add_file(tbl)
 
 require('telescope').setup{
   defaults = {
-    --[[ vimgrep_arguments = {
+    vimgrep_arguments = {
       'fzf'
-    }, ]]
+    },
     file_ignore_patterns = {
       [[undodir/%.*]],
       [[_build/*]],

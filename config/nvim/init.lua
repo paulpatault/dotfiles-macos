@@ -106,7 +106,7 @@ local ft_assoc = {
 
 local tabWtbl = {}
 for key, value in pairs(tabW_assoc) do
-  table.insert(tabWtbl, {'FileType', key, 'setlocal', 'shiftwidth=' .. value})
+  table.insert(tabWtbl, {'FileType', key, 'set', 'shiftwidth=' .. value})
 end
 
 local ftTable = {}
