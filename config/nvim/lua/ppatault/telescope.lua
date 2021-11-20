@@ -36,9 +36,9 @@ require('plenary.filetype').add_file(tbl)
 
 require('telescope').setup{
   defaults = {
-    vimgrep_arguments = {
+    --[[ vimgrep_arguments = {
       'fzf'
-    },
+    }, ]]
     file_ignore_patterns = {
       [[undodir/%.*]],
       [[_build/*]],
