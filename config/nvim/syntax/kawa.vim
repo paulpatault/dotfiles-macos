@@ -5,7 +5,7 @@ syn clear
 
 syn case ignore
 
-syn keyword kawaKeyword         class method var attribute new extends
+syn keyword kawaKeyword         class method var attribute new extends assert
 syn keyword kawaConditional     if else while
 syn keyword kawaType            int bool void
 
