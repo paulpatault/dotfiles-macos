@@ -86,8 +86,10 @@ local tabW_assoc = {
   ['lua'] = '2',
   ['kawa'] = '2',
   ['ept,lustre'] = '2',
-  ['ocaml,ocaml_interface'] = '2',
-  ['ocamllex,menhir'] = '2',
+  ['ocaml'] = '2',
+  ['ocaml_interface'] = '2',
+  ['ocamllex'] = '2',
+  ['menhir'] = '2',
   ['why3'] = '2'
 }
 
@@ -104,18 +106,19 @@ local ft_assoc = {
   ['*.rml'] = 'rml'
 }
 
-local tabWtbl = {}
-for key, value in pairs(tabW_assoc) do
-  table.insert(tabWtbl, {'FileType', key, 'set', 'shiftwidth=' .. value})
-end
 
 local ftTable = {}
 for key, value in pairs(ft_assoc) do
   table.insert(ftTable, {'BufRead,BufNewFile', key, 'set', 'filetype=' .. value})
 end
 
-utils.create_augroup(tabWtbl, 'Tab2')
+local tabWtbl = {}
+for key, value in pairs(tabW_assoc) do
+  table.insert(tabWtbl, {'FileType', key, 'set', 'shiftwidth=' .. value})
+end
+
 utils.create_augroup(ftTable, 'BufE')
+utils.create_augroup(tabWtbl, 'Tab2')
 
 _G.setHighlights = function()
   cmd [[highlight LspDiagnosticsUnderlineError cterm=undercurl gui=undercurl]]
