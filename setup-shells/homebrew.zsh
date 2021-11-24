@@ -14,6 +14,8 @@ bat
 tree
 lazygit
 koekeishiya/formulae/skhd
+jq
+colordiff
 )
 
 BREW_ALL=(
