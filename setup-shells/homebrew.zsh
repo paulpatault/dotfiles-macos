@@ -4,6 +4,7 @@ BREW_MIN=(
 opam
 wget
 rg
+fd
 fzf
 git
 tree-sitter
