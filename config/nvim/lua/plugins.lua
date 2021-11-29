@@ -35,6 +35,7 @@ return require('packer').startup({
     ----- languages -----
     use 'ocaml/vim-ocaml'
     use 'cdelledonne/vim-cmake'
+    use 'whonore/Coqtail'
 
     use {
       'lervag/vimtex',

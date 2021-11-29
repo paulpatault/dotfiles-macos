@@ -136,8 +136,8 @@ utils.create_augroup({
 }, "UndercurlDiags")
 
 -- OCAML / PYTHON
-vim.api.nvim_set_var('python_host_prog', home .. "/opt/miniconda3/bin/python")
-vim.api.nvim_set_var('python3_host_prog', home .. "/opt/miniconda3/bin/python3")
+vim.api.nvim_set_var('python_host_prog', "/usr/bin/python")
+vim.api.nvim_set_var('python3_host_prog', "/opt/homebrew/bin/python3")
 vim.api.nvim_set_var('opamshare', home .. '/.opam/default/share')
 vim.api.nvim_set_var('merlin_python_version', 3)
 utils.add_rtp(home .. '/.opam/default/share/merlin/vim/doc')
