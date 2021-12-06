@@ -26,6 +26,11 @@ function M.map(mode, keys, action, options)
   vim.api.nvim_set_keymap(mode, keys, action, options)
 end
 
+-- UnMap a key with optional options
+function M.unmap(mode, keys)
+  vim.api.nvim_del_keymap(mode, keys)
+end
+
 -- Map a key to a lua callback
 function M.map_lua(mode, keys, action, options)
   if options == nil then
@@ -92,6 +97,37 @@ function M.completion_confirm()
     return npairs.check_break_line_char()
   end
 end
+
+
+function M.Wrap_toogle ()
+    local w = vim.wo
+    w.wrap = not w.wrap
+    if w.wrap then
+        utils.map('n', 'j', 'gj', {noremap = true, silent = true})
+        utils.map('n', 'k', 'gk', {noremap = true, silent = true})
+        utils.map('n', '0', 'g0', {noremap = true, silent = true})
+        utils.map('n', '$', 'g$', {noremap = true, silent = true})
+        utils.map('v', 'j', 'gj', {noremap = true, silent = true})
+        utils.map('v', 'k', 'gk', {noremap = true, silent = true})
+        utils.map('v', '0', 'g0', {noremap = true, silent = true})
+        utils.map('v', '$', 'g$', {noremap = true, silent = true})
+        cmd [[ let &showbreak='❯❯❯ ' ]]
+        -- cmd [[ let &showbreak='❮❮❮ ' ]]
+        cmd [[ set cpoptions+=n ]]
+    else
+        utils.unmap('n', 'j')
+        utils.unmap('n', 'k')
+        utils.unmap('n', '0')
+        utils.unmap('n', '$')
+        utils.unmap('v', 'j')
+        utils.unmap('v', 'k')
+        utils.unmap('v', '0')
+        utils.unmap('v', '$')
+        cmd [[ set showbreak= ]]
+        cmd [[ set cpoptions-=n ]]
+    end
+end
+
 
 -- We want to be able to access utils in all our configuration files
 -- so we add the module to the _G global variable.

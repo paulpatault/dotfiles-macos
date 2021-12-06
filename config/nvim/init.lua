@@ -38,6 +38,8 @@ o.splitright = true
 w.cursorline = true
 b.synmaxcol = 4000
 
+w.list = false
+w.lbr = true
 w.number = true
 w.relativenumber = true
 
@@ -80,6 +82,8 @@ for key, value in pairs(n_map_tbl) do
     utils.map(value[1], key, value[2], value[3])
 end
 
+utils.map_lua('n', '<leader>w', "utils.Wrap_toogle()", {noremap = true, silent = true})
+
 local tabW_assoc = {
   ['*'] = '4',
   ['markdown'] = '2',
@@ -105,7 +109,6 @@ local ft_assoc = {
   ['*.vips,*.vipsopt,*.gips,*.gipsopt'] = 'asm',
   ['*.rml'] = 'rml'
 }
-
 
 local ftTable = {}
 for key, value in pairs(ft_assoc) do
