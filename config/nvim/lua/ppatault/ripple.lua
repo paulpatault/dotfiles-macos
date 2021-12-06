@@ -5,7 +5,7 @@ vim.g.ripple_repls = {
     addcr  = 1
   },
   python = {
-    command = 'ipython',
+    command = 'ipython --no-autoindent',
   },
   ocaml = {
     command = "utop",
