@@ -78,6 +78,9 @@ prompt pure
 
 #=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# ALIAS
 
+alias wr3="curl wttr.in\?format=3"
+alias wr="curl wttr.in"
+
 #=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# SAFE
 alias cp="cp -i"
 alias mv="mv -i"
