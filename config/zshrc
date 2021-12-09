@@ -50,7 +50,7 @@ export LDFLAGS="-L/opt/homebrew/Cellar/openssl@1.1/1.1.1l_1/lib $LDFLAGS"
 export LDFLAGS="-L/opt/homebrew/Cellar/llvm/13.0.0_1/lib $LDFLAGS"
 export LDFLAGS="-L/opt/homebrew/opt/llvm/lib -Wl,-rpath,/opt/homebrew/opt/llvm/lib $LDFLAGS"
 export LDFLAGS="-L/opt/homebrew/opt/llvm/lib $LDFLAGS"
-# export LDFLAGS="-L/opt/homebrew/opt/ll $LDFLAGS"
+export LDFLAGS="-L/opt/homebrew/opt/ll $LDFLAGS"
 
 export CPPFLAGS="-I/opt/homebrew/opt/llvm/include $CPPFLAGS"
 
@@ -78,6 +78,16 @@ prompt pure
 
 #=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# ALIAS
 
+function exa_cmd {
+    if [ "$1" != "" ]
+    then
+        exa --tree --icons --level=$*
+    else
+        exa --all --long
+    fi
+}
+
+alias ex=exa_cmd
 alias wr3="curl wttr.in\?format=3"
 alias wr="curl wttr.in"
 

@@ -20,7 +20,6 @@ return require('packer').startup({
     use 'wbthomason/lsp-status.nvim'
     use 'sublimelsp/LSP-pyls'
     use 'ocaml/ocaml-lsp'
-    -- use 'instant-markdown/vim-instant-markdown'
 
     ----- cmp -----
     use 'hrsh7th/nvim-cmp'
@@ -67,7 +66,10 @@ return require('packer').startup({
     ----- utils -----
     use 'wellle/targets.vim'
     use 'lewis6991/impatient.nvim'
-    use 'arthurxavierx/vim-unicoder'
+    use {
+      'arthurxavierx/vim-unicoder',
+      ft = 'md'
+    }
     use 'machakann/vim-sandwich'
     use 'cohama/lexima.vim' -- autopairs
     use 'mbbill/undotree'

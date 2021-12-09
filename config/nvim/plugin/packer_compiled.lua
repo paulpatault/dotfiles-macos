@@ -261,8 +261,10 @@ _G.packer_plugins = {
     url = "https://github.com/kana/vim-textobj-user"
   },
   ["vim-unicoder"] = {
-    loaded = true,
-    path = "/Users/paulpatault/.local/share/nvim/site/pack/packer/start/vim-unicoder",
+    loaded = false,
+    needs_bufread = false,
+    only_cond = false,
+    path = "/Users/paulpatault/.local/share/nvim/site/pack/packer/opt/vim-unicoder",
     url = "https://github.com/arthurxavierx/vim-unicoder"
   },
   ["vim-vsnip"] = {
@@ -299,6 +301,7 @@ vim.cmd [[augroup packer_load_aucmds]]
 vim.cmd [[au!]]
   -- Filetype lazy-loads
 time([[Defining lazy-load filetype autocommands]], true)
+vim.cmd [[au FileType md ++once lua require("packer.load")({'vim-unicoder'}, { ft = "md" }, _G.packer_plugins)]]
 vim.cmd [[au FileType tex ++once lua require("packer.load")({'vimtex'}, { ft = "tex" }, _G.packer_plugins)]]
 time([[Defining lazy-load filetype autocommands]], false)
 vim.cmd("augroup END")
