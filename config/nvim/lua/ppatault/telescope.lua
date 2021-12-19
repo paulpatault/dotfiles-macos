@@ -50,6 +50,9 @@ require('telescope').setup{
       [[%.cmt]],
       [[%.cmti]],
       [[%.pyc]],
+      [[%.aux]],
+      [[%.jpg]],
+      [[%.png]],
       [[%.pdf]]},
 
     layout_config = {prompt_position = "bottom"},
