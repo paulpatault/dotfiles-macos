@@ -24,7 +24,7 @@ b.shiftwidth = 4
 b.tabstop = 4
 b.smartindent = true
 b.modeline = false
-b.spelllang = [[fr,en]]
+b.spelllang = [[fr]]
 
 o.backspace = [[indent,eol,start]]
 o.hidden = true
@@ -69,7 +69,7 @@ o.completeopt = [[menuone,noinsert,noselect]]
 
 -- General mappings, not depending on any plugins
 local n_map_tbl = {
-  ['<leader>sp']  = {'n', [[:setlocal spell!<cr><cr>]], {noremap = true, silent = true}},
+  ['<leader>sp']  = {'n', [[:setlocal spell!<cr>]], {noremap = true, silent = true}},
   ['<leader>sc']  = {'n', [[:luafile ~/.config/nvim/init.lua<cr>]], {noremap = true}},
   ['<leader>rt']  = {'n', [[:%s/\s\+$//e<cr>]], {noremap = true}},
   ['<A-Tab>']     = {'n', [[:tabnext<cr>]], {noremap = true}},
