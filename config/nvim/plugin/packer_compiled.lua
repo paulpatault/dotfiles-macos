@@ -69,11 +69,6 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
-  Coqtail = {
-    loaded = true,
-    path = "/Users/paulpatault/.local/share/nvim/site/pack/packer/start/Coqtail",
-    url = "https://github.com/whonore/Coqtail"
-  },
   ["LSP-pyls"] = {
     loaded = true,
     path = "/Users/paulpatault/.local/share/nvim/site/pack/packer/start/LSP-pyls",
@@ -306,8 +301,8 @@ vim.cmd [[augroup packer_load_aucmds]]
 vim.cmd [[au!]]
   -- Filetype lazy-loads
 time([[Defining lazy-load filetype autocommands]], true)
-vim.cmd [[au FileType md ++once lua require("packer.load")({'vim-unicoder'}, { ft = "md" }, _G.packer_plugins)]]
 vim.cmd [[au FileType tex ++once lua require("packer.load")({'vimtex'}, { ft = "tex" }, _G.packer_plugins)]]
+vim.cmd [[au FileType md ++once lua require("packer.load")({'vim-unicoder'}, { ft = "md" }, _G.packer_plugins)]]
 time([[Defining lazy-load filetype autocommands]], false)
 vim.cmd("augroup END")
 vim.cmd [[augroup filetypedetect]]
