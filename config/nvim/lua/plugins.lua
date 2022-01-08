@@ -31,6 +31,7 @@ return require('packer').startup({
     use 'hrsh7th/vim-vsnip'
     use 'kdheepak/cmp-latex-symbols'
 
+
     ----- languages -----
     use 'ocaml/vim-ocaml'
     use 'cdelledonne/vim-cmake'
@@ -53,6 +54,7 @@ return require('packer').startup({
       }
     }
     use 'nvim-telescope/telescope-fzy-native.nvim'
+    use 'nvim-telescope/telescope-file-browser.nvim'
 
     ----- theme -----
     use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
@@ -63,6 +65,7 @@ return require('packer').startup({
       requires = {'kyazdani42/nvim-web-devicons', opt = true}
     }
     use 'lilydjwg/colorizer'
+    use 'ELLIOTTCABLE/vim-menhir'
 
     ----- utils -----
     use 'wellle/targets.vim'
@@ -79,6 +82,7 @@ return require('packer').startup({
     use 'onsails/lspkind-nvim'
     use 'GCBallesteros/jupytext.vim'
     use 'urbainvaes/vim-ripple'
+    use 'folke/zen-mode.nvim'
     use {
       'GCBallesteros/vim-textobj-hydrogen',
       requires = {
@@ -92,10 +96,6 @@ return require('packer').startup({
     use {
       "folke/trouble.nvim",
       requires = "kyazdani42/nvim-web-devicons",
-    }
-    use {
-      "folke/zen-mode.nvim",
-      config = function() require("zen-mode").setup { } end
     }
   end,
   config =  {

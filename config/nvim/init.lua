@@ -24,7 +24,7 @@ b.shiftwidth = 4
 b.tabstop = 4
 b.smartindent = true
 b.modeline = false
-b.spelllang = [[fr]]
+b.spelllang = [[fr,en]]
 
 o.backspace = [[indent,eol,start]]
 o.hidden = true

@@ -7,15 +7,15 @@ local options = {
 
 -- {{{ telescope
 local telescope = {
-  ['<leader>p']  = [[require'telescope.builtin'.find_files{}]],
-  ['<leader>b']  = [[require'telescope.builtin'.buffers{}]],
-  ['<leader>n']  = [[require'telescope.builtin'.file_browser{}]],
-  ['<leader>ds'] = [[require'telescope.builtin'.lsp_document_symbols{}]],
-  ['<leader>dg'] = [[require'telescope.builtin'.lsp_document_diagnostics{}]],
-  ['<leader>ld'] = [[require'telescope.builtin'.lsp_definition{}]],
-  ['<leader>ca'] = [[require'telescope.builtin'.lsp_code_actions{}]],
-  ['<leader>sf'] = [[require'telescope.builtin'.git_files{}]],
-  ['<leader>rg'] = [[require'telescope.builtin'.live_grep{}]],
+  ['<leader>p']  = [[require('telescope.builtin').find_files()]],
+  ['<leader>b']  = [[require('telescope.builtin').buffers()]],
+  ['<leader>ds'] = [[require('telescope.builtin').lsp_document_symbols{}]],
+  ['<leader>dg'] = [[require('telescope.builtin').diagnostics{}]],
+  ['gd']         = [[require('telescope.builtin').lsp_definitions{}]],
+  ['<leader>ca'] = [[require('telescope.builtin').lsp_code_actions{}]],
+  ['<leader>sf'] = [[require('telescope.builtin').git_files{}]],
+  ['<leader>rg'] = [[require('telescope.builtin').live_grep{}]],
+  ['<leader>fb'] = [[require('telescope').extensions.file_browser.file_browser()]],
 }
 
 for key, map in pairs(telescope) do
@@ -27,16 +27,16 @@ end
 local lsp = {
   ['<leader>rn'] = [[vim.lsp.buf.rename()]],
   ['grf'] = [[vim.lsp.buf.references()]],
-  ['gd'] = [[vim.lsp.buf.definition()]],
+  -- ['gd'] = [[vim.lsp.buf.definition()]],
   ['gD'] = [[vim.lsp.buf.implementation()]],
   ['dc'] = [[vim.lsp.buf.hover()]],
   ['ds'] = [[vim.lsp.buf.signature_help()]],
   ['gT'] = [[vim.lsp.buf.type_definition()]],
-  ['dl'] = [[vim.lsp.diagnostic.show_line_diagnostics()]],
-  ['dn'] = [[vim.lsp.diagnostic.goto_next()]],
-  ['dN'] = [[vim.lsp.diagnostic.goto_prev()]],
-  ['do'] = [[vim.lsp.diagnostic.enable()]],
-  ['df'] = [[vim.lsp.diagnostic.disable()]],
+  ['dl'] = [[vim.diagnostic.open_float()]],
+  ['dn'] = [[vim.diagnostic.goto_next()]],
+  ['dN'] = [[vim.diagnostic.goto_prev()]],
+  ['do'] = [[vim.diagnostic.enable()]],
+  ['df'] = [[vim.diagnostic.disable()]],
 }
 
 for key, map in pairs(lsp) do

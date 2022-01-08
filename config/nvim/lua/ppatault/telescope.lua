@@ -15,21 +15,21 @@ end
 reloader()
 
 local tbl  = {
-  ['md'] = 'markdown',
-  ['mli'] = 'ocaml_interface',
-  ['mll'] = 'ocamllex',
-  ['mly'] = 'menhir',
-  ['mlw'] = 'why3',
+  ['md']      = 'markdown',
+  ['mli']     = 'ocaml_interface',
+  ['mll']     = 'ocamllex',
+  ['mly']     = 'menhir',
+  ['mlw']     = 'why3',
   ['lus,ept'] = 'lustre',
-  ['imp'] = 'imp',
-  ['pimp'] = 'imp',
-  ['pmimp'] = 'imp',
-  ['kawa'] = 'kawa',
-  ['vips'] = 'asm',
+  ['imp']     = 'imp',
+  ['pimp']    = 'imp',
+  ['pmimp']   = 'imp',
+  ['kawa']    = 'kawa',
+  ['vips']    = 'asm',
   ['vipsopt'] = 'asm',
-  ['gips'] = 'asm',
+  ['gips']    = 'asm',
   ['gipsopt'] = 'asm',
-  ['rml'] = 'rml'
+  ['rml']     = 'rml'
 }
 
 require('plenary.filetype').add_file(tbl)
