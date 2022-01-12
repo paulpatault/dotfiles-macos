@@ -99,6 +99,7 @@ local tabW_assoc = {
 
 local ft_assoc = {
   ['*.md'] = 'markdown',
+  ['*.zsh'] = 'sh',
   ['*.mli'] = 'ocaml_interface',
   ['*.mll'] = 'ocamllex',
   ['*.mly'] = 'menhir',
