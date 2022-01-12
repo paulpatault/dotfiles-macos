@@ -3,7 +3,6 @@ vim.cmd [[ packadd nvim-treesitter ]]
 local parser_config = require('nvim-treesitter.parsers').get_parser_configs()
 parser_config.ocaml_interface.used_by = "ocaml_interface"
 parser_config.ocamllex.used_by = "ocamllex"
-parser_config.ocaml.used_by = "menhir"
 parser_config.ocaml.used_by = "rml"
 
 require('nvim-treesitter.configs').setup {
@@ -80,7 +79,8 @@ require('nvim-treesitter.configs').setup {
      "latex",
      "bash",
      "html",
-     "css"
+     "css",
+     "llvm"
    },
    -- ignore_install = { "javascript" }, -- List of parsers to ignore installing
 }

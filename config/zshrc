@@ -134,3 +134,6 @@ export LUSTRE_INSTALL=~/MPRI/ENS/SystReact/Lustre/lustre-v4-III-e-macosx/
 source $LUSTRE_INSTALL/setenv.sh
 
 alias luamake=/Users/paulpatault/lua-language-server/3rd/luamake/luamake
+
+eval $(opam env)
+

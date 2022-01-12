@@ -55,7 +55,7 @@ lsp.clangd.setup{
 
 lsp.ocamllsp.setup{
     cmd = { 'ocamllsp' };
-    filetypes = {"ocaml", "ocaml_interface", "ocamllex", "menhir"};
+    filetypes = {"ocaml", "ocaml_interface", "ocamllex"};
     root_dir = function(fname)
       return
         lsp.util.find_git_ancestor(fname)

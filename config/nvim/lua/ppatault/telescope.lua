@@ -18,7 +18,6 @@ local tbl  = {
   ['md']      = 'markdown',
   ['mli']     = 'ocaml_interface',
   ['mll']     = 'ocamllex',
-  ['mly']     = 'menhir',
   ['mlw']     = 'why3',
   ['lus,ept'] = 'lustre',
   ['imp']     = 'imp',

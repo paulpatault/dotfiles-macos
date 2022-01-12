@@ -15,7 +15,7 @@ g.background = [[dark]]
 
 g.vimtex_compiler_progname = 'nvr'
 
-vim.opt.guicursor = "i:block"
+vim.opt.guicursor = 'i:block'
 
 b.autoindent = true
 b.expandtab = true
@@ -24,7 +24,7 @@ b.shiftwidth = 4
 b.tabstop = 4
 b.smartindent = true
 b.modeline = false
-b.spelllang = [[fr,en]]
+b.spelllang = [[fr]]
 
 o.backspace = [[indent,eol,start]]
 o.hidden = true
@@ -85,30 +85,36 @@ end
 utils.map_lua('n', '<leader>w', "utils.Wrap_toogle()", {noremap = true, silent = true})
 
 local tabW_assoc = {
-  ['*'] = '4',
-  ['markdown'] = '2',
-  ['lua'] = '2',
-  ['kawa'] = '2',
-  ['ept,lustre'] = '2',
-  ['ocaml'] = '2',
+  ['*']               = '4',
+  ['markdown']        = '2',
+  ['lua']             = '2',
+  ['kawa']            = '2',
+  ['ept,lustre']      = '2',
+  ['ocaml']           = '2',
   ['ocaml_interface'] = '2',
-  ['ocamllex'] = '2',
-  ['menhir'] = '2',
-  ['why3'] = '2'
+  ['ocamllex']        = '2',
+  ['menhir']          = '2',
+  ['why3']            = '2'
 }
 
 local ft_assoc = {
-  ['*.md'] = 'markdown',
+  ['*.md']  = 'markdown',
   ['*.zsh'] = 'sh',
   ['*.mli'] = 'ocaml_interface',
   ['*.mll'] = 'ocamllex',
-  ['*.mly'] = 'menhir',
+  ['*.ll']  = 'llvm',
   ['*.mlw'] = 'why3',
-  ['*.lus,*.ept'] = 'lustre',
-  ['*.imp,*.pimp,*.pmimp'] = 'imp',
-  ['*.kawa'] = 'kawa',
-  ['*.vips,*.vipsopt,*.gips,*.gipsopt'] = 'asm',
+  ['*.lus'] = 'lustre',
+  ['*.ept'] = 'lustre',
   ['*.rml'] = 'rml'
+  --[[ ['*.imp']       = 'imp',
+  ['*.pimp']      = 'imp',
+  ['*.pmimp']     = 'imp',
+  ['*.kawa']      = 'kawa',
+  ['*.vips']      = 'asm',
+  ['*.vipsopt']   = 'asm',
+  ['*.gips']      = 'asm',
+  ['*.gipsopt']   = 'asm', ]]
 }
 
 local ftTable = {}
