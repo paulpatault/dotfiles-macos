@@ -85,7 +85,7 @@ end
 utils.map_lua('n', '<leader>w', "utils.Wrap_toogle()", {noremap = true, silent = true})
 
 local tabW_assoc = {
-  ['*']               = '4',
+  ['*']               = '2',
   ['markdown']        = '2',
   ['lua']             = '2',
   ['kawa']            = '2',
@@ -101,6 +101,7 @@ local ft_assoc = {
   ['*.md']  = 'markdown',
   ['*.zsh'] = 'sh',
   ['*.mli'] = 'ocaml_interface',
+  ['*.mly'] = 'menhir',
   ['*.mll'] = 'ocamllex',
   ['*.ll']  = 'llvm',
   ['*.mlw'] = 'why3',
