@@ -16,6 +16,7 @@ end
 function M.add_rtp(path)
   local rtp = vim.o.rtp
   rtp = rtp .. ',' .. path
+  vim.o.rtp = rtp
 end
 
 -- Map a key with optional options

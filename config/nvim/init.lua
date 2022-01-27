@@ -105,6 +105,7 @@ local ft_assoc = {
   ['*.ll']  = 'llvm',
   ['*.mlw'] = 'why3',
   ['*.lus'] = 'lustre',
+  ['*.mls'] = 'lustre',
   ['*.ept'] = 'lustre',
   ['*.rml'] = 'rml'
   --[[ ['*.imp']       = 'imp',
@@ -153,6 +154,8 @@ vim.api.nvim_set_var('merlin_python_version', 3)
 utils.add_rtp(home .. '/.opam/default/share/merlin/vim/doc')
 utils.add_rtp(home .. '/.opam/default/share/merlin/vim')
 utils.add_rtp(home .. '/.opam/default/share/merlin/vimbufsync')
+-- utils.add_rtp(home .. '/.opam/default/share/ocp-indent/vim')
+
 
 -- RELOAD
 

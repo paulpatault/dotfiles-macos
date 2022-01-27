@@ -9,12 +9,13 @@ local options = {
 local telescope = {
   ['<leader>p']  = [[require('telescope.builtin').find_files()]],
   ['<leader>b']  = [[require('telescope.builtin').buffers()]],
-  ['<leader>ds'] = [[require('telescope.builtin').lsp_document_symbols{}]],
-  ['<leader>dg'] = [[require('telescope.builtin').diagnostics{}]],
-  ['gd']         = [[require('telescope.builtin').lsp_definitions{}]],
-  ['<leader>ca'] = [[require('telescope.builtin').lsp_code_actions{}]],
-  ['<leader>sf'] = [[require('telescope.builtin').git_files{}]],
-  ['<leader>rg'] = [[require('telescope.builtin').live_grep{}]],
+  ['<leader>ds'] = [[require('telescope.builtin').lsp_document_symbols()]],
+  ['<leader>dg'] = [[require('telescope.builtin').diagnostics()]],
+  -- ['gd']         = [[require('telescope.builtin').lsp_definitions()]],
+  -- ['gd']         = [[require('telescope.builtin').lsp_implementations()]],
+  ['<leader>ca'] = [[require('telescope.builtin').lsp_code_actions()]],
+  ['<leader>gf'] = [[require('telescope.builtin').git_files()]],
+  ['<leader>rg'] = [[require('telescope.builtin').live_grep()]],
   ['<leader>fb'] = [[require('telescope').extensions.file_browser.file_browser()]],
 }
 
@@ -27,8 +28,8 @@ end
 local lsp = {
   ['<leader>rn'] = [[vim.lsp.buf.rename()]],
   ['grf'] = [[vim.lsp.buf.references()]],
-  -- ['gd'] = [[vim.lsp.buf.definition()]],
-  ['gD'] = [[vim.lsp.buf.implementation()]],
+  ['gd'] = [[vim.lsp.buf.definition()]],
+  -- ['gD'] = [[vim.lsp.buf.implementation()]],
   ['dc'] = [[vim.lsp.buf.hover()]],
   ['ds'] = [[vim.lsp.buf.signature_help()]],
   ['gT'] = [[vim.lsp.buf.type_definition()]],

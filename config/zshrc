@@ -17,6 +17,8 @@ if type brew &>/dev/null; then
   compinit
 fi
 
+export OCAMLRUNPARAM=b
+
 #=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# PLUGINS
 plugins=(
   git
@@ -136,4 +138,3 @@ source $LUSTRE_INSTALL/setenv.sh
 alias luamake=/Users/paulpatault/lua-language-server/3rd/luamake/luamake
 
 eval $(opam env)
-
