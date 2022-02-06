@@ -3,8 +3,8 @@ export ZSH="/Users/paulpatault/.oh-my-zsh"
 source $ZSH/oh-my-zsh.sh
 
 #=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# CONFIG
-CASE_SENSITIVE="true"
-COMPLETION_WAITING_DOTS="true"
+# CASE_SENSITIVE="true"
+# COMPLETION_WAITING_DOTS="true"
 
 export EDITOR='nvim'
 export OPAMEDITOR='nvim'
@@ -16,8 +16,6 @@ if type brew &>/dev/null; then
   autoload -Uz compinit
   compinit
 fi
-
-export OCAMLRUNPARAM=b
 
 #=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# PLUGINS
 plugins=(
@@ -59,7 +57,6 @@ zstyle :prompt:pure:prompt:error color '#D73232'
 prompt pure
 
 #=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# ALIAS
-
 function exa_cmd {
     if [ "$1" != "" ]
     then
@@ -81,7 +78,6 @@ alias rm="rm -i"
 #=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# KITTY
 alias ssh="kitty +kitten ssh"
 alias icat="kitty +kitten icat"
-
 
 #=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# SHORT
 alias v="nvim"
@@ -118,23 +114,6 @@ alias discord="open /Applications/Discord.app"
 alias whatsapp="open /Applications/WhatsApp.app"
 alias todo="open /Applications/Microsoft\ To\ Do.app"
 
-#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# M1MPRI
-alias wedt="open https://sites.google.com/view/mastersagenda/mpri"
-alias ledt="open ~/MPRI/EDT/EDT-M1T2.pdf"
-alias fac="cd ~/MPRI"
-alias mpri="cd ~/MPRI"
-alias kawa="cd ~/MPRI/T1/Compilation/Kawa"
-alias quantum="cd ~/MPRI/T2/FQI"
-alias mpi="cd ~/MPRI/T3/MPI"
-alias graphs="cd ~/MPRI/T2/AG"
-alias combalg="cd ~/MPRI/T2/CA"
-alias andrei="cd ~/MPRI/T2/PP"
-alias sysreact="cd ~/MPRI/ENS/SystReact"
-alias verif="cd ~/MPRI/ENS/Verification"
-
-export LUSTRE_INSTALL=~/MPRI/ENS/SystReact/Lustre/lustre-v4-III-e-macosx/
-source $LUSTRE_INSTALL/setenv.sh
-
-alias luamake=/Users/paulpatault/lua-language-server/3rd/luamake/luamake
-
+#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# OCAML
+export OCAMLRUNPARAM=b
 eval $(opam env)
