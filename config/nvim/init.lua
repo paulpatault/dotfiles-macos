@@ -85,11 +85,11 @@ end
 utils.map_lua('n', '<leader>w', "utils.Wrap_toogle()", {noremap = true, silent = true})
 
 local tabW_assoc = {
-  ['*']               = '2',
+  ['c']               = '4',
+  ['cpp']             = '4',
   ['markdown']        = '2',
   ['lua']             = '2',
   ['kawa']            = '2',
-  ['ept,lustre']      = '2',
   ['ocaml']           = '2',
   ['ocaml_interface'] = '2',
   ['ocamllex']        = '2',
@@ -105,18 +105,6 @@ local ft_assoc = {
   ['*.mll'] = 'ocamllex',
   ['*.ll']  = 'llvm',
   ['*.mlw'] = 'why3',
-  ['*.lus'] = 'lustre',
-  ['*.mls'] = 'lustre',
-  ['*.ept'] = 'lustre',
-  ['*.rml'] = 'rml'
-  --[[ ['*.imp']       = 'imp',
-  ['*.pimp']      = 'imp',
-  ['*.pmimp']     = 'imp',
-  ['*.kawa']      = 'kawa',
-  ['*.vips']      = 'asm',
-  ['*.vipsopt']   = 'asm',
-  ['*.gips']      = 'asm',
-  ['*.gipsopt']   = 'asm', ]]
 }
 
 local ftTable = {}
@@ -126,7 +114,7 @@ end
 
 local tabWtbl = {}
 for key, value in pairs(tabW_assoc) do
-  table.insert(tabWtbl, {'FileType', key, 'set', 'shiftwidth=' .. value})
+  table.insert(tabWtbl, {'FileType', key, 'set', 'sw=' .. value})
 end
 
 utils.create_augroup(ftTable, 'BufE')

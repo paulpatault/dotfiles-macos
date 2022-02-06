@@ -14,9 +14,7 @@ end
 
 -- Add a apth to the rtp
 function M.add_rtp(path)
-  local rtp = vim.o.rtp
-  rtp = rtp .. ',' .. path
-  vim.o.rtp = rtp
+  vim.o.rtp = vim.o.rtp .. ',' .. path
 end
 
 -- Map a key with optional options
