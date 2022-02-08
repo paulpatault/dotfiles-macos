@@ -5,7 +5,7 @@ kommentary_conf.configure_language("why3", {
     multi_line_comment_strings = {"(*", "*)"},
 })
 
-kommentary_conf.configure_language("lustre", {
+kommentary_conf.configure_language("ocaml_interface", {
     prefer_multi_line_comments = true,
     multi_line_comment_strings = {"(*", "*)"},
 })
