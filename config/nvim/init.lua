@@ -86,6 +86,7 @@ utils.map_lua('n', '<leader>w', "utils.Wrap_toogle()", {noremap = true, silent =
 
 local tabW_assoc = {
   ['c']               = '4',
+  ['tex']             = '4',
   ['cpp']             = '4',
   ['markdown']        = '2',
   ['lua']             = '2',
