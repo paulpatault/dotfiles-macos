@@ -1,9 +1,9 @@
 vim.cmd [[ packadd nvim-treesitter ]]
 
 local parser_config = require('nvim-treesitter.parsers').get_parser_configs()
-parser_config.ocaml_interface.used_by = "ocaml_interface"
-parser_config.ocamllex.used_by = "ocamllex"
-parser_config.ocaml.used_by = "rml"
+parser_config.ocaml_interface.filetype_to_parsername = "ocaml_interface"
+parser_config.ocamllex.filetype_to_parsername = "ocamllex"
+parser_config.ocaml.filetype_to_parsername = "rml"
 
 require('nvim-treesitter.configs').setup {
   highlight = {
