@@ -1,44 +1,19 @@
-all:
-	make sudo
-	make symlinks
-	make macos
-	make brew
-	make omzsh
-	make opam
-	make casks
-	make mas
-
-minimal:
-	make sudo
-	make symlinks
-	make macos
-	make brew minimal
-	make omzsh
-	make opam minimal
-	make casks minimal
-	make mas minimal
-
-sudo:
-	sudo -v
-	while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
-
-brew:
+all: base
 	./setup-shells/homebrew.zsh
-
-casks:
-	./setup-shells/casks.zsh
-
-macos:
-	./setup-shells/mac-os.zsh
-
-symlinks:
-	./setup-shells/symlinks.zsh
-
-opam:
+	./setup-shells/omzsh.zsh
 	./setup-shells/opam.zsh
-
-mas:
+	./setup-shells/casks.zsh
 	./setup-shells/mas.zsh
 
-omzsh:
+minimal: base
+	./setup-shells/homebrew.zsh minimal
 	./setup-shells/omzsh.zsh
+	./setup-shells/opam.zsh     minimal
+	./setup-shells/casks.zsh    minimal
+	./setup-shells/mas.zsh      minimal
+
+base:
+	sudo -v
+	while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
+	./setup-shells/symlinks.zsh
+	./setup-shells/mac-os.zsh
