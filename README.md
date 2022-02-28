@@ -6,6 +6,8 @@
 $ xcode-select --install
 $ git clone https://github.com/paulpatault/dotfiles.git
 $ cd dotfiles
-$ make     # ou: make minimal
-$ nvim     # faire :PackerInstall
+$ make
+$ make [minimal | full]
+$ nvim
+# faire :PackerInstall [+N]
 ```
