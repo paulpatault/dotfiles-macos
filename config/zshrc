@@ -107,6 +107,7 @@ alias gp="git pull"
 alias gP="git push"
 
 #=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# APPS
+alias lmf="cd ~/MPRI/Stage"
 alias lg="lazygit"
 alias spark="open /Applications/Spark.app"
 alias safari="open /Applications/Safari.app"
