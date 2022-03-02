@@ -21,6 +21,7 @@ colordiff
 BREW_ALL=(
 cask
 mas
+folx
 texlab
 node
 mas
