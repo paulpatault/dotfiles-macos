@@ -154,6 +154,11 @@ _G.packer_plugins = {
     path = "/Users/paulpatault/.local/share/nvim/site/pack/packer/start/lualine.nvim",
     url = "https://github.com/hoob3rt/lualine.nvim"
   },
+  neoformat = {
+    loaded = true,
+    path = "/Users/paulpatault/.local/share/nvim/site/pack/packer/start/neoformat",
+    url = "https://github.com/sbdchd/neoformat"
+  },
   ["nvim-cmp"] = {
     loaded = true,
     path = "/Users/paulpatault/.local/share/nvim/site/pack/packer/start/nvim-cmp",
@@ -235,11 +240,6 @@ _G.packer_plugins = {
     path = "/Users/paulpatault/.local/share/nvim/site/pack/packer/start/undotree",
     url = "https://github.com/mbbill/undotree"
   },
-  ["vim-cmake"] = {
-    loaded = true,
-    path = "/Users/paulpatault/.local/share/nvim/site/pack/packer/start/vim-cmake",
-    url = "https://github.com/cdelledonne/vim-cmake"
-  },
   ["vim-floaterm"] = {
     loaded = true,
     path = "/Users/paulpatault/.local/share/nvim/site/pack/packer/start/vim-floaterm",
@@ -289,11 +289,6 @@ _G.packer_plugins = {
     path = "/Users/paulpatault/.local/share/nvim/site/pack/packer/opt/vimtex",
     url = "https://github.com/lervag/vimtex"
   },
-  ["virtual-types.nvim"] = {
-    loaded = true,
-    path = "/Users/paulpatault/.local/share/nvim/site/pack/packer/start/virtual-types.nvim",
-    url = "https://github.com/jubnzv/virtual-types.nvim"
-  },
   ["zen-mode.nvim"] = {
     loaded = true,
     path = "/Users/paulpatault/.local/share/nvim/site/pack/packer/start/zen-mode.nvim",
@@ -307,7 +302,7 @@ vim.cmd [[au!]]
   -- Filetype lazy-loads
 time([[Defining lazy-load filetype autocommands]], true)
 vim.cmd [[au FileType tex ++once lua require("packer.load")({'vimtex'}, { ft = "tex" }, _G.packer_plugins)]]
-vim.cmd [[au FileType md ++once lua require("packer.load")({'vim-unicoder'}, { ft = "md" }, _G.packer_plugins)]]
+vim.cmd [[au FileType markdown ++once lua require("packer.load")({'vim-unicoder'}, { ft = "markdown" }, _G.packer_plugins)]]
 time([[Defining lazy-load filetype autocommands]], false)
 vim.cmd("augroup END")
 vim.cmd [[augroup filetypedetect]]

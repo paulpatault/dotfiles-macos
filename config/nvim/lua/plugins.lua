@@ -33,7 +33,8 @@ return require('packer').startup({
 
     ----- languages -----
     use 'ocaml/vim-ocaml'
-    use 'cdelledonne/vim-cmake'
+    -- use 'cdelledonne/vim-cmake'
+    use 'sbdchd/neoformat'
     -- use 'whonore/Coqtail'
     use 'liuchengxu/graphviz.vim'
 
@@ -41,8 +42,10 @@ return require('packer').startup({
       'lervag/vimtex',
       ft = { 'tex' }
     }
-    -- use 'paulpatault/virtual-types.nvim'
-    use 'jubnzv/virtual-types.nvim'
+    --[[ use {
+      'paulpatault/virtual-types.nvim',
+      ft = { 'ocaml', 'ocaml.interface' }
+    } ]]
 
     ----- telescope -----
     use 'nvim-lua/popup.nvim'
@@ -73,7 +76,7 @@ return require('packer').startup({
     use 'lewis6991/impatient.nvim'
     use {
       'arthurxavierx/vim-unicoder',
-      ft = 'md'
+      ft = 'markdown'
     }
     use 'machakann/vim-sandwich'
     use 'cohama/lexima.vim' -- autopairs

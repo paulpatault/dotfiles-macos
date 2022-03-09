@@ -2,7 +2,7 @@ vim.cmd [[ packadd nvim-treesitter ]]
 
 local parser_config = require('nvim-treesitter.parsers').get_parser_configs()
 
-parser_config.ocaml_interface.filetype_to_parsername = "ocaml.interface"
+parser_config.ocaml_interface.filetype_to_parsername = "ocaml.ocaml_interface"
 parser_config.ocamllex.filetype_to_parsername = "ocaml.ocamllex"
 
 parser_config.menhir = {

@@ -65,7 +65,7 @@ lsp.ocamllsp.setup{
     -- settings = {};
     on_attach = function(client)
       on_attach(client)
-      require('virtualtypes').on_attach()
+      -- require('virtualtypes').on_attach()
     end
 }
 

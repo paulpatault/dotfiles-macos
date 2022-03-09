@@ -101,7 +101,7 @@ local tabW_assoc = {
 local ft_assoc = {
   ['*.md']  = 'markdown',
   ['*.zsh'] = 'sh',
-  ['*.mli'] = 'ocaml.interface',
+  ['*.mli'] = 'ocaml_interface',
   ['*.mly'] = 'ocaml.menhir',
   ['*.mll'] = 'ocaml.ocamllex',
   ['*.ll']  = 'llvm',
@@ -136,7 +136,7 @@ utils.create_augroup({
   {"ColorScheme", "*", "call", "v:lua.setHighlights()"}
 }, "UndercurlDiags")
 
--- OCAML / PYTHON
+-- OCAML
 vim.api.nvim_set_var('python_host_prog', "/usr/bin/python")
 vim.api.nvim_set_var('python3_host_prog', "/opt/homebrew/bin/python3")
 vim.api.nvim_set_var('opamshare', home .. '/.opam/default/share')
@@ -144,10 +144,18 @@ vim.api.nvim_set_var('merlin_python_version', 3)
 utils.add_rtp(home .. '/.opam/default/share/merlin/vim/doc')
 utils.add_rtp(home .. '/.opam/default/share/merlin/vim')
 utils.add_rtp(home .. '/.opam/default/share/merlin/vimbufsync')
--- utils.add_rtp(home .. '/.opam/default/share/ocp-indent/vim')
 
 
--- RELOAD
+-- g.opambin = home .. '/.opam/default/bin'
+
+--[[ g.neoformat_ocaml_ocamlformat = {
+  ['exe'] = g.opambin .. '/ocamlformat',
+  ['no_append']= 1,
+  ['stdin']= 1,
+  ['args']= '--disable-outside-detected-project', '--name', '"%:p"', '-'
+} ]]
+
+-- g.neoformat_enabled_ocaml = 'ocamlformat'
 
 require('plugins')
 require('impatient')

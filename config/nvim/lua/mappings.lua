@@ -29,7 +29,7 @@ local lsp = {
   ['<leader>rn'] = [[vim.lsp.buf.rename()]],
   ['grf'] = [[vim.lsp.buf.references()]],
   ['gd'] = [[vim.lsp.buf.definition()]],
-  -- ['gD'] = [[vim.lsp.buf.implementation()]],
+  ['gD'] = [[vim.lsp.buf.implementation()]],
   ['dc'] = [[vim.lsp.buf.hover()]],
   ['ds'] = [[vim.lsp.buf.signature_help()]],
   ['gT'] = [[vim.lsp.buf.type_definition()]],
@@ -65,4 +65,9 @@ utils.map('n', '<leader>tr', ':TroubleToggle<cr>', options)
 
 -- {{{ vimtex
 utils.map('n', 'tc', ':VimtexCompile<cr>', options)
+-- }}}
+
+-- {{{ format
+utils.map('n', 'ff', ':Neoformat<cr>', options)
+utils.map('v', 'ff', ':Neoformat<cr>', options)
 -- }}}
