@@ -5,6 +5,14 @@ parser_config.ocaml_interface.filetype_to_parsername = "ocaml_interface"
 parser_config.ocamllex.filetype_to_parsername = "ocamllex"
 parser_config.ocaml.filetype_to_parsername = "rml"
 
+parser_config.menhir = {
+  install_info = {
+    url = "https://github.com/emilienlemaire/tree-sitter-menhir",
+    files = { "src/parser.c", "src/scanner.cc" },
+  },
+  filetype = "menhir",
+}
+
 require('nvim-treesitter.configs').setup {
   highlight = {
     enable = true, -- false will disable the whole extension
