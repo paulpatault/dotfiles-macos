@@ -101,9 +101,9 @@ local tabW_assoc = {
 local ft_assoc = {
   ['*.md']  = 'markdown',
   ['*.zsh'] = 'sh',
-  ['*.mli'] = 'ocaml_interface',
-  ['*.mly'] = 'menhir',
-  ['*.mll'] = 'ocamllex',
+  ['*.mli'] = 'ocaml.interface',
+  ['*.mly'] = 'ocaml.menhir',
+  ['*.mll'] = 'ocaml.ocamllex',
   ['*.ll']  = 'llvm',
   ['*.mlw'] = 'why3',
 }

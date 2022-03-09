@@ -31,7 +31,6 @@ return require('packer').startup({
     use 'hrsh7th/vim-vsnip'
     use 'kdheepak/cmp-latex-symbols'
 
-
     ----- languages -----
     use 'ocaml/vim-ocaml'
     use 'cdelledonne/vim-cmake'
@@ -66,10 +65,8 @@ return require('packer').startup({
       requires = {'kyazdani42/nvim-web-devicons', opt = true}
     }
     use 'lilydjwg/colorizer'
-    -- use 'ELLIOTTCABLE/vim-menhir'
-    --     -- use 'ELLIOTTCABLE/vim-menhir'
     use 'emilienlemaire/tree-sitter-menhir'
-
+    -- use 'ELLIOTTCABLE/vim-menhir'
 
     ----- utils -----
     use 'wellle/targets.vim'

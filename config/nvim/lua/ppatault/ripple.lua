@@ -1,6 +1,6 @@
 vim.g.ripple_repls = {
   rml = {
-    command = "rmltop",
+    command = "rmltop", -- yrip / yR
     post = ";;",
     addcr  = 1
   },

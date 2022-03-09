@@ -55,12 +55,12 @@ lsp.clangd.setup{
 
 lsp.ocamllsp.setup{
     cmd = { 'ocamllsp' };
-    filetypes = {"ocaml", "ocaml_interface", "ocamllex"};
+    filetypes = {"ocaml", "ocaml.interface", "ocaml.ocamllex", "ocaml.menhir"};
     root_dir = function(fname)
       return
         lsp.util.find_git_ancestor(fname)
         or vim.loop.os_homedir()
-        or util.root_pattern("*.opam", "esy.json", "package.json", ".git")
+        or util.root_pattern("*.opam", ".git", "dune-project")
       end;
     -- settings = {};
     on_attach = function(client)
