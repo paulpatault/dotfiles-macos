@@ -106,6 +106,7 @@ local ft_assoc = {
   ['*.mll'] = 'ocaml.ocamllex',
   ['*.ll']  = 'llvm',
   ['*.mlw'] = 'why3',
+  ['*.mp'] = 'patmat',
 }
 
 local ftTable = {}
