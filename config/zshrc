@@ -3,7 +3,7 @@ export ZSH="/Users/paulpatault/.oh-my-zsh"
 source $ZSH/oh-my-zsh.sh
 
 #=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# CONFIG
-# CASE_SENSITIVE="true"
+CASE_SENSITIVE="true"
 # COMPLETION_WAITING_DOTS="true"
 
 export EDITOR='nvim'
@@ -81,6 +81,7 @@ alias icat="kitty +kitten icat"
 
 #=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# SHORT
 alias v="nvim"
+alias e="nvim"
 alias vi="nvim"
 alias vim="nvim"
 alias diff="colordiff"
@@ -107,13 +108,17 @@ alias gp="git pull"
 alias gP="git push"
 
 #=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# APPS
-alias lmf="cd ~/MPRI/Stage"
-alias lg="lazygit"
 alias spark="open /Applications/Spark.app"
 alias safari="open /Applications/Safari.app"
 alias discord="open /Applications/Discord.app"
 alias whatsapp="open /Applications/WhatsApp.app"
 alias todo="open /Applications/Microsoft\ To\ Do.app"
+alias slack="open /Applications/Slack.app"
+
+#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# AUTRE
+alias upall="brew update && brew upgrade && opam update -y && opam upgrade -y"
+alias lmf="cd ~/MPRI/Stage"
+alias lg="lazygit"
 
 #=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# OCAML
 export OCAMLRUNPARAM=b

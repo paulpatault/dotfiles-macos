@@ -1,5 +1,6 @@
 # open terminal
 cmd - return : /Applications/Kitty.app/Contents/MacOS/kitty --single-instance -d ~ &> /dev/null
+cmd - m : open /Applications/Spark.app
 
 # focus window
 ctrl - h : yabai -m window --focus west
