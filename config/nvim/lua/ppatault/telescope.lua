@@ -20,15 +20,6 @@ local tbl  = {
   ['mll']     = 'ocamllex',
   ['mlw']     = 'why3',
   ['lus,ept'] = 'lustre',
-  ['imp']     = 'imp',
-  ['pimp']    = 'imp',
-  ['pmimp']   = 'imp',
-  ['kawa']    = 'kawa',
-  ['vips']    = 'asm',
-  ['vipsopt'] = 'asm',
-  ['gips']    = 'asm',
-  ['gipsopt'] = 'asm',
-  ['rml']     = 'rml'
 }
 
 require('plenary.filetype').add_file(tbl)
