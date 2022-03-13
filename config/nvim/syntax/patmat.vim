@@ -6,11 +6,11 @@ syn clear
 
 syn case ignore
 
-syn keyword patmatStatement  match with of when type
+syn keyword patmatStatement  match with of when type let fun
 
 syn match   patmatDelimiter  "[()]"
 syn region  patmatComment    start="/\*"  end="\*/"
-syn keyword patmatType       int action
+syn keyword patmatType       int action string
 syn match   patmatOperator   "->" "|" "="
 
 syn sync lines=250

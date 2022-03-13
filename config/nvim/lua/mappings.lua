@@ -30,8 +30,8 @@ local lsp = {
   ['grf'] = [[vim.lsp.buf.references()]],
   ['gd'] = [[vim.lsp.buf.definition()]],
   ['gD'] = [[vim.lsp.buf.implementation()]],
-  -- ['dc'] = [[vim.lsp.buf.hover()]],
-  ['dc'] = [[vim.lsp.buf.signature_help()]],
+  ['dc'] = [[vim.lsp.buf.hover()]],
+  ['ds'] = [[vim.lsp.buf.signature_help()]],
   ['gT'] = [[vim.lsp.buf.type_definition()]],
   -- ['gf'] = [[vim.lsp.buf.formatting()]],
   ['dl'] = [[vim.diagnostic.open_float()]],
@@ -66,6 +66,10 @@ utils.map('n', '<leader>tr', ':TroubleToggle<cr>', options)
 
 -- {{{ vimtex
 utils.map('n', 'tc', ':VimtexCompile<cr>', options)
+-- }}}
+
+-- {{{ ocaml
+utils.map('n', '<leader>d', 'i<cr><esc>kaif debug then Format.eprintf "%a@." ;<esc>i', options)
 -- }}}
 
 -- {{{ format
