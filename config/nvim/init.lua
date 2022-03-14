@@ -11,7 +11,7 @@ g.mapleader = ' '
 g.langmenu = [[en_US.UTF-8]]
 
 g.gruvbox_invert_selection = false
-g.background = [[dark]]
+o.background = [[dark]]
 
 g.vimtex_compiler_progname = 'nvr'
 
@@ -56,6 +56,7 @@ w.wrap = false
 o.encoding = 'utf-8'
 
 o.termguicolors = true
+vim.opt.termguicolors = true
 
 o.clipboard = [[unnamed,unnamedplus]]
 
