@@ -10,7 +10,7 @@ kommentary_conf.configure_language("ocaml_interface", {
     multi_line_comment_strings = {"(*", "*)"},
 })
 
-kommentary_conf.configure_language("rml", {
+kommentary_conf.configure_language("patmat", {
     prefer_multi_line_comments = true,
     multi_line_comment_strings = {"(*", "*)"},
 })
