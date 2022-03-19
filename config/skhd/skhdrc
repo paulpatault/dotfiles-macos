@@ -1,7 +1,7 @@
 # open terminal
 cmd - return : /Applications/Kitty.app/Contents/MacOS/kitty --single-instance -d ~ &> /dev/null
-ctrl - m : open /Applications/Spark.app
-ctrl - s : open /Applications/Safari.app
+# ctrl - m : open /Applications/Spark.app
+# ctrl - s : open /Applications/Safari.app
 
 # focus window
 ctrl - h : yabai -m window --focus west
@@ -31,14 +31,14 @@ cmd + ctrl - n : yabai -m space --create && \
 cmd + ctrl - w : yabai -m space --destroy
 
 # fast focus desktop
-shift + ctrl - n : yabai -m space --focus prev || skhd -k "ctrl + alt + cmd - z"
-        ctrl - n : yabai -m space --focus next || skhd -k "ctrl + alt + cmd - c"
-shift + ctrl - a : yabai -m space --focus  1 || skhd -k "ctrl + alt + cmd - 1"
-shift + ctrl - z : yabai -m space --focus  2 || skhd -k "ctrl + alt + cmd - 2"
-shift + ctrl - e : yabai -m space --focus  3 || skhd -k "ctrl + alt + cmd - 3"
-shift + ctrl - r : yabai -m space --focus  4 || skhd -k "ctrl + alt + cmd - 4"
-shift + ctrl - t : yabai -m space --focus  5 || skhd -k "ctrl + alt + cmd - 5"
-shift + ctrl - y : yabai -m space --focus  6 || skhd -k "ctrl + alt + cmd - 6"
+# shift + ctrl - n : yabai -m space --focus prev || skhd -k "ctrl + alt + cmd - z"
+#         ctrl - n : yabai -m space --focus next || skhd -k "ctrl + alt + cmd - c"
+alt - a : yabai -m space --focus  1 || skhd -k "ctrl + alt + cmd - 1"
+alt - z : yabai -m space --focus  2 || skhd -k "ctrl + alt + cmd - 2"
+alt - e : yabai -m space --focus  3 || skhd -k "ctrl + alt + cmd - 3"
+alt - r : yabai -m space --focus  4 || skhd -k "ctrl + alt + cmd - 4"
+alt - t : yabai -m space --focus  5 || skhd -k "ctrl + alt + cmd - 5"
+alt - y : yabai -m space --focus  6 || skhd -k "ctrl + alt + cmd - 6"
 
 # rotate tree
 alt - r : yabai -m space --rotate 90
