@@ -138,6 +138,7 @@ utils.create_augroup({
   {"ColorScheme", "*", "call", "v:lua.setHighlights()"}
 }, "UndercurlDiags")
 
+
 -- OCAML
 vim.api.nvim_set_var('python_host_prog', "/usr/bin/python")
 vim.api.nvim_set_var('python3_host_prog', "/opt/homebrew/bin/python3")
@@ -195,4 +196,4 @@ RELOADER()
 
 cmd [[colorscheme gruvbox]]
 
-cmd [[set nohlsearch]]
+-- cmd [[set nohlsearch]]

@@ -33,10 +33,9 @@ return require('packer').startup({
 
     ----- languages -----
     use 'ocaml/vim-ocaml'
-    -- use 'cdelledonne/vim-cmake'
     use 'sbdchd/neoformat'
-    -- use 'whonore/Coqtail'
     use 'liuchengxu/graphviz.vim'
+    -- use 'whonore/Coqtail'
 
     use {
       'lervag/vimtex',
