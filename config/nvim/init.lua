@@ -8,12 +8,9 @@ local utils = require('utils')
 local cmd = vim.cmd
 
 g.mapleader = ' '
-g.langmenu = [[en_US.UTF-8]]
+g.langmenu = "en_US.UTF-8"
 
-g.gruvbox_invert_selection = false
-o.background = [[dark]]
-
-g.vimtex_compiler_progname = 'nvr'
+o.background = "dark"
 
 vim.opt.guicursor = 'i:block'
 
@@ -58,7 +55,7 @@ o.encoding = 'utf-8'
 o.termguicolors = true
 vim.opt.termguicolors = true
 
-o.clipboard = [[unnamed,unnamedplus]]
+o.clipboard = "unnamed,unnamedplus"
 
 o.scrolloff = 8
 
@@ -66,7 +63,7 @@ o.timeoutlen = 300
 
 o.mouse = 'a'
 
-o.completeopt = [[menuone,noinsert,noselect]]
+o.completeopt = "menuone,noinsert,noselect"
 
 -- General mappings, not depending on any plugins
 local n_map_tbl = {

@@ -16,6 +16,7 @@ g.markdown_fenced_languages = {
 
 
 -- {{ Vimtex
+g.vimtex_compiler_progname = "nvr"
 g.tex_flavor = 'latex'
 g.vimtex_compiler_latexmk = {
   options = {
@@ -34,3 +35,7 @@ vim.g.jupytext_fmt = 'py'
 vim.g.jupytext_style = 'hydrogen'
 -- vim.g.ripple_winpos = 'split' -- or vertical
 -- }}
+--
+
+g.gruvbox_contrast_dark = "hard"
+g.gruvbox_invert_selection = false
