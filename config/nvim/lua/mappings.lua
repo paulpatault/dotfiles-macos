@@ -69,7 +69,7 @@ utils.map('n', 'tc', ':VimtexCompile<cr>', options)
 -- }}}
 
 -- {{{ ocaml
-function Switchml(x)
+function Switcher_ml(x)
   local filename = vim.fn.expand('%:t:r')
   if x then
     vim.cmd (":ML " .. filename)
@@ -78,9 +78,11 @@ function Switchml(x)
   end
 end
 
+utils.map('n', '<leader>af', 'a assert false<esc>', options)
+utils.map('n', '<leader>aft', 'a assert false (* TODO *)<esc>', options)
 utils.map('n', '<leader>d', 'i<cr><esc>kaif debug then Format.eprintf "%a@." ;<esc>i', options)
-utils.map_lua('n', 'ml', "Switchml(true)", {})
-utils.map_lua('n', 'mli', "Switchml(false)", {})
+utils.map_lua('n', 'ml', "Switcher_ml(true)", options)
+utils.map_lua('n', 'mli', "Switcher_ml(false)", options)
 -- }}}
 
 -- {{{ format
