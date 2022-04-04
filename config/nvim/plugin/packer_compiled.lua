@@ -109,6 +109,11 @@ _G.packer_plugins = {
     path = "/Users/paulpatault/.local/share/nvim/site/pack/packer/start/colorizer",
     url = "https://github.com/lilydjwg/colorizer"
   },
+  ["github-nvim-theme"] = {
+    loaded = true,
+    path = "/Users/paulpatault/.local/share/nvim/site/pack/packer/start/github-nvim-theme",
+    url = "https://github.com/projekt0n/github-nvim-theme"
+  },
   ["graphviz.vim"] = {
     loaded = true,
     path = "/Users/paulpatault/.local/share/nvim/site/pack/packer/start/graphviz.vim",
@@ -301,8 +306,8 @@ vim.cmd [[augroup packer_load_aucmds]]
 vim.cmd [[au!]]
   -- Filetype lazy-loads
 time([[Defining lazy-load filetype autocommands]], true)
-vim.cmd [[au FileType markdown ++once lua require("packer.load")({'vim-unicoder'}, { ft = "markdown" }, _G.packer_plugins)]]
 vim.cmd [[au FileType tex ++once lua require("packer.load")({'vimtex'}, { ft = "tex" }, _G.packer_plugins)]]
+vim.cmd [[au FileType markdown ++once lua require("packer.load")({'vim-unicoder'}, { ft = "markdown" }, _G.packer_plugins)]]
 time([[Defining lazy-load filetype autocommands]], false)
 vim.cmd("augroup END")
 vim.cmd [[augroup filetypedetect]]
