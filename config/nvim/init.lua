@@ -77,6 +77,7 @@ local n_map_tbl = {
   ['<A-S-Tab>']   = {'n', [[:tabprev<cr>]], {noremap = true}},
   ['J']           = {'v', [[:m '>+1<cr>gv=gv]], {noremap = true}},
   ['K']           = {'v', [[:m '<-2<cr>gv=gv]], {noremap = true}},
+  ['<esc><esc>']  = {'n', [[:noh<cr>]], {noremap = true, silent = true} }
 }
 
 for key, value in pairs(n_map_tbl) do
@@ -93,20 +94,20 @@ local tabW_assoc = {
   ['lua']             = '2',
   ['kawa']            = '2',
   ['ocaml']           = '2',
-  ['ocaml_interface'] = '2',
+  -- ['ocaml_interface'] = '2',
   ['ocamllex']        = '2',
   ['menhir']          = '2',
   ['why3']            = '2'
 }
 
 local ft_assoc = {
-  ['*.md']  = 'markdown',
+  -- ['*.md']  = 'markdown',
   ['*.zsh'] = 'sh',
-  ['*.mli'] = 'ocaml_interface',
-  ['*.mly'] = 'ocaml.menhir',
-  ['*.mll'] = 'ocaml.ocamllex',
-  ['*.ll']  = 'llvm',
-  ['*.mlw'] = 'why3',
+  -- ['*.mli'] = 'ocaml_interface',
+  -- ['*.mly'] = 'ocaml.menhir',
+  -- ['*.mll'] = 'ocaml.ocamllex',
+  -- ['*.ll']  = 'llvm',
+  -- ['*.mlw'] = 'why3',
   ['*.mp'] = 'patmat',
 }
 
@@ -181,7 +182,7 @@ R('nvim-web-devicons').setup()
 R('lspkind').init()
 RELOADER = function()
   R('ppatault.nvim-cmp')
-  R('ppatault.treesitter')
+  -- R('ppatault.treesitter')
   R('ppatault.statusline')
   R('ppatault.plenary')
   R('ppatault.telescope')
