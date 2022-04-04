@@ -41,10 +41,6 @@ return require('packer').startup({
       'lervag/vimtex',
       ft = { 'tex' }
     }
-    --[[ use {
-      'paulpatault/virtual-types.nvim',
-      ft = { 'ocaml', 'ocaml.interface' }
-    } ]]
 
     ----- telescope -----
     use 'nvim-lua/popup.nvim'
@@ -68,7 +64,7 @@ return require('packer').startup({
     }
     use 'lilydjwg/colorizer'
     use 'emilienlemaire/tree-sitter-menhir'
-    -- use 'ELLIOTTCABLE/vim-menhir'
+    use "projekt0n/github-nvim-theme"
 
     ----- utils -----
     use 'wellle/targets.vim'
