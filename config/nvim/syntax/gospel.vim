@@ -8,7 +8,7 @@
 " You can put this file in your .vim/syntax, and you have to modify (or create)
 " .vim/after/syntax/c.vim and copy these lines :
 "
-" syn include @GOSPEL syntax/Gospel.vim
+" syn include @GOSPEL syntax/gospel.vim
 " syn region GospelComment matchgroup=GospelComment start="(\*@"rs=e-1 end="\*)" contains=@GOSPEL
 "
 " so you use the normal OCaml syntax highlighting,
@@ -43,8 +43,8 @@ syn keyword GospelKeyword2 variant
 syn keyword GospelKeyword2 predicate
 
 syn match   GospelSymbol   /<->/
-syn match   GospelSymbol   /->/
-syn match   GospelSymbol   /<-/
+" syn match   GospelSymbol   /->/
+" syn match   GospelSymbol   /<-/
 syn match   GospelSymbol   /\\\//
 syn match   GospelSymbol   /\/\\/
 
