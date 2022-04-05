@@ -89,3 +89,16 @@ utils.map_lua('n', 'mli', "Switcher_ml(false)", options)
 utils.map('n', 'ff', ':Neoformat<cr>', options)
 utils.map('v', 'ff', ':Neoformat<cr>', options)
 -- }}}
+--
+
+-- {{ general
+utils.map('n', '<leader>sp', [[:setlocal spell!<cr>]], {noremap = true, silent = true})
+utils.map('n', '<leader>sc', [[:luafile ~/.config/nvim/init.lua<cr>]], {noremap = true})
+utils.map('n', '<leader>rt', [[:%s/\s\+$//e<cr>]], {noremap = true})
+utils.map('n', '<A-Tab>',    [[:tabnext<cr>]], {noremap = true})
+utils.map('n', '<A-S-Tab>',  [[:tabprev<cr>]], {noremap = true})
+utils.map('v', 'J',  [[:m '>+1<cr>gv=gv]], {noremap = true})
+utils.map('v', 'K',  [[:m '<-2<cr>gv=gv]], {noremap = true})
+utils.map('n', '<esc><esc>',  [[:noh<cr>]], {noremap = true})
+utils.map_lua('n', '<leader>w', "utils.Wrap_toogle()", {noremap = true, silent = true})
+-- }}

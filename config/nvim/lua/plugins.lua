@@ -55,15 +55,21 @@ return require('packer').startup({
     use 'nvim-telescope/telescope-file-browser.nvim'
 
     ----- theme -----
-    use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
+    use {
+      'nvim-treesitter/nvim-treesitter',
+      run = ':TSUpdate',
+      ft = { 'tex', 'c', 'cpp', 'python', 'lua', 'html', 'css' }
+    }
+
     use 'morhetz/gruvbox'
+    use 'shaunsingh/solarized.nvim'
     use 'kyazdani42/nvim-web-devicons'
     use {
       'hoob3rt/lualine.nvim',
       requires = {'kyazdani42/nvim-web-devicons', opt = true}
     }
     use 'lilydjwg/colorizer'
-    use 'emilienlemaire/tree-sitter-menhir'
+    -- use 'emilienlemaire/tree-sitter-menhir'
     -- use "projekt0n/github-nvim-theme"
 
     ----- utils -----
