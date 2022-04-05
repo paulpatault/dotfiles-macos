@@ -14,15 +14,10 @@ end
 
 reloader()
 
-local tbl  = {
+require('plenary.filetype').add_file({
   ['md']      = 'markdown',
-  ['mli']     = 'ocaml_interface',
-  ['mll']     = 'ocamllex',
   ['mlw']     = 'why3',
-  ['lus,ept'] = 'lustre',
-}
-
-require('plenary.filetype').add_file(tbl)
+  ['lus,ept'] = 'lustre'})
 
 require('telescope').setup{
   defaults = {
@@ -30,7 +25,7 @@ require('telescope').setup{
       'fzf'
     }, ]]
     file_ignore_patterns = {
-      [[undodir/%.*]],
+      [[undo/%.*]],
       [[_build/*]],
       [[%.cmo]],
       [[%.cmi]],
