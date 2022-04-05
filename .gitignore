@@ -8,3 +8,4 @@ undodir
 .config/gtk-2.0/gtkfilechooser.ini
 
 .config/nvim/plugin/packer_compiled.lua
+config/nvim/undo
