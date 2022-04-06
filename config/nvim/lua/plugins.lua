@@ -62,7 +62,6 @@ return require('packer').startup({
     }
 
     use 'morhetz/gruvbox'
-    use 'effkay/argonaut.vim'
     use 'kyazdani42/nvim-web-devicons'
     use {
       'hoob3rt/lualine.nvim',
