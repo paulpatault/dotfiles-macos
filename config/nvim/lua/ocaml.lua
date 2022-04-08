@@ -7,3 +7,6 @@ vim.api.nvim_set_var('merlin_python_version', 3)
 utils.add_rtp(home .. '/.opam/default/share/merlin/vim/doc')
 utils.add_rtp(home .. '/.opam/default/share/merlin/vim')
 utils.add_rtp(home .. '/.opam/default/share/merlin/vimbufsync')
+
+-- utils.add_rtp('/opt/homebrew/opt/fzf')
+

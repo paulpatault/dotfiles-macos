@@ -57,6 +57,7 @@ end
 
 function M.reload_plugins()
     cmd [[luafile ~/.config/nvim/lua/plugins.lua]]
+    local packer = require('packer')
     packer.sync()
     packer.compile()
 end

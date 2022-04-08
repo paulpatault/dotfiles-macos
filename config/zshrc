@@ -126,3 +126,5 @@ alias lg="lazygit"
 #=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# OCAML
 export OCAMLRUNPARAM=b
 eval $(opam env)
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
