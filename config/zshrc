@@ -4,7 +4,6 @@ source $ZSH/oh-my-zsh.sh
 
 #=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# CONFIG
 CASE_SENSITIVE="true"
-# COMPLETION_WAITING_DOTS="true"
 
 export EDITOR='nvim'
 export OPAMEDITOR='nvim'
@@ -30,7 +29,6 @@ kitty + complete setup zsh | source /dev/stdin
 
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-# source /opt/homebrew/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 
 
 #=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# PATH
@@ -60,7 +58,7 @@ zstyle :prompt:pure:prompt:error color '#D73232'
 prompt pure
 
 #=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# ALIAS
-function exa_cmd {
+ex () {
     if [ "$1" != "" ]
     then
         exa --tree --icons --level=$*
@@ -69,7 +67,6 @@ function exa_cmd {
     fi
 }
 
-alias ex=exa_cmd
 alias wr3="curl wttr.in\?format=3"
 alias wr="curl wttr.in"
 
@@ -89,16 +86,20 @@ alias vi="nvim"
 alias vim="nvim"
 alias diff="colordiff"
 
+alias l="exa -la"
+alias ls="exa -G"
+
 #=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# ZSHRC
 alias ec="nvim ~/.zshrc"
 alias sc="source ~/.zshrc"
 
 #=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# GIT
+alias lg="lazygit"
+
 alias g="git"
 alias ga="git add"
 alias gaa="git add --all"
 alias gb="git branch"
-alias gbd="git branch -d"
 alias gd="git diff"
 alias gs="git status"
 alias gl="git log"
@@ -107,21 +108,19 @@ alias gch="git checkout"
 alias gco="git commit"
 alias gc="git clone"
 alias gcom="git commit -m"
-alias gp="git pull"
-alias gP="git push"
+alias p="git pull"
+alias gP="git pull"
 
 #=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# APPS
-alias spark="open /Applications/Spark.app"
-alias safari="open /Applications/Safari.app"
-alias discord="open /Applications/Discord.app"
-alias whatsapp="open /Applications/WhatsApp.app"
-alias todo="open /Applications/Microsoft\ To\ Do.app"
-alias slack="open /Applications/Slack.app"
+# alias spark="open /Applications/Spark.app"
+# alias safari="open /Applications/Safari.app"
+# alias discord="open /Applications/Discord.app"
+# alias whatsapp="open /Applications/WhatsApp.app"
+# alias todo="open /Applications/Microsoft\ To\ Do.app"
+# alias slack="open /Applications/Slack.app"
 
 #=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# AUTRE
 alias upall="brew update && brew upgrade && opam update -y && opam upgrade -y"
-alias lmf="cd ~/MPRI/Stage"
-alias lg="lazygit"
 
 #=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# OCAML
 export OCAMLRUNPARAM=b
