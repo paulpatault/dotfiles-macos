@@ -17,6 +17,7 @@ utils.map_lua('n', '<leader>gf' , [[require('telescope.builtin').git_files()]], 
 utils.map_lua('n', '<leader>rg' , [[require('telescope.builtin').live_grep()]], options)
 utils.map_lua('n', '<leader>fb' , [[require('telescope').extensions.file_browser.file_browser()]], options)
 
+utils.map('n', '<leader>te'  , [[:Telescope<cr>]], options)
 -- }}}
 
 -- {{{ lsp
