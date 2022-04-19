@@ -1,5 +1,5 @@
-require('plugins')
-require('impatient')
+local _ = require('plugins')
+local _ = require('impatient')
 
 local ok, res = pcall(function() require('lsp_config') end)
 
