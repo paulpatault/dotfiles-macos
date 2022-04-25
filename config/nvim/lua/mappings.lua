@@ -73,6 +73,8 @@ utils.map('n', '<A-S-Tab>',  [[:tabprev<cr>]], {noremap = true})
 utils.map('v', 'J',  [[:m '>+1<cr>gv=gv]], {noremap = true})
 utils.map('v', 'K',  [[:m '<-2<cr>gv=gv]], {noremap = true})
 utils.map('n', '<esc><esc>',  [[:noh<cr>]], {noremap = true})
+
+utils.map('n', '<leader>i', [[i~$$<esc>i]], options)
 utils.map_lua('n', '<leader>w', "utils.Wrap_toogle()", options)
 
 

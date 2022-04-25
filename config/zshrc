@@ -86,6 +86,8 @@ alias vi="nvim"
 alias vim="nvim"
 alias diff="colordiff"
 
+s () { cd $HOME/stage }
+
 alias l="exa -la"
 alias ls="exa -G"
 
@@ -108,8 +110,8 @@ alias gch="git checkout"
 alias gco="git commit"
 alias gc="git clone"
 alias gcom="git commit -m"
+alias u="git pull"
 alias p="git pull"
-alias gP="git pull"
 
 #=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# APPS
 # alias spark="open /Applications/Spark.app"
