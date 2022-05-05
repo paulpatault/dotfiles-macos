@@ -109,11 +109,6 @@ _G.packer_plugins = {
     path = "/Users/paulpatault/.local/share/nvim/site/pack/packer/start/colorizer",
     url = "https://github.com/lilydjwg/colorizer"
   },
-  darkspectrum = {
-    loaded = true,
-    path = "/Users/paulpatault/.local/share/nvim/site/pack/packer/start/darkspectrum",
-    url = "https://github.com/jeremycw/darkspectrum"
-  },
   ["graphviz.vim"] = {
     loaded = true,
     path = "/Users/paulpatault/.local/share/nvim/site/pack/packer/start/graphviz.vim",
@@ -176,7 +171,7 @@ _G.packer_plugins = {
   },
   ["nvim-treesitter"] = {
     loaded = false,
-    needs_bufread = true,
+    needs_bufread = false,
     only_cond = false,
     path = "/Users/paulpatault/.local/share/nvim/site/pack/packer/opt/nvim-treesitter",
     url = "https://github.com/nvim-treesitter/nvim-treesitter"
@@ -303,14 +298,14 @@ vim.cmd [[augroup packer_load_aucmds]]
 vim.cmd [[au!]]
   -- Filetype lazy-loads
 time([[Defining lazy-load filetype autocommands]], true)
-vim.cmd [[au FileType python ++once lua require("packer.load")({'nvim-treesitter'}, { ft = "python" }, _G.packer_plugins)]]
-vim.cmd [[au FileType cpp ++once lua require("packer.load")({'nvim-treesitter'}, { ft = "cpp" }, _G.packer_plugins)]]
 vim.cmd [[au FileType css ++once lua require("packer.load")({'nvim-treesitter'}, { ft = "css" }, _G.packer_plugins)]]
+vim.cmd [[au FileType markdown ++once lua require("packer.load")({'vim-unicoder'}, { ft = "markdown" }, _G.packer_plugins)]]
+vim.cmd [[au FileType c ++once lua require("packer.load")({'nvim-treesitter'}, { ft = "c" }, _G.packer_plugins)]]
 vim.cmd [[au FileType html ++once lua require("packer.load")({'nvim-treesitter'}, { ft = "html" }, _G.packer_plugins)]]
 vim.cmd [[au FileType lua ++once lua require("packer.load")({'nvim-treesitter'}, { ft = "lua" }, _G.packer_plugins)]]
-vim.cmd [[au FileType c ++once lua require("packer.load")({'nvim-treesitter'}, { ft = "c" }, _G.packer_plugins)]]
-vim.cmd [[au FileType tex ++once lua require("packer.load")({'vimtex', 'nvim-treesitter'}, { ft = "tex" }, _G.packer_plugins)]]
-vim.cmd [[au FileType markdown ++once lua require("packer.load")({'vim-unicoder'}, { ft = "markdown" }, _G.packer_plugins)]]
+vim.cmd [[au FileType cpp ++once lua require("packer.load")({'nvim-treesitter'}, { ft = "cpp" }, _G.packer_plugins)]]
+vim.cmd [[au FileType python ++once lua require("packer.load")({'nvim-treesitter'}, { ft = "python" }, _G.packer_plugins)]]
+vim.cmd [[au FileType tex ++once lua require("packer.load")({'nvim-treesitter', 'vimtex'}, { ft = "tex" }, _G.packer_plugins)]]
 time([[Defining lazy-load filetype autocommands]], false)
 vim.cmd("augroup END")
 vim.cmd [[augroup filetypedetect]]
@@ -323,75 +318,6 @@ time([[Sourcing ftdetect script at: /Users/paulpatault/.local/share/nvim/site/pa
 time([[Sourcing ftdetect script at: /Users/paulpatault/.local/share/nvim/site/pack/packer/opt/vimtex/ftdetect/tikz.vim]], true)
 vim.cmd [[source /Users/paulpatault/.local/share/nvim/site/pack/packer/opt/vimtex/ftdetect/tikz.vim]]
 time([[Sourcing ftdetect script at: /Users/paulpatault/.local/share/nvim/site/pack/packer/opt/vimtex/ftdetect/tikz.vim]], false)
-time([[Sourcing ftdetect script at: /Users/paulpatault/.local/share/nvim/site/pack/packer/opt/nvim-treesitter/ftdetect/cooklang.vim]], true)
-vim.cmd [[source /Users/paulpatault/.local/share/nvim/site/pack/packer/opt/nvim-treesitter/ftdetect/cooklang.vim]]
-time([[Sourcing ftdetect script at: /Users/paulpatault/.local/share/nvim/site/pack/packer/opt/nvim-treesitter/ftdetect/cooklang.vim]], false)
-time([[Sourcing ftdetect script at: /Users/paulpatault/.local/share/nvim/site/pack/packer/opt/nvim-treesitter/ftdetect/fusion.vim]], true)
-vim.cmd [[source /Users/paulpatault/.local/share/nvim/site/pack/packer/opt/nvim-treesitter/ftdetect/fusion.vim]]
-time([[Sourcing ftdetect script at: /Users/paulpatault/.local/share/nvim/site/pack/packer/opt/nvim-treesitter/ftdetect/fusion.vim]], false)
-time([[Sourcing ftdetect script at: /Users/paulpatault/.local/share/nvim/site/pack/packer/opt/nvim-treesitter/ftdetect/gdresource.vim]], true)
-vim.cmd [[source /Users/paulpatault/.local/share/nvim/site/pack/packer/opt/nvim-treesitter/ftdetect/gdresource.vim]]
-time([[Sourcing ftdetect script at: /Users/paulpatault/.local/share/nvim/site/pack/packer/opt/nvim-treesitter/ftdetect/gdresource.vim]], false)
-time([[Sourcing ftdetect script at: /Users/paulpatault/.local/share/nvim/site/pack/packer/opt/nvim-treesitter/ftdetect/gdscript.vim]], true)
-vim.cmd [[source /Users/paulpatault/.local/share/nvim/site/pack/packer/opt/nvim-treesitter/ftdetect/gdscript.vim]]
-time([[Sourcing ftdetect script at: /Users/paulpatault/.local/share/nvim/site/pack/packer/opt/nvim-treesitter/ftdetect/gdscript.vim]], false)
-time([[Sourcing ftdetect script at: /Users/paulpatault/.local/share/nvim/site/pack/packer/opt/nvim-treesitter/ftdetect/glimmer.vim]], true)
-vim.cmd [[source /Users/paulpatault/.local/share/nvim/site/pack/packer/opt/nvim-treesitter/ftdetect/glimmer.vim]]
-time([[Sourcing ftdetect script at: /Users/paulpatault/.local/share/nvim/site/pack/packer/opt/nvim-treesitter/ftdetect/glimmer.vim]], false)
-time([[Sourcing ftdetect script at: /Users/paulpatault/.local/share/nvim/site/pack/packer/opt/nvim-treesitter/ftdetect/glsl.vim]], true)
-vim.cmd [[source /Users/paulpatault/.local/share/nvim/site/pack/packer/opt/nvim-treesitter/ftdetect/glsl.vim]]
-time([[Sourcing ftdetect script at: /Users/paulpatault/.local/share/nvim/site/pack/packer/opt/nvim-treesitter/ftdetect/glsl.vim]], false)
-time([[Sourcing ftdetect script at: /Users/paulpatault/.local/share/nvim/site/pack/packer/opt/nvim-treesitter/ftdetect/gowork.vim]], true)
-vim.cmd [[source /Users/paulpatault/.local/share/nvim/site/pack/packer/opt/nvim-treesitter/ftdetect/gowork.vim]]
-time([[Sourcing ftdetect script at: /Users/paulpatault/.local/share/nvim/site/pack/packer/opt/nvim-treesitter/ftdetect/gowork.vim]], false)
-time([[Sourcing ftdetect script at: /Users/paulpatault/.local/share/nvim/site/pack/packer/opt/nvim-treesitter/ftdetect/graphql.vim]], true)
-vim.cmd [[source /Users/paulpatault/.local/share/nvim/site/pack/packer/opt/nvim-treesitter/ftdetect/graphql.vim]]
-time([[Sourcing ftdetect script at: /Users/paulpatault/.local/share/nvim/site/pack/packer/opt/nvim-treesitter/ftdetect/graphql.vim]], false)
-time([[Sourcing ftdetect script at: /Users/paulpatault/.local/share/nvim/site/pack/packer/opt/nvim-treesitter/ftdetect/hack.vim]], true)
-vim.cmd [[source /Users/paulpatault/.local/share/nvim/site/pack/packer/opt/nvim-treesitter/ftdetect/hack.vim]]
-time([[Sourcing ftdetect script at: /Users/paulpatault/.local/share/nvim/site/pack/packer/opt/nvim-treesitter/ftdetect/hack.vim]], false)
-time([[Sourcing ftdetect script at: /Users/paulpatault/.local/share/nvim/site/pack/packer/opt/nvim-treesitter/ftdetect/hcl.vim]], true)
-vim.cmd [[source /Users/paulpatault/.local/share/nvim/site/pack/packer/opt/nvim-treesitter/ftdetect/hcl.vim]]
-time([[Sourcing ftdetect script at: /Users/paulpatault/.local/share/nvim/site/pack/packer/opt/nvim-treesitter/ftdetect/hcl.vim]], false)
-time([[Sourcing ftdetect script at: /Users/paulpatault/.local/share/nvim/site/pack/packer/opt/nvim-treesitter/ftdetect/heex.vim]], true)
-vim.cmd [[source /Users/paulpatault/.local/share/nvim/site/pack/packer/opt/nvim-treesitter/ftdetect/heex.vim]]
-time([[Sourcing ftdetect script at: /Users/paulpatault/.local/share/nvim/site/pack/packer/opt/nvim-treesitter/ftdetect/heex.vim]], false)
-time([[Sourcing ftdetect script at: /Users/paulpatault/.local/share/nvim/site/pack/packer/opt/nvim-treesitter/ftdetect/hjson.vim]], true)
-vim.cmd [[source /Users/paulpatault/.local/share/nvim/site/pack/packer/opt/nvim-treesitter/ftdetect/hjson.vim]]
-time([[Sourcing ftdetect script at: /Users/paulpatault/.local/share/nvim/site/pack/packer/opt/nvim-treesitter/ftdetect/hjson.vim]], false)
-time([[Sourcing ftdetect script at: /Users/paulpatault/.local/share/nvim/site/pack/packer/opt/nvim-treesitter/ftdetect/json5.vim]], true)
-vim.cmd [[source /Users/paulpatault/.local/share/nvim/site/pack/packer/opt/nvim-treesitter/ftdetect/json5.vim]]
-time([[Sourcing ftdetect script at: /Users/paulpatault/.local/share/nvim/site/pack/packer/opt/nvim-treesitter/ftdetect/json5.vim]], false)
-time([[Sourcing ftdetect script at: /Users/paulpatault/.local/share/nvim/site/pack/packer/opt/nvim-treesitter/ftdetect/ledger.vim]], true)
-vim.cmd [[source /Users/paulpatault/.local/share/nvim/site/pack/packer/opt/nvim-treesitter/ftdetect/ledger.vim]]
-time([[Sourcing ftdetect script at: /Users/paulpatault/.local/share/nvim/site/pack/packer/opt/nvim-treesitter/ftdetect/ledger.vim]], false)
-time([[Sourcing ftdetect script at: /Users/paulpatault/.local/share/nvim/site/pack/packer/opt/nvim-treesitter/ftdetect/nix.vim]], true)
-vim.cmd [[source /Users/paulpatault/.local/share/nvim/site/pack/packer/opt/nvim-treesitter/ftdetect/nix.vim]]
-time([[Sourcing ftdetect script at: /Users/paulpatault/.local/share/nvim/site/pack/packer/opt/nvim-treesitter/ftdetect/nix.vim]], false)
-time([[Sourcing ftdetect script at: /Users/paulpatault/.local/share/nvim/site/pack/packer/opt/nvim-treesitter/ftdetect/prisma.vim]], true)
-vim.cmd [[source /Users/paulpatault/.local/share/nvim/site/pack/packer/opt/nvim-treesitter/ftdetect/prisma.vim]]
-time([[Sourcing ftdetect script at: /Users/paulpatault/.local/share/nvim/site/pack/packer/opt/nvim-treesitter/ftdetect/prisma.vim]], false)
-time([[Sourcing ftdetect script at: /Users/paulpatault/.local/share/nvim/site/pack/packer/opt/nvim-treesitter/ftdetect/pug.vim]], true)
-vim.cmd [[source /Users/paulpatault/.local/share/nvim/site/pack/packer/opt/nvim-treesitter/ftdetect/pug.vim]]
-time([[Sourcing ftdetect script at: /Users/paulpatault/.local/share/nvim/site/pack/packer/opt/nvim-treesitter/ftdetect/pug.vim]], false)
-time([[Sourcing ftdetect script at: /Users/paulpatault/.local/share/nvim/site/pack/packer/opt/nvim-treesitter/ftdetect/ql.vim]], true)
-vim.cmd [[source /Users/paulpatault/.local/share/nvim/site/pack/packer/opt/nvim-treesitter/ftdetect/ql.vim]]
-time([[Sourcing ftdetect script at: /Users/paulpatault/.local/share/nvim/site/pack/packer/opt/nvim-treesitter/ftdetect/ql.vim]], false)
-time([[Sourcing ftdetect script at: /Users/paulpatault/.local/share/nvim/site/pack/packer/opt/nvim-treesitter/ftdetect/query.vim]], true)
-vim.cmd [[source /Users/paulpatault/.local/share/nvim/site/pack/packer/opt/nvim-treesitter/ftdetect/query.vim]]
-time([[Sourcing ftdetect script at: /Users/paulpatault/.local/share/nvim/site/pack/packer/opt/nvim-treesitter/ftdetect/query.vim]], false)
-time([[Sourcing ftdetect script at: /Users/paulpatault/.local/share/nvim/site/pack/packer/opt/nvim-treesitter/ftdetect/surface.vim]], true)
-vim.cmd [[source /Users/paulpatault/.local/share/nvim/site/pack/packer/opt/nvim-treesitter/ftdetect/surface.vim]]
-time([[Sourcing ftdetect script at: /Users/paulpatault/.local/share/nvim/site/pack/packer/opt/nvim-treesitter/ftdetect/surface.vim]], false)
-time([[Sourcing ftdetect script at: /Users/paulpatault/.local/share/nvim/site/pack/packer/opt/nvim-treesitter/ftdetect/teal.vim]], true)
-vim.cmd [[source /Users/paulpatault/.local/share/nvim/site/pack/packer/opt/nvim-treesitter/ftdetect/teal.vim]]
-time([[Sourcing ftdetect script at: /Users/paulpatault/.local/share/nvim/site/pack/packer/opt/nvim-treesitter/ftdetect/teal.vim]], false)
-time([[Sourcing ftdetect script at: /Users/paulpatault/.local/share/nvim/site/pack/packer/opt/nvim-treesitter/ftdetect/tlaplus.vim]], true)
-vim.cmd [[source /Users/paulpatault/.local/share/nvim/site/pack/packer/opt/nvim-treesitter/ftdetect/tlaplus.vim]]
-time([[Sourcing ftdetect script at: /Users/paulpatault/.local/share/nvim/site/pack/packer/opt/nvim-treesitter/ftdetect/tlaplus.vim]], false)
-time([[Sourcing ftdetect script at: /Users/paulpatault/.local/share/nvim/site/pack/packer/opt/nvim-treesitter/ftdetect/yang.vim]], true)
-vim.cmd [[source /Users/paulpatault/.local/share/nvim/site/pack/packer/opt/nvim-treesitter/ftdetect/yang.vim]]
-time([[Sourcing ftdetect script at: /Users/paulpatault/.local/share/nvim/site/pack/packer/opt/nvim-treesitter/ftdetect/yang.vim]], false)
 vim.cmd("augroup END")
 if should_profile then save_profiles() end
 
