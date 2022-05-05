@@ -10,13 +10,28 @@ local feedkey = function(key, mode)
   vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(key, true, true, true), mode, true)
 end
 
+cmp.setup.cmdline('/', {
+    mapping = cmp.mapping.preset.cmdline(),
+    sources = {
+      { name = 'buffer' }
+    }
+})
+
+cmp.setup.cmdline(':', {
+  mapping = cmp.mapping.preset.cmdline(),
+  sources = cmp.config.sources({
+    { name = 'path' }
+  }, {
+    { name = 'cmdline' }
+  })
+})
+
 cmp.setup {
   formatting = {
     format = function(entry, vim_item)
       -- fancy icons and a name of kind
 
-      vim_item.kind = require("lspkind").presets.default[vim_item.kind] ..
-      " " .. vim_item.kind
+      vim_item.kind = require("lspkind").presets.default[vim_item.kind] .. " " .. vim_item.kind
       -- set a name for each source
       --[[ if entry.source.name == 'cmp_tabnine' then
         if entry.completion_item.data ~= nil and entry.completion_item.data.detail ~= nil then
@@ -25,8 +40,8 @@ cmp.setup {
         vim_item.kind = ''
       end ]]
       vim_item.menu = ({
-        buffer = "[Buffer]",
-        nvim_lsp = "[LSP]",
+        buffer = "~buffer",
+        nvim_lsp = "~lsp",
         ultisnips = "[UltiSnips]",
         nvim_lua = "[Lua]",
         cmp_tabnine = "[TabNine]",
@@ -47,11 +62,9 @@ cmp.setup {
   sources = {
     { name = "vsnip" },
     { name = "nvim_lsp" },
-    -- { name = "cmp_tabnine" },
     { name = "path" },
     { name = "nvim_lua" },
-    -- { name = "latex_symbols" },
-    { name = "buffer" },
+    { name = 'buffer', option = { keyword_pattern = [[\k\+]] }}
   },
   mapping = {
     ['<C-p>'] = cmp.mapping.select_prev_item(),
