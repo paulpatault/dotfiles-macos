@@ -71,6 +71,10 @@ utils.create_augroup({
   {"FileType", "tex", "setlocal", "spell"},
 }, "Ft_augrp")
 
+utils.create_augroup({
+  {"FileType", "tex", "set", "makeprg=pdflatex\\ -shell-escape\\ %"},
+  {"FileType", "ocaml", "set", "makeprg=dune\\ buid"},
+}, "Ft_makeprg")
 ---------------------------------------------------------------------------------------------------
 
 local _ = require("hidiag")
@@ -78,3 +82,4 @@ local _ = require("ocaml")
 local _ = require("plugs")
 
 vim.cmd [[colorscheme gruvbox]]
+vim.cmd [[set rtp^="/Users/paulpatault/.opam/default/share/ocp-indent/vim"]]

@@ -83,6 +83,7 @@ return require('packer').startup({
     use 'mbbill/undotree'
     use 'voldikss/vim-floaterm'
     use 'b3nj5m1n/kommentary'
+    use 'tpope/vim-fugitive'
     use 'onsails/lspkind-nvim'
     use 'GCBallesteros/jupytext.vim'
     use 'urbainvaes/vim-ripple'

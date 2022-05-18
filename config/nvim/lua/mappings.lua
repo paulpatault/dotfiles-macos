@@ -66,6 +66,7 @@ utils.map('v', 'ff', ':Neoformat<cr>', options)
 
 -- {{ general
 utils.map('n', '<leader>sp', [[:setlocal spell!<cr>]], options)
+utils.map('n', '<leader>m',  [[:make<cr>]], options)
 utils.map('n', '<leader>sc', [[:luafile ~/.config/nvim/init.lua<cr>]], {noremap = true})
 utils.map('n', '<leader>rt', [[:%s/\s\+$//e<cr>]], {noremap = true})
 utils.map('n', '<A-Tab>',    [[:tabnext<cr>]], {noremap = true})
