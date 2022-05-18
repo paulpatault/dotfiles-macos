@@ -55,11 +55,11 @@ return require('packer').startup({
     use 'nvim-telescope/telescope-file-browser.nvim'
 
     ----- theme -----
-    use {
+    --[[ use {
       'nvim-treesitter/nvim-treesitter',
       run = ':TSUpdate',
       ft = { 'tex', 'c', 'cpp', 'python', 'lua', 'html', 'css' }
-    }
+    } ]]
 
     use 'morhetz/gruvbox'
     use 'kyazdani42/nvim-web-devicons'
@@ -90,9 +90,7 @@ return require('packer').startup({
     use 'folke/zen-mode.nvim'
     use {
       'GCBallesteros/vim-textobj-hydrogen',
-      requires = {
-        'kana/vim-textobj-user'
-      }
+      requires = 'kana/vim-textobj-user',
     }
     use {
       "folke/todo-comments.nvim",

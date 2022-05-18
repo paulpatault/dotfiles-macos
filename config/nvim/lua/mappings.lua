@@ -50,7 +50,7 @@ utils.map('n', '<leader>tg', ':FloatermNew lazygit<cr>', options)
 -- }}}
 
 -- {{{ Todo + trouble
-utils.map('n', '<leader>tt', ':TodoTelescope<cr>', options)
+utils.map('n', '<leader>tt', ':TodoTrouble<cr>', options)
 utils.map('n', '<leader>tr', ':TroubleToggle<cr>', options)
 -- }}}
 

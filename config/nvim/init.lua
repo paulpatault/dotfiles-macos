@@ -1,8 +1,9 @@
 ---------------------------------------------------------------------------------------------------
 
 local g = vim.g
-g.mapleader = ' '
+g.mapleader = " "
 g.langmenu = "en_US.UTF-8"
+g.completeopt = "menuone,noinsert,noselect"
 
 ---------------------------------------------------------------------------------------------------
 
@@ -13,14 +14,14 @@ w.lbr = true
 w.number = true
 w.relativenumber = true
 w.list = true
-w.colorcolumn = [[100]]
+w.colorcolumn = "100"
 w.wrap = false
 w.list = false
 
 ---------------------------------------------------------------------------------------------------
 
 local opt = vim.opt
-opt.guicursor = 'i:block'
+opt.guicursor = "i:block"
 opt.termguicolors = true
 opt.autoindent = true
 opt.modeline = false
@@ -44,16 +45,8 @@ opt.clipboard = "unnamed,unnamedplus"
 opt.scrolloff = 8
 opt.timeoutlen = 300
 opt.mouse = "a"
-
----------------------------------------------------------------------------------------------------
-
-local o = vim.o
-o.completeopt = "menuone,noinsert,noselect"
-if vim.fn.has("multi_byte") == 1 and o.encoding == "utf-8" then
-  o.listchars = "tab:▸ ,extends:❯,precedes:❮,nbsp:±,trail:…"
-else
-  o.listchars = "tab:> ,extends:>,precedes:<,nbsp:.,trail:_]"
-end
+opt.list = true
+opt.listchars = {tab = '▸ ', trail = '·', extends='❯',precedes='❮',nbsp='±'}
 
 ---------------------------------------------------------------------------------------------------
 
@@ -73,7 +66,7 @@ utils.create_augroup({
 
 utils.create_augroup({
   {"FileType", "tex", "set", "makeprg=pdflatex\\ -shell-escape\\ %"},
-  {"FileType", "ocaml", "set", "makeprg=dune\\ buid"},
+  {"FileType", "ocaml", "set", "makeprg=dune\\ build"},
 }, "Ft_makeprg")
 ---------------------------------------------------------------------------------------------------
 
@@ -81,5 +74,7 @@ local _ = require("hidiag")
 local _ = require("ocaml")
 local _ = require("plugs")
 
-vim.cmd [[colorscheme gruvbox]]
-vim.cmd [[set rtp^="/Users/paulpatault/.opam/default/share/ocp-indent/vim"]]
+vim.cmd [[
+  colorscheme gruvbox
+  set rtp^="/Users/paulpatault/.opam/default/share/ocp-indent/vim"
+]]
