@@ -88,6 +88,7 @@ return require('packer').startup({
     use 'GCBallesteros/jupytext.vim'
     use 'urbainvaes/vim-ripple'
     use 'folke/zen-mode.nvim'
+    -- use {'soywod/himalaya', rtp = 'vim'}
     use {
       'GCBallesteros/vim-textobj-hydrogen',
       requires = 'kana/vim-textobj-user',

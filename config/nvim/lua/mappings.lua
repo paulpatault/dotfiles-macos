@@ -75,6 +75,20 @@ utils.map('v', 'J',  [[:m '>+1<cr>gv=gv]], {noremap = true})
 utils.map('v', 'K',  [[:m '<-2<cr>gv=gv]], {noremap = true})
 utils.map('n', '<esc><esc>',  [[:noh<cr>]], {noremap = true})
 
+local gospel = false
+function Toogle_gospel()
+  gospel = not gospel
+  if gospel then
+    vim.opt.makeprg = "gospel check %"
+    print "gospel [on]"
+  else
+    vim.opt.makeprg = "dune build"
+    print "gospel [off]"
+  end
+end
+
+utils.map_lua('n', '<A-g>',  "Toogle_gospel()", options)
+
 utils.map('n', '<leader>i', [[i~$$<esc>i]], options)
 utils.map_lua('n', '<leader>w', "utils.Wrap_toogle()", options)
 

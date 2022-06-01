@@ -1,6 +1,6 @@
 [user]
-	name = paulpatault
-	email = p.patault@gmail.com
+	name = Paul Patault
+	email = 43556190+paulpatault@users.noreply.github.com
 [url "git@github.com:"]
 	insteadOf = https://github.com/
 [filter "lfs"]

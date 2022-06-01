@@ -21,26 +21,33 @@ syn region GospelCommentInComment start="(\*" end="\*)" containedin=GospelCommen
 
 "-------------------------------------------------------------------------------
 
-syn keyword GospelKeyword  requires
-syn keyword GospelKeyword  checks
-syn keyword GospelKeyword  modifies
-syn keyword GospelKeyword  ensures
-syn keyword GospelKeyword  raises
-
-syn keyword GospelKeyword2 axiom
-syn keyword GospelKeyword2 consumes
-syn keyword GospelKeyword2 diverges
-syn keyword GospelKeyword2 ephemeral
-syn keyword GospelKeyword2 equivalent
-syn keyword GospelKeyword2 model
-syn keyword GospelKeyword2 mutable
-syn keyword GospelKeyword2 pure
-syn keyword GospelKeyword2 variant
-syn keyword GospelKeyword2 coercion
-syn keyword GospelKeyword2 exists
-syn keyword GospelKeyword2 forall
-syn keyword GospelKeyword2 variant
-syn keyword GospelKeyword2 predicate
+syn keyword GospelKeyword requires
+syn keyword GospelKeyword checks
+syn keyword GospelKeyword modifies
+syn keyword GospelKeyword ensures
+syn keyword GospelKeyword raises
+syn keyword GospelKeyword axiom
+syn keyword GospelKeyword with
+syn keyword GospelKeyword type
+syn keyword GospelKeyword rec
+syn keyword GospelKeyword open
+syn keyword GospelKeyword consumes
+syn keyword GospelKeyword diverges
+syn keyword GospelKeyword ephemeral
+syn keyword GospelKeyword equivalent
+syn keyword GospelKeyword model
+syn keyword GospelKeyword mutable
+syn keyword GospelKeyword pure
+syn keyword GospelKeyword invariant
+syn keyword GospelKeyword variant
+syn keyword GospelKeyword coercion
+syn keyword GospelKeyword exists
+syn keyword GospelKeyword forall
+syn keyword GospelKeyword variant
+syn keyword GospelKeyword predicate
+syn keyword GospelKeyword function
+syn keyword GospelKeyword val
+syn keyword GospelKeyword match
 
 syn match   GospelSymbol   /<->/
 " syn match   GospelSymbol   /->/
@@ -50,15 +57,25 @@ syn match   GospelSymbol   /\/\\/
 
 "-------------------------------------------------------------------------------
 
-" hi GospelStart gui=bold
+
+" hi! Keyword gui=bold
+" hi KW guifg=#C260B5 guibg=NONE guisp=NONE gui=bold
+" hi KW guifg=#B460C2 guibg=NONE guisp=NONE gui=bold
+
+
+" ctermfg=30 ctermbg=NONE cterm=bold
 
 hi def link GospelError            Error
 hi def link GospelCommentInComment Comment
 hi def link GospelComment          Comment
-hi def link GospelKeyword          Keyword
-hi def link GospelKeyword2         PreProc
+hi def link GospelKeyword          Identifier
 hi def link GospelSymbol           Comment
 hi def link GospelStart            Comment
 
+" hi! GospelKeyword   gui=italic guifg=#d3869b
+" hi! GospelKeyword2  gui=italic guifg=#d3869b
+" hi! GospelStart    gui=italic guifg=#d3869b
+" hi! GospelSymbol   gui=italic guifg=#d3869b
+" #fabd2f
 
 "-------------------------------------------------------------------------------
