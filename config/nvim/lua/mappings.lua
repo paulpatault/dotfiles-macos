@@ -82,12 +82,13 @@ function Toogle_gospel()
     vim.opt.makeprg = "gospel check %"
     print "gospel [on]"
   else
-    vim.opt.makeprg = "dune build"
+    -- vim.opt.makeprg = "dune build"
+    vim.cmd ":e"
     print "gospel [off]"
   end
 end
 
-utils.map_lua('n', '<A-g>',  "Toogle_gospel()", options)
+utils.map_lua('n', '<C-g>',  "Toogle_gospel()", options)
 
 utils.map('n', '<leader>i', [[i~$$<esc>i]], options)
 utils.map_lua('n', '<leader>w', "utils.Wrap_toogle()", options)
