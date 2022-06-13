@@ -4,6 +4,7 @@ local g = vim.g
 g.mapleader = " "
 g.langmenu = "en_US.UTF-8"
 g.completeopt = "menuone,noinsert,noselect"
+g.highlightedyank_highlight_duration = 300
 
 ---------------------------------------------------------------------------------------------------
 
@@ -47,6 +48,8 @@ opt.timeoutlen = 300
 opt.mouse = "a"
 opt.list = true
 opt.listchars = {tab = '▸ ', trail = '·', extends='❯',precedes='❮',nbsp='±'}
+
+
 
 ---------------------------------------------------------------------------------------------------
 

@@ -240,10 +240,20 @@ _G.packer_plugins = {
     path = "/Users/paulpatault/.local/share/nvim/site/pack/packer/start/vim-fugitive",
     url = "https://github.com/tpope/vim-fugitive"
   },
+  ["vim-highlightedyank"] = {
+    loaded = true,
+    path = "/Users/paulpatault/.local/share/nvim/site/pack/packer/start/vim-highlightedyank",
+    url = "https://github.com/machakann/vim-highlightedyank"
+  },
   ["vim-ocaml"] = {
     loaded = true,
     path = "/Users/paulpatault/.local/share/nvim/site/pack/packer/start/vim-ocaml",
     url = "https://github.com/ocaml/vim-ocaml"
+  },
+  ["vim-remembrall"] = {
+    loaded = true,
+    path = "/Users/paulpatault/.local/share/nvim/site/pack/packer/start/vim-remembrall",
+    url = "https://github.com/urbainvaes/vim-remembrall"
   },
   ["vim-ripple"] = {
     loaded = true,
@@ -254,6 +264,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/paulpatault/.local/share/nvim/site/pack/packer/start/vim-sandwich",
     url = "https://github.com/machakann/vim-sandwich"
+  },
+  ["vim-swap"] = {
+    loaded = true,
+    path = "/Users/paulpatault/.local/share/nvim/site/pack/packer/start/vim-swap",
+    url = "https://github.com/machakann/vim-swap"
   },
   ["vim-textobj-hydrogen"] = {
     loaded = true,
