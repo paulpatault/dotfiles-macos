@@ -67,8 +67,6 @@ ex () {
     fi
 }
 
-alias texplate="~/d/ocaml/texplate/_build/install/default/bin/texplate"
-
 alias wr3="curl wttr.in\?format=3"
 alias wr="curl wttr.in"
 
