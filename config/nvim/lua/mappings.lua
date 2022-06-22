@@ -48,8 +48,7 @@ utils.map("v", "<leader>c", "<Plug>kommentary_visual_default", {})
 utils.map('n', '<leader>tg', ':FloatermNew lazygit<cr>', options)
 -- }}}
 
--- {{{ Todo + trouble
-utils.map('n', '<leader>tt', ':TodoTrouble<cr>', options)
+-- {{{ trouble
 utils.map('n', '<leader>tr', ':TroubleToggle<cr>', options)
 -- }}}
 

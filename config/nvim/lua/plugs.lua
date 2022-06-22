@@ -25,7 +25,6 @@ RELOADER = function()
   R('ppatault.telescope')
   R('ppatault.ripple')
   R('ppatault.kommentary')
-  R('ppatault.todo')
   R('mappings')
   R('globals')
 end

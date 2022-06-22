@@ -11,62 +11,34 @@ end
 vim.cmd [[autocmd ColorScheme * highlight NormalFloat guibg=#3c3836]]
 vim.cmd [[autocmd ColorScheme * highlight FloatBorder guifg=white guibg=#3c3836]]
 
-local border = {
-      -- {"🭽", "FloatBorder"},
-      {"╭", "FloatBorder"},
-      -- {"▔", "FloatBorder"},
-      {"-", "FloatBorder"},
-      -- {"🭾", "FloatBorder"},
-      {"╮", "FloatBorder"},
-      -- {"▕", "FloatBorder"},
-      {"|", "FloatBorder"},
-      -- {"🭿", "FloatBorder"},
-      {"╯", "FloatBorder"},
-      -- {"▁", "FloatBorder"},
-      {"-", "FloatBorder"},
-      -- {"🭼", "FloatBorder"},
-      {"╰", "FloatBorder"},
-      -- {"▏", "FloatBorder"},
-      {"|", "FloatBorder"},
-}
-
-
--- LSP settings
-local on_attach = function(client)
-  --[[ vim.lsp.handlers["textDocument/hover"] =  vim.lsp.with(vim.lsp.handlers.hover, {border = border})
-  vim.lsp.handlers["textDocument/signatureHelp"] =  vim.lsp.with(vim.lsp.handlers.signature_help, {border = border}) ]]
-end
-
 --------- C/C++  ---------
 
-lsp.clangd.setup{
+local rootd = function(fname)
+  return lsp.util.find_git_ancestor(fname) or vim.loop.os_homedir()
+end
+
+lsp.clangd.setup({
   default_config = {
     cmd = { 'clangd', '--background-index' };
     filetypes = { 'c', 'cpp', 'objc', 'objcpp' };
-    root_dir = function(fname)
-      return lsp.util.find_git_ancestor(fname) or vim.loop.os_homedir()
-    end;
+    root_dir = rootd;
     settings = {};
   };
-  -- on_attach = on_attach
-}
+})
 
 --------- OCAML ---------
 
+local rootd2 = function(fname)
+  return
+    lsp.util.find_git_ancestor(fname)
+    or vim.loop.os_homedir()
+    or util.root_pattern("*.opam", ".git", "dune-project")
+end
+
 lsp.ocamllsp.setup{
-    cmd = { 'ocamllsp' };
-    filetypes = {"ocaml", "ocaml.interface", "ocaml.ocamllex", "ocaml.menhir"};
-    root_dir = function(fname)
-      return
-        lsp.util.find_git_ancestor(fname)
-        or vim.loop.os_homedir()
-        or util.root_pattern("*.opam", ".git", "dune-project")
-      end;
-    -- settings = {};
-    on_attach = function(client)
-      on_attach(client)
-      -- require('virtualtypes').on_attach()
-    end
+    cmd = { 'ocamllsp' },
+    filetypes = {"ocaml", "ocaml.interface", "ocaml.ocamllex", "ocaml.menhir"},
+    root_dir = rootd2,
 }
 
 --------- HTML ---------
@@ -74,32 +46,18 @@ lsp.ocamllsp.setup{
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
-lsp.html.setup{
-  capabilities = capabilities
-}
+lsp.html.setup({ capabilities = capabilities })
 
 --------- LATEX ---------
 
-lsp.texlab.setup({
-})
+lsp.texlab.setup({ })
 
 --------- LUA ---------
 
-local system_name
-if vim.fn.has("mac") == 1 then
-  system_name = "macOS"
-elseif vim.fn.has("unix") == 1 then
-  system_name = "Linux"
-elseif vim.fn.has('win32') == 1 then
-  system_name = "Windows"
-else
-  print("Unsupported system for sumneko")
-end
-
 local home = os.getenv('HOME')
 
-local sumneko_root_path = home .. "/d/utils/lsp/lua-language-server"
-local sumneko_binary = sumneko_root_path.."/bin/"..system_name.."/lua-language-server"
+local sumneko_root_path = home .. "/dotfiles/config/lua-language-server"
+local sumneko_binary = sumneko_root_path.."/bin/lua-language-server"
 
 local runtime_path = vim.split(package.path, ';')
 table.insert(runtime_path, "lua/?.lua")
@@ -131,6 +89,13 @@ lsp.sumneko_lua.setup {
 lsp.pylsp.setup({
 })
 
---------- TS/JS ---------
+--------- JS -------------
 
--- lsp.tsserver.setup{}
+local on_attach = function(_, bufnr)
+  vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+end
+
+lsp.tsserver.setup{
+    on_attach = on_attach,
+    flags = {debounce_text_changes = 150}
+}
