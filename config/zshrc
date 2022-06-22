@@ -67,8 +67,13 @@ ex () {
     fi
 }
 
-alias wr3="curl wttr.in\?format=3"
-alias wr="curl wttr.in"
+# alias wr3="curl wttr.in\?format=3"
+# alias wr="curl wttr.in"
+
+
+#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# NVIM CAUSE
+alias :q='exit'
+alias :qa='exit'
 
 #=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# SAFE
 alias cp="cp -i"
