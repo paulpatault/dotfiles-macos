@@ -41,4 +41,4 @@ alt - t : yabai -m space --focus  5 || skhd -k "ctrl + alt + cmd - 5"
 alt - y : yabai -m space --focus  6 || skhd -k "ctrl + alt + cmd - 6"
 
 # rotate tree
-alt - r : yabai -m space --rotate 90
+shift + alt - r : yabai -m space --rotate 90
