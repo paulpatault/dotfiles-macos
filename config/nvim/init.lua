@@ -4,7 +4,7 @@ local g = vim.g
 g.mapleader = " "
 g.langmenu = "en_US.UTF-8"
 g.completeopt = "menuone,noinsert,noselect"
-g.highlightedyank_highlight_duration = 300
+g.highlightedyank_highlight_duration = 100
 
 ---------------------------------------------------------------------------------------------------
 
@@ -70,12 +70,14 @@ utils.create_augroup({
 utils.create_augroup({
   {"FileType", "tex", "set", "makeprg=pdflatex\\ -shell-escape\\ %"},
   {"FileType", "ocaml", "set", "makeprg=dune\\ build"},
+  {"FileType", "rust", "set", "makeprg=cargo\\ build"},
 }, "Ft_makeprg")
 ---------------------------------------------------------------------------------------------------
 
 local _ = require("hidiag")
 local _ = require("ocaml")
 local _ = require("plugs")
+local _ = require("rust-tools").setup({})
 
 vim.cmd [[
   colorscheme gruvbox

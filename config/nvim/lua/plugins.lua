@@ -35,6 +35,7 @@ return require("packer").startup({
     use "ocaml/vim-ocaml"
     use "sbdchd/neoformat"
     use "liuchengxu/graphviz.vim"
+    use "simrat39/rust-tools.nvim"
     -- use 'whonore/Coqtail'
 
     use { "lervag/vimtex", ft = { "tex" } }

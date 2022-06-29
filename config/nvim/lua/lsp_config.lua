@@ -26,6 +26,10 @@ lsp.clangd.setup({
   };
 })
 
+--------- RUST ---------
+
+require'lspconfig'.rust_analyzer.setup{}
+
 --------- OCAML ---------
 
 local rootd2 = function(fname)
