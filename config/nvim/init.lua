@@ -23,7 +23,6 @@ w.list = false
 
 local opt = vim.opt
 opt.guicursor = "i:block"
-opt.termguicolors = true
 opt.autoindent = true
 opt.modeline = false
 opt.undofile = true
@@ -79,7 +78,4 @@ local _ = require("ocaml")
 local _ = require("plugs")
 local _ = require("rust-tools").setup({})
 
-vim.cmd [[
-  colorscheme gruvbox
-  set rtp^="/Users/paulpatault/.opam/default/share/ocp-indent/vim"
-]]
+vim.cmd [[ colorscheme gruvbox ]]

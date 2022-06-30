@@ -9,8 +9,14 @@ _G.setHighlights = function()
   cmd [[highlight CmpItemKind guifg=#fabd2f]]
   cmd [[highlight CmpItemMenu guifg=#83a598]]
   cmd [[highlight Normal guibg=NONE ctermbg=NONE]]
+
 end
 
 utils.create_augroup({
   {"ColorScheme", "*", "call", "v:lua.setHighlights()"}
 }, "UndercurlDiags")
+
+utils.create_augroup({
+  {"ColorScheme", "*", "hi def", "CoqtailSent",   "guibg=#fabd2f"},
+  {"ColorScheme", "*", "hi def", "CoqtailChecked","guibg=#b8bb26"},
+}, "CoqtailHighlights")
