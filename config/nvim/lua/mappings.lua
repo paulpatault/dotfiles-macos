@@ -73,6 +73,13 @@ utils.map('v', 'J',  [[:m '>+1<cr>gv=gv]], {noremap = true})
 utils.map('v', 'K',  [[:m '<-2<cr>gv=gv]], {noremap = true})
 utils.map('n', '<esc><esc>',  [[:noh<cr>]], {noremap = true})
 
+-- tabs to (un-)indent
+utils.map('n', '<Tab>',  [[>>_]], {noremap = true})
+utils.map('n', '<S-Tab>',  [[<<_]], {noremap = true})
+utils.map('i', '<S-Tab>',  [[<C-D>]], {noremap = true})
+utils.map('v', '<Tab>',  [[>gv]], {noremap = true})
+utils.map('v', '<S-Tab>',  [[<gv]], {noremap = true})
+
 local gospel = false
 function Toogle_gospel()
   gospel = not gospel
