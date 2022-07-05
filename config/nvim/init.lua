@@ -46,6 +46,8 @@ opt.scrolloff = 8
 opt.timeoutlen = 300
 opt.mouse = "a"
 opt.list = true
+opt.ignorecase = true
+opt.smartcase = true
 opt.listchars = {tab = '▸ ', trail = '·', extends='❯',precedes='❮',nbsp='±'}
 
 
