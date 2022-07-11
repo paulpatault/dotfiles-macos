@@ -74,9 +74,9 @@ utils.map('v', 'K',  [[:m '<-2<cr>gv=gv]], {noremap = true})
 utils.map('n', '<esc><esc>',  [[:noh<cr>]], {noremap = true})
 
 -- tabs to (un-)indent
-utils.map('n', '<Tab>',  [[>>_]], {noremap = true})
-utils.map('n', '<S-Tab>',  [[<<_]], {noremap = true})
-utils.map('i', '<S-Tab>',  [[<C-D>]], {noremap = true})
+-- utils.map('n', '<Tab>',  [[>>_]], {noremap = true})
+-- utils.map('n', '<S-Tab>',  [[<<_]], {noremap = true})
+-- utils.map('i', '<S-Tab>',  [[<C-D>]], {noremap = true})
 utils.map('v', '<Tab>',  [[>gv]], {noremap = true})
 utils.map('v', '<S-Tab>',  [[<gv]], {noremap = true})
 

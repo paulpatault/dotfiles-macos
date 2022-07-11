@@ -4,22 +4,23 @@ font-hack-nerd-font
 font-latin-modern
 font-dejavu-sans-mono-nerd-font
 font-jetbrains-mono-nerd-font
+thunderbird
+firefox
 )
-
 
 CASKS_ALL=(
 gimp
 mactex
 
-firefox
 google-chrome
 
 vlc
 folx
 
-messenger
+# messenger
 slack
-telegram
+# telegram
+signal
 discord
 
 drawio
