@@ -60,11 +60,13 @@ utils.create_augroup({
   {"BufRead,BufNewFile", "*.zsh", "set", "filetype=sh"},
   {"BufRead,BufNewFile", "*.mlw", "set", "filetype=why3"},
   {"BufRead,BufNewFile", "*.mp",  "set", "filetype=patmat"},
+  {"BufRead,BufNewFile", "*.lus", "set", "filetype=lustre"},
+  {"BufRead,BufNewFile", "*.ept", "set", "filetype=lustre"},
 }, "Buf_augrp")
 
 utils.create_augroup({
   {"FileType", "c,tex,cpp", "set", "sw=4"},
-  {"FileType", "markdown,lua,kawa,ocaml,why3", "set", "sw=2"},
+  {"FileType", "markdown,lua,kawa,ocaml,why3,lustre", "set", "sw=2"},
   {"FileType", "tex", "setlocal", "spell"},
 }, "Ft_augrp")
 
@@ -73,6 +75,7 @@ utils.create_augroup({
   {"FileType", "ocaml", "set", "makeprg=dune\\ build"},
   {"FileType", "rust", "set", "makeprg=cargo\\ build"},
 }, "Ft_makeprg")
+
 ---------------------------------------------------------------------------------------------------
 
 local _ = require("hidiag")

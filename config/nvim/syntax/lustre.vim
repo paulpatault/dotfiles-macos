@@ -8,9 +8,9 @@ syn case ignore
 
 syn keyword lusPack package model provides needs body end uses
 
-syn keyword lusStatement        returns var let tel assert
-" syn keyword lusLabel            case goto
-syn keyword lusConditional     if else then
+syn keyword lusStatement   returns var let tel assert
+" syn keyword lusLabel         case goto
+syn keyword lusConditional if else then
 
 syn keyword lusTodo contained   TODO
 
@@ -46,7 +46,6 @@ syn match lusOperator ">="
 syn match lusOperator ">="
 syn match lusOperator "<>"
 
-
 syn region lusComment   start="(\*"  end="\*)" contains=lusTodo
 syn region lusComment   start="/\*"  end="\*/" contains=lusTodo
 
@@ -55,16 +54,16 @@ syn match lusType "<<"
 syn match lusType ">>"
 syn match lusOperator "-"
 syn match lusOperator "->"
-syn match lusComment    "--.*" contains=lusTodo
+syn match lusComment  "--.*" contains=lusTodo
 
 " Les mots-cles
-syn keyword lusConstant true false
-syn keyword lusOperator and or not xor
-syn keyword lusOperator div mod
-syn keyword lusOperator fby pre current when 
-syn keyword lusType bool int real map red fill
-syn keyword lusFunction node function type const
-syn keyword lusStatement    extern unsafe
+syn keyword lusConstant  true false
+syn keyword lusOperator  and or not xor
+syn keyword lusOperator  div mod
+syn keyword lusOperator  fby pre current when 
+syn keyword lusType      bool int real map red fill
+syn keyword lusFunction  node function type const
+syn keyword lusStatement extern unsafe
 
 syn sync lines=250
 
@@ -72,19 +71,19 @@ if !exists("did_lus_syntax_inits")
   let did_lus_syntax_inits = 1
   " The default methods for highlighting.  Can be overridden later
   hi link lusStatement      Statement
-  " hi link lusLabel            Label
-  hi link lusConditional        Conditional
+  " hi link lusLabel          Label
+  hi link lusConditional    Conditional
   hi link lusTodo           Todo
-  " hi link lusString           String
+  " hi link lusString       String
   " hi link lusMatrixDelimiter      Identifier
   hi link lusConstant       Number
   hi link lusNumber         Number
   hi link lusFloat          Number
   " hi link lusByte         Number
-  hi link lusOperator           Operator
-  hi link lusFunction           Function
+  hi link lusOperator       Operator
+  hi link lusFunction       Function
   hi link lusType           Type
-  hi link lusComment            Comment
+  hi link lusComment        Comment
   hi link lusStatement      Statement
 
   hi link lusPack       Type
