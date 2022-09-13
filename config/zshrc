@@ -36,6 +36,7 @@ fpath+=$HOME/.zsh/pure
 
 export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
 export PATH="/opt/homebrew/opt/make/libexec/gnubin:$PATH"
+export PATH="$HOME/mpri/m1/ens/SystReact/Lustre/lustre-v4-III-e-macosx/bin:$PATH"
 
 export LDFLAGS="-L/opt/homebrew/lib $LDFLAGS"
 export CFLAGS="-I/opt/homebrew/include $CFLAGS"
@@ -87,6 +88,7 @@ alias icat="kitty +kitten icat"
 #=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# SHORT
 alias v="nvim"
 alias e="nvim"
+alias emacs="nvim"
 alias vi="nvim"
 alias vim="nvim"
 alias diff="colordiff"
@@ -127,13 +129,16 @@ alias p="git push"
 # alias todo="open /Applications/Microsoft\ To\ Do.app"
 # alias slack="open /Applications/Slack.app"
 
+#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# FZF
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
+export FZF_COMPLETION_TRIGGER='**'
+
 #=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# AUTRE
 alias upall="brew update && brew upgrade && opam update -y && opam upgrade -y"
 
 #=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# OCAML
 export OCAMLRUNPARAM=b
 eval $(opam env)
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 alias luamake=/Users/paulpatault/dotfiles/config/lua-language-server/3rd/luamake/luamake
