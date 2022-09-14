@@ -35,7 +35,7 @@ cmd + ctrl - w : yabai -m space --destroy
 #         ctrl - n : yabai -m space --focus next || skhd -k "ctrl + alt + cmd - c"
 #
 alt - p : yabai -m space --focus prev
-alt - n : yabai -m space --focus next
+# alt - n : yabai -m space --focus next
 alt - l : yabai -m space --focus recent
 alt - a : yabai -m space --focus 1
 alt - z : yabai -m space --focus 2
