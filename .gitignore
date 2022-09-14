@@ -14,3 +14,4 @@ config/gtk-2.0
 config/lazygit
 config/nvim/plugin
 config/lua-language-server
+config/nvim/plugin

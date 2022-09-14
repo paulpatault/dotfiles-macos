@@ -66,16 +66,11 @@ return require("packer").startup({
       requires = {"kyazdani42/nvim-web-devicons", opt = true}
     }
     use "lilydjwg/colorizer"
-    -- use 'emilienlemaire/tree-sitter-menhir'
-    -- use "projekt0n/github-nvim-theme"
 
     ----- utils -----
     use "wellle/targets.vim"
     use "lewis6991/impatient.nvim"
-    use {
-      "arthurxavierx/vim-unicoder",
-      ft = 'markdown'
-    }
+    use { "arthurxavierx/vim-unicoder", ft = 'markdown' }
     use "machakann/vim-sandwich"
     use "cohama/lexima.vim"
     use "mbbill/undotree"
@@ -86,8 +81,6 @@ return require("packer").startup({
     use "GCBallesteros/jupytext.vim"
     use "urbainvaes/vim-ripple"
     use "urbainvaes/vim-remembrall"
-    -- use "folke/which-key.nvim"
-
     use "folke/zen-mode.nvim"
     -- use {'soywod/himalaya', rtp = 'vim'}
     use {
@@ -100,6 +93,7 @@ return require("packer").startup({
     }
     use "machakann/vim-highlightedyank"
     use "machakann/vim-swap"
+    use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
   end,
   config =  {
     display = {

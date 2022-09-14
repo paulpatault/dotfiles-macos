@@ -1,86 +1,87 @@
-local utils = require('utils')
+local utils = require("utils")
 
 local options = {
   noremap = true,
   silent = true
 }
 
--- {{{ telescope
-utils.map_lua('n', '<leader>p'  , [[require('telescope.builtin').find_files()]], options)
-utils.map_lua('n', '<leader>b'  , [[require('telescope.builtin').buffers()]], options)
-utils.map_lua('n', '<leader>ds' , [[require('telescope.builtin').lsp_document_symbols()]], options)
-utils.map_lua('n', '<leader>dg' , [[require('telescope.builtin').diagnostics()]], options)
--- 'n', 'gd']     ,   = [[require('telescope.builtin').lsp_definitions()]],
--- 'n', 'gd']     ,   = [[require('telescope.builtin').lsp_implementations()]],
-utils.map_lua('n', '<leader>ca' , [[require('telescope.builtin').lsp_code_actions()]], options)
-utils.map_lua('n', '<leader>gf' , [[require('telescope.builtin').git_files()]], options)
-utils.map_lua('n', '<leader>rg' , [[require('telescope.builtin').live_grep()]], options)
-utils.map_lua('n', '<leader>fb' , [[require('telescope').extensions.file_browser.file_browser()]], options)
+local function nnoremap(key, map)
+  utils.map("n", key, map, options)
+end
 
-utils.map('n', '<leader>te'  , [[:Telescope<cr>]], options)
+local function nnoremap_lua(key, map)
+  utils.map_lua("n", key, map, options)
+end
+
+local function vnoremap(key, map)
+  utils.map("v", key, map, options)
+end
+
+-- {{{ telescope
+nnoremap("<leader>te", ":Telescope<cr>")
+nnoremap_lua("<leader>p",  "require('telescope.builtin').find_files()")
+nnoremap_lua("<leader>b",  "require('telescope.builtin').buffers()")
+nnoremap_lua("<leader>ds", "require('telescope.builtin').lsp_document_symbols()")
+nnoremap_lua("<leader>dg", "require('telescope.builtin').diagnostics()")
+nnoremap_lua("<leader>ca", "require('telescope.builtin').lsp_code_actions()")
+nnoremap_lua("<leader>gf", "require('telescope.builtin').git_files()")
+nnoremap_lua("<leader>rg", "require('telescope.builtin').live_grep()")
+nnoremap_lua("<leader>fb", "require('telescope').extensions.file_browser.file_browser()")
+-- 'n', 'gd']     ,   = "require('telescope.builtin').lsp_definitions()",
+-- 'n', 'gd']     ,   = "require('telescope.builtin').lsp_implementations()",
 -- }}}
 
 -- {{{ lsp
-utils.map_lua('n', '<leader>rn', [[vim.lsp.buf.rename()]], options)
-utils.map_lua('n', 'grf', [[vim.lsp.buf.references()]], options)
-utils.map_lua('n', 'gd',  [[vim.lsp.buf.definition()]], options)
-utils.map_lua('n', 'gD',  [[vim.lsp.buf.implementation()]], options)
-utils.map_lua('n', 'dc',  [[vim.lsp.buf.hover()]], options)
-utils.map_lua('n', 'ds',  [[vim.lsp.buf.signature_help()]], options)
-utils.map_lua('n', 'gT',  [[vim.lsp.buf.type_definition()]], options)
-utils.map_lua('n', 'dl',  [[vim.diagnostic.open_float()]], options)
-utils.map_lua('n', 'dn',  [[vim.diagnostic.goto_next()]], options)
-utils.map_lua('n', 'dN',  [[vim.diagnostic.goto_prev()]], options)
-utils.map_lua('n', 'do',  [[vim.diagnostic.enable()]], options)
-utils.map_lua('n', 'df',  [[vim.diagnostic.disable()]], options)
+nnoremap("<leader>rn", "vim.lsp.buf.rename()")
+nnoremap("grf", "vim.lsp.buf.references()")
+nnoremap("gd",  "vim.lsp.buf.definition()")
+nnoremap("gD",  "vim.lsp.buf.implementation()")
+nnoremap("dc",  "vim.lsp.buf.hover()")
+nnoremap("ds",  "vim.lsp.buf.signature_help()")
+nnoremap("gT",  "vim.lsp.buf.type_definition()")
+nnoremap("dl",  "vim.diagnostic.open_float()")
+nnoremap("dn",  "vim.diagnostic.goto_next()")
+nnoremap("dN",  "vim.diagnostic.goto_prev()")
+nnoremap("do",  "vim.diagnostic.enable()")
+nnoremap("df",  "vim.diagnostic.disable()")
 -- }}}
 
---{{{ Terminal Mode
 utils.map('t', '<esc>', '<c-\\><c-n>', options)
---}}}
 
---{{{ Kommentary
-utils.map("n", "<leader>c", "<Plug>kommentary_line_default", {})
-utils.map("v", "<leader>c", "<Plug>kommentary_visual_default", {})
---}}}
+vnoremap("<leader>c", "<Plug>kommentary_visual_default")
+nnoremap("<leader>c", "<Plug>kommentary_line_default")
 
--- {{{ Floaterm
-utils.map('n', '<leader>tg', ':FloatermNew lazygit<cr>', options)
--- }}}
-
--- {{{ trouble
-utils.map('n', '<leader>tr', ':TroubleToggle<cr>', options)
--- }}}
-
--- {{{ vimtex
-utils.map('n', 'tc', ':VimtexCompile<cr>', options)
+nnoremap('<leader>tg', ':FloatermNew lazygit<cr>')
+nnoremap('<leader>tr', ':TroubleToggle<cr>')
+nnoremap('tc', ':VimtexCompile<cr>')
 -- }}}
 
 -- {{{ format
-utils.map('n', 'ff', ':Neoformat<cr>', options)
-utils.map('v', 'ff', ':Neoformat<cr>', options)
+nnoremap("ff", ":Neoformat<cr>")
+vnoremap("ff", ":Neoformat<cr>")
 -- }}}
 --
 
 -- {{ general
-utils.map('n', '<leader>sp', [[:setlocal spell!<cr>]], options)
-utils.map('n', '<leader>m',  [[:make<cr>]], options)
-utils.map('n', '<leader>sc', [[:luafile ~/.config/nvim/init.lua<cr>]], {noremap = true})
-utils.map('n', '<leader>rt', [[:%s/\s\+$//e<cr>]], {noremap = true})
-utils.map('n', '<A-Tab>',    [[:tabnext<cr>]], {noremap = true})
-utils.map('n', '<A-S-Tab>',  [[:tabprev<cr>]], {noremap = true})
-utils.map('v', 'J',  [[:m '>+1<cr>gv=gv]], {noremap = true})
-utils.map('v', 'K',  [[:m '<-2<cr>gv=gv]], {noremap = true})
-utils.map('n', '<esc><esc>',  [[:noh<cr>]], {noremap = true})
+nnoremap("<leader>sp", ":setlocal spell!<cr>")
+nnoremap("<leader>m",  ":make<cr>")
+nnoremap("<leader>sc", ":luafile ~/.config/nvim/init.lua<cr>")
+nnoremap("<leader>rt", [[:%s/\s\+$//e<cr>]])
+nnoremap("<A-Tab>",    ":tabnext<cr>")
+nnoremap("<A-S-Tab>",  ":tabprev<cr>")
 
--- tabs to (un-)indent
--- utils.map('n', '<Tab>',  [[>>_]], {noremap = true})
--- utils.map('n', '<S-Tab>',  [[<<_]], {noremap = true})
--- utils.map('i', '<S-Tab>',  [[<C-D>]], {noremap = true})
-utils.map('v', '<Tab>',  [[>gv]], {noremap = true})
-utils.map('v', '<S-Tab>',  [[<gv]], {noremap = true})
+vnoremap("J", ":m '>+1<cr>gv=gv")
+vnoremap("K", ":m '<-2<cr>gv=gv")
 
-local gospel = false
+-- nnoremap("<C-p>", "\"_dP")
+
+
+nnoremap('<esc><esc>',  ":noh<cr>")
+
+vnoremap('<Tab>',   ">gv")
+vnoremap('<S-Tab>', "<gv")
+
+--[[ local gospel = false
 function Toogle_gospel()
   gospel = not gospel
   if gospel then
@@ -93,11 +94,10 @@ function Toogle_gospel()
   end
 end
 
-utils.map_lua('n', '<C-g>',  "Toogle_gospel()", options)
+utils.map_lua('n', '<C-g>',  "Toogle_gospel()", options) ]]
 
-utils.map('n', '<leader>i', [[i~$$<esc>i]], options)
-utils.map_lua('n', '<leader>w', "utils.Wrap_toogle()", options)
-
+nnoremap("<leader>i", "i~$$<esc>i")
+nnoremap_lua('<leader>w', "utils.Wrap_toogle()")
 
 local pres = false
 function Toogle_nu()
@@ -112,5 +112,5 @@ function Toogle_nu()
   end
 end
 
-utils.map_lua('n', 'pr', "Toogle_nu()", options)
+nnoremap_lua("pr", "Toogle_nu()")
 -- }}
