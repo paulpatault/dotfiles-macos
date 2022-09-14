@@ -61,10 +61,8 @@ prompt pure
 #=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# ALIAS
 ex () {
     if [ "$1" != "" ]
-    then
-        exa --tree --icons --level=$*
-    else
-        exa --all --long
+    then exa --tree --icons --level=$*
+    else exa --all --long
     fi
 }
 
@@ -93,7 +91,8 @@ alias vi="nvim"
 alias vim="nvim"
 alias diff="colordiff"
 
-s () { cd $HOME/stage }
+mpri () { cd $HOME/mpri/m2 }
+alias m="mpri"
 
 alias l="exa -la"
 alias ls="exa -G"
@@ -136,9 +135,11 @@ export FZF_COMPLETION_TRIGGER='**'
 
 #=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# AUTRE
 alias upall="brew update && brew upgrade && opam update -y && opam upgrade -y"
+alias luamake=/Users/paulpatault/dotfiles/config/lua-language-server/3rd/luamake/luamake
 
 #=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# OCAML
+alias opam_switch="bash $HOME/.config/scripts/switch.sh"
 export OCAMLRUNPARAM=b
 eval $(opam env)
 
-alias luamake=/Users/paulpatault/dotfiles/config/lua-language-server/3rd/luamake/luamake
+
