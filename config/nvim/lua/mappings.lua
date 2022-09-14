@@ -32,18 +32,18 @@ nnoremap_lua("<leader>fb", "require('telescope').extensions.file_browser.file_br
 -- }}}
 
 -- {{{ lsp
-nnoremap("<leader>rn", "vim.lsp.buf.rename()")
-nnoremap("grf", "vim.lsp.buf.references()")
-nnoremap("gd",  "vim.lsp.buf.definition()")
-nnoremap("gD",  "vim.lsp.buf.implementation()")
-nnoremap("dc",  "vim.lsp.buf.hover()")
-nnoremap("ds",  "vim.lsp.buf.signature_help()")
-nnoremap("gT",  "vim.lsp.buf.type_definition()")
-nnoremap("dl",  "vim.diagnostic.open_float()")
-nnoremap("dn",  "vim.diagnostic.goto_next()")
-nnoremap("dN",  "vim.diagnostic.goto_prev()")
-nnoremap("do",  "vim.diagnostic.enable()")
-nnoremap("df",  "vim.diagnostic.disable()")
+nnoremap_lua("<leader>rn", "vim.lsp.buf.rename()")
+nnoremap_lua("grf", "vim.lsp.buf.references()")
+nnoremap_lua("gd",  "vim.lsp.buf.definition()")
+nnoremap_lua("gD",  "vim.lsp.buf.implementation()")
+nnoremap_lua("dc",  "vim.lsp.buf.hover()")
+nnoremap_lua("ds",  "vim.lsp.buf.signature_help()")
+nnoremap_lua("gT",  "vim.lsp.buf.type_definition()")
+nnoremap_lua("dl",  "vim.diagnostic.open_float()")
+nnoremap_lua("dn",  "vim.diagnostic.goto_next()")
+nnoremap_lua("dN",  "vim.diagnostic.goto_prev()")
+nnoremap_lua("do",  "vim.diagnostic.enable()")
+nnoremap_lua("df",  "vim.diagnostic.disable()")
 -- }}}
 
 utils.map('t', '<esc>', '<c-\\><c-n>', options)
