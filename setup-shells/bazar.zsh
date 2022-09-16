@@ -1,6 +1,8 @@
 # NVIM AUX
 
-pip3 install neovim
+/opt/homebrew/bin/python3 -m pip install neovim
+/opt/homebrew/bin/python3 -m pip install pynvim
+
 npm install neovim
 npm i -g vscode-langservers-extracted
 

@@ -16,6 +16,7 @@ lazygit
 koekeishiya/formulae/skhd
 jq
 colordiff
+python@3.10
 )
 
 BREW_ALL=(
