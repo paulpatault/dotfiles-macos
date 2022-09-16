@@ -138,7 +138,7 @@ alias upall="brew update && brew upgrade && opam update -y && opam upgrade -y"
 alias luamake=/Users/paulpatault/dotfiles/config/lua-language-server/3rd/luamake/luamake
 
 #=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# OCAML
-alias opam_switch="bash $HOME/.config/scripts/switch.sh"
+alias switch="bash $HOME/.config/scripts/switch.sh"
 export OCAMLRUNPARAM=b
 eval $(opam env)
 

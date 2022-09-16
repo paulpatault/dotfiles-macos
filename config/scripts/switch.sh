@@ -9,10 +9,16 @@ export OPAMYES=true
 
 if opam switch create $switch $version
 then
-    eval $(opam env --switch=$switch)
-    opam install \
-        ocp-indent \
-        ocaml-lsp-server \
+    echo "$(tput setaf 0)$(tput setab 2)[ Installation du switch OK ]$(tput sgr 0)"
 else
-    echo "nok"
+    echo "$(tput setaf 1)$(tput setab 3)[ Erreur d'installation du switch ]$(tput sgr 0)"
+    exit 1
 fi
+
+eval "$(opam env --switch=$switch)"
+
+opam update
+
+opam install \
+    ocp-indent \
+    ocaml-lsp-server \
