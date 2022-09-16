@@ -51,9 +51,9 @@ utils.map('t', '<esc>', '<c-\\><c-n>', options)
 vnoremap("<leader>c", "<Plug>kommentary_visual_default")
 nnoremap("<leader>c", "<Plug>kommentary_line_default")
 
-nnoremap('<leader>tg', ':FloatermNew lazygit<cr>')
-nnoremap('<leader>tr', ':TroubleToggle<cr>')
-nnoremap('tc', ':VimtexCompile<cr>')
+nnoremap("<leader>tg", ":FloatermNew lazygit<cr>")
+nnoremap("<leader>tr", ":TroubleToggle<cr>")
+nnoremap("tc", ":VimtexCompile<cr>")
 -- }}}
 
 -- {{{ format
@@ -67,14 +67,18 @@ nnoremap("<leader>sp", ":setlocal spell!<cr>")
 nnoremap("<leader>m",  ":make<cr>")
 nnoremap("<leader>sc", ":luafile ~/.config/nvim/init.lua<cr>")
 nnoremap("<leader>rt", [[:%s/\s\+$//e<cr>]])
-nnoremap("<A-Tab>",    ":tabnext<cr>")
-nnoremap("<A-S-Tab>",  ":tabprev<cr>")
+
+nnoremap("<C-d>", "<C-d>zz")
+nnoremap("<C-u>", "<C-u>zz")
+
+nnoremap("<A-Tab>",   ":tabnext<cr>")
+nnoremap("<A-S-Tab>", ":tabprev<cr>")
+
 
 vnoremap("J", ":m '>+1<cr>gv=gv")
 vnoremap("K", ":m '<-2<cr>gv=gv")
 
 -- nnoremap("<C-p>", "\"_dP")
-
 
 nnoremap('<esc><esc>',  ":noh<cr>")
 

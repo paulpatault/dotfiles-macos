@@ -17,6 +17,6 @@ utils.create_augroup({
 }, "UndercurlDiags")
 
 utils.create_augroup({
-  {"ColorScheme", "*", "hi def", "CoqtailSent",   "guibg=#fabd2f"},
-  {"ColorScheme", "*", "hi def", "CoqtailChecked","guibg=#b8bb26"},
+  {"ColorScheme", "*", "hi def", "CoqtailSent",   "guibg=#a77e1f"},
+  {"ColorScheme", "*", "hi def", "CoqtailChecked","guibg=#5b5d13"},
 }, "CoqtailHighlights")
