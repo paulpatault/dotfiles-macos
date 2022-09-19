@@ -1,4 +1,5 @@
 local cmd = vim.cmd
+local utils = require("ppatault.utils")
 
 _G.setHighlights = function()
   cmd [[highlight LspDiagnosticsUnderlineError cterm=undercurl gui=undercurl]]
