@@ -36,12 +36,16 @@ fpath+=$HOME/.zsh/pure
 
 export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
 export PATH="/opt/homebrew/opt/make/libexec/gnubin:$PATH"
+export PATH="/opt/homebrew/opt/libxml2/bin:$PATH"
 export PATH="$HOME/mpri/m1/ens/SystReact/Lustre/lustre-v4-III-e-macosx/bin:$PATH"
 
 export LDFLAGS="-L/opt/homebrew/lib $LDFLAGS"
+export LDFLAGS="-L/opt/homebrew/opt/libxml2/lib $LDFLAGS"
 export CFLAGS="-I/opt/homebrew/include $CFLAGS"
 export CXXFLAGS="-I/opt/homebrew/include $CXXFLAGS"
+export CXXFLAGS="-I/opt/homebrew/opt/libxml2/include $CXXFLAGS"
 export PKG_CONFIG_PATH="/opt/homebrew/opt/openssl@3/lib/pkgconfig"
+export PKG_CONFIG_PATH="/opt/homebrew/opt/libxml2/lib/pkgconfig:$PKG_CONFIG_PATH"
 
 #=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# THEME
 
@@ -93,6 +97,13 @@ alias diff="colordiff"
 
 mpri () { cd $HOME/mpri/m2 }
 alias m="mpri"
+alias fun="cd $HOME/mpri/m2/cours/prog_fonctionnelle"
+alias coq="cd $HOME/mpri/m2/cours/coq_lmfi"
+alias rea="cd $HOME/mpri/m2/cours/synchrone"
+alias pro="cd $HOME/mpri/m2/cours/systeme_preuve"
+alias lli="cd $HOME/mpri/m2/cours/logique_lineaire"
+alias lli="cd $HOME/mpri/m2/cours/logique_lineaire"
+alias ppr="cd $HOME/mpri/m2/cours/computational_logic"
 
 alias l="exa -la"
 alias ls="exa -G"
@@ -119,14 +130,6 @@ alias gco="git commit"
 alias gc="git clone"
 alias u="git pull upstream main"
 alias p="git push"
-
-#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# APPS
-# alias spark="open /Applications/Spark.app"
-# alias safari="open /Applications/Safari.app"
-# alias discord="open /Applications/Discord.app"
-# alias whatsapp="open /Applications/WhatsApp.app"
-# alias todo="open /Applications/Microsoft\ To\ Do.app"
-# alias slack="open /Applications/Slack.app"
 
 #=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# FZF
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
