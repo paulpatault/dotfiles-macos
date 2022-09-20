@@ -96,6 +96,8 @@ alias vim="nvim"
 alias diff="colordiff"
 
 mpri () { cd $HOME/mpri/m2 }
+edt () { open $HOME/mpri/m2/EDT-M2.pdf }
+
 alias m="mpri"
 alias fun="cd $HOME/mpri/m2/cours/prog_fonctionnelle"
 alias coq="cd $HOME/mpri/m2/cours/coq_lmfi"
