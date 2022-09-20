@@ -1,5 +1,6 @@
 local M = {}
 
+
 local cmd = vim.cmd
 
 function M.create_augroup(autocmds, name)
@@ -51,36 +52,6 @@ function M.completion_confirm()
 end
 
 
-local options = { noremap = true, silent = true }
-
-function M.Wrap_toogle ()
-    local w = vim.wo
-    w.wrap = not w.wrap
-    if w.wrap then
-        utils.map('n', 'j', 'gj', options)
-        utils.map('n', 'k', 'gk', options)
-        utils.map('n', '0', 'g0', options)
-        utils.map('n', '$', 'g$', options)
-        utils.map('v', 'j', 'gj', options)
-        utils.map('v', 'k', 'gk', options)
-        utils.map('v', '0', 'g0', options)
-        utils.map('v', '$', 'g$', options)
-        cmd [[ let &showbreak='❯❯❯ ' ]]
-        -- cmd [[ let &showbreak='❮❮❮ ' ]]
-        cmd [[ set cpoptions+=n ]]
-    else
-        utils.unmap('n', 'j')
-        utils.unmap('n', 'k')
-        utils.unmap('n', '0')
-        utils.unmap('n', '$')
-        utils.unmap('v', 'j')
-        utils.unmap('v', 'k')
-        utils.unmap('v', '0')
-        utils.unmap('v', '$')
-        cmd [[ set showbreak= ]]
-        cmd [[ set cpoptions-=n ]]
-    end
-end
 
 _G.utils = M
 return M

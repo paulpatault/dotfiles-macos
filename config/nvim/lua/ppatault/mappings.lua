@@ -2,6 +2,8 @@ local keymap = require("ppatault.keymap")
 local nnoremap = keymap.nnoremap
 local vnoremap = keymap.vnoremap
 local tnoremap = keymap.tnoremap
+local nunmap   = keymap.nunmap
+local vunmap   = keymap.vunmap
 
 
 nnoremap("<leader>te", ":Telescope<cr>")
@@ -85,20 +87,49 @@ end
 
 utils.map_lua('n', '<C-g>',  "Toogle_gospel()", options) ]]
 
-nnoremap("<leader>i", "i~$$<esc>i")
-nnoremap("<leader>w", "utils.Wrap_toogle()")
+local function wrap_toogle ()
+    vim.wo.wrap = not vim.wo.wrap
+    if vim.wo.wrap then
+        nnoremap('j', 'gj')
+        nnoremap('k', 'gk')
+        nnoremap('0', 'g0')
+        nnoremap('$', 'g$')
+        vnoremap('j', 'gj')
+        vnoremap('k', 'gk')
+        vnoremap('0', 'g0')
+        vnoremap('$', 'g$')
+        vim.cmd ("let &showbreak='❯❯❯ '")
+        vim.cmd ("set cpoptions+=n")
+    else
+        nunmap("j")
+        nunmap("k")
+        nunmap("0")
+        nunmap("$")
+        vunmap("j")
+        vunmap("k")
+        vunmap("0")
+        vunmap("$")
+        vim.cmd ("set showbreak=")
+        vim.cmd ("set cpoptions-=n")
+    end
+end
 
-local pres = false
-function Toogle_nu()
-  pres = not pres
-  vim.cmd ":ZenMode"
+nnoremap("<leader>i", "i~$$<esc>i")
+nnoremap("<leader>w", function() wrap_toogle() end)
+
+vim.api.nvim_set_var("pres", false)
+
+local function toogle_pres()
+  local pres = vim.api.nvim_get_var("pres")
+  vim.api.nvim_set_var("pres", not pres)
+  vim.cmd(":ZenMode")
   if (pres) then
-    vim.wo.number = false
-    vim.wo.relativenumber = false
-  else
     vim.wo.number = true
     vim.wo.relativenumber = true
+  else
+    vim.wo.number = false
+    vim.wo.relativenumber = false
   end
 end
 
-nnoremap("pr", "Toogle_nu()")
+nnoremap("pr", function() toogle_pres() end)

@@ -11,8 +11,11 @@ local function bind(op, outer_opts)
     end
 end
 
-local function unmap(mode, keys)
-  vim.keymap.del(mode, keys)
+local function unmap(op)
+  return function(lhs, opts)
+    opts = opts or {}
+    vim.keymap.del(op, lhs)
+  end
 end
 
 M.nmap = bind("n", {noremap = false})
@@ -21,5 +24,7 @@ M.vnoremap = bind("v")
 M.xnoremap = bind("x")
 M.inoremap = bind("i")
 M.tnoremap = bind("t")
+M.nunmap = unmap("n")
+M.vunmap = unmap("v")
 
 return M
