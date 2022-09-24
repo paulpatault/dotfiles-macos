@@ -1,6 +1,6 @@
 require("ppatault.set")
 require("ppatault.hidiag")
-require("ppatault.ocaml")
+-- require("ppatault.ocaml")
 require("ppatault.plugins")
 require("rust-tools").setup({})
 require("impatient")

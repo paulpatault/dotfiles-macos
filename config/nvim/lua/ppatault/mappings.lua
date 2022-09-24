@@ -41,7 +41,6 @@ nnoremap("<leader>c", "<Plug>kommentary_line_default")
 
 nnoremap("<leader>tg", ":FloatermNew lazygit<cr>")
 nnoremap("<leader>tr", ":TroubleToggle<cr>")
-nnoremap("tc", ":VimtexCompile<cr>")
 
 
 nnoremap("ff", ":Neoformat<cr>")
@@ -114,7 +113,6 @@ local function wrap_toogle ()
     end
 end
 
-nnoremap("<leader>i", "i~$$<esc>i")
 nnoremap("<leader>w", function() wrap_toogle() end)
 
 vim.api.nvim_set_var("pres", false)
