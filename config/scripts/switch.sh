@@ -22,3 +22,4 @@ opam update
 opam install \
     ocp-indent \
     ocaml-lsp-server \
+    utop
