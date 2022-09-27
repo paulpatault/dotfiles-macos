@@ -1,5 +1,5 @@
 require("ppatault.set")
-require("ppatault.hidiag")
+require("ppatault.highlights")
 -- require("ppatault.ocaml")
 require("ppatault.plugins")
 require("rust-tools").setup({})

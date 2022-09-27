@@ -32,9 +32,12 @@ return require("packer").startup({function(use)
 
     ----- languages -----
     use "ocaml/vim-ocaml"
+    use "neovimhaskell/haskell-vim"
     use "sbdchd/neoformat"
     use "liuchengxu/graphviz.vim"
     use "simrat39/rust-tools.nvim"
+    -- use "jvoorhis/coq.vim"
+    -- use "https://framagit.org/manu/coq-au-vim"
     use "whonore/Coqtail"
 
     use { "lervag/vimtex", ft = { "tex" } }

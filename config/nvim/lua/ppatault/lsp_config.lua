@@ -11,6 +11,7 @@ end
 vim.cmd [[autocmd ColorScheme * highlight NormalFloat guibg=#3c3836]]
 vim.cmd [[autocmd ColorScheme * highlight FloatBorder guifg=white guibg=#3c3836]]
 
+
 --------- C/C++  ---------
 
 local rootd = function(fname)
@@ -89,9 +90,10 @@ lsp.sumneko_lua.setup {
 }
 
 --------- PYTHON ---------
+lsp.pylsp.setup({ })
 
-lsp.pylsp.setup({
-})
+--------- HASKELL ---------
+lsp.hls.setup({})
 
 --------- JS -------------
 
