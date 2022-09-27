@@ -6,6 +6,7 @@ source $ZSH/oh-my-zsh.sh
 CASE_SENSITIVE="true"
 
 export EDITOR='nvim'
+export MANPAGER='nvim +Man!'
 export OPAMEDITOR='nvim'
 export KITTY_CONFIG_EDITOR='nvim'
 export XDG_CONFIG_HOME=$HOME/.config
@@ -148,4 +149,5 @@ alias switch="bash $HOME/.config/scripts/switch.sh"
 export OCAMLRUNPARAM=b
 eval $(opam env)
 
-
+#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# HASKELL
+[ -f "/Users/paulpatault/.ghcup/env" ] && source "/Users/paulpatault/.ghcup/env" # ghcup-env
