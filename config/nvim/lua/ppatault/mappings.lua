@@ -2,6 +2,7 @@ local keymap = require("ppatault.keymap")
 local nnoremap = keymap.nnoremap
 local vnoremap = keymap.vnoremap
 local tnoremap = keymap.tnoremap
+local xnoremap = keymap.tnoremap
 local nunmap   = keymap.nunmap
 local vunmap   = keymap.vunmap
 
@@ -65,8 +66,10 @@ vnoremap("J", ":m '>+1<cr>gv=gv")
 vnoremap("K", ":m '<-2<cr>gv=gv")
 
 
-nnoremap('<esc><esc>',  ":noh<cr>")
+nnoremap("<esc><esc>",  ":noh<cr>")
 
+nnoremap("s", "<nop>")
+xnoremap("s", "<nop>")
 
 vnoremap("<Tab>",   ">gv")
 vnoremap("<S-Tab>", "<gv")
@@ -89,14 +92,14 @@ utils.map_lua('n', '<C-g>',  "Toogle_gospel()", options) ]]
 local function wrap_toogle ()
     vim.wo.wrap = not vim.wo.wrap
     if vim.wo.wrap then
-        nnoremap('j', 'gj')
-        nnoremap('k', 'gk')
-        nnoremap('0', 'g0')
-        nnoremap('$', 'g$')
-        vnoremap('j', 'gj')
-        vnoremap('k', 'gk')
-        vnoremap('0', 'g0')
-        vnoremap('$', 'g$')
+        nnoremap("j", "gj")
+        nnoremap("k", "gk")
+        nnoremap("0", "g0")
+        nnoremap("$", "g$")
+        vnoremap("j", "gj")
+        vnoremap("k", "gk")
+        vnoremap("0", "g0")
+        vnoremap("$", "g$")
         vim.cmd ("let &showbreak='❯❯❯ '")
         vim.cmd ("set cpoptions+=n")
     else

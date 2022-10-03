@@ -26,5 +26,6 @@ M.inoremap = bind("i")
 M.tnoremap = bind("t")
 M.nunmap = unmap("n")
 M.vunmap = unmap("v")
+M.xunmap = unmap("x")
 
 return M
