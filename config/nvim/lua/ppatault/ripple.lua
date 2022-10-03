@@ -18,6 +18,6 @@ vim.g.ripple_repls = {
     command = "utop",
     pre = "",
     post = ";;",
-    addcr = 1
+    addcr = 0
   }
 }
