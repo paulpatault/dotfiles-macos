@@ -68,9 +68,6 @@ vnoremap("K", ":m '<-2<cr>gv=gv")
 
 nnoremap("<esc><esc>",  ":noh<cr>")
 
-nnoremap("s", "<nop>")
-xnoremap("s", "<nop>")
-
 vnoremap("<Tab>",   ">gv")
 vnoremap("<S-Tab>", "<gv")
 
