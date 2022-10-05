@@ -99,7 +99,8 @@ alias emacs="nvim"
 alias vi="nvim"
 alias vim="nvim"
 alias diff="colordiff"
-alias t="tree"
+# alias t="tree"
+alias tree="exa -T"
 
 alias edt="open $HOME/mpri/m2/edt/EDT_M2.png"
 
