@@ -17,6 +17,7 @@ add_rtp(opam_share .. "/ocp-indent/vim")
 vim.cmd ("source " .. opam_share .. "/ocp-indent/vim/indent/ocaml.vim")
 
 nvim_set_var("ocaml_noend_error", 1)
+nvim_set_var("ocaml_revised", 1)
 
 vim.g.neoformat_ocaml_ocamlformat = {
   exe = "ocamlformat",

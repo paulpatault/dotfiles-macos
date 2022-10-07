@@ -1,5 +1,6 @@
 local g = vim.g
 g.mapleader = " "
+g.maplocalleader = "="
 g.langmenu = "en_US.UTF-8"
 g.completeopt = "menuone,noinsert,noselect"
 g.highlightedyank_highlight_duration = 100
