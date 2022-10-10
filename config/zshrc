@@ -152,6 +152,7 @@ alias luamake=/Users/paulpatault/dotfiles/config/lua-language-server/3rd/luamake
 #=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# OCAML
 alias switch="bash $HOME/.config/scripts/switch.sh"
 alias cleanml="bash $HOME/.config/scripts/cleanml.sh"
+alias cleantex="bash $HOME/.config/scripts/cleantex.sh"
 export OCAMLRUNPARAM=b
 eval $(opam env)
 
