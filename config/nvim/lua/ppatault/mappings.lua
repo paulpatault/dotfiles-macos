@@ -9,7 +9,7 @@ local vunmap   = keymap.vunmap
 local cmd = function(str) return function() vim.cmd(str) end end
 
 local telescope = require('telescope.builtin')
-nnoremap("<leader>te", cmd("Telescope"))
+nnoremap("<leader>te", function() vim.cmd("Telescope") end)
 nnoremap("<leader>p",  function() telescope.find_files() end)
 nnoremap("<leader>b",  function() telescope.buffers() end)
 nnoremap("<leader>ds", function() telescope.lsp_document_symbols() end)
@@ -46,6 +46,11 @@ tnoremap('<esc>', '<c-\\><c-n>')
 vnoremap("<leader>c", "<Plug>kommentary_visual_default")
 nnoremap("<leader>c", "<Plug>kommentary_line_default")
 
+nnoremap("<leader>vec", function()
+  vim.cmd("e ~/.config/nvim/init.lua");
+  vim.cmd("cd ~/.config/nvim/")
+end)
+
 -- nnoremap("<leader>tr", function() vim.cmd("TroubleToggle") end)
 
 nnoremap("<leader>rt", [[:%s/\s\+$//e<cr>]])
@@ -62,7 +67,7 @@ vnoremap("J", ":m '>+1<cr>gv=gv")
 vnoremap("K", ":m '<-2<cr>gv=gv")
 
 
-nnoremap("<esc><esc>",  cmd("noh"))
+nnoremap("<esc><esc>", cmd("noh"))
 
 vnoremap("<Tab>",   ">gv")
 vnoremap("<S-Tab>", "<gv")

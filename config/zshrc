@@ -95,7 +95,7 @@ alias :q="exit"
 alias :qa="exit"
 alias v="nvim"
 alias e="nvim"
-alias emacs="nvim"
+alias emacs=nvim
 alias vi="nvim"
 alias vim="nvim"
 alias diff="colordiff"
@@ -103,6 +103,7 @@ alias diff="colordiff"
 alias tree="exa -T"
 
 alias edt="open $HOME/mpri/m2/edt/EDT_M2.png"
+alias conf="cd ~/.config"
 
 alias m="cd $HOME/mpri/m2"
 alias fun="cd $HOME/mpri/m2/cours/prog_fonctionnelle"
@@ -125,7 +126,6 @@ vec () {
     # cd ~/.config/nvim & nvim init.lua & popd
     nvim ~/.config/nvim/init.lua --cmd 'cd ~/.config/nvim'
 }
-# alias vec="nvim ~/.config/nvim/init.lua --cmd 'cd ~/.config/nvim'"
 
 #=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# GIT
 alias lg="lazygit"
