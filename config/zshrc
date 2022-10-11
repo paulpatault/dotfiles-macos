@@ -118,8 +118,14 @@ alias l="exa -la"
 alias ls="exa -G"
 
 #=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# ZSHRC
-alias ec="nvim ~/.zshrc"
-alias sc="source ~/.zshrc"
+alias zec="nvim ~/.zshrc"
+alias zsc="source ~/.zshrc"
+
+vec () {
+    # cd ~/.config/nvim & nvim init.lua & popd
+    nvim ~/.config/nvim/init.lua --cmd 'cd ~/.config/nvim'
+}
+# alias vec="nvim ~/.config/nvim/init.lua --cmd 'cd ~/.config/nvim'"
 
 #=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# GIT
 alias lg="lazygit"
