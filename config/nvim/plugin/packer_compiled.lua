@@ -134,11 +134,6 @@ _G.packer_plugins = {
     path = "/Users/paulpatault/.local/share/nvim/site/pack/packer/start/gruvbox",
     url = "https://github.com/morhetz/gruvbox"
   },
-  ["haskell-vim"] = {
-    loaded = true,
-    path = "/Users/paulpatault/.local/share/nvim/site/pack/packer/start/haskell-vim",
-    url = "https://github.com/neovimhaskell/haskell-vim"
-  },
   ["impatient.nvim"] = {
     loaded = true,
     path = "/Users/paulpatault/.local/share/nvim/site/pack/packer/start/impatient.nvim",
@@ -284,6 +279,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/paulpatault/.local/share/nvim/site/pack/packer/start/vim-sandwich",
     url = "https://github.com/machakann/vim-sandwich"
+  },
+  ["vim-smt2"] = {
+    loaded = true,
+    path = "/Users/paulpatault/.local/share/nvim/site/pack/packer/start/vim-smt2",
+    url = "https://github.com/bohlender/vim-smt2"
   },
   ["vim-swap"] = {
     loaded = true,

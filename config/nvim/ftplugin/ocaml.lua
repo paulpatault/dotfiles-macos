@@ -1,7 +1,7 @@
 local nnoremap = require("ppatault.keymap").nnoremap
 
-nnoremap("<leader>af", "a assert false<esc>")
-nnoremap("<leader>aft", "a assert false (* TODO *)<esc>")
+nnoremap("<localleader>af", "a assert false<esc>")
+-- nnoremap("<leader>aft", "a assert false (* TODO *)<esc>")
 nnoremap("<leader>d", [[i<cr><esc>kaif debug then Format.eprintf "%a@." ;<esc>i]])
 
 nnoremap("s", function() vim.call("OCaml_switch", 0) end)
