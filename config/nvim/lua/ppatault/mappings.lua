@@ -2,19 +2,21 @@ local keymap = require("ppatault.keymap")
 local nnoremap = keymap.nnoremap
 local vnoremap = keymap.vnoremap
 local tnoremap = keymap.tnoremap
-local xnoremap = keymap.tnoremap
+-- local xnoremap = keymap.tnoremap
 local nunmap   = keymap.nunmap
 local vunmap   = keymap.vunmap
 
+local cmd = function(str) return function() vim.cmd(str) end end
 
-nnoremap("<leader>te", ":Telescope<cr>")
-nnoremap("<leader>p",  function() require('telescope.builtin').find_files() end)
-nnoremap("<leader>b",  function() require('telescope.builtin').buffers() end)
-nnoremap("<leader>ds", function() require('telescope.builtin').lsp_document_symbols() end)
-nnoremap("<leader>dg", function() require('telescope.builtin').diagnostics() end)
-nnoremap("<leader>ca", function() require('telescope.builtin').lsp_code_actions() end)
-nnoremap("<leader>gf", function() require('telescope.builtin').git_files() end)
-nnoremap("<leader>rg", function() require('telescope.builtin').live_grep() end)
+local telescope = require('telescope.builtin')
+nnoremap("<leader>te", cmd("Telescope"))
+nnoremap("<leader>p",  function() telescope.find_files() end)
+nnoremap("<leader>b",  function() telescope.buffers() end)
+nnoremap("<leader>ds", function() telescope.lsp_document_symbols() end)
+nnoremap("<leader>dg", function() telescope.diagnostics() end)
+nnoremap("<leader>ca", function() telescope.lsp_code_actions() end)
+nnoremap("<leader>gf", function() telescope.git_files() end)
+nnoremap("<leader>rg", function() telescope.live_grep() end)
 nnoremap("<leader>fb", function() require('telescope').extensions.file_browser.file_browser() end)
 -- 'n', 'gd']     ,   = "require('telescope.builtin').lsp_definitions()",
 -- 'n', 'gd']     ,   = "require('telescope.builtin').lsp_implementations()",
@@ -32,41 +34,35 @@ nnoremap("dN", function() vim.diagnostic.goto_prev() end)
 nnoremap("do", function() vim.diagnostic.enable() end)
 nnoremap("df", function() vim.diagnostic.disable() end)
 
+nnoremap("<leader>tg", cmd("FloatermNew lazygit"))
+nnoremap("<leader>ff", cmd("Neoformat"))
+vnoremap("<leader>ff", cmd("Neoformat"))
+nnoremap("<leader>sp", cmd("setlocal spell!"))
+nnoremap("<leader>sc", cmd("luafile ~/.config/nvim/init.lua"))
+nnoremap("<leader>m",  cmd("make"))
 
 tnoremap('<esc>', '<c-\\><c-n>')
-
 
 vnoremap("<leader>c", "<Plug>kommentary_visual_default")
 nnoremap("<leader>c", "<Plug>kommentary_line_default")
 
+-- nnoremap("<leader>tr", function() vim.cmd("TroubleToggle") end)
 
-nnoremap("<leader>tg", ":FloatermNew lazygit<cr>")
-nnoremap("<leader>tr", ":TroubleToggle<cr>")
-
-
-nnoremap("ff", ":Neoformat<cr>")
-vnoremap("ff", ":Neoformat<cr>")
-
-
-nnoremap("<leader>sp", ":setlocal spell!<cr>")
-nnoremap("<leader>m",  ":make<cr>")
-nnoremap("<leader>sc", ":luafile ~/.config/nvim/init.lua<cr>")
 nnoremap("<leader>rt", [[:%s/\s\+$//e<cr>]])
-
 
 nnoremap("<C-d>", "<C-d>zz")
 nnoremap("<C-u>", "<C-u>zz")
 
 
-nnoremap("<A-Tab>",   ":tabnext<cr>")
-nnoremap("<A-S-Tab>", ":tabprev<cr>")
+nnoremap("<A-Tab>",   cmd("tabnext"))
+nnoremap("<A-S-Tab>", cmd("tabprev"))
 
 
 vnoremap("J", ":m '>+1<cr>gv=gv")
 vnoremap("K", ":m '<-2<cr>gv=gv")
 
 
-nnoremap("<esc><esc>",  ":noh<cr>")
+nnoremap("<esc><esc>",  cmd("noh"))
 
 vnoremap("<Tab>",   ">gv")
 vnoremap("<S-Tab>", "<gv")
@@ -120,7 +116,7 @@ vim.api.nvim_set_var("pres", false)
 local function toogle_pres()
   local pres = vim.api.nvim_get_var("pres")
   vim.api.nvim_set_var("pres", not pres)
-  vim.cmd(":ZenMode")
+  vim.cmd("ZenMode")
   if (pres) then
     vim.wo.number = true
     vim.wo.relativenumber = true
@@ -130,4 +126,4 @@ local function toogle_pres()
   end
 end
 
-nnoremap("pr", function() toogle_pres() end)
+nnoremap("<localleader>pr", function() toogle_pres() end)
