@@ -11,11 +11,8 @@ _G.setHighlights = function()
   cmd("highlight CmpItemKind guifg=#fabd2f")
   cmd("highlight CmpItemMenu guifg=#83a598")
 
-  cmd("highlight CoqtailSent guibg=#574300")
-  -- cmd("highlight CoqtailChecked guibg=#1a3800")
-  -- cmd("highlight CoqtailChecked guibg=#415249")
-  cmd("highlight CoqtailChecked guibg=#34463e")
-  
+  cmd("highlight CoqtailSent guibg=" .. vim.api.nvim_get_var("coq_sent_color"))
+  cmd("highlight CoqtailChecked guibg=" .. vim.api.nvim_get_var("coq_check_color"))
 
   cmd("highlight Normal guibg=NONE ctermbg=NONE")
 end

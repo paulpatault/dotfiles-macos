@@ -8,7 +8,7 @@ if fn.empty(fn.glob(install_path)) > 0 then
   execute 'packadd packer.nvim'
 end ]]
 
-vim.cmd [[packadd packer.nvim]]
+vim.cmd("packadd packer.nvim")
 
 return require("packer").startup({function(use)
 
@@ -40,6 +40,7 @@ return require("packer").startup({function(use)
     -- use "https://framagit.org/manu/coq-au-vim"
     use "whonore/Coqtail"
     use "bohlender/vim-smt2"
+    use "fladson/vim-kitty"
 
     use { "lervag/vimtex", ft = { "tex" } }
 
@@ -56,6 +57,7 @@ return require("packer").startup({function(use)
     use "nvim-telescope/telescope-file-browser.nvim"
 
     ----- theme -----
+    use "rafi/awesome-vim-colorschemes"
     use "morhetz/gruvbox"
     use "kyazdani42/nvim-web-devicons"
     use {

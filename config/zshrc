@@ -127,6 +127,21 @@ vec () {
     nvim ~/.config/nvim/init.lua --cmd 'cd ~/.config/nvim'
 }
 
+lightmod () {
+    rm -f ~/.config/kitty/theme.conf
+    ln -s \
+        ~/.config/kitty/themes/gruvbox-light.conf \
+        ~/.config/kitty/theme.conf
+    echo "vim.api.nvim_set_var(\"the_bg_is_dark\", 0)" > ~/.config/nvim/lua/ppatault/bg.lua
+}
+
+# ctrl-cmd-,
+darkmod () {
+    rm -f ~/.config/kitty/theme.conf
+    ln -s ~/.config/kitty/themes/gruvbox.conf ~/.config/kitty/theme.conf
+    echo "vim.api.nvim_set_var(\"the_bg_is_dark\", 1)" > ~/.config/nvim/lua/ppatault/bg.lua
+}
+
 #=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# GIT
 alias lg="lazygit"
 alias g="git"

@@ -47,8 +47,9 @@ vnoremap("<leader>c", "<Plug>kommentary_visual_default")
 nnoremap("<leader>c", "<Plug>kommentary_line_default")
 
 nnoremap("<leader>vec", function()
+  vim.cmd("tabnew");
+  vim.cmd("tcd ~/.config/nvim/")
   vim.cmd("e ~/.config/nvim/init.lua");
-  vim.cmd("cd ~/.config/nvim/")
 end)
 
 -- nnoremap("<leader>tr", function() vim.cmd("TroubleToggle") end)

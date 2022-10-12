@@ -30,4 +30,5 @@ vim.g.neoformat_ocaml_ocamlformat = {
     "-"
   }
 }
+
 vim.g.neoformat_enabled_ocaml = {"ocamlformat"}

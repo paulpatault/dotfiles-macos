@@ -52,6 +52,9 @@ alt - y : yabai -m space --focus 6
 # ctrl + 7 : yabai -m space --focus 7 || skhd -k "ctrl + alt + cmd - 7"
 # ctrl + 8 : yabai -m space --focus 8 || skhd -k "ctrl + alt + cmd - 8"
 
+# light / dark
+# shift + alt - m : skhd -k "ctrl + cmd - ,"
+
 # rotate tree
 shift + alt - r : yabai -m space --rotate 90
 
