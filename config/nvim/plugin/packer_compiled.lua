@@ -124,11 +124,6 @@ _G.packer_plugins = {
     path = "/Users/paulpatault/.local/share/nvim/site/pack/packer/start/diffview.nvim",
     url = "https://github.com/sindrets/diffview.nvim"
   },
-  ["graphviz.vim"] = {
-    loaded = true,
-    path = "/Users/paulpatault/.local/share/nvim/site/pack/packer/start/graphviz.vim",
-    url = "https://github.com/liuchengxu/graphviz.vim"
-  },
   gruvbox = {
     loaded = true,
     path = "/Users/paulpatault/.local/share/nvim/site/pack/packer/start/gruvbox",
