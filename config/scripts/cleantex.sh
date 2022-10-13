@@ -13,4 +13,5 @@ rm -rf \
     *.synctex.gz \
     *.toc \
     *.vrb \
+    *.xdv \
     _minted-*

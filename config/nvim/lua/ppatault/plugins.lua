@@ -32,6 +32,8 @@ return require("packer").startup({function(use)
 
     ----- languages -----
     use "ocaml/vim-ocaml"
+    use "ELLIOTTCABLE/vim-menhir"
+    use "bfontaine/conflicts.vim"
     -- use "neovimhaskell/haskell-vim"
     use "sbdchd/neoformat"
     -- use "liuchengxu/graphviz.vim"
