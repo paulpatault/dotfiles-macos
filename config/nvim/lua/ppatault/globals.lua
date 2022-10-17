@@ -11,6 +11,7 @@ vim.g.markdown_fenced_languages = {
 
 vim.g.vimtex_compiler_progname = "nvr"
 vim.g.tex_flavor = "latex"
+vim.g.vimtex_view_method = "skim"
 vim.g.vimtex_compiler_latexmk = {
   -- executable = "lualatex",
   build_dir  = "_build",

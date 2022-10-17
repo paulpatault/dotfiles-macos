@@ -44,7 +44,8 @@ return require("packer").startup({function(use)
     use "bohlender/vim-smt2"
     use "fladson/vim-kitty"
 
-    use { "lervag/vimtex", ft = { "tex" } }
+    -- use { "lervag/vimtex", ft = { "tex" } }
+    use "lervag/vimtex"
 
     ----- telescope -----
     use "nvim-lua/popup.nvim"
