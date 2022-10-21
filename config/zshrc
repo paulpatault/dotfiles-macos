@@ -37,6 +37,7 @@ source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 #=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# PATH
 fpath+=$HOME/.zsh/pure
 
+path+=$HOME/.local/bin
 path+=/opt/homebrew/opt/llvm/bin
 path+=/opt/homebrew/opt/make/libexec/gnubin
 path+=/opt/homebrew/opt/libxml2/bin
