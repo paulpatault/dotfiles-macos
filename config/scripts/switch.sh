@@ -22,4 +22,7 @@ opam update
 opam install \
     ocp-indent \
     ocaml-lsp-server \
-    utop
+    utop \
+    ocamlformat-rpc \
+    merlin
+
