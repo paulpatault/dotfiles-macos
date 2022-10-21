@@ -33,3 +33,9 @@ vim.g.jupytext_style = "hydrogen"
 -- vim.g.ripple_winpos = "split" -- or vertical
 
 vim.g.coqtail_noimap = true
+
+
+--[[ vim.g.nvim_agda_settings = {
+  ["agda"] = "/Users/paulpatault/.cabal/bin/agda" -- "agda_args" : [ "--arg1", "--arg2"  ]
+}
+ ]]

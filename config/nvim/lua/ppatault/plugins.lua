@@ -38,11 +38,11 @@ return require("packer").startup({function(use)
     use "sbdchd/neoformat"
     -- use "liuchengxu/graphviz.vim"
     use "simrat39/rust-tools.nvim"
-    -- use "jvoorhis/coq.vim"
-    -- use "https://framagit.org/manu/coq-au-vim"
     use "whonore/Coqtail"
     use "bohlender/vim-smt2"
     use "fladson/vim-kitty"
+    -- use "ashinkarov/nvim-agda"
+    use "isti115/agda.nvim"
 
     -- use { "lervag/vimtex", ft = { "tex" } }
     use "lervag/vimtex"

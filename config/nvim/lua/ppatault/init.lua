@@ -13,6 +13,9 @@ augroup({
   {"BufRead,BufNewFile", "*.mp",  "set", "filetype=patmat"},
   {"BufRead,BufNewFile", "*.lus", "set", "filetype=lustre"},
   {"BufRead,BufNewFile", "*.ept", "set", "filetype=lustre"},
+  {"BufRead,BufNewFile", "*.mll", "set", "filetype=ocaml.ocamllex"},
+  -- {"BufRead,BufNewFile", "*.mly", "set", "filetype=ocaml.menhir"},
+  {"BufRead,BufNewFile", "*.mli", "set", "filetype=ocaml.interface"},
 }, "Buf_augrp")
 
 augroup({

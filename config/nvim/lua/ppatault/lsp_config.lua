@@ -42,7 +42,7 @@ end
 
 lsp.ocamllsp.setup{
     cmd = { 'ocamllsp' },
-    filetypes = {"ocaml", "ocaml.interface", "ocaml.ocamllex", "ocaml.menhir"},
+    filetypes = {"ocaml", "ocaml.interface", "ocaml.ocamllex", "ocaml.menhir", "menhir"},
     root_dir = rootd2,
 }
 
