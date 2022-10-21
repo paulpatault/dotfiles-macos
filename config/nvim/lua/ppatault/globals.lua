@@ -9,7 +9,7 @@ vim.g.markdown_fenced_languages = {
   "plsql", "sql", "python", "lua", "html", "php", "c", "cpp", "ocaml", "asm"
 }
 
-vim.g.vimtex_compiler_progname = "nvr"
+-- vim.g.vimtex_compiler_progname = "nvr"
 vim.g.tex_flavor = "latex"
 vim.g.vimtex_view_method = "skim"
 vim.g.vimtex_compiler_latexmk = {
@@ -25,6 +25,7 @@ vim.g.vimtex_compiler_latexmk = {
     "-interaction=nonstopmode"
   }
 }
+
 
 vim.g.jupytext_fmt = "py"
 vim.g.jupytext_style = "hydrogen"

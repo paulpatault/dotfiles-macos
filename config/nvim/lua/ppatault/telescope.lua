@@ -27,6 +27,7 @@ require('telescope').setup{
     file_ignore_patterns = {
       [[undo/%.*]],
       [[_build/*]],
+      [[%.key]],
       [[_opam/*]],
       [[%.cmo]],
       [[%.cmi]],
