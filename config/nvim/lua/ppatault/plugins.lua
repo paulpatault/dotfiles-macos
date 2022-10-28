@@ -26,15 +26,14 @@ return require("packer").startup({function(use)
     use "hrsh7th/cmp-path"
     use "hrsh7th/cmp-nvim-lua"
     use "hrsh7th/cmp-nvim-lsp"
-    use "hrsh7th/cmp-vsnip"
-    use "hrsh7th/vim-vsnip"
+    use "hrsh7th/cmp-cmdline"
     use "kdheepak/cmp-latex-symbols"
 
     ----- languages -----
     use "ocaml/vim-ocaml"
     use "ELLIOTTCABLE/vim-menhir"
     use "bfontaine/conflicts.vim"
-    -- use "neovimhaskell/haskell-vim"
+    use "neovimhaskell/haskell-vim"
     use "sbdchd/neoformat"
     -- use "liuchengxu/graphviz.vim"
     use "simrat39/rust-tools.nvim"
@@ -44,7 +43,6 @@ return require("packer").startup({function(use)
     -- use "ashinkarov/nvim-agda"
     use "isti115/agda.nvim"
 
-    -- use { "lervag/vimtex", ft = { "tex" } }
     use "lervag/vimtex"
 
     ----- telescope -----
@@ -72,7 +70,7 @@ return require("packer").startup({function(use)
     ----- utils -----
     use "wellle/targets.vim"
     use "lewis6991/impatient.nvim"
-    use { "arthurxavierx/vim-unicoder", ft = 'markdown' }
+    use "arthurxavierx/vim-unicoder"
     use "machakann/vim-sandwich"
     use "cohama/lexima.vim"
     use "mbbill/undotree"
@@ -94,6 +92,6 @@ return require("packer").startup({function(use)
     }
     use "machakann/vim-highlightedyank"
     use "machakann/vim-swap"
-    use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
+    use { "sindrets/diffview.nvim", requires = "nvim-lua/plenary.nvim" }
   end
 })

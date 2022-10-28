@@ -41,14 +41,14 @@ cmp.setup {
       vim_item.menu = ({
         buffer = "~buffer",
         nvim_lsp = "~lsp",
-        ultisnips = "[UltiSnips]",
+        -- ultisnips = "[UltiSnips]",
         nvim_lua = "[Lua]",
-        cmp_tabnine = "[TabNine]",
-        look = "[Look]",
+        -- cmp_tabnine = "[TabNine]",
+        -- look = "[Look]",
         path = "[Path]",
         spell = "[Spell]",
-        calc = "[Calc]",
-        emoji = "[Emoji]"
+        -- calc = "[Calc]",
+        -- emoji = "[Emoji]"
       })[entry.source.name]
       return vim_item
     end
@@ -63,7 +63,8 @@ cmp.setup {
     { name = "nvim_lsp" },
     { name = "path" },
     { name = "nvim_lua" },
-    { name = 'buffer', option = { keyword_pattern = [[\k\+]] }}
+    { name = 'buffer', option = { keyword_pattern = [[\k\+]] }},
+    { name = "latex_symbols" },
   },
   mapping = {
     ['<C-p>'] = cmp.mapping.select_prev_item(),
