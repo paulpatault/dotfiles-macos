@@ -5,11 +5,11 @@ source $ZSH/oh-my-zsh.sh
 #=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# CONFIG
 CASE_SENSITIVE="true"
 
-export EDITOR="nvim"
-export SHELL="/bin/zsh"
+export EDITOR=nvim
+export SHELL=/bin/zsh
 export MANPAGER="nvim +Man!"
-export OPAMEDITOR="nvim"
-export KITTY_CONFIG_EDITOR="nvim"
+export OPAMEDITOR=nvim
+export KITTY_CONFIG_EDITOR=nvim
 export XDG_CONFIG_HOME=$HOME/.config
 
 if type brew &>/dev/null; then
@@ -93,14 +93,15 @@ alias ssh="kitty +kitten ssh"
 alias icat="kitty +kitten icat"
 
 #=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# SHORT
-alias :q="exit"
-alias :qa="exit"
-alias v="nvim"
-alias e="nvim"
+alias turbocaml=nvim
+alias :q=exit
+alias :qa=exit
+alias v=nvim
+alias e=nvim
 alias emacs=nvim
-alias vi="nvim"
-alias vim="nvim"
-alias diff="colordiff"
+alias vi=nvim
+alias vim=nvim
+alias diff=colordiff
 # alias t="tree"
 alias tree="exa -T"
 
@@ -115,7 +116,6 @@ alias pro="cd $HOME/mpri/m2/cours/systeme_preuve"
 alias lli="cd $HOME/mpri/m2/cours/logique_lineaire"
 alias lli="cd $HOME/mpri/m2/cours/logique_lineaire"
 alias ppr="cd $HOME/mpri/m2/cours/computational_logic"
-
 
 alias l="exa -la"
 alias ls="exa -G"
@@ -137,8 +137,7 @@ lightmod () {
     echo "vim.api.nvim_set_var(\"the_bg_is_dark\", 0)" > ~/.config/nvim/lua/ppatault/bg.lua
 }
 
-# ctrl-cmd-,
-darkmod () {
+darkmod () { # ctrl-cmd-,
     rm -f ~/.config/kitty/theme.conf
     ln -s ~/.config/kitty/themes/gruvbox.conf ~/.config/kitty/theme.conf
     echo "vim.api.nvim_set_var(\"the_bg_is_dark\", 1)" > ~/.config/nvim/lua/ppatault/bg.lua

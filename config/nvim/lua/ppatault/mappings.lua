@@ -2,13 +2,14 @@ local keymap = require("ppatault.keymap")
 local nnoremap = keymap.nnoremap
 local vnoremap = keymap.vnoremap
 local tnoremap = keymap.tnoremap
+local inoremap = keymap.inoremap
 -- local xnoremap = keymap.tnoremap
 local nunmap   = keymap.nunmap
 local vunmap   = keymap.vunmap
 
 local cmd = function(str) return function() vim.cmd(str) end end
 
-local telescope = require('telescope.builtin')
+local telescope = require("telescope.builtin")
 nnoremap("<leader>te", function() vim.cmd("Telescope") end)
 nnoremap("<leader>p",  function() telescope.find_files() end)
 nnoremap("<leader>b",  function() telescope.buffers() end)
@@ -17,7 +18,7 @@ nnoremap("<leader>dg", function() telescope.diagnostics() end)
 nnoremap("<leader>ca", function() telescope.lsp_code_actions() end)
 nnoremap("<leader>gf", function() telescope.git_files() end)
 nnoremap("<leader>rg", function() telescope.live_grep() end)
-nnoremap("<leader>fb", function() require('telescope').extensions.file_browser.file_browser() end)
+nnoremap("<leader>fb", function() require("telescope").extensions.file_browser.file_browser() end)
 -- 'n', 'gd']     ,   = "require('telescope.builtin').lsp_definitions()",
 -- 'n', 'gd']     ,   = "require('telescope.builtin').lsp_implementations()",
 
@@ -41,7 +42,7 @@ nnoremap("<leader>sp", cmd("setlocal spell!"))
 nnoremap("<leader>sc", cmd("luafile ~/.config/nvim/init.lua"))
 nnoremap("<leader>m",  cmd("make"))
 
-tnoremap('<esc>', '<c-\\><c-n>')
+tnoremap("<esc>", '<c-\\><c-n>')
 
 vnoremap("<leader>c", "<Plug>kommentary_visual_default")
 nnoremap("<leader>c", "<Plug>kommentary_line_default")
@@ -58,6 +59,9 @@ nnoremap("<leader>rt", [[:%s/\s\+$//e<cr>]])
 
 nnoremap("<C-d>", "<C-d>zz")
 nnoremap("<C-u>", "<C-u>zz")
+
+inoremap("jj", "<esc>")
+inoremap("jk", "<esc>")
 
 
 nnoremap("<A-Tab>",   cmd("tabnext"))

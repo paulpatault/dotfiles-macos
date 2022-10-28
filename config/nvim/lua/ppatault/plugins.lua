@@ -93,5 +93,6 @@ return require("packer").startup({function(use)
     use "machakann/vim-highlightedyank"
     use "machakann/vim-swap"
     use { "sindrets/diffview.nvim", requires = "nvim-lua/plenary.nvim" }
+    use { "max397574/better-escape.nvim", config = function() require("better_escape").setup() end, }
   end
 })
