@@ -177,6 +177,3 @@ alias cleanml="bash $HOME/.config/scripts/cleanml.sh"
 alias cleantex="bash $HOME/.config/scripts/cleantex.sh"
 export OCAMLRUNPARAM=b
 eval $(opam env)
-
-#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# HASKELL
-[ -f "/Users/paulpatault/.ghcup/env" ] && source "/Users/paulpatault/.ghcup/env" # ghcup-env
