@@ -6,12 +6,6 @@ syn clear
 
 syn case ignore
 
-syn keyword lusPack package model provides needs body end uses
-
-syn keyword lusStatement   returns var let tel assert
-" syn keyword lusLabel         case goto
-syn keyword lusConditional if else then
-
 syn keyword lusTodo contained   TODO
 
 " String
@@ -57,13 +51,20 @@ syn match lusOperator "->"
 syn match lusComment  "--.*" contains=lusTodo
 
 " Les mots-cles
-syn keyword lusConstant  true false
-syn keyword lusOperator  and or not xor
-syn keyword lusOperator  div mod
-syn keyword lusOperator  fby pre current when 
-syn keyword lusType      bool int real map red fill
-syn keyword lusFunction  node function type const
-syn keyword lusStatement extern unsafe
+syn keyword lusConstant    true false
+syn keyword lusOperator    and or not xor
+syn keyword lusOperator    div mod
+syn keyword lusOperator    fby pre current when
+syn keyword lusType        bool int real map red fill
+" syn keyword lusFunction    node function type const
+syn keyword lusStatement   node function type const
+
+syn keyword lusStatement   extern unsafe
+
+syn keyword lusPack        package model provides needs body end uses automaton init when
+syn keyword lusStatement   returns var let tel assert match with local merge
+syn keyword lusConditional if else then unless
+
 
 syn sync lines=250
 
@@ -74,27 +75,26 @@ if !exists("did_lus_syntax_inits")
   " hi link lusLabel          Label
   hi link lusConditional    Conditional
   hi link lusTodo           Todo
-  " hi link lusString       String
+  " hi link lusString               String
   " hi link lusMatrixDelimiter      Identifier
   hi link lusConstant       Number
   hi link lusNumber         Number
   hi link lusFloat          Number
-  " hi link lusByte         Number
+  " hi link lusByte           Number
   hi link lusOperator       Operator
   hi link lusFunction       Function
   hi link lusType           Type
   hi link lusComment        Comment
   hi link lusStatement      Statement
 
-  hi link lusPack       Type
+  hi link lusPack           Type
 
-"optional highlighting
+  "optional highlighting
   hi link lusDelimiter      Identifier
 
-  "hi link lusShowTab           Error
+  "hi link lusShowTab       Error
   "hi link lusShowTabc      Error
-
-  "hi link lusIdentifier        Identifier
+  "hi link lusIdentifier    Identifier
 endif
 
 let b:current_syntax = "lus"
