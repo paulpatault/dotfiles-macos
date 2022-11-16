@@ -11,12 +11,13 @@ local cmd = function(str) return function() vim.cmd(str) end end
 
 local telescope = require("telescope.builtin")
 nnoremap("<leader>te", function() vim.cmd("Telescope") end)
-nnoremap("<leader>p",  function() telescope.find_files() end)
+nnoremap("<leader>f",  function() telescope.find_files() end)
+nnoremap("<leader>p",  function() telescope.git_files() end)
 nnoremap("<leader>b",  function() telescope.buffers() end)
+nnoremap("<leader>ls", function() telescope.buffers() end)
 nnoremap("<leader>ds", function() telescope.lsp_document_symbols() end)
 nnoremap("<leader>dg", function() telescope.diagnostics() end)
 nnoremap("<leader>ca", function() telescope.lsp_code_actions() end)
-nnoremap("<leader>gf", function() telescope.git_files() end)
 nnoremap("<leader>rg", function() telescope.live_grep() end)
 nnoremap("<leader>fb", function() require("telescope").extensions.file_browser.file_browser() end)
 -- 'n', 'gd']     ,   = "require('telescope.builtin').lsp_definitions()",
@@ -37,7 +38,6 @@ nnoremap("df", function() vim.diagnostic.disable() end)
 
 nnoremap("<leader>tg", cmd("FloatermNew lazygit"))
 nnoremap("<leader>ff", cmd("Neoformat"))
-vnoremap("<leader>ff", cmd("Neoformat"))
 nnoremap("<leader>sp", cmd("setlocal spell!"))
 nnoremap("<leader>sc", cmd("luafile ~/.config/nvim/init.lua"))
 nnoremap("<leader>m",  cmd("make"))
@@ -62,7 +62,6 @@ nnoremap("<C-u>", "<C-u>zz")
 
 inoremap("jj", "<esc>")
 inoremap("jk", "<esc>")
-
 
 nnoremap("<A-Tab>",   cmd("tabnext"))
 nnoremap("<A-S-Tab>", cmd("tabprev"))
