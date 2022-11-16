@@ -8,6 +8,9 @@ kommentary_conf.configure_language("why3", {
 kommentary_conf.configure_language("lustre", {
     prefer_multi_line_comments = true,
     multi_line_comment_strings = {"(*", "*)"},
+    -- prefer_multi_line_comments = false,
+    -- prefer_single_line_comments = true,
+    -- single_line_comment_strings = {"--"},
 })
 
 kommentary_conf.configure_language("ocaml_interface", {
