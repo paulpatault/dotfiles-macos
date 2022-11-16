@@ -17,6 +17,7 @@ reloader()
 require('plenary.filetype').add_file({
   ['md']      = 'markdown',
   ['mlw']     = 'why3',
+  ['v']       = 'coq',
   ['lus,ept'] = 'lustre'})
 
 require('telescope').setup{
