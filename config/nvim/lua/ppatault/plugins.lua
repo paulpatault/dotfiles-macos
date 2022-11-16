@@ -70,7 +70,7 @@ return require("packer").startup({function(use)
     ----- utils -----
     use "wellle/targets.vim"
     use "lewis6991/impatient.nvim"
-    use "arthurxavierx/vim-unicoder"
+    -- use "arthurxavierx/vim-unicoder"
     use "machakann/vim-sandwich"
     use "cohama/lexima.vim"
     use "mbbill/undotree"
