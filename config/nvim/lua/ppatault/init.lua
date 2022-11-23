@@ -22,6 +22,7 @@ augroup({
   {"FileType", "c,tex,cpp", "set", "sw=4"},
   {"FileType", "markdown,lua,kawa,ocaml,why3,lustre", "set", "sw=2"},
   {"FileType", "tex", "setlocal", "spell"},
+  {"FileType", "ocaml", "setlocal", "spell"},
 }, "Ft_augrp")
 
 augroup({

@@ -63,7 +63,7 @@ syn keyword lusStatement   extern unsafe
 
 syn keyword lusPack        package model provides needs body end uses automaton init when
 syn keyword lusStatement   returns var let tel assert match with local merge
-syn keyword lusConditional if else then unless
+syn keyword lusConditional if else then unless until continue fby pre
 
 
 syn sync lines=250

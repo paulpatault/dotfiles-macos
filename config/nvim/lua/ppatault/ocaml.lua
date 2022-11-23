@@ -14,7 +14,29 @@ add_rtp(opam_share .. "/merlin/vim")
 add_rtp(opam_share .. "/merlin/vimbufsync")
 add_rtp(opam_share .. "/ocp-indent/vim")
 
-vim.cmd ("source " .. opam_share .. "/ocp-indent/vim/indent/ocaml.vim")
+-- vim.cmd ("source " .. opam_share .. "/ocp-indent/vim/indent/ocaml.vim")
+
+local ocaml_callback = function ()
+  if vim.opt_local.filetype:get() == "ocaml" then
+    vim.cmd [[unlet b:did_indent]]
+  end
+  vim.cmd ("source " .. opam_share .. "/ocp-indent/vim/indent/ocaml.vim")
+  vim.opt.iskeyword:append("_")
+end
+
+vim.api.nvim_create_augroup("randomcmds", {clear = true})
+
+vim.api.nvim_create_autocmd(
+  "FileType",
+  {
+    group = "randomcmds",
+    pattern = {
+      "ocaml",
+      -- "ocaml_interface",
+    },
+    callback = ocaml_callback,
+  }
+)
 
 -- nvim_set_var("ocaml_noend_error", 1)
 -- nvim_set_var("ocaml_revised", 1)

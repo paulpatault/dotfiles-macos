@@ -11,8 +11,8 @@ local cmd = function(str) return function() vim.cmd(str) end end
 
 local telescope = require("telescope.builtin")
 nnoremap("<leader>te", function() vim.cmd("Telescope") end)
-nnoremap("<leader>f",  function() telescope.find_files() end)
-nnoremap("<leader>p",  function() telescope.git_files() end)
+nnoremap("<leader>p",  function() telescope.find_files() end)
+nnoremap("<leader>gf",  function() telescope.git_files() end)
 nnoremap("<leader>b",  function() telescope.buffers() end)
 nnoremap("<leader>ls", function() telescope.buffers() end)
 nnoremap("<leader>ds", function() telescope.lsp_document_symbols() end)
