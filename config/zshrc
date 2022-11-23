@@ -11,6 +11,7 @@ export MANPAGER="nvim +Man!"
 export OPAMEDITOR=nvim
 export KITTY_CONFIG_EDITOR=nvim
 export XDG_CONFIG_HOME=$HOME/.config
+export VIMRC=$HOME/.config/nvim/init.lua
 
 if type brew &>/dev/null; then
   FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
@@ -109,13 +110,11 @@ alias edt="open $HOME/mpri/m2/edt/EDT_M2.png"
 alias conf="cd ~/.config"
 
 alias m="cd $HOME/mpri/m2"
-alias fun="cd $HOME/mpri/m2/cours/prog_fonctionnelle"
-alias coq="cd $HOME/mpri/m2/cours/coq_lmfi"
-alias rea="cd $HOME/mpri/m2/cours/synchrone"
-alias pro="cd $HOME/mpri/m2/cours/systeme_preuve"
-alias lli="cd $HOME/mpri/m2/cours/logique_lineaire"
-alias lli="cd $HOME/mpri/m2/cours/logique_lineaire"
-alias ppr="cd $HOME/mpri/m2/cours/computational_logic"
+coq () {
+    cd $HOME/mpri/m2/cours/coq_lmfi
+    opam switch coq_lmfi
+    eval $(opam env)
+}
 
 alias l="exa -la"
 alias ls="exa -G"
