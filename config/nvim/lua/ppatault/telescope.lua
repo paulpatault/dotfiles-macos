@@ -29,6 +29,7 @@ require('telescope').setup{
       [[undo/%.*]],
       [[_build/*]],
       [[%.key]],
+      [[%.agdai]],
       [[_opam/*]],
       [[%.cmo]],
       [[%.cmi]],
