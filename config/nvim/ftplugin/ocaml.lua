@@ -9,6 +9,7 @@ nnoremap("s", function() vim.call("OCaml_switch", 0) end)
 inoremap("<c-a>", " assert false")
 
 nnoremap("<localleader>f", function() vim.cmd("FloatermNew utop") end)
+nnoremap("<localleader>i", [[:!ocaml %<cr>]])
 
 --[[ nnoremap("ml", function()
   local filename = vim.fn.expand("%:t:r")
