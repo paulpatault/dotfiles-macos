@@ -52,8 +52,13 @@ export CFLAGS="-I/opt/homebrew/include $CFLAGS"
 export CXXFLAGS="-I/opt/homebrew/include $CXXFLAGS"
 export CXXFLAGS="-I/opt/homebrew/opt/libxml2/include $CXXFLAGS"
 
-export PKG_CONFIG_PATH="/opt/homebrew/opt/openssl@3/lib/pkgconfig"
+export PKG_CONFIG_PATH="/opt/homebrew/opt/openssl@3/lib/pkgconfig:$PKG_CONFIG_PATH"
 export PKG_CONFIG_PATH="/opt/homebrew/opt/libxml2/lib/pkgconfig:$PKG_CONFIG_PATH"
+
+export LDFLAGS="-L/opt/homebrew/opt/openblas/lib $LDFLAGS"
+export CPPFLAGS="-I/opt/homebrew/opt/openblas/include $CXXFLAGS"
+
+export PKG_CONFIG_PATH="/opt/homebrew/opt/openblas/lib/pkgconfig:$PKG_CONFIG_PATH"
 
 #=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# THEME
 
