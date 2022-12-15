@@ -13,6 +13,7 @@ augroup({
   {"BufRead,BufNewFile", "*.mp",  "set", "filetype=patmat"},
   {"BufRead,BufNewFile", "*.lus", "set", "filetype=lustre"},
   {"BufRead,BufNewFile", "*.ept", "set", "filetype=lustre"},
+  {"BufRead,BufNewFile", "*.proof", "set", "filetype=proof"},
   {"BufRead,BufNewFile", "*.mll", "set", "filetype=ocaml.ocamllex"},
   -- {"BufRead,BufNewFile", "*.mly", "set", "filetype=ocaml.menhir"},
   {"BufRead,BufNewFile", "*.mli", "set", "filetype=ocaml.interface"},
@@ -22,7 +23,7 @@ augroup({
   {"FileType", "c,tex,cpp", "set", "sw=4"},
   {"FileType", "markdown,lua,kawa,ocaml,why3,lustre", "set", "sw=2"},
   {"FileType", "tex", "setlocal", "spell"},
-  {"FileType", "ocaml", "setlocal", "spell"},
+  -- {"FileType", "ocaml", "setlocal", "spell"},
 }, "Ft_augrp")
 
 augroup({
