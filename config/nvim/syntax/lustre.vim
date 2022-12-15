@@ -7,6 +7,7 @@ syn clear
 syn case ignore
 
 syn keyword lusTodo contained   TODO
+syn keyword lusSet contained    set
 
 " String
 " syn region  lusString start=+'+  end=+'+
@@ -41,6 +42,7 @@ syn match lusOperator ">="
 syn match lusOperator "<>"
 
 syn region lusComment   start="(\*"  end="\*)" contains=lusTodo
+syn region lusComment   start="{%"   end="%}"  contains=lusSet
 syn region lusComment   start="/\*"  end="\*/" contains=lusTodo
 
 " Priorite des trucs qui commencent par -
@@ -54,15 +56,14 @@ syn match lusComment  "--.*" contains=lusTodo
 syn keyword lusConstant    true false
 syn keyword lusOperator    and or not xor
 syn keyword lusOperator    div mod
-syn keyword lusOperator    fby pre current when
+syn keyword lusOperator    fby pre current when whenot
 syn keyword lusType        bool int real map red fill
-" syn keyword lusFunction    node function type const
 syn keyword lusStatement   node function type const
 
 syn keyword lusStatement   extern unsafe
 
-syn keyword lusPack        package model provides needs body end uses automaton init when
-syn keyword lusStatement   returns var let tel assert match with local merge
+syn keyword lusPack        package model provides needs body end uses automaton when whenot reset every
+syn keyword lusStatement   returns var let tel assert match with local merge print
 syn keyword lusConditional if else then unless until continue fby pre
 
 
@@ -75,6 +76,7 @@ if !exists("did_lus_syntax_inits")
   " hi link lusLabel          Label
   hi link lusConditional    Conditional
   hi link lusTodo           Todo
+  hi link lusSet            Todo
   " hi link lusString               String
   " hi link lusMatrixDelimiter      Identifier
   hi link lusConstant       Number
