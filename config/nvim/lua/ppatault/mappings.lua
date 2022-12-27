@@ -59,6 +59,12 @@ nnoremap("<leader>rt", [[:%s/\s\+$//e<cr>]])
 
 nnoremap("<C-d>", "<C-d>zz")
 nnoremap("<C-u>", "<C-u>zz")
+nnoremap("(", "(zz")
+nnoremap(")", ")zz")
+nnoremap("{", "{zz")
+nnoremap("}", "}zz")
+
+
 
 inoremap("jj", "<esc>")
 inoremap("jk", "<esc>")
