@@ -57,6 +57,13 @@ end)
 
 nnoremap("<leader>rt", [[:%s/\s\+$//e<cr>]])
 
+vnoremap("<C-d>", "<C-d>zz")
+vnoremap("<C-u>", "<C-u>zz")
+vnoremap("(", "(zz")
+vnoremap(")", ")zz")
+vnoremap("{", "{zz")
+vnoremap("}", "}zz")
+
 nnoremap("<C-d>", "<C-d>zz")
 nnoremap("<C-u>", "<C-u>zz")
 nnoremap("(", "(zz")
@@ -64,20 +71,19 @@ nnoremap(")", ")zz")
 nnoremap("{", "{zz")
 nnoremap("}", "}zz")
 
-
-
 inoremap("jj", "<esc>")
 inoremap("jk", "<esc>")
 
 nnoremap("<A-Tab>",   cmd("tabnext"))
 nnoremap("<A-S-Tab>", cmd("tabprev"))
 
-
 vnoremap("J", ":m '>+1<cr>gv=gv")
 vnoremap("K", ":m '<-2<cr>gv=gv")
 
-
 nnoremap("<esc><esc>", cmd("noh"))
+
+nnoremap("<right>", "xp")
+nnoremap("<left>", "xhhp")
 
 vnoremap("<Tab>",   ">gv")
 vnoremap("<S-Tab>", "<gv")
