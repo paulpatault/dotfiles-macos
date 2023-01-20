@@ -12,6 +12,10 @@ vim.cmd [[autocmd ColorScheme * highlight NormalFloat guibg=#3c3836]]
 vim.cmd [[autocmd ColorScheme * highlight FloatBorder guifg=white guibg=#3c3836]]
 
 
+--------- Scala  ---------
+
+require("lspconfig").metals.setup{}
+
 --------- C/C++  ---------
 
 local rootd = function(fname)

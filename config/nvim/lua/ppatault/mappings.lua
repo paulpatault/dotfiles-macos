@@ -9,17 +9,21 @@ local vunmap   = keymap.vunmap
 
 local cmd = function(str) return function() vim.cmd(str) end end
 
-local telescope = require("telescope.builtin")
-nnoremap("<leader>te", function() vim.cmd("Telescope") end)
-nnoremap("<leader>p",  function() telescope.find_files() end)
-nnoremap("<leader>gf",  function() telescope.git_files() end)
-nnoremap("<leader>b",  function() telescope.buffers() end)
-nnoremap("<leader>ls", function() telescope.buffers() end)
-nnoremap("<leader>ds", function() telescope.lsp_document_symbols() end)
-nnoremap("<leader>dg", function() telescope.diagnostics() end)
-nnoremap("<leader>ca", function() telescope.lsp_code_actions() end)
-nnoremap("<leader>rg", function() telescope.live_grep() end)
-nnoremap("<leader>fb", function() require("telescope").extensions.file_browser.file_browser() end)
+local telescope = require("telescope")
+local builtin = require("telescope.builtin")
+nnoremap("<leader>te", function() vim.cmd.Telescope() end)
+nnoremap("<leader>p",  function() builtin.find_files() end)
+nnoremap("<leader>gf", function() builtin.git_files() end)
+nnoremap("<leader>b",  function() builtin.buffers() end)
+nnoremap("<leader>ls", function() builtin.buffers() end)
+nnoremap("<leader>ds", function() builtin.lsp_document_symbols() end)
+nnoremap("<leader>dg", function() builtin.diagnostics() end)
+nnoremap("<leader>ca", function() builtin.lsp_code_actions() end)
+nnoremap("<leader>rg", function() builtin.live_grep() end)
+nnoremap("<leader>fb", function() telescope.extensions.file_browser.file_browser() end)
+nnoremap("<leader>ps", function() builtin.grep_string({ search = vim.fn.input("Grep > ") }) end)
+
+
 -- 'n', 'gd']     ,   = "require('telescope.builtin').lsp_definitions()",
 -- 'n', 'gd']     ,   = "require('telescope.builtin').lsp_implementations()",
 
@@ -47,6 +51,8 @@ tnoremap("<esc>", '<c-\\><c-n>')
 vnoremap("<leader>c", "<Plug>kommentary_visual_default")
 nnoremap("<leader>c", "<Plug>kommentary_line_default")
 
+nnoremap("<leader>u", vim.cmd.UndotreeToggle)
+
 nnoremap("<leader>vec", function()
   vim.cmd("tabnew");
   vim.cmd("tcd ~/.config/nvim/")
@@ -71,14 +77,23 @@ nnoremap(")", ")zz")
 nnoremap("{", "{zz")
 nnoremap("}", "}zz")
 
+--[[ nnoremap("n", "nzzzv")
+nnoremap("N", "Nzzzv") ]]
+nnoremap("n", "nzz")
+nnoremap("N", "Nzz")
+
 inoremap("jj", "<esc>")
 inoremap("jk", "<esc>")
 
 nnoremap("<A-Tab>",   cmd("tabnext"))
 nnoremap("<A-S-Tab>", cmd("tabprev"))
 
+nnoremap("J", "mzJ`z")
+
 vnoremap("J", ":m '>+1<cr>gv=gv")
 vnoremap("K", ":m '<-2<cr>gv=gv")
+
+-- nnoremap("P", "\"_dP")
 
 nnoremap("<esc><esc>", cmd("noh"))
 

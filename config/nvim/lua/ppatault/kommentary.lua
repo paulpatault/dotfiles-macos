@@ -11,6 +11,12 @@ kommentary_conf.configure_language("lustre", {
     single_line_comment_string = "--",
 })
 
+kommentary_conf.configure_language("jasmin", {
+    prefer_multi_line_comments = false,
+    prefer_single_line_comments = true,
+    single_line_comment_string = ";;",
+})
+
 kommentary_conf.configure_language("ocaml_interface", {
     prefer_multi_line_comments = true,
     multi_line_comment_strings = {"(*", "*)"},

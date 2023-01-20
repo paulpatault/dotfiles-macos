@@ -19,6 +19,10 @@ return require("packer").startup({function(use)
     use "wbthomason/lsp-status.nvim"
     use "sublimelsp/LSP-pyls"
     use "ocaml/ocaml-lsp"
+    use {
+      "scalameta/nvim-metals",
+      requires = { "nvim-lua/plenary.nvim" }
+    }
 
     ----- cmp -----
     use "hrsh7th/nvim-cmp"
@@ -44,6 +48,7 @@ return require("packer").startup({function(use)
     use "isti115/agda.nvim"
 
     use "lervag/vimtex"
+    use "wreien/vim-jasmin"
 
     ----- telescope -----
     use "nvim-lua/popup.nvim"
