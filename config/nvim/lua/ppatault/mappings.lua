@@ -1,10 +1,10 @@
 
-vim.keymap.set("n", "<leader>ff", function() vim.cmd("Neoformat")() end)
---vim.keymap.set("n", "<leader>sp", function() vim.cmd.setlocal("spell!")() end)
-vim.keymap.set("n", "<leader>sc", function() vim.cmd.luafile("~/.config/nvim/init.lua")() end)
-vim.keymap.set("n", "<leader>m",  function() vim.cmd.make() end)
-
 vim.keymap.set("n", "<leader>pv",vim.cmd.Ex)
+
+vim.keymap.set("n", "<leader>sc", function() vim.cmd.luafile("~/.config/nvim/init.lua") end)
+
+-- vim.keymap.set("n", "<leader>sp", function() vim.cmd.setlocal("spell!")() end)
+-- vim.keymap.set("n", "<leader>m",  function() vim.cmd.make() end)
 
 vim.keymap.set("t", "<esc>", "<c-\\><c-n>")
 
@@ -29,6 +29,9 @@ vim.keymap.set("n", "(", "(zz")
 vim.keymap.set("n", ")", ")zz")
 vim.keymap.set("n", "{", "{zz")
 vim.keymap.set("n", "}", "}zz")
+
+vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
+vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")
 
 vim.keymap.set("n", "n", "nzz")
 vim.keymap.set("n", "N", "Nzz")

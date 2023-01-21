@@ -1,15 +1,23 @@
 local lsp = require('lspconfig')
 local util = require('lspconfig/util')
 
-local signs = { Error = "", Warn = "", Hint = "", Info = "" }
+--[[ local signs = { Error = "", Warn = "", Hint = "", Info = "" }
 
 for type, icon in pairs(signs) do
   local hl = "DiagnosticSign" .. type
   vim.fn.sign_define(hl, { text = icon })
-end
+end ]]
 
 vim.cmd.autocmd("ColorScheme * highlight NormalFloat guibg=#3c3836")
 vim.cmd.autocmd("ColorScheme * highlight FloatBorder guifg=white guibg=#3c3836")
+
+vim.diagnostic.config({
+  -- virtual_text = false;
+  signs = false;
+  virtual_text = {
+    format = function(_) return "" end
+  }
+})
 
 local on_attach = function(_, bufnr)
   local opts = { buffer = bufnr, remap = false }
@@ -17,9 +25,9 @@ local on_attach = function(_, bufnr)
   vim.keymap.set("n", "grf", function() vim.lsp.buf.references() end, opts)
   vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
   vim.keymap.set("n", "gD", function() vim.lsp.buf.implementation() end, opts)
+  vim.keymap.set("n", "gT", function() vim.lsp.buf.type_definition() end, opts)
   vim.keymap.set("n", "dc", function() vim.lsp.buf.hover() end, opts)
   vim.keymap.set("n", "ds", function() vim.lsp.buf.signature_help() end, opts)
-  vim.keymap.set("n", "gT", function() vim.lsp.buf.type_definition() end, opts)
   vim.keymap.set("n", "dl", function() vim.diagnostic.open_float() end, opts)
   vim.keymap.set("n", "dn", function() vim.diagnostic.goto_next() end, opts)
   vim.keymap.set("n", "dN", function() vim.diagnostic.goto_prev() end, opts)
@@ -30,9 +38,9 @@ end
 --
 --------- Scala  ---------
 
-require("lspconfig").metals.setup{
+require("lspconfig").metals.setup({
   on_attach = on_attach
-}
+})
 
 --------- C/C++  ---------
 
@@ -130,7 +138,7 @@ local on_attach_js = function(_, bufnr)
   vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 end
 
-lsp.tsserver.setup{
-    on_attach = on_attach_js,
+lsp.tsserver.setup({
+    on_attach = on_attach_js;
     flags = {debounce_text_changes = 150}
-}
+})

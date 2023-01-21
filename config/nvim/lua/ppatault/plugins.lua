@@ -90,6 +90,6 @@ return require("packer").startup({function(use)
       "max397574/better-escape.nvim",
       config = function() require("better_escape").setup() end
     }
-    use { "PythonPizzaDE/compit" }
+    use { "paulpatault/compit" }
   end
 })
