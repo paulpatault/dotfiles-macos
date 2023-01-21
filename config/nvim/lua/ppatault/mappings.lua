@@ -4,6 +4,8 @@ vim.keymap.set("n", "<leader>ff", function() vim.cmd("Neoformat")() end)
 vim.keymap.set("n", "<leader>sc", function() vim.cmd.luafile("~/.config/nvim/init.lua")() end)
 vim.keymap.set("n", "<leader>m",  function() vim.cmd.make() end)
 
+vim.keymap.set("n", "<leader>pv",vim.cmd.Ex)
+
 vim.keymap.set("t", "<esc>", "<c-\\><c-n>")
 
 vim.keymap.set("n", "<leader>vec", function()
