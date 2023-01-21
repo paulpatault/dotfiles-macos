@@ -1,4 +1,7 @@
 require("ppatault.set")
+require("ppatault.mappings")
+require("ppatault.globals")
+
 require("ppatault.highlights")
 require("ppatault.ocaml")
 require("ppatault.plugins")
@@ -33,31 +36,6 @@ augroup({
 }, "Ft_makeprg")
 
 
-local ok, res = pcall(function() require("ppatault.lsp_config") end)
-
-if not ok then
-  print("No LSP")
-  print(res)
-end
-
-RELOAD = require("plenary.reload").reload_module
-
 function R(name)
-  RELOAD(name)
-  return require(name)
+    require("plenary.reload").reload_module(name)
 end
-
-R("nvim-web-devicons").setup()
-R("lspkind").init()
-RELOADER = function()
-  R("ppatault.nvim-cmp")
-  R("ppatault.statusline")
-  R("ppatault.plenary")
-  R("ppatault.telescope")
-  R("ppatault.ripple")
-  R("ppatault.kommentary")
-  R("ppatault.mappings")
-  R("ppatault.globals")
-end
-
-RELOADER()

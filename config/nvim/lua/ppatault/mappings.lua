@@ -1,107 +1,56 @@
-local keymap = require("ppatault.keymap")
-local nnoremap = keymap.nnoremap
-local vnoremap = keymap.vnoremap
-local tnoremap = keymap.tnoremap
-local inoremap = keymap.inoremap
--- local xnoremap = keymap.tnoremap
-local nunmap   = keymap.nunmap
-local vunmap   = keymap.vunmap
 
-local cmd = function(str) return function() vim.cmd(str) end end
+vim.keymap.set("n", "<leader>ff", function() vim.cmd("Neoformat")() end)
+--vim.keymap.set("n", "<leader>sp", function() vim.cmd.setlocal("spell!")() end)
+vim.keymap.set("n", "<leader>sc", function() vim.cmd.luafile("~/.config/nvim/init.lua")() end)
+vim.keymap.set("n", "<leader>m",  function() vim.cmd.make() end)
 
-local telescope = require("telescope")
-local builtin = require("telescope.builtin")
-nnoremap("<leader>te", function() vim.cmd.Telescope() end)
-nnoremap("<leader>p",  function() builtin.find_files() end)
-nnoremap("<leader>gf", function() builtin.git_files() end)
-nnoremap("<leader>b",  function() builtin.buffers() end)
-nnoremap("<leader>ls", function() builtin.buffers() end)
-nnoremap("<leader>ds", function() builtin.lsp_document_symbols() end)
-nnoremap("<leader>dg", function() builtin.diagnostics() end)
-nnoremap("<leader>ca", function() builtin.lsp_code_actions() end)
-nnoremap("<leader>rg", function() builtin.live_grep() end)
-nnoremap("<leader>fb", function() telescope.extensions.file_browser.file_browser() end)
-nnoremap("<leader>ps", function() builtin.grep_string({ search = vim.fn.input("Grep > ") }) end)
+vim.keymap.set("t", "<esc>", "<c-\\><c-n>")
 
-
--- 'n', 'gd']     ,   = "require('telescope.builtin').lsp_definitions()",
--- 'n', 'gd']     ,   = "require('telescope.builtin').lsp_implementations()",
-
-nnoremap("<leader>rn", function() vim.lsp.buf.rename() end)
-nnoremap("grf", function() vim.lsp.buf.references() end)
-nnoremap("gd", function() vim.lsp.buf.definition() end)
-nnoremap("gD", function() vim.lsp.buf.implementation() end)
-nnoremap("dc", function() vim.lsp.buf.hover() end)
-nnoremap("ds", function() vim.lsp.buf.signature_help() end)
-nnoremap("gT", function() vim.lsp.buf.type_definition() end)
-nnoremap("dl", function() vim.diagnostic.open_float() end)
-nnoremap("dn", function() vim.diagnostic.goto_next() end)
-nnoremap("dN", function() vim.diagnostic.goto_prev() end)
-nnoremap("do", function() vim.diagnostic.enable() end)
-nnoremap("df", function() vim.diagnostic.disable() end)
-
-nnoremap("<leader>tg", cmd("FloatermNew lazygit"))
-nnoremap("<leader>ff", cmd("Neoformat"))
-nnoremap("<leader>sp", cmd("setlocal spell!"))
-nnoremap("<leader>sc", cmd("luafile ~/.config/nvim/init.lua"))
-nnoremap("<leader>m",  cmd("make"))
-
-tnoremap("<esc>", '<c-\\><c-n>')
-
-vnoremap("<leader>c", "<Plug>kommentary_visual_default")
-nnoremap("<leader>c", "<Plug>kommentary_line_default")
-
-nnoremap("<leader>u", vim.cmd.UndotreeToggle)
-
-nnoremap("<leader>vec", function()
-  vim.cmd("tabnew");
-  vim.cmd("tcd ~/.config/nvim/")
-  vim.cmd("e ~/.config/nvim/init.lua");
+vim.keymap.set("n", "<leader>vec", function()
+  vim.cmd("tabnew")
+  vim.cmd.tcd("~/.config/nvim/")
+  vim.cmd.e("~/.config/nvim/init.lua")
 end)
 
--- nnoremap("<leader>tr", function() vim.cmd("TroubleToggle") end)
+vim.keymap.set("n", "<leader>rt", [[:%s/\s\+$//e<cr>]])
 
-nnoremap("<leader>rt", [[:%s/\s\+$//e<cr>]])
+vim.keymap.set("v", "<C-d>", "<C-d>zz")
+vim.keymap.set("v", "<C-u>", "<C-u>zz")
+vim.keymap.set("v", "(", "(zz")
+vim.keymap.set("v", ")", ")zz")
+vim.keymap.set("v", "{", "{zz")
+vim.keymap.set("v", "}", "}zz")
 
-vnoremap("<C-d>", "<C-d>zz")
-vnoremap("<C-u>", "<C-u>zz")
-vnoremap("(", "(zz")
-vnoremap(")", ")zz")
-vnoremap("{", "{zz")
-vnoremap("}", "}zz")
+vim.keymap.set("n", "<C-d>", "<C-d>zz")
+vim.keymap.set("n", "<C-u>", "<C-u>zz")
+vim.keymap.set("n", "(", "(zz")
+vim.keymap.set("n", ")", ")zz")
+vim.keymap.set("n", "{", "{zz")
+vim.keymap.set("n", "}", "}zz")
 
-nnoremap("<C-d>", "<C-d>zz")
-nnoremap("<C-u>", "<C-u>zz")
-nnoremap("(", "(zz")
-nnoremap(")", ")zz")
-nnoremap("{", "{zz")
-nnoremap("}", "}zz")
+vim.keymap.set("n", "n", "nzz")
+vim.keymap.set("n", "N", "Nzz")
 
---[[ nnoremap("n", "nzzzv")
-nnoremap("N", "Nzzzv") ]]
-nnoremap("n", "nzz")
-nnoremap("N", "Nzz")
+vim.keymap.set("i", "jj", "<esc>")
+vim.keymap.set("i", "jk", "<esc>")
 
-inoremap("jj", "<esc>")
-inoremap("jk", "<esc>")
+vim.keymap.set("n", "<A-Tab>",   vim.cmd.tabnext)
+vim.keymap.set("n", "<A-S-Tab>", vim.cmd.tabprev)
 
-nnoremap("<A-Tab>",   cmd("tabnext"))
-nnoremap("<A-S-Tab>", cmd("tabprev"))
+vim.keymap.set("n", "J", "mzJ`z")
 
-nnoremap("J", "mzJ`z")
+vim.keymap.set("v", "J", ":m '>+1<cr>gv=gv")
+vim.keymap.set("v", "K", ":m '<-2<cr>gv=gv")
 
-vnoremap("J", ":m '>+1<cr>gv=gv")
-vnoremap("K", ":m '<-2<cr>gv=gv")
+-- vim.keymap.set("n", "P", "\"_dP")
 
--- nnoremap("P", "\"_dP")
+vim.keymap.set("n", "<esc><esc>", vim.cmd.nohlsearch)
 
-nnoremap("<esc><esc>", cmd("noh"))
+vim.keymap.set("n", "<right>", "xp")
+vim.keymap.set("n", "<left>", "xhhp")
 
-nnoremap("<right>", "xp")
-nnoremap("<left>", "xhhp")
-
-vnoremap("<Tab>",   ">gv")
-vnoremap("<S-Tab>", "<gv")
+vim.keymap.set("v", "<Tab>",   ">gv")
+vim.keymap.set("v", "<S-Tab>", "<gv")
 
 --[[ local gospel = false
 function Toogle_gospel()
@@ -121,45 +70,28 @@ utils.map_lua('n', '<C-g>',  "Toogle_gospel()", options) ]]
 local function wrap_toogle ()
     vim.wo.wrap = not vim.wo.wrap
     if vim.wo.wrap then
-        nnoremap("j", "gj")
-        nnoremap("k", "gk")
-        nnoremap("0", "g0")
-        nnoremap("$", "g$")
-        vnoremap("j", "gj")
-        vnoremap("k", "gk")
-        vnoremap("0", "g0")
-        vnoremap("$", "g$")
-        vim.cmd ("let &showbreak='❯❯❯ '")
-        vim.cmd ("set cpoptions+=n")
+        vim.keymap.set("n", "j", "gj")
+        vim.keymap.set("n", "k", "gk")
+        vim.keymap.set("n", "0", "g0")
+        vim.keymap.set("n", "$", "g$")
+        vim.keymap.set("v", "j", "gj")
+        vim.keymap.set("v", "k", "gk")
+        vim.keymap.set("v", "0", "g0")
+        vim.keymap.set("v", "$", "g$")
+        vim.cmd.let("&showbreak='❯❯❯ '")
+        vim.cmd.set("cpoptions+=n")
     else
-        nunmap("j")
-        nunmap("k")
-        nunmap("0")
-        nunmap("$")
-        vunmap("j")
-        vunmap("k")
-        vunmap("0")
-        vunmap("$")
-        vim.cmd ("set showbreak=")
-        vim.cmd ("set cpoptions-=n")
+        vim.keymap.del("n", "j")
+        vim.keymap.del("n", "k")
+        vim.keymap.del("n", "0")
+        vim.keymap.del("n", "$")
+        vim.keymap.del("v", "j")
+        vim.keymap.del("v", "k")
+        vim.keymap.del("v", "0")
+        vim.keymap.del("v", "$")
+        vim.cmd.set("showbreak=")
+        vim.cmd.set("cpoptions-=n")
     end
 end
 
-nnoremap("<leader>w", function() wrap_toogle() end)
-
-vim.api.nvim_set_var("pres", false)
-
-local function toogle_pres()
-  local pres = vim.api.nvim_get_var("pres")
-  vim.api.nvim_set_var("pres", not pres)
-  vim.cmd("ZenMode")
-  if (pres) then
-    vim.wo.number = true
-    vim.wo.relativenumber = true
-  else
-    vim.wo.number = false
-    vim.wo.relativenumber = false
-  end
-end
-
-nnoremap("<localleader>pr", function() toogle_pres() end)
+vim.keymap.set("n", "<leader>w", wrap_toogle)

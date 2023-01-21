@@ -1,18 +1,16 @@
-if not pcall(require, 'telescope') then
-  return
-end
 
-local should_reload = true
+local builtin = require("telescope.builtin")
+vim.keymap.set("n", "<leader>pf",  builtin.find_files, {})
+vim.keymap.set("n", "<leader>pg", builtin.git_files, {})
+vim.keymap.set("n", "<leader>pb",  builtin.buffers, {})
+vim.keymap.set("n", "<leader>pd", builtin.diagnostics, {})
+vim.keymap.set("n", "<leader>pr", builtin.live_grep, {})
+vim.keymap.set("n", "<leader>ps", function() builtin.grep_string({ search = vim.fn.input("Grep > ") }) end, {})
+-- vim.keymap.set("n", "<leader>fb", builtin.file_browser, {})
+-- vim.keymap.set("n", "<leader>ca", builtin.lsp_code_actions, {})
+-- vim.keymap.set("n", "<leader>ds", builtin.lsp_document_symbols, {})
 
-local reloader = function()
-  if should_reload then
-    RELOAD('plenary')
-    RELOAD('popup')
-    RELOAD('telescope')
-  end
-end
-
-reloader()
+local telescope = require('telescope')
 
 require('plenary.filetype').add_file({
   ['md']      = 'markdown',
@@ -20,7 +18,7 @@ require('plenary.filetype').add_file({
   ['v']       = 'coq',
   ['lus,ept'] = 'lustre'})
 
-require('telescope').setup{
+telescope.setup({
   defaults = {
     --[[ vimgrep_arguments = {
       'fzf'
@@ -70,6 +68,6 @@ require('telescope').setup{
       }
     }
   }
-}
+})
 
-pcall(require('telescope').load_extension, 'fzy_native')
+pcall(telescope.load_extension, "fzy_native")

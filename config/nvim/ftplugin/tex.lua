@@ -1,9 +1,5 @@
-local keymap = require("ppatault.keymap")
-local nnoremap = keymap.nnoremap
-local vnoremap = keymap.vnoremap
-
-vnoremap("<localleader>b", "<Plug>(sandwich-add)ctextbf<cr>")
-vnoremap("<localleader>i", "<Plug>(sandwich-add)ctextit<cr>")
-vnoremap("<localleader>t", "<Plug>(sandwich-add)ctexttt<cr>")
-nnoremap("<leader>i", "i~$$<esc>i")
-nnoremap("<localleader>tc", ":VimtexCompile<cr>")
+vim.keymap.set("v", "<localleader>b", "<Plug>(sandwich-add)ctextbf<cr>")
+vim.keymap.set("v", "<localleader>i", "<Plug>(sandwich-add)ctextit<cr>")
+vim.keymap.set("v", "<localleader>t", "<Plug>(sandwich-add)ctexttt<cr>")
+vim.keymap.set("n", "<leader>i", "i~$$<esc>i")
+vim.keymap.set("n", "<localleader>tc", vim.cmd("VimtexCompile"))

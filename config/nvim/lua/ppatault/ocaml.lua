@@ -19,21 +19,18 @@ local ocaml_callback = function ()
   if vim.opt_local.filetype:get() == "ocaml" then
     vim.cmd [[unlet b:did_indent]]
   end
-  vim.cmd ("source " .. opam_share .. "/ocp-indent/vim/indent/ocaml.vim")
+  vim.cmd.source(opam_share .. "/ocp-indent/vim/indent/ocaml.vim")
   vim.opt.iskeyword:append("_")
 
-  local nnoremap = require("ppatault.keymap").nnoremap
-  local inoremap = require("ppatault.keymap").inoremap
+  vim.keymap.set("n", "<localleader>af", "a assert false<esc>")
+  -- vim.keymap.set("n", "<leader>aft", "a assert false (* TODO *)<esc>")
+  vim.keymap.set("n", "<leader>d", [[i<cr><esc>kaif debug then Format.eprintf "%a@." ;<esc>i]])
 
-  nnoremap("<localleader>af", "a assert false<esc>")
-  -- nnoremap("<leader>aft", "a assert false (* TODO *)<esc>")
-  nnoremap("<leader>d", [[i<cr><esc>kaif debug then Format.eprintf "%a@." ;<esc>i]])
+  vim.keymap.set("n", "s", function() vim.call("OCaml_switch", 0) end)
+  vim.keymap.set("i", "<c-a>", " assert false")
 
-  nnoremap("s", function() vim.call("OCaml_switch", 0) end)
-  inoremap("<c-a>", " assert false")
-
-  nnoremap("<localleader>f", function() vim.cmd("FloatermNew utop") end)
-  nnoremap("<localleader>i", [[:!ocaml %<cr>]])
+  vim.keymap.set("n", "<localleader>f", function() vim.cmd("FloatermNew utop") end)
+  vim.keymap.set("n", "<localleader>i", [[:!ocaml %<cr>]])
 end
 
 vim.api.nvim_create_augroup("randomcmds", {clear = true})

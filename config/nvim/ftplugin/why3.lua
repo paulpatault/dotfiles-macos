@@ -1,3 +1,1 @@
-local nnoremap = require("ppatault.keymap").nnoremap
-
-nnoremap("<localleader>i", [[:!why3 ide %&<cr>]])
+vim.keymap.set("n", "<localleader>i", [[:!why3 ide %&<cr>]])

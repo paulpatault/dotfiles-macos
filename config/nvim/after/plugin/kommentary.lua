@@ -1,3 +1,6 @@
+vim.keymap.set("v", "<leader>c", "<Plug>kommentary_visual_default")
+vim.keymap.set("n", "<leader>c", "<Plug>kommentary_line_default")
+
 local kommentary_conf = require('kommentary.config')
 
 kommentary_conf.configure_language("why3", {
