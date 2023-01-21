@@ -1,6 +1,6 @@
 vim.api.nvim_set_var("pres", false)
 
-vim.keymap.set("n", "<leader>pr", function()
+vim.keymap.set("n", "<leader>zzz", function()
   local pres = vim.api.nvim_get_var("pres")
   vim.api.nvim_set_var("pres", not pres)
   require("zen-mode").toggle()

@@ -2,7 +2,7 @@ vim.cmd.packadd("packer.nvim")
 
 return require("packer").startup({function(use)
 
-    use {"wbthomason/packer.nvim", opt = true}
+    use { "wbthomason/packer.nvim", opt = true }
 
     ----- lsp -----
     use "neovim/nvim-lspconfig"
@@ -90,5 +90,6 @@ return require("packer").startup({function(use)
       "max397574/better-escape.nvim",
       config = function() require("better_escape").setup() end
     }
+    use { "PythonPizzaDE/compit" }
   end
 })

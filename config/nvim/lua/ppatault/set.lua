@@ -2,52 +2,56 @@ require("ppatault.theme")
 
 ---------------------------------------------------------------------------------------------------
 
-local g = vim.g
-g.mapleader = " "
-g.maplocalleader = "="
-g.langmenu = "en_US.UTF-8"
-g.completeopt = "menuone,noinsert,noselect"
-g.highlightedyank_highlight_duration = 100
+vim.g.mapleader = " "
+vim.g.maplocalleader = "="
+vim.g.langmenu = "en_US.UTF-8"
+vim.g.completeopt = "menuone,noinsert,noselect"
+vim.g.highlightedyank_highlight_duration = 100
 
 ---------------------------------------------------------------------------------------------------
 
-local w = vim.wo
-w.cursorline = true
-w.winfixwidth = true
-w.lbr = true
-w.number = true
-w.relativenumber = true
-w.list = true
-w.colorcolumn = "100"
-w.wrap = false
-w.list = false
+vim.wo.cursorline = true
+vim.wo.winfixwidth = true
+vim.wo.linebreak = true
+vim.wo.number = true
+vim.wo.relativenumber = true
+vim.wo.colorcolumn = "100"
+vim.wo.wrap = false
+vim.wo.list = false
 
 ---------------------------------------------------------------------------------------------------
 
-local opt = vim.opt
-opt.guicursor = "i:block"
-opt.autoindent = true
-opt.modeline = false
-opt.undofile = true
-opt.synmaxcol = 4000
-opt.expandtab = true
-opt.tabstop = 4
-opt.shiftwidth = 4
-opt.softtabstop = 4
-opt.smartindent = true
-opt.backspace = "indent,eol,start"
-opt.hidden = true
-opt.lazyredraw = true
-opt.splitbelow = true
-opt.splitright = true
-opt.encoding = "utf-8"
-opt.spelllang = "fr"
-opt.termguicolors = true
-opt.clipboard = "unnamed,unnamedplus"
-opt.scrolloff = 8
-opt.timeoutlen = 300
-opt.mouse = "a"
-opt.list = true
-opt.ignorecase = true
-opt.smartcase = true
-opt.listchars = {tab = '▸ ', trail = '·', extends='❯',precedes='❮',nbsp='±'}
+vim.opt.guicursor = "i:block"
+vim.opt.autoindent = true
+vim.opt.modeline = false
+
+vim.opt.swapfile = false
+vim.opt.backup = false
+vim.opt.undofile = true
+vim.opt.undodir = os.getenv("HOME") .. "/.local/state/nvim/undo/"
+
+vim.opt.incsearch = true
+vim.opt.hlsearch = true
+
+vim.opt.synmaxcol = 4000
+vim.opt.expandtab = true
+vim.opt.tabstop = 4
+vim.opt.shiftwidth = 4
+vim.opt.softtabstop = 4
+vim.opt.smartindent = true
+vim.opt.backspace = "indent,eol,start"
+vim.opt.hidden = true
+vim.opt.lazyredraw = true
+vim.opt.splitbelow = true
+vim.opt.splitright = true
+vim.opt.encoding = "utf-8"
+vim.opt.spelllang = "fr"
+vim.opt.termguicolors = true
+vim.opt.clipboard = "unnamed,unnamedplus"
+vim.opt.scrolloff = 8
+vim.opt.timeoutlen = 300
+vim.opt.mouse = "a"
+vim.opt.list = true
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
+vim.opt.listchars = {tab = '▸ ', trail = '·', extends='❯',precedes='❮',nbsp='±'}
