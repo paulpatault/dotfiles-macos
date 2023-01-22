@@ -1,3 +1,19 @@
+local diag = {
+  "diagnostics",
+  sources = { "nvim_diagnostic" },
+  sections = { "error", "warn" },
+  diagnostics_color = {
+    error = "DiagnosticError",
+    warn  = "DiagnosticWarn",
+    info  = "DiagnosticInfo",
+    hint  = "DiagnosticHint",
+  },
+  symbols = {error = "E", warn = "W", info = "I", hint = "H"},
+  colored = true,
+  update_in_insert = false,
+  always_visible = false,
+}
+
 require("lualine").setup {
   options = {
     icons_enabled = false,
@@ -9,7 +25,7 @@ require("lualine").setup {
   sections = {
     lualine_a = {"mode"},
     lualine_b = {"branch"};
-    lualine_c = {"filename", "diagnostics"},
+    lualine_c = {"filename", diag},
     lualine_x = {"searchcount", "diff", "encoding", "filetype"},
     lualine_y = {"progress"},
     lualine_z = {"location"}
@@ -23,5 +39,5 @@ require("lualine").setup {
     lualine_z = {}
   },
   tabline = {},
-  extensions = {}
+  extensions = {},
 }
