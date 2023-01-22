@@ -1,61 +1,61 @@
 
-vim.keymap.set("n", "<leader>pv",vim.cmd.Ex)
+vim.keymap.set("n", "<leader>pv", vim.cmd.Ex, { desc = "file browser" })
 
-vim.keymap.set("n", "<leader>sc", function() vim.cmd.luafile("~/.config/nvim/init.lua") end)
+vim.keymap.set("n", "<leader>sc", function() vim.cmd.luafile("~/.config/nvim/init.lua") end, { desc = "[S]ource + [C]onfig" })
 
 -- vim.keymap.set("n", "<leader>sp", function() vim.cmd.setlocal("spell!")() end)
 -- vim.keymap.set("n", "<leader>m",  function() vim.cmd.make() end)
 
-vim.keymap.set("t", "<esc>", "<c-\\><c-n>")
+vim.keymap.set("t", "<esc>", "<c-\\><c-n>", { desc = "[esc] from terminal"})
 
 vim.keymap.set("n", "<leader>vec", function()
   vim.cmd("tabnew")
   vim.cmd.tcd("~/.config/nvim/")
   vim.cmd.e("~/.config/nvim/init.lua")
-end)
+end, { desc = "[V]im [E]dit [C]onfig" })
 
-vim.keymap.set("n", "<leader>rt", [[:%s/\s\+$//e<cr>]])
+vim.keymap.set("n", "<leader>rt", [[:%s/\s\+$//e<cr>]], { desc = "[R]emove + [T]railling" })
 
-vim.keymap.set("v", "<C-d>", "<C-d>zz")
-vim.keymap.set("v", "<C-u>", "<C-u>zz")
-vim.keymap.set("v", "(", "(zz")
-vim.keymap.set("v", ")", ")zz")
-vim.keymap.set("v", "{", "{zz")
-vim.keymap.set("v", "}", "}zz")
+vim.keymap.set("v", "<C-d>", "<C-d>zz", { desc = "" })
+vim.keymap.set("v", "<C-u>", "<C-u>zz", { desc = "" })
+vim.keymap.set("v", "(", "(zz", { desc = "" })
+vim.keymap.set("v", ")", ")zz", { desc = "" })
+vim.keymap.set("v", "{", "{zz", { desc = "" })
+vim.keymap.set("v", "}", "}zz", { desc = "" })
 
-vim.keymap.set("n", "<C-d>", "<C-d>zz")
-vim.keymap.set("n", "<C-u>", "<C-u>zz")
-vim.keymap.set("n", "(", "(zz")
+vim.keymap.set("n", "<C-d>", "<C-d>zz", { desc = "" })
+vim.keymap.set("n", "<C-u>", "<C-u>zz", { desc = "" })
+vim.keymap.set("n", "(", "(zz", { desc = "" })
 vim.keymap.set("n", ")", ")zz")
 vim.keymap.set("n", "{", "{zz")
-vim.keymap.set("n", "}", "}zz")
+vim.keymap.set("n", "}", "}zz", { desc = "" })
 
-vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
-vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")
+vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz", { desc = "" })
+vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz", { desc = "" })
 
-vim.keymap.set("n", "n", "nzz")
-vim.keymap.set("n", "N", "Nzz")
+vim.keymap.set("n", "n", "nzz", { desc = "" })
+vim.keymap.set("n", "N", "Nzz", { desc = "" })
 
-vim.keymap.set("i", "jj", "<esc>")
-vim.keymap.set("i", "jk", "<esc>")
+vim.keymap.set("i", "jj", "<esc>", { desc = "" })
+vim.keymap.set("i", "jk", "<esc>", { desc = "" })
 
-vim.keymap.set("n", "<A-Tab>",   vim.cmd.tabnext)
-vim.keymap.set("n", "<A-S-Tab>", vim.cmd.tabprev)
+vim.keymap.set("n", "<A-Tab>",   vim.cmd.tabnext, { desc = "" })
+vim.keymap.set("n", "<A-S-Tab>", vim.cmd.tabprev, { desc = "" })
 
-vim.keymap.set("n", "J", "mzJ`z")
+vim.keymap.set("n", "J", "mzJ`z", { desc = "" })
 
-vim.keymap.set("v", "J", ":m '>+1<cr>gv=gv")
-vim.keymap.set("v", "K", ":m '<-2<cr>gv=gv")
+vim.keymap.set("v", "J", ":m '>+1<cr>gv=gv", { desc = "" })
+vim.keymap.set("v", "K", ":m '<-2<cr>gv=gv", { desc = "" })
 
--- vim.keymap.set("n", "P", "\"_dP")
+-- vim.keymap.set("n", "P", "\"_dP", { desc = "" })
 
-vim.keymap.set("n", "<esc><esc>", vim.cmd.nohlsearch)
+vim.keymap.set("n", "<esc><esc>", vim.cmd.nohlsearch, { desc = "[esc] hlsearch" })
 
-vim.keymap.set("n", "<right>", "xp")
-vim.keymap.set("n", "<left>", "xhhp")
+vim.keymap.set("n", "<right>", "xp", { desc = "move char [right]" })
+vim.keymap.set("n", "<left>", "xhhp", { desc = "move char [left]" })
 
-vim.keymap.set("v", "<Tab>",   ">gv")
-vim.keymap.set("v", "<S-Tab>", "<gv")
+vim.keymap.set("v", "<Tab>",   ">gv", { desc = "indent" })
+vim.keymap.set("v", "<S-Tab>", "<gv", { desc = "unindent" })
 
 --[[ local gospel = false
 function Toogle_gospel()
@@ -75,14 +75,14 @@ utils.map_lua('n', '<C-g>',  "Toogle_gospel()", options) ]]
 local function wrap_toogle ()
     vim.wo.wrap = not vim.wo.wrap
     if vim.wo.wrap then
-        vim.keymap.set("n", "j", "gj")
-        vim.keymap.set("n", "k", "gk")
-        vim.keymap.set("n", "0", "g0")
-        vim.keymap.set("n", "$", "g$")
-        vim.keymap.set("v", "j", "gj")
-        vim.keymap.set("v", "k", "gk")
-        vim.keymap.set("v", "0", "g0")
-        vim.keymap.set("v", "$", "g$")
+        vim.keymap.set("n", "j", "gj", { desc = "auto" })
+        vim.keymap.set("n", "k", "gk", { desc = "auto" })
+        vim.keymap.set("n", "0", "g0", { desc = "auto" })
+        vim.keymap.set("n", "$", "g$", { desc = "auto" })
+        vim.keymap.set("v", "j", "gj", { desc = "auto" })
+        vim.keymap.set("v", "k", "gk", { desc = "auto" })
+        vim.keymap.set("v", "0", "g0", { desc = "auto" })
+        vim.keymap.set("v", "$", "g$", { desc = "auto" })
         vim.cmd.let("&showbreak='❯❯❯ '")
         vim.cmd.set("cpoptions+=n")
     else
@@ -99,4 +99,4 @@ local function wrap_toogle ()
     end
 end
 
-vim.keymap.set("n", "<leader>w", wrap_toogle)
+vim.keymap.set("n", "<leader>w", wrap_toogle, { desc = "[W]rap toogle" })

@@ -20,19 +20,18 @@ vim.diagnostic.config({
 })
 
 local on_attach = function(_, bufnr)
-  local opts = { buffer = bufnr, remap = false }
-  vim.keymap.set("n", "<leader>rn", function() vim.lsp.buf.rename() end, opts)
-  vim.keymap.set("n", "grf", function() vim.lsp.buf.references() end, opts)
-  vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
-  vim.keymap.set("n", "gD", function() vim.lsp.buf.implementation() end, opts)
-  vim.keymap.set("n", "gT", function() vim.lsp.buf.type_definition() end, opts)
-  vim.keymap.set("n", "dc", function() vim.lsp.buf.hover() end, opts)
-  vim.keymap.set("n", "ds", function() vim.lsp.buf.signature_help() end, opts)
-  vim.keymap.set("n", "dl", function() vim.diagnostic.open_float() end, opts)
-  vim.keymap.set("n", "dn", function() vim.diagnostic.goto_next() end, opts)
-  vim.keymap.set("n", "dN", function() vim.diagnostic.goto_prev() end, opts)
-  vim.keymap.set("n", "do", function() vim.diagnostic.enable() end, opts)
-  vim.keymap.set("n", "df", function() vim.diagnostic.disable() end, opts)
+  vim.keymap.set("n", "<leader>rn", function() vim.lsp.buf.rename() end,  { desc = "lsp - [R]e[N]ame", buffer = bufnr, remap = false })
+  vim.keymap.set("n", "grf", function() vim.lsp.buf.references() end,     { desc = "lsp - [G]o [R]e[F]erences", buffer = bufnr, remap = false })
+  vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end,      { desc = "lsp - [G]o [D]efinition", buffer = bufnr, remap = false })
+  vim.keymap.set("n", "gi", function() vim.lsp.buf.implementation() end,  { desc = "lsp - [G]o [I]mplementation", buffer = bufnr, remap = false })
+  vim.keymap.set("n", "gT", function() vim.lsp.buf.type_definition() end, { desc = "lsp - [G]o [T]ype definition", buffer = bufnr, remap = false })
+  vim.keymap.set("n", "dc", function() vim.lsp.buf.hover() end,           { desc = "lsp - [D]iagnostic [C]heck type", buffer = bufnr, remap = false })
+  vim.keymap.set("n", "ds", function() vim.lsp.buf.signature_help() end,  { desc = "lsp - [D] [S]ignature_help", buffer = bufnr, remap = false })
+  vim.keymap.set("n", "dl", function() vim.diagnostic.open_float() end,   { desc = "lsp - [D]iagnostic [L]ine", buffer = bufnr, remap = false })
+  vim.keymap.set("n", "dn", function() vim.diagnostic.goto_next() end,    { desc = "lsp - [D]iagnostic [N]ext", buffer = bufnr, remap = false })
+  vim.keymap.set("n", "dN", function() vim.diagnostic.goto_prev() end,    { desc = "lsp - [D]iagnostic [N]prev", buffer = bufnr, remap = false })
+  vim.keymap.set("n", "do", function() vim.diagnostic.enable() end,       { desc = "lsp - [D]iagnostic [O]n", buffer = bufnr, remap = false })
+  vim.keymap.set("n", "df", function() vim.diagnostic.disable() end,      { desc = "lsp - [D]iagnostic of[F]", buffer = bufnr, remap = false })
 end
 
 

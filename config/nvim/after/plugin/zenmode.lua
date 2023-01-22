@@ -1,6 +1,6 @@
 vim.api.nvim_set_var("pres", false)
 
-vim.keymap.set("n", "<leader>zzz", function()
+vim.keymap.set("n", "<leader>zp", function()
   local pres = vim.api.nvim_get_var("pres")
   vim.api.nvim_set_var("pres", not pres)
   require("zen-mode").toggle()
@@ -11,7 +11,8 @@ vim.keymap.set("n", "<leader>zzz", function()
     vim.wo.number = false
     vim.wo.relativenumber = false
   end
-end)
+end, { desc = "[Z]en mode [P]resentation" }
+)
 
 require("zen-mode").setup {
     window = {
@@ -26,4 +27,4 @@ require("zen-mode").setup {
 vim.keymap.set("n", "<leader>zz", function()
     require("zen-mode").toggle()
     vim.wo.wrap = false
-end)
+end, { desc = "[Z]en mode" })
