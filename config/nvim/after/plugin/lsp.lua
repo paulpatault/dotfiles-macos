@@ -73,6 +73,15 @@ lsp.ocamllsp.setup({
   -- handlers=handlers
 })
 
+--------- COQ ---------
+
+--[[ vim.lsp.start({
+  name = "coq_language_server";
+  path = "/Users/paulpatault/.opam/coq/bin/coq-lsp";
+  filetypes = { "coq" };
+  cmd = { "coq-lsp" };
+  root_dir = require("lspconfig").util.find_git_ancestor;
+}) ]]
 
 --------- HTML ---------
 
