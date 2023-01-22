@@ -1,8 +1,6 @@
-local utils = require("ppatault.utils")
-
 _G.setHighlights = function()
-  vim.cmd.highlight("LspDiagnosticsUnderlineError cterm=undercurl gui=undercurl")
-  vim.cmd.highlight("LspDiagnosticsUnderlineHint cterm=undercurl gui=undercurl")
+  vim.cmd.highlight("LspDiagnosticsUnderlineError cterm=undercurl guifg=undercurl")
+  vim.cmd.highlight("LspDiagnosticsUnderlineHint  cterm=undercurl gui=undercurl")
   vim.cmd.highlight("LspDiagnosticsUnderlineInformation cterm=undercurl gui=undercurl")
   vim.cmd.highlight("LspDiagnosticsUnderlineWarning cterm=undercurl gui=undercurl")
 
@@ -16,6 +14,13 @@ _G.setHighlights = function()
   vim.cmd.highlight("Normal guibg=NONE ctermbg=NONE")
 end
 
-utils.create_augroup({
-  {"ColorScheme", "*", "call", "v:lua.setHighlights()"}
-}, "UndercurlDiags")
+vim.api.nvim_create_augroup("UndercurlDiags", {clear = true})
+
+vim.api.nvim_create_autocmd(
+  "ColorScheme",
+  {
+    group = "UndercurlDiags",
+    pattern = { "*" },
+    command = "call v:lua.setHighlights()"
+  }
+)

@@ -29,7 +29,7 @@ return require("packer").startup({function(use)
     use "neovimhaskell/haskell-vim"
     use "sbdchd/neoformat"
     -- use "liuchengxu/graphviz.vim"
-    use "simrat39/rust-tools.nvim"
+    -- use "simrat39/rust-tools.nvim"
     use "whonore/Coqtail"
     use "bohlender/vim-smt2"
     use "fladson/vim-kitty"
@@ -69,7 +69,7 @@ return require("packer").startup({function(use)
     use "onsails/lspkind-nvim"
     use "GCBallesteros/jupytext.vim"
     use "urbainvaes/vim-ripple"
-    use "urbainvaes/vim-remembrall"
+    -- use "urbainvaes/vim-remembrall"
     use "folke/zen-mode.nvim"
     use {
       "GCBallesteros/vim-textobj-hydrogen",

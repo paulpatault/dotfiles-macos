@@ -1,5 +1,3 @@
-local add_rtp = require("ppatault.utils").add_rtp
-
 local opam_share = os.getenv("OPAM_SWITCH_PREFIX") .. "/share"
 
 vim.api.nvim_set_var("python_host_prog", "/usr/bin/python")
@@ -8,16 +6,14 @@ vim.api.nvim_set_var("merlin_python_version", 3)
 
 vim.api.nvim_set_var("opamshare", opam_share)
 
-add_rtp(opam_share .. "/merlin/vim/doc")
-add_rtp(opam_share .. "/merlin/vim")
-add_rtp(opam_share .. "/merlin/vimbufsync")
-add_rtp(opam_share .. "/ocp-indent/vim")
-
--- vim.cmd ("source " .. opam_share .. "/ocp-indent/vim/indent/ocaml.vim")
+vim.opt.rtp:append(opam_share .. "/merlin/vim/doc")
+vim.opt.rtp:append(opam_share .. "/merlin/vim")
+vim.opt.rtp:append(opam_share .. "/merlin/vimbufsync")
+vim.opt.rtp:append(opam_share .. "/ocp-indent/vim")
 
 local ocaml_callback = function ()
   if vim.opt_local.filetype:get() == "ocaml" then
-    vim.cmd [[unlet b:did_indent]]
+    vim.cmd("unlet b:did_indent")
   end
   vim.cmd.source(opam_share .. "/ocp-indent/vim/indent/ocaml.vim")
   vim.opt.iskeyword:append("_")
@@ -33,16 +29,13 @@ local ocaml_callback = function ()
   vim.keymap.set("n", "<localleader>i", [[:!ocaml %<cr>]])
 end
 
-vim.api.nvim_create_augroup("randomcmds", {clear = true})
+vim.api.nvim_create_augroup("ocaml_grp", {clear = true})
 
 vim.api.nvim_create_autocmd(
   "FileType",
   {
-    group = "randomcmds",
-    pattern = {
-      "ocaml",
-      -- "ocaml_interface",
-    },
+    group = "ocaml_grp",
+    pattern = { "ocaml" }, -- "ocaml_interface"
     callback = ocaml_callback,
   }
 )

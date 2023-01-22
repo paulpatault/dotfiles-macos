@@ -54,7 +54,7 @@ lsp.clangd.setup({
 })
 
 --------- RUST ---------
-
+-- require("rust-tools").setup({ on_attach = on_attach })
 lsp.rust_analyzer.setup({ on_attach = on_attach })
 
 --------- OCAML ---------
