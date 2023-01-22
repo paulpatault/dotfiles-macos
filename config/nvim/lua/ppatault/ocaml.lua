@@ -29,12 +29,12 @@ local ocaml_callback = function ()
   vim.keymap.set("n", "<localleader>i", [[:!ocaml %<cr>]])
 end
 
-vim.api.nvim_create_augroup("ocaml_grp", {clear = true})
+local ml_grp = vim.api.nvim_create_augroup("ocaml_grp", {clear = true})
 
 vim.api.nvim_create_autocmd(
   "FileType",
   {
-    group = "ocaml_grp",
+    group = ml_grp,
     pattern = { "ocaml" }, -- "ocaml_interface"
     callback = ocaml_callback,
   }

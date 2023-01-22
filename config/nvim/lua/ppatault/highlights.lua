@@ -14,12 +14,12 @@ _G.setHighlights = function()
   vim.cmd.highlight("Normal guibg=NONE ctermbg=NONE")
 end
 
-vim.api.nvim_create_augroup("UndercurlDiags", {clear = true})
+local undergrp = vim.api.nvim_create_augroup("UndercurlDiags", {clear = true})
 
 vim.api.nvim_create_autocmd(
   "ColorScheme",
   {
-    group = "UndercurlDiags",
+    group = undergrp,
     pattern = { "*" },
     command = "call v:lua.setHighlights()"
   }
