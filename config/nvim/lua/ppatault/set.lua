@@ -21,6 +21,7 @@ vim.wo.list = false
 
 ---------------------------------------------------------------------------------------------------
 
+vim.opt.shortmess = "filnxtToOFS"
 vim.opt.guicursor = "i:block"
 vim.opt.autoindent = true
 vim.opt.modeline = false

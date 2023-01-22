@@ -6,7 +6,6 @@ return require("packer").startup({function(use)
 
     ----- lsp -----
     use "neovim/nvim-lspconfig"
-    -- use "wbthomason/lsp-status.nvim"
     use "sublimelsp/LSP-pyls"
     use "ocaml/ocaml-lsp"
     use {
