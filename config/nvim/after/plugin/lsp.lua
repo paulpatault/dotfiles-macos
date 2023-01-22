@@ -1,22 +1,22 @@
-local lsp = require('lspconfig')
-local util = require('lspconfig/util')
+local lsp = require("lspconfig")
 
---[[ local signs = { Error = "", Warn = "", Hint = "", Info = "" }
+vim.cmd [[
+  highlight! DiagnosticLineNrError guibg=#51202A guifg=#FF0000 gui=bold
+  highlight! DiagnosticLineNrWarn guibg=#51412A guifg=#FFA500 gui=bold
+  highlight! DiagnosticLineNrInfo guibg=#1E535D guifg=#00FFFF gui=bold
+  highlight! DiagnosticLineNrHint guibg=#1E205D guifg=#0000FF gui=bold
+]]
 
-for type, icon in pairs(signs) do
-  local hl = "DiagnosticSign" .. type
-  vim.fn.sign_define(hl, { text = icon })
-end ]]
+vim.fn.sign_define("DiagnosticSignError", {text=nil, texthl="DiagnosticSignError", linehl=nil, numhl="DiagnosticLineNrError"})
+vim.fn.sign_define("DiagnosticSignWarn",  {text=nil, texthl="DiagnosticSignWarn" , linehl=nil, numhl="DiagnosticLineNrWarn"})
+vim.fn.sign_define("DiagnosticSignInfo",  {text=nil, texthl="DiagnosticSignInfo" , linehl=nil, numhl="DiagnosticLineNrInfo"})
+vim.fn.sign_define("DiagnosticSignHint",  {text=nil, texthl="DiagnosticSignHint" , linehl=nil, numhl="DiagnosticLineNrHint"})
 
 vim.cmd.autocmd("ColorScheme * highlight NormalFloat guibg=#3c3836")
 vim.cmd.autocmd("ColorScheme * highlight FloatBorder guifg=white guibg=#3c3836")
 
 vim.diagnostic.config({
-  -- virtual_text = false;
-  signs = false;
-  virtual_text = {
-    format = function(_) return "" end
-  }
+  virtual_text = false -- { format = function(_) return "" end }
 })
 
 local on_attach = function(_, bufnr)
@@ -35,24 +35,20 @@ local on_attach = function(_, bufnr)
   vim.keymap.set("n", "df", function() vim.diagnostic.disable() end, opts)
 end
 
---
+
 --------- Scala  ---------
 
-require("lspconfig").metals.setup({
-  on_attach = on_attach
-})
+lsp.metals.setup({ on_attach = on_attach })
 
 --------- C/C++  ---------
 
-local rootd = function(fname)
-  return lsp.util.find_git_ancestor(fname) or vim.loop.os_homedir()
-end
-
 lsp.clangd.setup({
   default_config = {
-    cmd = { 'clangd', '--background-index' };
-    filetypes = { 'c', 'cpp', 'objc', 'objcpp' };
-    root_dir = rootd;
+    cmd = { "clangd", "--background-index" };
+    filetypes = { "c", "cpp", "objc", "objcpp" };
+    root_dir = function(fname)
+      return lsp.util.find_git_ancestor(fname) or vim.loop.os_homedir()
+    end;
     settings = {};
   };
   on_attach = on_attach
@@ -60,23 +56,23 @@ lsp.clangd.setup({
 
 --------- RUST ---------
 
-require'lspconfig'.rust_analyzer.setup{ on_attach = on_attach }
+lsp.rust_analyzer.setup({ on_attach = on_attach })
 
 --------- OCAML ---------
 
-local rootd2 = function(fname)
-  return
+lsp.ocamllsp.setup({
+  cmd = { "ocamllsp" };
+  filetypes = {"ocaml", "ocaml.interface", "ocaml.ocamllex", "ocaml.menhir", "menhir"};
+  root_dir = function(fname)
+    return
     lsp.util.find_git_ancestor(fname)
     or vim.loop.os_homedir()
-    or util.root_pattern("*.opam", ".git", "dune-project")
-end
+    or lsp.util.root_pattern("*.opam", ".git", "dune-project")
+  end;
+  on_attach = on_attach;
+  -- handlers=handlers
+})
 
-lsp.ocamllsp.setup{
-    cmd = { 'ocamllsp' },
-    filetypes = {"ocaml", "ocaml.interface", "ocaml.ocamllex", "ocaml.menhir", "menhir"},
-    root_dir = rootd2,
-    on_attach = on_attach
-}
 
 --------- HTML ---------
 
@@ -93,12 +89,12 @@ lsp.texlab.setup({ on_attach = on_attach })
 
 --------- LUA ---------
 
-local home = os.getenv('HOME')
+local home = os.getenv("HOME")
 
 local sumneko_root_path = home .. "/dotfiles/config/lua-language-server"
 local sumneko_binary = sumneko_root_path.."/bin/lua-language-server"
 
-local runtime_path = vim.split(package.path, ';')
+local runtime_path = vim.split(package.path, ";")
 table.insert(runtime_path, "lua/?.lua")
 table.insert(runtime_path, "lua/?/init.lua")
 
@@ -108,11 +104,11 @@ lsp.sumneko_lua.setup {
   settings = {
     Lua = {
       runtime = {
-        version = 'LuaJIT',
+        version = "LuaJIT",
         path = runtime_path,
       },
       diagnostics = {
-        globals = {'vim'},
+        globals = {"vim"},
       },
       workspace = {
         library = vim.api.nvim_get_runtime_file("", true),
@@ -128,14 +124,12 @@ lsp.sumneko_lua.setup {
 lsp.pylsp.setup({ on_attach = on_attach })
 
 --------- HASKELL ---------
-lsp.hls.setup({
-    on_attach = on_attach
-})
+lsp.hls.setup({ on_attach = on_attach })
 
 --------- JS -------------
 local on_attach_js = function(_, bufnr)
   on_attach(_, bufnr)
-  vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+  vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
 end
 
 lsp.tsserver.setup({
