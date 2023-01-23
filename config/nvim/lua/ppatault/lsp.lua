@@ -16,10 +16,12 @@ vim.cmd.autocmd("ColorScheme * highlight NormalFloat guibg=#3c3836")
 vim.cmd.autocmd("ColorScheme * highlight FloatBorder guifg=white guibg=#3c3836")
 
 vim.diagnostic.config({
+  underline = true,
   virtual_text = false -- { format = function(_) return "" end }
 })
 
 local on_attach = function(_, bufnr)
+  vim.keymap.set("n", "<leader>ca", function() vim.lsp.buf.code_action() end, { desc = "lsp - [C]ode [A]ction", buffer = bufnr, remap = false })
   vim.keymap.set("n", "<leader>rn", function() vim.lsp.buf.rename() end,  { desc = "lsp - [R]e[N]ame", buffer = bufnr, remap = false })
   vim.keymap.set("n", "grf", function() vim.lsp.buf.references() end,     { desc = "lsp - [G]o [R]e[F]erences", buffer = bufnr, remap = false })
   vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end,      { desc = "lsp - [G]o [D]efinition", buffer = bufnr, remap = false })
@@ -32,6 +34,8 @@ local on_attach = function(_, bufnr)
   vim.keymap.set("n", "dN", function() vim.diagnostic.goto_prev() end,    { desc = "lsp - [D]iagnostic [N]prev", buffer = bufnr, remap = false })
   vim.keymap.set("n", "do", function() vim.diagnostic.enable() end,       { desc = "lsp - [D]iagnostic [O]n", buffer = bufnr, remap = false })
   vim.keymap.set("n", "df", function() vim.diagnostic.disable() end,      { desc = "lsp - [D]iagnostic of[F]", buffer = bufnr, remap = false })
+  -- vim.keymap.set("n", "s", function() vim.lsp.buf.execute_command
+    -- )
 end
 
 
@@ -59,6 +63,29 @@ lsp.rust_analyzer.setup({ on_attach = on_attach })
 
 --------- OCAML ---------
 
+--[[ local function switch_impl_int_splitcmd(bufnr, splitcmd)
+  bufnr = lsp.util.validate_bufnr(bufnr)
+  local ocaml_client = lsp.util.get_active_client_by_name(bufnr, "ocamllsp")
+  local params = vim.uri_from_bufnr(bufnr)
+  print( "coucou 1" )
+  if ocaml_client then
+    print( "coucou 2" )
+    ocaml_client.request("ocamllsp/switchImplIntf", params, function(err, result)
+      print( "coucou 3")
+      if err then
+        error(tostring(err))
+      end
+      if not result then
+        print("Corresponding file can’t be determined")
+        return
+      end
+      vim.api.nvim_command(splitcmd .. " " .. vim.uri_to_fname(result))
+    end, bufnr)
+  else
+    print 'ocamllsp/switchImplIntf is not supported by the ocamllsp server active on the current buffer'
+  end
+end ]]
+
 lsp.ocamllsp.setup({
   cmd = { "ocamllsp" };
   filetypes = {"ocaml", "ocaml.interface", "ocaml.ocamllex", "ocaml.menhir", "menhir"};
@@ -69,6 +96,12 @@ lsp.ocamllsp.setup({
     or lsp.util.root_pattern("*.opam", ".git", "dune-project")
   end;
   on_attach = on_attach;
+  --[[ commands = {
+    MOcamlSwitchVsplit = {
+      function() switch_impl_int_splitcmd(0, "vsplit") end;
+      description = "Open source/header in a new vsplit";
+    },
+  } ]]
   -- handlers=handlers
 })
 

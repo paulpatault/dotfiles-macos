@@ -47,8 +47,8 @@ return require("packer").startup({function(use)
     use "nvim-telescope/telescope-file-browser.nvim"
 
     ----- theme -----
-    use "rafi/awesome-vim-colorschemes"
-    use "morhetz/gruvbox"
+    -- use "rafi/awesome-vim-colorschemes"
+    use "paulpatault/gruvbox"
     use "kyazdani42/nvim-web-devicons"
     use {
       "hoob3rt/lualine.nvim",

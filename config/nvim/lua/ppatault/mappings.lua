@@ -8,6 +8,8 @@ vim.keymap.set("n", "<leader>sc", function() vim.cmd.luafile("~/.config/nvim/ini
 
 vim.keymap.set("t", "<esc>", "<c-\\><c-n>", { desc = "[esc] from terminal"})
 
+vim.keymap.set("n", "<leader>aa", function() print(vim.treesitter.get_captures_at_cursor()) end)
+
 vim.keymap.set("n", "<leader>vec", function()
   vim.cmd("tabnew")
   vim.cmd.tcd("~/.config/nvim/")

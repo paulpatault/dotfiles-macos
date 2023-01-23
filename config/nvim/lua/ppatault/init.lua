@@ -1,12 +1,13 @@
-require("ppatault.set")
+require("ppatault.packer")
+require("impatient")
 require("ppatault.mappings")
+require("ppatault.set")
 require("ppatault.globals")
 
-require("ppatault.highlights")
-require("ppatault.ocaml")
-require("ppatault.packer")
 -- require("rust-tools").setup({})
-require("impatient")
+require("ppatault.highlights")
+require("ppatault.theme")
+require("ppatault.ocaml")
 
 local fts = {
   zsh = "sh",
@@ -34,22 +35,29 @@ end
 
 vim.api.nvim_create_autocmd("FileType",
   {
-    pattern = {"c","tex","cpp"},
+    pattern = {"*.c","*.tex","*.cpp"},
     command = "set sw=4",
     group   = iopt_grp
   })
 vim.api.nvim_create_autocmd("FileType",
   {
-    pattern = {"markdown","lua","kawa","ocaml","why3","lustre"},
+    pattern = {"*.md","*.lua","*.kawa","*.ml","*.mlw","*.lus"},
     command = "set sw=2",
     group   = iopt_grp
   })
 vim.api.nvim_create_autocmd("FileType",
   {
-    pattern = {"tex"},
+    pattern = {"*.tex"},
     command = "setlocal spell",
     group   = iopt_grp
   })
+
+local ok, res = pcall(function() require("ppatault.lsp") end)
+
+if not ok then
+  print("No LSP")
+  print(res)
+end
 
 function R(name)
     require("plenary.reload").reload_module(name)

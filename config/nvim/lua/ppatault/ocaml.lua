@@ -27,6 +27,8 @@ local ocaml_callback = function ()
 
   vim.keymap.set("n", "<localleader>f", function() vim.cmd("FloatermNew utop") end)
   vim.keymap.set("n", "<localleader>i", [[:!ocaml %<cr>]])
+
+  vim.cmd("hi! link Keyword GruvboxRedBold")
 end
 
 local ml_grp = vim.api.nvim_create_augroup("ocaml_grp", {clear = true})
@@ -35,7 +37,7 @@ vim.api.nvim_create_autocmd(
   "FileType",
   {
     group = ml_grp,
-    pattern = { "ocaml" }, -- "ocaml_interface"
+    pattern = { "*.ml", "*.mli" }, -- "ocaml_interface"
     callback = ocaml_callback,
   }
 )
