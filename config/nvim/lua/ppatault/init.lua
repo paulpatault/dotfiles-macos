@@ -1,7 +1,7 @@
 require("ppatault.packer")
 require("impatient")
-require("ppatault.mappings")
 require("ppatault.set")
+require("ppatault.mappings")
 require("ppatault.globals")
 
 -- require("rust-tools").setup({})
@@ -35,13 +35,13 @@ end
 
 vim.api.nvim_create_autocmd("FileType",
   {
-    pattern = {"*.c","*.tex","*.cpp"},
+    pattern = {"c","latex","cpp"},
     command = "set sw=4",
     group   = iopt_grp
   })
 vim.api.nvim_create_autocmd("FileType",
   {
-    pattern = {"*.md","*.lua","*.kawa","*.ml","*.mlw","*.lus"},
+    pattern = {"markdown","lua","kawa","ocaml","wh3","lustre"},
     command = "set sw=2",
     group   = iopt_grp
   })
