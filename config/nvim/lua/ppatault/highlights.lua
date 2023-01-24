@@ -1,13 +1,14 @@
 local undergrp = vim.api.nvim_create_augroup("UndercurlDiags", {clear = true})
 
 local function cocaml()
-    vim.cmd("hi! link Keyword GruvboxRedBold")
+    vim.api.nvim_set_hl(0, "Keyword", { link = "GruvboxRedBold" })
+    vim.api.nvim_set_hl(0, "Include", { fg = "#d5c4a1", bold = true, italic = true })
 end
 local function ccoq()
-    vim.cmd("hi! link Keyword GruvboxRedBold")
-    vim.cmd("hi! link PreProc GruvboxAquaBold")
-    vim.cmd("hi! link Type    GruvboxYellowBold")
-    vim.cmd("hi! link Underlined GruvboxBlueBold")
+    vim.api.nvim_set_hl(0, "Keyword",    { link = "GruvboxRedBold" })
+    vim.api.nvim_set_hl(0, "PreProc",    { link = "GruvboxAquaBold" })
+    vim.api.nvim_set_hl(0, "Type",       { link = "GruvboxYellowBold" })
+    vim.api.nvim_set_hl(0, "Underlined", { link = "GruvboxBlueBold" })
 end
 
 vim.api.nvim_create_autocmd(
@@ -16,17 +17,17 @@ vim.api.nvim_create_autocmd(
     group = undergrp,
     pattern = { "*" },
     callback = function()
-      vim.cmd("hi! DiagnosticUnderlineError       cterm=undercurl gui=undercurl")
-      vim.cmd("hi! DiagnosticUnderlineHint        cterm=undercurl gui=undercurl")
-      vim.cmd("hi! DiagnosticUnderlineInformation cterm=undercurl gui=undercurl")
-      vim.cmd("hi! DiagnosticUnderlineWarning     cterm=undercurl gui=undercurl")
+      vim.api.nvim_set_hl(0, "DiagnosticUnderlineWarning",     { undercurl = true })
+      vim.api.nvim_set_hl(0, "DiagnosticUnderlineError",       { undercurl = true })
+      vim.api.nvim_set_hl(0, "DiagnosticUnderlineHint",        { undercurl = true })
+      vim.api.nvim_set_hl(0, "DiagnosticUnderlineInformation", { undercurl = true })
 
-      vim.cmd.highlight("CmpItemAbbr guifg=#a89984")
-      vim.cmd.highlight("CmpItemKind guifg=#fabd2f")
-      vim.cmd.highlight("CmpItemMenu guifg=#83a598")
+      vim.api.nvim_set_hl(0, "CmpItemAbbr", { fg = "#a89984" })
+      vim.api.nvim_set_hl(0, "CmpItemKind", { fg = "#fabd2f" })
+      vim.api.nvim_set_hl(0, "CmpItemMenu", { fg = "#83a598" })
 
-      vim.cmd.highlight("CoqtailSent guibg=" .. vim.api.nvim_get_var("coq_sent_color"))
-      vim.cmd.highlight("CoqtailChecked guibg=" .. vim.api.nvim_get_var("coq_check_color"))
+      vim.api.nvim_set_hl(0, "CoqtailSent",    { bg = vim.api.nvim_get_var("coq_sent_color")})
+      vim.api.nvim_set_hl(0, "CoqtailChecked", { bg = vim.api.nvim_get_var("coq_check_color")})
 
       vim.cmd.highlight("Normal guibg=NONE ctermbg=NONE")
 
