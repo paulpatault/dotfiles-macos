@@ -2,7 +2,7 @@
 ---------------------------------------------------------------------------------------------------
 
 vim.g.mapleader = " "
-vim.g.maplocalleader = "="
+vim.g.maplocalleader = "\\"
 vim.g.langmenu = "en_US.UTF-8"
 vim.g.completeopt = "menuone,noinsert,noselect"
 vim.g.highlightedyank_highlight_duration = 100
@@ -50,7 +50,8 @@ vim.opt.termguicolors = true
 vim.opt.clipboard = "unnamed,unnamedplus"
 vim.opt.scrolloff = 8
 vim.opt.timeoutlen = 300
-vim.opt.mouse = "a"
+vim.opt.mouse = "nv"
+vim.opt.mousescroll = "ver:3,hor:0"
 vim.opt.list = true
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
