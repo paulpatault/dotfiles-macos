@@ -48,7 +48,7 @@ return require("packer").startup({function(use)
 
     ----- theme -----
     -- use "rafi/awesome-vim-colorschemes"
-    use "paulpatault/gruvbox"
+    use "morhetz/gruvbox"
     use "kyazdani42/nvim-web-devicons"
     use {
       "hoob3rt/lualine.nvim",
