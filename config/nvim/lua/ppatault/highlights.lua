@@ -1,5 +1,15 @@
 local undergrp = vim.api.nvim_create_augroup("UndercurlDiags", {clear = true})
 
+local function cocaml()
+    vim.cmd("hi! link Keyword GruvboxRedBold")
+end
+local function ccoq()
+    vim.cmd("hi! link Keyword GruvboxRedBold")
+    vim.cmd("hi! link PreProc GruvboxAquaBold")
+    vim.cmd("hi! link Type    GruvboxYellowBold")
+    vim.cmd("hi! link Underlined GruvboxBlueBold")
+end
+
 vim.api.nvim_create_autocmd(
   "ColorScheme",
   {
@@ -20,16 +30,13 @@ vim.api.nvim_create_autocmd(
 
       vim.cmd.highlight("Normal guibg=NONE ctermbg=NONE")
 
-      --[[ if vim.bo.filetype == "ocaml" then
-        vim.cmd("hi! link Keyword GruvboxRedBold")
+      if vim.bo.filetype == "ocaml" then
+          cocaml()
       end
 
       if vim.bo.filetype == "coq" then
-        vim.cmd("hi! link Keyword GruvboxRedBold")
-        vim.cmd("hi! link PreProc GruvboxAquaBold")
-        vim.cmd("hi! link Type    GruvboxYellowBold")
-        vim.cmd("hi! link Underlined UnderlinedBold")
-      end ]]
+          ccoq()
+      end
 
     end
   }
@@ -40,12 +47,7 @@ vim.api.nvim_create_autocmd(
   {
     group = undergrp,
     pattern = { "*.v" },
-    callback = function()
-        vim.cmd("hi! link Keyword GruvboxRedBold")
-        vim.cmd("hi! link PreProc GruvboxAquaBold")
-        vim.cmd("hi! link Type    GruvboxYellowBold")
-        vim.cmd("hi! link Underlined UnderlinedBold")
-    end
+    callback = ccoq
   })
 
 vim.api.nvim_create_autocmd(
@@ -53,9 +55,7 @@ vim.api.nvim_create_autocmd(
   {
     group = undergrp,
     pattern = { "*.ml" },
-    callback = function()
-        vim.cmd("hi! link Keyword GruvboxRedBold")
-    end
+    callback = cocaml
   }
 )
 

@@ -2,7 +2,6 @@ vim.g.markdown_fenced_languages = {
   "plsql", "sql", "python", "lua", "html", "php", "c", "cpp", "ocaml", "asm"
 }
 
-
 vim.g.coqtail_noimap = true
 vim.g.coqtail_map_prefix = "<localleader>c"
 
