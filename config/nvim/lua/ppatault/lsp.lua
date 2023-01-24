@@ -20,6 +20,13 @@ vim.diagnostic.config({
   virtual_text = false -- { format = function(_) return "" end }
 })
 
+local function gd(jump_type)
+    local ok, _ = pcall(function() require("telescope.builtin").lsp_definitions({ jump_type=jump_type }) end)
+    if not ok then
+      vim.cmd(jump_type) vim.lsp.buf.definition()
+    end
+end
+
 local on_attach = function(_, bufnr)
   vim.keymap.set("n", "<leader>ca", function() vim.lsp.buf.code_action() end, { desc = "lsp - [C]ode [A]ction", buffer = bufnr, remap = false })
   vim.keymap.set("n", "<leader>rn", function() vim.lsp.buf.rename() end,  { desc = "lsp - [R]e[N]ame", buffer = bufnr, remap = false })
@@ -36,6 +43,17 @@ local on_attach = function(_, bufnr)
   vim.keymap.set("n", "df", function() vim.diagnostic.disable() end,      { desc = "lsp - [D]iagnostic of[F]", buffer = bufnr, remap = false })
   -- vim.keymap.set("n", "s", function() vim.lsp.buf.execute_command
     -- )
+    --
+  vim.keymap.set("n", "gdv", function()
+         local ok, _ = pcall(function() gd("vsplit") end)
+         if not ok then print("Internal Error") end
+     end,
+     { desc = "lsp - [G]o [D]efinition", buffer = bufnr, remap = false })
+  vim.keymap.set("n", "gds", function()
+         local ok, _ = pcall(function() gd("split") end)
+         if not ok then print("Internal Error") end
+     end,
+     { desc = "lsp - [G]o [D]efinition", buffer = bufnr, remap = false })
 end
 
 
