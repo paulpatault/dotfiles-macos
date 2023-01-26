@@ -19,6 +19,7 @@ local fts = {
   mll = "ocaml.ocamllex",
   --mly = "ocaml.menhir",
   mli = "ocaml.interface",
+  fx = "scala.no_lsp",
 }
 
 local iopt_grp = vim.api.nvim_create_augroup("Opts_grp", {clear = true})
