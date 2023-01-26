@@ -5,6 +5,7 @@ return require("packer").startup({function(use)
     use { "wbthomason/packer.nvim", opt = true }
 
     ----- lsp -----
+    use "nvim-treesitter/nvim-treesitter"
     use "neovim/nvim-lspconfig"
     use "sublimelsp/LSP-pyls"
     use "ocaml/ocaml-lsp"
