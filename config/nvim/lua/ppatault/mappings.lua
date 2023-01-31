@@ -1,7 +1,12 @@
 
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex, { desc = "file browser" })
 
-vim.keymap.set("n", "<leader>sc", function() vim.cmd.luafile("~/.config/nvim/init.lua") end, { desc = "[S]ource + [C]onfig" })
+vim.keymap.set("n", "<leader>bc", "f,a<cr><esc>", { desc = "[B]reak on [C]omma" })
+vim.keymap.set("n", "<leader>bs", "f;a<cr><esc>", { desc = "[B]reak on [S]emicolon" })
+
+vim.keymap.set("n", "<leader>sc", function() vim.cmd.source("~/.config/nvim/init.lua") end, { desc = "[S]ource + [C]onfig" })
+
+-- vim.keymap.set("n", "<leader>io", "ebb%beve%eeeebdbb*vepNbv%ed", { desc = "inline ocaml" })
 
 -- vim.keymap.set("n", "<leader>sp", function() vim.cmd.setlocal("spell!")() end)
 -- vim.keymap.set("n", "<leader>m",  function() vim.cmd.make() end)
@@ -12,8 +17,9 @@ vim.keymap.set("t", "<esc>", "<c-\\><c-n>", { desc = "[esc] from terminal"})
 
 vim.keymap.set("n", "<leader>vec", function()
   vim.cmd("tabnew")
-  vim.cmd.tcd("~/.config/nvim/")
-  vim.cmd.e("~/.config/nvim/init.lua")
+  local path = vim.fn.stdpath("config")
+  vim.cmd.tcd(path)
+  vim.cmd.e(path .. "/init.lua")
 end, { desc = "[V]im [E]dit [C]onfig" })
 
 vim.keymap.set("n", "<leader>rt", [[:%s/\s\+$//e<cr>]], { desc = "[R]emove + [T]railling" })

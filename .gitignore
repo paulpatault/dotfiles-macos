@@ -17,3 +17,4 @@ config/lua-language-server
 config/nvim/plugin
 config/gh
 config/nvim/compit_cache
+/config/jgit/
