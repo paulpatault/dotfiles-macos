@@ -24,10 +24,10 @@ vim.api.nvim_create_autocmd( "BufWinEnter", {
       vim.opt.iskeyword:append("_")
 
       -- insert code
-      vim.keymap.set("n", "<localleader>af", "a assert false<esc>")
+      vim.keymap.set("n", "<localleader>af", "a assert false<esc>", { desc = "OCaml - insert [A]ssert [F]alse" })
       -- vim.keymap.set("n", "<leader>d", [[i<cr><esc>kaif debug then Format.eprintf "%a@." ;<esc>i]])
-      vim.keymap.set("n", "<localleader>f", function() vim.cmd("FloatermNew utop") end)
-      vim.keymap.set("n", "<localleader>i", function() vim.cmd("!ocaml %") end)
+      vim.keymap.set("n", "<localleader>f", function() vim.cmd("FloatermNew utop") end, { desc = "OCaml - [F]loaterm with utop" })
+      vim.keymap.set("n", "<localleader>i", function() vim.cmd("!ocaml %") end, { desc = "OCaml - [I]nterpret file" })
 
       -- switch
       vim.keymap.set("n", "s", function() vim.call("OCaml_switch", 0) end)

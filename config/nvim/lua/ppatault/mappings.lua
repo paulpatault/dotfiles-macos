@@ -13,8 +13,6 @@ vim.keymap.set("n", "<leader>sc", function() vim.cmd.source("~/.config/nvim/init
 
 vim.keymap.set("t", "<esc>", "<c-\\><c-n>", { desc = "[esc] from terminal"})
 
--- vim.keymap.set("n", "<leader>aa", function() print(vim.treesitter.get_captures_at_cursor()) end)
-
 vim.keymap.set("n", "<leader>vec", function()
   vim.cmd("tabnew")
   local path = vim.fn.stdpath("config")

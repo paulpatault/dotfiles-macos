@@ -27,33 +27,38 @@ local function gd(jump_type)
     end
 end
 
+
 local on_attach = function(_, bufnr)
-  vim.keymap.set("n", "<leader>ca", function() vim.lsp.buf.code_action() end, { desc = "lsp - [C]ode [A]ction", buffer = bufnr, remap = false })
-  vim.keymap.set("n", "<leader>rn", function() vim.lsp.buf.rename() end,  { desc = "lsp - [R]e[N]ame", buffer = bufnr, remap = false })
-  vim.keymap.set("n", "grf", function() vim.lsp.buf.references() end,     { desc = "lsp - [G]o [R]e[F]erences", buffer = bufnr, remap = false })
-  vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end,      { desc = "lsp - [G]o [D]efinition", buffer = bufnr, remap = false })
-  vim.keymap.set("n", "gi", function() vim.lsp.buf.implementation() end,  { desc = "lsp - [G]o [I]mplementation", buffer = bufnr, remap = false })
-  vim.keymap.set("n", "gT", function() vim.lsp.buf.type_definition() end, { desc = "lsp - [G]o [T]ype definition", buffer = bufnr, remap = false })
-  vim.keymap.set("n", "dc", function() vim.lsp.buf.hover() end,           { desc = "lsp - [D]iagnostic [C]heck type", buffer = bufnr, remap = false })
-  vim.keymap.set("n", "ds", function() vim.lsp.buf.signature_help() end,  { desc = "lsp - [D] [S]ignature_help", buffer = bufnr, remap = false })
-  vim.keymap.set("n", "dl", function() vim.diagnostic.open_float() end,   { desc = "lsp - [D]iagnostic [L]ine", buffer = bufnr, remap = false })
-  vim.keymap.set("n", "dn", function() vim.diagnostic.goto_next() end,    { desc = "lsp - [D]iagnostic [N]ext", buffer = bufnr, remap = false })
-  vim.keymap.set("n", "dN", function() vim.diagnostic.goto_prev() end,    { desc = "lsp - [D]iagnostic [N]prev", buffer = bufnr, remap = false })
-  vim.keymap.set("n", "do", function() vim.diagnostic.enable() end,       { desc = "lsp - [D]iagnostic [O]n", buffer = bufnr, remap = false })
-  vim.keymap.set("n", "df", function() vim.diagnostic.disable() end,      { desc = "lsp - [D]iagnostic of[F]", buffer = bufnr, remap = false })
-  -- vim.keymap.set("n", "s", function() vim.lsp.buf.execute_command
-    -- )
-    --
-  vim.keymap.set("n", "gdv", function()
+
+  local map = function(mod, key, f, desc)
+    vim.keymap.set(mod, key, f, { desc = desc, buffer = bufnr, remap = false })
+  end
+
+  map("n", "<leader>ca", function() vim.lsp.buf.code_action() end, "lsp - [C]ode [A]ction")
+  map("n", "<leader>rn", function() vim.lsp.buf.rename()   end, "lsp - [R]e[N]ame")
+  map("n", "grf", function() vim.lsp.buf.references()      end, "lsp - [G]o [R]e[F]erences")
+  map("n", "gd",  function() vim.lsp.buf.definition()      end, "lsp - [G]o [D]efinition")
+  map("n", "gi",  function() vim.lsp.buf.implementation()  end, "lsp - [G]o [I]mplementation")
+  map("n", "gT",  function() vim.lsp.buf.type_definition() end, "lsp - [G]o [T]ype definition")
+  map("n", "dc",  function() vim.lsp.buf.hover()           end, "lsp - [D]iagnostic [C]heck type")
+  map("n", "ds",  function() vim.lsp.buf.signature_help()  end, "lsp - [D] [S]ignature_help")
+  map("n", "dl",  function() vim.diagnostic.open_float()   end, "lsp - [D]iagnostic [L]ine")
+  map("n", "dn",  function() vim.diagnostic.goto_next()    end, "lsp - [D]iagnostic [N]ext")
+  map("n", "dN",  function() vim.diagnostic.goto_prev()    end, "lsp - [D]iagnostic [N]prev")
+  map("n", "do",  function() vim.diagnostic.enable()       end, "lsp - [D]iagnostic [O]n")
+  map("n", "df",  function() vim.diagnostic.disable()      end, "lsp - [D]iagnostic of[F]")
+
+  map("n", "gdv", function()
          local ok, _ = pcall(function() gd("vsplit") end)
          if not ok then print("Internal Error") end
      end,
-     { desc = "lsp - [G]o [D]efinition", buffer = bufnr, remap = false })
-  vim.keymap.set("n", "gds", function()
+     "lsp - [G]o [D]efinition")
+
+  map("n", "gds", function()
          local ok, _ = pcall(function() gd("split") end)
          if not ok then print("Internal Error") end
      end,
-     { desc = "lsp - [G]o [D]efinition", buffer = bufnr, remap = false })
+     "lsp - [G]o [D]efinition")
 end
 
 
