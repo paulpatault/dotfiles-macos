@@ -12,6 +12,7 @@ export OPAMEDITOR=nvim
 export KITTY_CONFIG_EDITOR=nvim
 export XDG_CONFIG_HOME=$HOME/.config
 export VIMRC=$HOME/.config/nvim/init.lua
+export THEME="dark"
 
 if type brew &>/dev/null; then
   FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
@@ -136,15 +137,16 @@ vec () {
 lightmod () {
     rm -f ~/.config/kitty/theme.conf
     ln -s \
-        ~/.config/kitty/themes/github-light.conf \
+        ~/.config/kitty/themes/gruvbox-light-hard.conf \
         ~/.config/kitty/theme.conf
-    echo "vim.api.nvim_set_var(\"the_bg_is_dark\", 0)" > ~/.config/nvim/lua/ppatault/bg.lua
+    export THEME="light"
+    # ~/.config/kitty/themes/github-light.conf \
 }
 
 darkmod () { # ctrl-cmd-,
     rm -f ~/.config/kitty/theme.conf
     ln -s ~/.config/kitty/themes/gruvbox.conf ~/.config/kitty/theme.conf
-    echo "vim.api.nvim_set_var(\"the_bg_is_dark\", 1)" > ~/.config/nvim/lua/ppatault/bg.lua
+    export THEME="dark"
 }
 
 #=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# GIT
@@ -182,4 +184,3 @@ alias cleanml="bash $HOME/.config/scripts/cleanml.sh"
 alias cleantex="bash $HOME/.config/scripts/cleantex.sh"
 export OCAMLRUNPARAM=b
 eval $(opam env)
-

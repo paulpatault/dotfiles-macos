@@ -9,6 +9,7 @@ return require("packer").startup({function(use)
     use "neovim/nvim-lspconfig"
     use "sublimelsp/LSP-pyls"
     use "ocaml/ocaml-lsp"
+    use "nvim-lua/plenary.nvim"
     use {
       "scalameta/nvim-metals",
       requires = { "nvim-lua/plenary.nvim" }
@@ -48,7 +49,7 @@ return require("packer").startup({function(use)
     use "nvim-telescope/telescope-file-browser.nvim"
 
     ----- theme -----
-    -- use "rafi/awesome-vim-colorschemes"
+    use "rafi/awesome-vim-colorschemes"
     use "morhetz/gruvbox"
     use "kyazdani42/nvim-web-devicons"
     use {
