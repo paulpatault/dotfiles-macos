@@ -1,3 +1,4 @@
+
 local opam_share = os.getenv("OPAM_SWITCH_PREFIX") .. "/share"
 
 vim.api.nvim_set_var("python_host_prog", "/usr/bin/python")
@@ -24,7 +25,6 @@ vim.api.nvim_create_autocmd( "BufWinEnter", {
       vim.opt.iskeyword:append("_")
 
       -- insert code
-      vim.keymap.set("n", "<localleader>af", "a assert false<esc>", { desc = "OCaml - insert [A]ssert [F]alse" })
       -- vim.keymap.set("n", "<leader>d", [[i<cr><esc>kaif debug then Format.eprintf "%a@." ;<esc>i]])
       vim.keymap.set("n", "<localleader>f", function() vim.cmd("FloatermNew utop") end, { desc = "OCaml - [F]loaterm with utop" })
       vim.keymap.set("n", "<localleader>i", function() vim.cmd("!ocaml %") end, { desc = "OCaml - [I]nterpret file" })
@@ -33,7 +33,8 @@ vim.api.nvim_create_autocmd( "BufWinEnter", {
       vim.keymap.set("n", "s", function() vim.call("OCaml_switch", 0) end)
       vim.keymap.set("n", "S", function() vim.call("OCaml_switch", 1) end)
 
-      vim.keymap.set("i", "<c-a>", " assert false")
+      vim.keymap.set("i", "<C-a>", " assert false", { desc = "OCaml - insert [A]ssert false" })
+      vim.keymap.set("n", "<C-a>", "a assert false<ESC>", { desc = "OCaml - insert [A]ssert false" })
 
     end
 })
@@ -53,7 +54,7 @@ vim.g.neoformat_ocaml_ocamlformat = {
   }
 }
 
-vim.g.neoformat_enabled_ocaml = {"ocamlformat"}
+vim.g.neoformat_enabled_ocaml = { "ocamlformat" }
 
 --[[ vim.keymap.set("n", "ml", function()
   local filename = vim.fn.expand("%:t:r")
