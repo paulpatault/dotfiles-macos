@@ -24,7 +24,7 @@ local fts = {
 local options_group = vim.api.nvim_create_augroup("OptionsGroup", {clear = true})
 
 for k, v in pairs(fts) do
-  vim.api.nvim_create_autocmd("BufRead,BufNewFile",
+  vim.api.nvim_create_autocmd({"BufRead","BufNewFile"},
     {
       pattern = "*." .. k,
       command = "set filetype=" .. v,
