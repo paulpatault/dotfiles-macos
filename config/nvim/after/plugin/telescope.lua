@@ -1,6 +1,7 @@
 
 local builtin = require("telescope.builtin")
-vim.keymap.set("n", "<leader>pf", builtin.find_files, { desc = "p + [F]iles" })
+vim.keymap.set("n", "<leader>pf",
+  builtin.find_files, { desc = "p + [F]iles" })
 vim.keymap.set("n", "<leader>ph", builtin.help_tags, { desc = "p + [H]elp tags" })
 vim.keymap.set("n", "<leader>pg", builtin.git_files, { desc = "p + [G]it files" })
 vim.keymap.set("n", "<leader>pb", builtin.buffers, { desc = "p + [B]uffer" })
@@ -31,12 +32,15 @@ require('plenary.filetype').add_file({
 telescope.setup({
     pickers = {
       find_files  = { theme = "dropdown" },
-      help_tags   = { theme = "dropdown" },
+      keymaps   = {
+        layout_config = { width = 0.7 },
+        theme = "dropdown",
+      },
       git_files   = { theme = "dropdown" },
       buffers     = { theme = "dropdown" },
       diagnostics = { theme = "dropdown" },
       live_grep   = { theme = "dropdown" },
-      keymaps     = { theme = "dropdown" },
+      help_tags   = { theme = "dropdown" },
       quickfix    = { theme = "dropdown" },
     },
     defaults = {
