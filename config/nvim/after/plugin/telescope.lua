@@ -1,15 +1,15 @@
 
 local builtin = require("telescope.builtin")
-vim.keymap.set("n", "<leader>pf",
-  builtin.find_files, { desc = "p + [F]iles" })
+
+vim.keymap.set("n", "<leader>pf", builtin.find_files, { desc = "p + [F]iles" })
 vim.keymap.set("n", "<leader>ph", builtin.help_tags, { desc = "p + [H]elp tags" })
 vim.keymap.set("n", "<leader>pg", builtin.git_files, { desc = "p + [G]it files" })
-vim.keymap.set("n", "<leader>pb", builtin.buffers, { desc = "p + [B]uffer" })
-vim.keymap.set("n", "<leader>pd", builtin.diagnostics, { desc = "p + [D]iagnostics" })
+vim.keymap.set("n", "<leader>pb", builtin.buffers, { desc = "p + [B]uffer" }) vim.keymap.set("n", "<leader>pd", builtin.diagnostics, { desc = "p + [D]iagnostics" })
 vim.keymap.set("n", "<leader>pr", builtin.live_grep, { desc = "p + [R]ipgrep" })
 vim.keymap.set("n", "<leader>pk", builtin.keymaps, { desc = "p + [K]eymaps" })
 vim.keymap.set("n", "<leader>pq", builtin.quickfix, { desc = "p + [Q]uickfix" })
 vim.keymap.set("n", "<leader>ps", function() builtin.grep_string({ search = vim.fn.input("Grep > ") }) end, { desc = "p + [S]tring grep search" })
+vim.keymap.set("n", "<leader>p",  builtin.builtin, { desc = "p (telescope base)" })
 
 vim.keymap.set("n", "<leader>pc", function()
   builtin.colorscheme({enable_preview=true})
@@ -42,6 +42,7 @@ telescope.setup({
       live_grep   = { theme = "dropdown" },
       help_tags   = { theme = "dropdown" },
       quickfix    = { theme = "dropdown" },
+      builtin     = { theme = "dropdown" },
     },
     defaults = {
       file_ignore_patterns = {
