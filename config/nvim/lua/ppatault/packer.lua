@@ -71,7 +71,6 @@ return require("packer").startup({function(use)
     use "onsails/lspkind-nvim"
     use "GCBallesteros/jupytext.vim"
     use "urbainvaes/vim-ripple"
-    -- use "urbainvaes/vim-remembrall"
     use "folke/zen-mode.nvim"
     use {
       "GCBallesteros/vim-textobj-hydrogen",
