@@ -4,7 +4,6 @@ require("ppatault.set")
 require("ppatault.mappings")
 require("ppatault.globals")
 
--- require("rust-tools").setup({})
 require("ppatault.highlights")
 require("ppatault.theme")
 
@@ -17,8 +16,7 @@ local fts = {
   mll = "ocaml.ocamllex",
   mli = "ocaml.interface",
   fx  = "scala.no_lsp",
-  proof = "proof",
-  --mly = "ocaml.menhir",
+  proof = "proof", --mly = "ocaml.menhir",
 }
 
 local options_group = vim.api.nvim_create_augroup("OptionsGroup", {clear = true})
@@ -33,22 +31,40 @@ for k, v in pairs(fts) do
   )
 end
 
+
+vim.api.nvim_create_autocmd({"FileType","BufRead","BufNewFile"}, {
+    pattern = {"*"},
+    callback = function()
+      if vim.bo.ft ~= "latex" and vim.bo.ft ~= "markdown" and vim.bo.ft ~= "text" then
+        vim.cmd("setlocal nospell")
+        vim.cmd.set("textwidth=0")
+      else
+        vim.cmd("setlocal spell")
+        vim.cmd.set("textwidth=80")
+      end
+    end,
+    group = options_group
+})
+
 vim.api.nvim_create_autocmd("FileType", {
     pattern = { "c", "latex", "cpp"},
     command = "set sw=4",
     group   = options_group
-  })
+})
+
 vim.api.nvim_create_autocmd("FileType", {
     pattern = { "markdown", "lua", "kawa", "ocaml", "wh3", "lustre"},
     command = "set sw=2",
     group   = options_group
-  })
-vim.api.nvim_create_autocmd("FileType",
-  {
-    pattern = {"*.tex"},
-    command = "setlocal spell",
-    group   = options_group
-  })
+})
+--[[ vim.api.nvim_create_autocmd({"FileType","BufRead","BufNewFile"}, {
+    pattern = {"*.tex", "*.md", "*.txt" },
+    callback = function()
+      vim.cmd("setlocal spell")
+      vim.cmd.set("textwidth=80")
+    end,
+    group = options_group
+}) ]]
 
 
 -- lsp loading

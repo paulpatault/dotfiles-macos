@@ -31,7 +31,7 @@ vim.api.nvim_create_autocmd( {"BufRead","BufWinEnter","FileType"}, {
   callback = function ()
     if vim.bo.ft ~= "ocaml" then return end
 
-    vim.cmd("unlet b:did_indent")
+    pcall(vim.cmd("unlet b:did_indent"))
 
     vim.cmd.source(opam_share .. "/ocp-indent/vim/indent/ocaml.vim")
     vim.opt.iskeyword:append("_")
