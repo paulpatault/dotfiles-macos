@@ -1,9 +1,11 @@
-vim.api.nvim_set_var("pres", false)
+local zen_mode = require("zen-mode")
+
+vim.api.nvim_set_var("pres_mode", false)
 
 vim.keymap.set("n", "<leader>zp", function()
-  local pres = vim.api.nvim_get_var("pres")
-  vim.api.nvim_set_var("pres", not pres)
-  require("zen-mode").toggle()
+  local pres = vim.api.nvim_get_var("pres_mode")
+  vim.api.nvim_set_var("pres_mode", not pres)
+  zen_mode.toggle()
   if pres then
     vim.wo.number = true
     vim.wo.relativenumber = true
@@ -11,10 +13,9 @@ vim.keymap.set("n", "<leader>zp", function()
     vim.wo.number = false
     vim.wo.relativenumber = false
   end
-end, { desc = "[Z]en mode [P]resentation" }
-)
+end, { desc = "[Z]en mode [P]resentation" })
 
-require("zen-mode").setup {
+zen_mode.setup {
     window = {
         width = 90,
         options = {
@@ -25,6 +26,6 @@ require("zen-mode").setup {
 }
 
 vim.keymap.set("n", "<leader>zz", function()
-    require("zen-mode").toggle()
+    zen_mode.toggle()
     vim.wo.wrap = false
 end, { desc = "[Z]en mode" })
