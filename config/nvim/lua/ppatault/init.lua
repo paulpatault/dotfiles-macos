@@ -16,6 +16,7 @@ local fts = {
   mll = "ocaml.ocamllex",
   mli = "ocaml.interface",
   fx  = "scala.no_lsp",
+  conflicts = "conflicts",
   proof = "proof", --mly = "ocaml.menhir",
 }
 

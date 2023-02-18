@@ -10,10 +10,7 @@ return require("packer").startup({function(use)
     use "sublimelsp/LSP-pyls"
     use "ocaml/ocaml-lsp"
     use "nvim-lua/plenary.nvim"
-    use {
-      "scalameta/nvim-metals",
-      requires = { "nvim-lua/plenary.nvim" }
-    }
+    use "scalameta/nvim-metals"
 
     ----- cmp -----
     use "hrsh7th/nvim-cmp"
@@ -24,15 +21,14 @@ return require("packer").startup({function(use)
     use "hrsh7th/cmp-cmdline"
     use "kdheepak/cmp-latex-symbols"
 
-    ----- languages -----
+    ----- ocaml -----
     use "ocaml/vim-ocaml"
     use "ELLIOTTCABLE/vim-menhir"
     use "bfontaine/conflicts.vim"
-    use "neovimhaskell/haskell-vim"
-    use "sbdchd/neoformat"
-    -- use "liuchengxu/graphviz.vim"
-    -- use "simrat39/rust-tools.nvim"
     use "whonore/Coqtail"
+
+    ----- other languages-----
+    use "neovimhaskell/haskell-vim"
     use "bohlender/vim-smt2"
     use "fladson/vim-kitty"
     use "isti115/agda.nvim"
@@ -40,10 +36,7 @@ return require("packer").startup({function(use)
     use "wreien/vim-jasmin"
 
     ----- telescope -----
-    use {
-      "nvim-telescope/telescope.nvim", tag = "0.1.1",
-      requires = { {"nvim-lua/plenary.nvim"} }
-    }
+    use { "nvim-telescope/telescope.nvim", tag = "0.1.1" }
     use "nvim-telescope/telescope-fzy-native.nvim"
     use "nvim-telescope/telescope-file-browser.nvim"
 
@@ -51,47 +44,46 @@ return require("packer").startup({function(use)
     use "rafi/awesome-vim-colorschemes"
     use "morhetz/gruvbox"
     use "kyazdani42/nvim-web-devicons"
+    use "lilydjwg/colorizer"
     use {
       "hoob3rt/lualine.nvim",
       requires = {"kyazdani42/nvim-web-devicons", opt = true}
     }
-    use "lilydjwg/colorizer"
 
     ----- utils -----
     use "wellle/targets.vim"
     use "lewis6991/impatient.nvim"
-    -- use "arthurxavierx/vim-unicoder"
+    use "folke/zen-mode.nvim"
+    use "machakann/vim-swap"
+    use "max397574/better-escape.nvim"
+    use "unblevable/quick-scope"
+    use "bkad/CamelCaseMotion"
+    use "paulpatault/compit"
     use "machakann/vim-sandwich"
     use "cohama/lexima.vim"
     use "mbbill/undotree"
     use "voldikss/vim-floaterm"
     use "b3nj5m1n/kommentary"
     use "tpope/vim-fugitive"
-    use "onsails/lspkind-nvim"
     use "GCBallesteros/jupytext.vim"
     use "urbainvaes/vim-ripple"
-    use "folke/zen-mode.nvim"
+    use "sbdchd/neoformat"
+    use "machakann/vim-highlightedyank"
+    use "sindrets/diffview.nvim"
     use {
       "GCBallesteros/vim-textobj-hydrogen",
       requires = "kana/vim-textobj-user",
     }
-    use {
-      "folke/trouble.nvim",
-      requires = "kyazdani42/nvim-web-devicons",
-    }
-    use "machakann/vim-highlightedyank"
-    use "machakann/vim-swap"
-    use {
-      "sindrets/diffview.nvim",
-      requires = "nvim-lua/plenary.nvim"
-    }
-    use {
-      "max397574/better-escape.nvim",
-      config = function() require("better_escape").setup() end
-    }
-    use "unblevable/quick-scope"
-    use "bkad/CamelCaseMotion"
 
-    use "paulpatault/compit"
   end
 })
+
+    -- PAST --
+    -- use "arthurxavierx/vim-unicoder"
+    -- use "onsails/lspkind-nvim"
+    -- use "liuchengxu/graphviz.vim"
+    -- use "simrat39/rust-tools.nvim"
+    --[[ use {
+      "folke/trouble.nvim",
+      requires = "kyazdani42/nvim-web-devicons",
+    } ]]

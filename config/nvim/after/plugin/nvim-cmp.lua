@@ -24,7 +24,7 @@ cmp.setup.cmdline(':', {
 cmp.setup ({
   formatting = {
     format = function(entry, vim_item)
-      vim_item.kind = require("lspkind").presets.default[vim_item.kind] .. " " .. vim_item.kind
+      -- vim_item.kind = require("lspkind").presets.default[vim_item.kind] .. " " .. vim_item.kind
       vim_item.menu = ({
         buffer = "~buffer",
         nvim_lsp = "~lsp",
