@@ -53,7 +53,7 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 vim.api.nvim_create_autocmd("FileType", {
-    pattern = { "markdown", "lua", "kawa", "ocaml", "wh3", "lustre"},
+    pattern = { "markdown", "lua", "kawa", "ocaml", "why3", "lustre" },
     command = "set sw=2",
     group   = options_group
 })

@@ -88,15 +88,15 @@ lsp.rust_analyzer.setup({ on_attach = on_attach })
 
 --------- OCAML ---------
 
---[[ local function switch_impl_int_splitcmd(bufnr, splitcmd)
+local function switch_impl_int_splitcmd(splitcmd)
+  local bufnr = vim.api.nvim_get_current_buf()
   bufnr = lsp.util.validate_bufnr(bufnr)
+
   local ocaml_client = lsp.util.get_active_client_by_name(bufnr, "ocamllsp")
   local params = vim.uri_from_bufnr(bufnr)
-  print( "coucou 1" )
+
   if ocaml_client then
-    print( "coucou 2" )
     ocaml_client.request("ocamllsp/switchImplIntf", params, function(err, result)
-      print( "coucou 3")
       if err then
         error(tostring(err))
       end
@@ -107,9 +107,32 @@ lsp.rust_analyzer.setup({ on_attach = on_attach })
       vim.api.nvim_command(splitcmd .. " " .. vim.uri_to_fname(result))
     end, bufnr)
   else
-    print 'ocamllsp/switchImplIntf is not supported by the ocamllsp server active on the current buffer'
+    print("ocamllsp/switchImplIntf is not supported by the ocamllsp server active on the current buffer")
   end
-end ]]
+end
+
+local function inferIntf()
+  local bufnr = vim.api.nvim_get_current_buf()
+  bufnr = lsp.util.validate_bufnr(bufnr)
+
+  local ocaml_client = lsp.util.get_active_client_by_name(bufnr, "ocamllsp")
+  local params = vim.uri_from_bufnr(bufnr)
+
+  if ocaml_client then
+    ocaml_client.request("ocamllsp/inferIntf", params, function(err, result)
+      if err then
+        error(tostring(err))
+      end
+      if not result then
+        print("Corresponding mli file can’t be determined")
+        return
+      end
+      print(result)
+    end, bufnr)
+  else
+    print("ocamllsp/inferIntf is not supported by the ocamllsp server active on the current buffer")
+  end
+end
 
 lsp.ocamllsp.setup({
   cmd = { "ocamllsp" };
@@ -121,12 +144,19 @@ lsp.ocamllsp.setup({
     or lsp.util.root_pattern("*.opam", ".git", "dune-project")
   end;
   on_attach = on_attach;
-  --[[ commands = {
+  commands = {
     MOcamlSwitchVsplit = {
-      function() switch_impl_int_splitcmd(0, "vsplit") end;
+      function() switch_impl_int_splitcmd("vsplit") end;
       description = "Open source/header in a new vsplit";
     },
-  } ]]
+    MInferInterf = {
+      function()
+        local params = vim.lsp.util.make_position_params()
+        return vim.lsp.buf_request_all(0, "ocamllsp/inferIntf", params, function(err, res) error(tostring(err)) end)
+      end;
+      description = "Open source/header in a new vsplit";
+    }
+  }
   -- handlers=handlers
 })
 
@@ -164,7 +194,7 @@ local runtime_path = vim.split(package.path, ";")
 table.insert(runtime_path, "lua/?.lua")
 table.insert(runtime_path, "lua/?/init.lua")
 
-lsp.sumneko_lua.setup {
+lsp.lua_ls.setup {
   on_attach = on_attach;
   cmd = {sumneko_binary, "-E", sumneko_root_path .. "/main.lua"};
   settings = {

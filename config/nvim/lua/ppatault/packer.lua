@@ -36,7 +36,6 @@ return require("packer").startup({function(use)
     use "bohlender/vim-smt2"
     use "fladson/vim-kitty"
     use "isti115/agda.nvim"
-
     use "lervag/vimtex"
     use "wreien/vim-jasmin"
 
@@ -90,6 +89,9 @@ return require("packer").startup({function(use)
       "max397574/better-escape.nvim",
       config = function() require("better_escape").setup() end
     }
-    use { "paulpatault/compit" }
+    use "unblevable/quick-scope"
+    use "bkad/CamelCaseMotion"
+
+    use "paulpatault/compit"
   end
 })

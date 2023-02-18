@@ -1,14 +1,18 @@
 
 local undergrp = vim.api.nvim_create_augroup("UndercurlDiags", {clear = true})
 
+local function set_hl(name, opts)
+  vim.api.nvim_set_hl(0, name, opts)
+end
+
 local function cocaml()
 
-  vim.api.nvim_set_hl(0, "ocamlKeyword", { link = "GruvboxRedBold" })
+  set_hl("ocamlKeyword", { link = "GruvboxRedBold" })
 
   if vim.o.background ~= "dark" then return end
 
-  -- vim.api.nvim_set_hl(0, "ocamlOperator", { bold = true })
-  -- vim.api.nvim_set_hl(0, "ocamlArrow", { link = "GruvboxRedBold" })
+  -- set_hl("ocamlOperator", { bold = true })
+  -- set_hl("ocamlArrow", { link = "GruvboxRedBold" })
   local strs = {
     "ocamlModule";
     "ocamlModPath";
@@ -28,18 +32,18 @@ local function cocaml()
     "ocamlMethod";
   }
   for _, str in ipairs(strs) do
-    vim.api.nvim_set_hl(0, str, { fg = "#d5c4a1", bold = true, italic = true })
+    set_hl(str, { fg = "#d5c4a1", bold = true, italic = true })
   end
 end
 
 local function ccoq()
   if vim.o.background ~= "dark" then return end
-  vim.api.nvim_set_hl(0, "Keyword",    { link = "GruvboxRedBold" })
-  vim.api.nvim_set_hl(0, "PreProc",    { link = "GruvboxAquaBold" })
-  vim.api.nvim_set_hl(0, "Type",       { link = "GruvboxYellowBold" })
-  vim.api.nvim_set_hl(0, "Underlined", { link = "GruvboxBlueBold" })
-  vim.api.nvim_set_hl(0, "CoqtailSent",    { bg = vim.api.nvim_get_var("coq_sent_color")})
-  vim.api.nvim_set_hl(0, "CoqtailChecked", { bg = vim.api.nvim_get_var("coq_check_color")})
+  set_hl("Keyword",    { link = "GruvboxRedBold" })
+  set_hl("PreProc",    { link = "GruvboxAquaBold" })
+  set_hl("Type",       { link = "GruvboxYellowBold" })
+  set_hl("Underlined", { link = "GruvboxBlueBold" })
+  set_hl("CoqtailSent",    { bg = vim.api.nvim_get_var("coq_sent_color")})
+  set_hl("CoqtailChecked", { bg = vim.api.nvim_get_var("coq_check_color")})
 end
 
 vim.api.nvim_create_autocmd(
@@ -48,14 +52,17 @@ vim.api.nvim_create_autocmd(
     group = undergrp,
     pattern = { "*" },
     callback = function()
-      vim.api.nvim_set_hl(0, "DiagnosticUnderlineWarning",     { undercurl = true, })
-      vim.api.nvim_set_hl(0, "DiagnosticUnderlineError",       { undercurl = true, sp = "#fb4934" })
-      vim.api.nvim_set_hl(0, "DiagnosticUnderlineHint",        { undercurl = true })
-      vim.api.nvim_set_hl(0, "DiagnosticUnderlineInformation", { undercurl = true })
+      set_hl("DiagnosticUnderlineWarning",     { undercurl = true, })
+      set_hl("DiagnosticUnderlineError",       { undercurl = true, sp = "#fb4934" })
+      set_hl("DiagnosticUnderlineHint",        { undercurl = true })
+      set_hl("DiagnosticUnderlineInformation", { undercurl = true })
+      set_hl("QuickScopePrimary",              { underline = true })
+      set_hl("QuickScopePrimary",              { underline = true })
+      set_hl("QuickScopeSecondary",            { undercurl = true })
 
-      vim.api.nvim_set_hl(0, "CmpItemAbbr", { fg = "#a89984" })
-      vim.api.nvim_set_hl(0, "CmpItemKind", { fg = "#fabd2f" })
-      vim.api.nvim_set_hl(0, "CmpItemMenu", { fg = "#83a598" })
+      set_hl("CmpItemAbbr", { fg = "#a89984" })
+      set_hl("CmpItemKind", { fg = "#fabd2f" })
+      set_hl("CmpItemMenu", { fg = "#83a598" })
 
       vim.cmd.highlight("Normal guibg=NONE ctermbg=NONE")
 
