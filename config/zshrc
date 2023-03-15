@@ -22,9 +22,7 @@ if type brew &>/dev/null; then
 fi
 
 #=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# PLUGINS
-plugins=(
-  git
-)
+plugins=(git)
 
 autoload -Uz compinit
 compinit
@@ -72,12 +70,12 @@ ZSH_THEME=""
 
 autoload -U promptinit; promptinit
 
-PURE_PROMPT_SYMBOL="λ"
+# PURE_PROMPT_SYMBOL="λ"
 
-zstyle :prompt:pure:path color white
+# zstyle :prompt:pure:path color white
 
-zstyle :prompt:pure:prompt:success color cyan
-zstyle :prompt:pure:prompt:error color "#D73232"
+# zstyle :prompt:pure:prompt:success color cyan
+# zstyle :prompt:pure:prompt:error color "#D73232"
 
 prompt pure
 
@@ -148,6 +146,8 @@ darkmod () { # ctrl-cmd-,
     ln -s ~/.config/kitty/themes/gruvbox.conf ~/.config/kitty/theme.conf
     export THEME="dark"
 }
+
+manp() { man -t "${1}" | open -f -a Skim }
 
 #=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# GIT
 alias lg="lazygit"
