@@ -14,7 +14,7 @@ vim.wo.winfixwidth = true
 vim.wo.linebreak = true
 vim.wo.number = true
 vim.wo.relativenumber = true
-vim.wo.colorcolumn = "100"
+vim.wo.colorcolumn = "80"
 vim.wo.wrap = false
 vim.wo.list = false
 
@@ -48,7 +48,7 @@ vim.opt.lazyredraw = true
 vim.opt.splitbelow = true
 vim.opt.splitright = true
 vim.opt.encoding = "utf-8"
-vim.opt.spelllang = "fr"
+vim.opt.spelllang = "en"
 vim.opt.termguicolors = true
 vim.opt.clipboard = "unnamed,unnamedplus"
 vim.opt.scrolloff = 8

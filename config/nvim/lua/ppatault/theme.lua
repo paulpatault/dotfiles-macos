@@ -14,5 +14,5 @@ else
   vim.opt.background = "light"
   vim.api.nvim_set_var("coq_sent_color", "#fff6c0")
   vim.api.nvim_set_var("coq_check_color", "#bcffbe")
-  -- vim.cmd.colorscheme("materialbox")
+  vim.cmd.colorscheme("github")
 end
