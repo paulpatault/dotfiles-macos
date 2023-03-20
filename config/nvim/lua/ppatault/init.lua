@@ -16,6 +16,7 @@ local fts = {
   mll = "ocaml.ocamllex",
   mli = "ocaml.interface",
   fx  = "scala.no_lsp",
+  anfix = "scala.no_lsp",
   conflicts = "conflicts",
   proof = "proof", --mly = "ocaml.menhir",
 }
@@ -32,11 +33,18 @@ for k, v in pairs(fts) do
   )
 end
 
+--[[ vim.api.nvim_create_autocmd({"FileType","BufRead","BufNewFile"}, {
+    pattern = { "qf" },
+    callback = function()
+      vim.cmd("set ma")
+    end,
+    group = options_group
+}) ]]
 
 vim.api.nvim_create_autocmd({"FileType","BufRead","BufNewFile"}, {
     pattern = {"*"},
     callback = function()
-      if vim.bo.ft ~= "latex" and vim.bo.ft ~= "markdown" and vim.bo.ft ~= "text" then
+      if vim.bo.ft ~= "tex" and vim.bo.ft ~= "markdown" and vim.bo.ft ~= "text" then
         vim.cmd("setlocal nospell")
         vim.cmd.set("textwidth=0")
       else
@@ -79,3 +87,12 @@ end
 function R(name)
     require("plenary.reload").reload_module(name)
 end
+
+
+vim.api.nvim_create_autocmd({"BufRead","BufWinEnter","FileType"}, {
+  group = vim.api.nvim_create_augroup("fopixGRP", {clear = true}),
+  pattern = { "*.fx" },
+  callback = function ()
+    vim.keymap.set("n", "<leader>j", function() vim.cmd("e %:r.j") end, { desc = "goto [J]asmin" })
+  end
+})

@@ -7,9 +7,11 @@ end
 
 local function cocaml()
 
-  set_hl("ocamlKeyword", { link = "GruvboxRedBold" })
-
   if vim.o.background ~= "dark" then return end
+
+  set_hl("ocamlKeyword", { link = "GruvboxRedBold" })
+  -- set_hl("@function", { link = "GruvboxRedBold" })
+  -- set_hl("@function", { fg = "#d5c4a1" })
 
   -- set_hl("ocamlOperator", { bold = true })
   -- set_hl("ocamlArrow", { link = "GruvboxRedBold" })
@@ -87,7 +89,21 @@ vim.api.nvim_create_autocmd(
   })
 
 vim.api.nvim_create_autocmd(
-  "Filetype",
+  { "Filetype" },
+  {
+    group = undergrp,
+    pattern = { "scala" },
+    callback = function()
+      set_hl("scalaKeyword", { link = "GruvboxRedBold" })
+      set_hl("scalaKeywordModifier", { link = "GruvboxRedBold" })
+      set_hl("Keyword", { link = "GruvboxRedBold" })
+    end
+  }
+)
+
+
+vim.api.nvim_create_autocmd(
+  { "Filetype" },
   {
     group = undergrp,
     pattern = { "ocaml", "ocaml.interface", "ocaml.ocamllex" },

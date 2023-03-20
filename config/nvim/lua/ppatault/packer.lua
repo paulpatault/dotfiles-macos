@@ -74,7 +74,6 @@ return require("packer").startup({function(use)
       "GCBallesteros/vim-textobj-hydrogen",
       requires = "kana/vim-textobj-user",
     }
-
   end
 })
 
@@ -87,3 +86,28 @@ return require("packer").startup({function(use)
       "folke/trouble.nvim",
       requires = "kyazdani42/nvim-web-devicons",
     } ]]
+
+
+        --[[ use {
+      'gelguy/wilder.nvim',
+      config = function()
+      end,
+    } ]]
+    --[[ use({
+    "folke/noice.nvim",
+    config = function()
+    require("noice").setup({
+    -- add any options here
+    })
+    end,
+    requires = {
+    -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+    "MunifTanjim/nui.nvim",
+    -- OPTIONAL:
+    --   `nvim-notify` is only needed, if you want to use the notification view.
+    --   If not available, we use `mini` as the fallback
+    "rcarriga/nvim-notify",
+    }
+    }) ]]
+
+

@@ -1,5 +1,6 @@
 # open terminal
 cmd - return : /Applications/Kitty.app/Contents/MacOS/kitty --single-instance -d ~ &> /dev/null
+ctrl - t : /Applications/Kitty.app/Contents/MacOS/kitty --single-instance -d ~ &> /dev/null
 # ctrl - m : open /Applications/Spark.app
 # ctrl - s : open /Applications/Safari.app
 

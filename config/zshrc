@@ -138,8 +138,8 @@ lightmod () {
         ~/.config/kitty/themes/gruvbox-light-hard.conf \
         ~/.config/kitty/theme.conf
     export THEME="light"
-    # ~/.config/kitty/themes/github-light.conf \
 }
+# ~/.config/kitty/themes/github-light.conf \
 
 darkmod () { # ctrl-cmd-,
     rm -f ~/.config/kitty/theme.conf
