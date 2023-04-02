@@ -1,4 +1,3 @@
-require("ppatault.packer")
 require("impatient")
 require("ppatault.set")
 require("ppatault.mappings")
@@ -18,6 +17,7 @@ local fts = {
   fx  = "scala.no_lsp",
   anfix = "scala.no_lsp",
   conflicts = "conflicts",
+  k = "jasmin",
   proof = "proof", --mly = "ocaml.menhir",
 }
 
@@ -66,6 +66,7 @@ vim.api.nvim_create_autocmd("FileType", {
     command = "set sw=2",
     group   = options_group
 })
+
 --[[ vim.api.nvim_create_autocmd({"FileType","BufRead","BufNewFile"}, {
     pattern = {"*.tex", "*.md", "*.txt" },
     callback = function()
@@ -89,10 +90,11 @@ function R(name)
 end
 
 
-vim.api.nvim_create_autocmd({"BufRead","BufWinEnter","FileType"}, {
+--[[ vim.api.nvim_create_autocmd({"BufRead","BufWinEnter","FileType"}, {
   group = vim.api.nvim_create_augroup("fopixGRP", {clear = true}),
   pattern = { "*.fx" },
   callback = function ()
     vim.keymap.set("n", "<leader>j", function() vim.cmd("e %:r.j") end, { desc = "goto [J]asmin" })
+    vim.keymap.set("n", "<leader>k", function() vim.cmd("e %:r.k") end, { desc = "goto [K]ont-Jasmin" })
   end
-})
+}) ]]

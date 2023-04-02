@@ -6,7 +6,7 @@ return require("packer").startup({function(use)
 
     ----- lsp -----
     use "nvim-treesitter/nvim-treesitter"
-    use "neovim/nvim-lspconfig"
+    -- use "neovim/nvim-lspconfig"
     use "sublimelsp/LSP-pyls"
     use "ocaml/ocaml-lsp"
     use "nvim-lua/plenary.nvim"
@@ -76,38 +76,3 @@ return require("packer").startup({function(use)
     }
   end
 })
-
-    -- PAST --
-    -- use "arthurxavierx/vim-unicoder"
-    -- use "onsails/lspkind-nvim"
-    -- use "liuchengxu/graphviz.vim"
-    -- use "simrat39/rust-tools.nvim"
-    --[[ use {
-      "folke/trouble.nvim",
-      requires = "kyazdani42/nvim-web-devicons",
-    } ]]
-
-
-        --[[ use {
-      'gelguy/wilder.nvim',
-      config = function()
-      end,
-    } ]]
-    --[[ use({
-    "folke/noice.nvim",
-    config = function()
-    require("noice").setup({
-    -- add any options here
-    })
-    end,
-    requires = {
-    -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
-    "MunifTanjim/nui.nvim",
-    -- OPTIONAL:
-    --   `nvim-notify` is only needed, if you want to use the notification view.
-    --   If not available, we use `mini` as the fallback
-    "rcarriga/nvim-notify",
-    }
-    }) ]]
-
-
