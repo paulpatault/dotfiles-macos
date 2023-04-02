@@ -1,5 +1,6 @@
-require("impatient")
 require("ppatault.set")
+require("ppatault.lazy")
+require("impatient")
 require("ppatault.mappings")
 require("ppatault.globals")
 

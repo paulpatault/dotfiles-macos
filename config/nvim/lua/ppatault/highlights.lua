@@ -59,7 +59,6 @@ vim.api.nvim_create_autocmd(
       set_hl("DiagnosticUnderlineHint",        { undercurl = true })
       set_hl("DiagnosticUnderlineInformation", { undercurl = true })
       set_hl("QuickScopePrimary",              { underline = true })
-      set_hl("QuickScopePrimary",              { underline = true })
       set_hl("QuickScopeSecondary",            { undercurl = true })
 
       set_hl("CmpItemAbbr", { fg = "#a89984" })
@@ -68,13 +67,8 @@ vim.api.nvim_create_autocmd(
 
       vim.cmd.highlight("Normal guibg=NONE ctermbg=NONE")
 
-      if vim.bo.filetype == "ocaml" then
-          cocaml()
-      end
-
-      if vim.bo.filetype == "coq" then
-          ccoq()
-      end
+      if vim.bo.filetype == "ocaml" then cocaml() end
+      if vim.bo.filetype == "coq" then ccoq() end
 
     end
   }
@@ -100,7 +94,6 @@ vim.api.nvim_create_autocmd(
     end
   }
 )
-
 
 vim.api.nvim_create_autocmd(
   { "Filetype" },

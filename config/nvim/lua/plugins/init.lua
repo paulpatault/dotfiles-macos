@@ -24,6 +24,7 @@ return {
     "lilydjwg/colorizer",
 
     ----- utils -----
+    "krady21/compiler-explorer.nvim",
     "wellle/targets.vim",
     "lewis6991/impatient.nvim",
     "machakann/vim-swap",
