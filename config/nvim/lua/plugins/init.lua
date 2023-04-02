@@ -18,7 +18,8 @@ return {
     "wreien/vim-jasmin",
 
     "rafi/awesome-vim-colorschemes",
-    "morhetz/gruvbox",
+    -- "morhetz/gruvbox",
+    "ellisonleao/gruvbox.nvim",
     "kyazdani42/nvim-web-devicons",
     "lilydjwg/colorizer",
 
@@ -26,7 +27,8 @@ return {
     "wellle/targets.vim",
     "lewis6991/impatient.nvim",
     "machakann/vim-swap",
-    "unblevable/quick-scope",
+
+    -- { "unblevable/quick-scope", config = function() vim.g.qs_highlight_on_keys = {"f", "F", "t", "T"} end },
 
     "machakann/vim-sandwich",
     "cohama/lexima.vim",
@@ -34,4 +36,5 @@ return {
     "sindrets/diffview.nvim",
 
     { "GCBallesteros/vim-textobj-hydrogen", dependencies = "kana/vim-textobj-user", },
+
 }
