@@ -2,15 +2,15 @@ local lsp = require("lspconfig")
 
 vim.cmd [[
   highlight! DiagnosticLineNrError guibg=#51202A guifg=#FF0000 gui=bold
-  highlight! DiagnosticLineNrWarn guibg=#51412A guifg=#FFA500 gui=bold
-  highlight! DiagnosticLineNrInfo guibg=#1E535D guifg=#00FFFF gui=bold
-  highlight! DiagnosticLineNrHint guibg=#1E205D guifg=#0000FF gui=bold
+  highlight! DiagnosticLineNrWarn  guibg=#51412A guifg=#FFA500 gui=bold
+  highlight! DiagnosticLineNrInfo  guibg=#1E535D guifg=#00FFFF gui=bold
+  highlight! DiagnosticLineNrHint  guibg=#1E205D guifg=#0000FF gui=bold
 ]]
 
-vim.fn.sign_define("DiagnosticSignError", {text=nil, texthl="DiagnosticSignError", linehl=nil, numhl="DiagnosticLineNrError"})
-vim.fn.sign_define("DiagnosticSignWarn",  {text=nil, texthl="DiagnosticSignWarn" , linehl=nil, numhl="DiagnosticLineNrWarn"})
-vim.fn.sign_define("DiagnosticSignInfo",  {text=nil, texthl="DiagnosticSignInfo" , linehl=nil, numhl="DiagnosticLineNrInfo"})
-vim.fn.sign_define("DiagnosticSignHint",  {text=nil, texthl="DiagnosticSignHint" , linehl=nil, numhl="DiagnosticLineNrHint"})
+vim.fn.sign_define("DiagnosticSignError", { text=nil, texthl="DiagnosticSignError", linehl=nil, numhl="DiagnosticLineNrError" })
+vim.fn.sign_define("DiagnosticSignWarn",  { text=nil, texthl="DiagnosticSignWarn" , linehl=nil, numhl="DiagnosticLineNrWarn" })
+vim.fn.sign_define("DiagnosticSignInfo",  { text=nil, texthl="DiagnosticSignInfo" , linehl=nil, numhl="DiagnosticLineNrInfo" })
+vim.fn.sign_define("DiagnosticSignHint",  { text=nil, texthl="DiagnosticSignHint" , linehl=nil, numhl="DiagnosticLineNrHint" })
 
 vim.cmd.autocmd("ColorScheme * highlight NormalFloat guibg=#3c3836")
 vim.cmd.autocmd("ColorScheme * highlight FloatBorder guifg=white guibg=#3c3836")
