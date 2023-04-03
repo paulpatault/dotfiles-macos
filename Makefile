@@ -18,7 +18,7 @@ all:
 	echo "Host *\n  AddKeysToAgent yes\n  UseKeychain yes\n  IdentityFile ~/.ssh/id_ed25519" > ~/.ssh/config
 	ssh-add -K ~/.ssh/id_ed25519
 	pbcopy < ~/.ssh/id_ed25519.pub
-	echo "aller sur github et ajouter la clé"
+	echo "\033[31;1mAller sur github et ajouter la clé \!\033[0m"
 
 full:
 	./$(BREW)

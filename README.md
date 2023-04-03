@@ -9,5 +9,4 @@ $ cd dotfiles
 $ make
 $ make [minimal | full]
 $ nvim
-# faire :PackerInstall [+N]
 ```
