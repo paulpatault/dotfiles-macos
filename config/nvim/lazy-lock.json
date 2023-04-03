@@ -44,6 +44,7 @@
   "vim-jasmin": { "branch": "master", "commit": "a5e85b6546b81bfba4976ec869b4251954ff85f6" },
   "vim-kitty": { "branch": "main", "commit": "11ed0c3f97596e402c9aef226535e2fefd65f3d7" },
   "vim-menhir": { "branch": "master", "commit": "7e9ebe0c129e3c9eeb50b6beb09cf0feef131e8e" },
+  "vim-obsession": { "branch": "master", "commit": "fe9d3e1a9a50171e7d316a52e1e56d868e4c1fe5" },
   "vim-ocaml": { "branch": "master", "commit": "4c907ef607810662c42795098d42f23a224fe6e7" },
   "vim-ripple": { "branch": "master", "commit": "e9dd9a2c4df15e7fcdaad245a0e542e7addab37a" },
   "vim-sandwich": { "branch": "master", "commit": "c5a2cc438ce6ea2005c556dc833732aa53cae21a" },

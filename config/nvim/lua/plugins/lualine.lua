@@ -30,7 +30,7 @@ return {
         lualine_a = {"mode"},
         lualine_b = {"branch"};
         lualine_c = {"filename", diag},
-        lualine_x = {"searchcount", "diff", "encoding", "filetype"},
+        lualine_x = {"%{ObsessionStatus()}", "searchcount", "diff", "encoding", "filetype"},
         lualine_y = {"progress"},
         lualine_z = {"location"}
       },

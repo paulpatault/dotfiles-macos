@@ -34,6 +34,7 @@ return {
     "wellle/targets.vim",
     "lewis6991/impatient.nvim",
     "machakann/vim-swap",
+    "tpope/vim-obsession",
 
     -- { "unblevable/quick-scope", config = function() vim.g.qs_highlight_on_keys = {"f", "F", "t", "T"} end },
 
