@@ -1,29 +1,35 @@
 return {
 
-    "nvim-treesitter/nvim-treesitter",
+    -- "nvim-treesitter/nvim-treesitter",
+    -- LSP
     "neovim/nvim-lspconfig",
     "sublimelsp/LSP-pyls",
     "ocaml/ocaml-lsp",
-    "nvim-lua/plenary.nvim",
     "scalameta/nvim-metals",
+
+    -- Dependencies
+    "nvim-lua/plenary.nvim",
+
+    -- OCaml
     "ocaml/vim-ocaml",
     "ELLIOTTCABLE/vim-menhir",
     "bfontaine/conflicts.vim",
     "whonore/Coqtail",
 
+    -- Languages
     "neovimhaskell/haskell-vim",
     "bohlender/vim-smt2",
     "fladson/vim-kitty",
     "isti115/agda.nvim",
     "wreien/vim-jasmin",
 
+    -- Colors
     "rafi/awesome-vim-colorschemes",
-    -- "morhetz/gruvbox",
     "ellisonleao/gruvbox.nvim",
     "kyazdani42/nvim-web-devicons",
     "lilydjwg/colorizer",
 
-    ----- utils -----
+    -- Other
     "krady21/compiler-explorer.nvim",
     "wellle/targets.vim",
     "lewis6991/impatient.nvim",
@@ -34,8 +40,8 @@ return {
     "machakann/vim-sandwich",
     "cohama/lexima.vim",
     "machakann/vim-highlightedyank",
-    "sindrets/diffview.nvim",
+    { "sindrets/diffview.nvim", dependencies = "nvim-lua/plenary.nvim" },
 
-    { "GCBallesteros/vim-textobj-hydrogen", dependencies = "kana/vim-textobj-user", },
+    { "GCBallesteros/vim-textobj-hydrogen", dependencies = "kana/vim-textobj-user" },
 
 }
