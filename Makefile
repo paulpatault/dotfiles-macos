@@ -1,18 +1,18 @@
 DIR  = setup-shells
 
-BREW = $(DIR)/homebrew.zsh
-OMZ  = $(DIR)/omzsh.zsh
-OPAM = $(DIR)/opam.zsh
-CASK = $(DIR)/casks.zsh
-MAS  = $(DIR)/mas.zsh
+BREW = $(DIR)/homebrew.sh
+OMZ  = $(DIR)/omz.sh
+OPAM = $(DIR)/opam.sh
+CASK = $(DIR)/casks.sh
+MAS  = $(DIR)/mas.sh
 
 MIN  = min
 
 all:
 	sudo -v
 	while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
-	./$(DIR)/symlinks.zsh
-	./$(DIR)/mac-os.zsh
+	./$(DIR)/symlinks.sh
+	./$(DIR)/macos.sh
 	ssh-keygen -t ed25519 -C "p.patault@gmail.com"
 	eval "$(ssh-agent -s)"
 	echo "Host *\n  AddKeysToAgent yes\n  UseKeychain yes\n  IdentityFile ~/.ssh/id_ed25519" > ~/.ssh/config
