@@ -74,10 +74,14 @@ autoload -U promptinit; promptinit
 
 # zstyle :prompt:pure:path color white
 
+export VIRTUAL_ENV="$(opam switch show)"
+
 # zstyle :prompt:pure:prompt:success color cyan
 # zstyle :prompt:pure:prompt:error color "#D73232"
 
 prompt pure
+
+# PROMPT='%(?.%F{white}$(opam switch show) %F{magenta}❯.%F{red}▲)%f '
 
 #=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# ALIAS
 ex () {
