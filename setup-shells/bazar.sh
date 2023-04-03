@@ -1,3 +1,5 @@
+#!/bin/zsh
+
 # NVIM AUX
 
 /opt/homebrew/bin/python3 -m pip install neovim

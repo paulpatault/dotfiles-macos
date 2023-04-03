@@ -1,3 +1,5 @@
+#!/bin/zsh
+
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 BREW_MIN=(
@@ -17,17 +19,21 @@ koekeishiya/formulae/skhd
 jq
 colordiff
 python@3.10
+exa
 )
 
 BREW_ALL=(
+hyperfine
+htop
+gnuplot
 cask
 mas
-folx
 texlab
 node
 mas
 imlib2
 imagemagick
+pandoc
 )
 
 brew install neovim --HEAD

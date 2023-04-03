@@ -1,3 +1,5 @@
+#!/bin/zsh
+
 OPAM_MIN=(
 ocaml
 ocaml-lsp-server
@@ -21,7 +23,6 @@ why3-ide
 bash -c "sh <(curl -fsSL https://raw.githubusercontent.com/ocaml/opam/master/shell/install.sh)"
 
 opam init
-
 eval $(opam env --switch=default)
 
 if [[ $1 ]]
