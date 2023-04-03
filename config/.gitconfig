@@ -1,0 +1,35 @@
+[user]
+    name = Paul Patault
+    email = 43556190+paulpatault@users.noreply.github.com
+
+[core]
+    filemode = false
+    editor = nvim
+    pager = colordiff | less --tabs=4 -RFX
+    quotePath = false
+
+[pull]
+    rebase = true
+
+[url "git@github.com:"]
+    insteadOf = https://github.com/
+
+[filter "lfs"]
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process
+    required = true
+
+[alias]
+    undo = reset --soft HEAD~1
+    tree = log --graph --pretty=format:'%C(yellow)%h%C(cyan)%d%Creset %s %C(white)- %an, %ar%Creset'
+
+[help]
+    autocorrect = 1
+
+[init]
+    defaultBranch = main
+
+[alias]
+    br = branch
+    s = status -sb
