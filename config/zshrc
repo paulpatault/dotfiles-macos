@@ -70,18 +70,25 @@ ZSH_THEME=""
 
 autoload -U promptinit; promptinit
 
-# PURE_PROMPT_SYMBOL="λ"
-
+PURE_PROMPT_SYMBOL="λ"
 # zstyle :prompt:pure:path color white
-
-export VIRTUAL_ENV="$(opam switch show)"
-
 # zstyle :prompt:pure:prompt:success color cyan
 # zstyle :prompt:pure:prompt:error color "#D73232"
 
 prompt pure
 
+getopam () {
+    SW=$(opam switch show)
+    if [ $SW = "default" ]
+    then echo ""
+    else echo "$SW "
+    fi
+}
+
+PROMPT='%(?.%F{white}$(getopam)%F{magenta}$.%F{red}▼)%f '
+
 # PROMPT='%(?.%F{white}$(opam switch show) %F{magenta}❯.%F{red}▲)%f '
+
 
 #=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# ALIAS
 ex () {
@@ -93,13 +100,6 @@ ex () {
 
 # alias wr3="curl wttr.in\?format=3"
 # alias wr="curl wttr.in"
-
-
-#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#
-evalenv () {
-    eval $(opam env)
-    source ~/.zshrc
-}
 
 #=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# SAFE
 alias cp="cp -i"
@@ -131,14 +131,9 @@ alias m="cd $HOME/mpri/m2"
 alias l="exa -la"
 alias ls="exa -G"
 
-#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# ZSHRC
-alias zec="nvim ~/.zshrc"
-alias zsc="source ~/.zshrc"
-
-vec () {
-    # cd ~/.config/nvim & nvim init.lua & popd
-    nvim ~/.config/nvim/init.lua --cmd 'cd ~/.config/nvim'
-}
+#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# CONFIG EDIT \CE
+alias zec="nvim $HOME/.config/zshrc --cmd 'cd $HOME/.config/'"
+alias vec="nvim ~/.config/nvim/init.lua --cmd 'cd $HOME/.config/nvim'"
 
 lightmod () {
     rm -f ~/.config/kitty/theme.conf
@@ -159,22 +154,22 @@ manp() { man -t "${1}" | open -f -a Skim }
 
 #=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# GIT
 alias lg="lazygit"
-alias g="git"
-alias lcom="git commit . -m"
-alias gcom="git commit -m"
-alias lst="git status ."
-alias ga="git add ."
-alias gaa="git add --all"
-alias gb="git branch"
-alias gd="git diff"
-alias gs="git status"
-alias gl="git log"
-alias glp="git log -p"
-# alias gch="git checkout"
-alias gco="git commit"
-alias gc="git clone"
-alias u="git pull upstream main"
-alias p="git push"
+# alias g="git"
+# alias lcom="git commit . -m"
+# alias gcom="git commit -m"
+# alias lst="git status ."
+# alias ga="git add ."
+# alias gaa="git add --all"
+# alias gb="git branch"
+# alias gd="git diff"
+# alias gs="git status"
+# alias gl="git log"
+# alias glp="git log -p"
+# # alias gch="git checkout"
+# alias gco="git commit"
+# alias gc="git clone"
+# alias u="git pull upstream main"
+# alias p="git push"
 
 #=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# FZF
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -182,7 +177,7 @@ export FZF_DEFAULT_OPTS="--height 40% --layout=reverse --border"
 export FZF_COMPLETION_TRIGGER="**"
 
 #=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# AUTRE
-alias upall="brew update && brew upgrade && opam update -y && opam upgrade -y"
+# alias upall="brew update && brew upgrade && opam update -y && opam upgrade -y"
 alias luamake=/Users/paulpatault/dotfiles/config/lua-language-server/3rd/luamake/luamake
 alias ibrew='arch -x86_64 /usr/local/bin/brew'
 
@@ -192,3 +187,5 @@ alias cleanml="bash $HOME/.config/scripts/cleanml.sh"
 alias cleantex="bash $HOME/.config/scripts/cleantex.sh"
 export OCAMLRUNPARAM=b
 eval $(opam env)
+# -I$LD_LIBRARY_PATH -I$LDFLAGS
+# export LDFLAGS=/usr/local/include $LDFLAGS
