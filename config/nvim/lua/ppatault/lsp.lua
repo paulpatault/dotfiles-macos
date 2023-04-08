@@ -17,16 +17,19 @@ vim.cmd.autocmd("ColorScheme * highlight FloatBorder guifg=white guibg=#3c3836")
 
 vim.diagnostic.config({
   underline = true,
-  virtual_text = false -- { format = function(_) return "" end }
+  virtual_text = false
+  -- { format = function(_) return "" end }
 })
 
 local function gd(jump_type)
-    local ok, _ = pcall(function() require("telescope.builtin").lsp_definitions({ jump_type=jump_type }) end)
+    local ok, _ = pcall(function()
+      require("telescope.builtin").lsp_definitions({ jump_type=jump_type })
+    end)
     if not ok then
-      vim.cmd(jump_type) vim.lsp.buf.definition()
+      vim.cmd(jump_type)
+      vim.lsp.buf.definition()
     end
 end
-
 
 local on_attach = function(client, bufnr)
 
@@ -49,7 +52,7 @@ local on_attach = function(client, bufnr)
   map("n", "df",  function() vim.diagnostic.disable()      end, "[D]iagnostic of[F]")
 
   map("n", "<leader>dsh", function() vim.lsp.semantic_tokens.stop(bufnr, client["id"]) end, "[D]isable [S]emantic [H]ighlight")
-  map("n", "<leader>esh", function() vim.lsp.semantic_tokens.start(bufnr, client["id"]) end, "[D]isable [S]emantic [H]ighlight")
+  map("n", "<leader>esh", function() vim.lsp.semantic_tokens.start(bufnr, client["id"]) end, "[E]nable [S]emantic [H]ighlight")
 
   map("n", "gdv", function()
          local ok, _ = pcall(function() gd("vsplit") end)
@@ -62,6 +65,8 @@ local on_attach = function(client, bufnr)
          if not ok then print("Internal Error") end
      end,
      "[G]o [D]efinition")
+
+  client.server_capabilities.semanticTokensProvider = nil
 end
 
 
@@ -84,11 +89,12 @@ lsp.clangd.setup({
 })
 
 --------- RUST ---------
+
 lsp.rust_analyzer.setup({ on_attach = on_attach })
 
 --------- OCAML ---------
 
-local function switch_impl_int_splitcmd(splitcmd)
+--[[ local function switch_impl_int_splitcmd(splitcmd)
   local bufnr = vim.api.nvim_get_current_buf()
   bufnr = lsp.util.validate_bufnr(bufnr)
 
@@ -132,7 +138,7 @@ local function inferIntf()
   else
     print("ocamllsp/inferIntf is not supported by the ocamllsp server active on the current buffer")
   end
-end
+end ]]
 
 lsp.ocamllsp.setup({
   cmd = { "ocamllsp" };
@@ -145,7 +151,14 @@ lsp.ocamllsp.setup({
   end;
   on_attach = on_attach;
   commands = {
-    MOcamlSwitchVsplit = {
+    --[[ SemanticTokensToogle = {
+      vim.cmd("<leader>dsh")
+      local ok, _ = pcall (function() vim.lsp.semantic_tokens.start(bufnr, client["id"]) end)
+      if not ok then print("[Internal Error] semantic highlight")
+      else print("SH ok")
+      end
+    } ]]
+    --[[ MOcamlSwitchVsplit = {
       function() switch_impl_int_splitcmd("vsplit") end;
       description = "Open source/header in a new vsplit";
     },
@@ -155,7 +168,7 @@ lsp.ocamllsp.setup({
         return vim.lsp.buf_request_all(0, "ocamllsp/inferIntf", params, function(err, res) error(tostring(err)) end)
       end;
       description = "Open source/header in a new vsplit";
-    }
+    } ]]
   }
   -- handlers=handlers
 })
@@ -177,7 +190,8 @@ capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 lsp.html.setup({
   on_attach = on_attach;
-  capabilities = capabilities })
+  capabilities = capabilities
+})
 
 --------- LATEX ---------
 
@@ -199,19 +213,10 @@ lsp.lua_ls.setup {
   cmd = {sumneko_binary, "-E", sumneko_root_path .. "/main.lua"};
   settings = {
     Lua = {
-      runtime = {
-        version = "LuaJIT",
-        path = runtime_path,
-      },
-      diagnostics = {
-        globals = {"vim"},
-      },
-      workspace = {
-        library = vim.api.nvim_get_runtime_file("", true),
-      },
-      telemetry = {
-        enable = false,
-      },
+      runtime = { version = "LuaJIT", path = runtime_path, },
+      diagnostics = { globals = {"vim"}, },
+      workspace = { library = vim.api.nvim_get_runtime_file("", true), },
+      telemetry = { enable = false, },
     },
   },
 }
