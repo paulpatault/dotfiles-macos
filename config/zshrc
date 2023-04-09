@@ -1,4 +1,7 @@
 #=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# OH-MY-ZSH
+# plugins=(
+    # git git-prompt vi-mode)
+
 export ZSH="/Users/paulpatault/.oh-my-zsh"
 source $ZSH/oh-my-zsh.sh
 
@@ -22,8 +25,6 @@ if type brew &>/dev/null; then
 fi
 
 #=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# PLUGINS
-plugins=(git)
-
 autoload -Uz compinit
 compinit
 
