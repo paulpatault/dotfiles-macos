@@ -99,8 +99,8 @@ ex () {
     fi
 }
 
-# alias wr3="curl wttr.in\?format=3"
-# alias wr="curl wttr.in"
+alias meteo3="curl wttr.in\?format=3"
+alias meteo="curl wttr.in"
 
 #=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# SAFE
 alias cp="cp -i"
