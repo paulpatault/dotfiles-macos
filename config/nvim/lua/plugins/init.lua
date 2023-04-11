@@ -28,6 +28,7 @@ return {
     "ellisonleao/gruvbox.nvim",
     "kyazdani42/nvim-web-devicons",
     "lilydjwg/colorizer",
+    "folke/tokyonight.nvim",
 
     -- Other
     "krady21/compiler-explorer.nvim",

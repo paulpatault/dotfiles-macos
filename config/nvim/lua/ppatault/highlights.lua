@@ -8,6 +8,7 @@ end
 local function cocaml()
 
   if vim.o.background ~= "dark" then return end
+  -- if 1 == 1 then return end
 
   set_hl("ocamlKeyword", { link = "GruvboxRedBold" })
   -- set_hl("@function", { link = "GruvboxRedBold" })
