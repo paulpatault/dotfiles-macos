@@ -1,9 +1,11 @@
 #=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# OH-MY-ZSH
-# plugins=(
-    # git git-prompt vi-mode)
+# plugins=(git git-prompt vi-mode)
 
 export ZSH="/Users/paulpatault/.oh-my-zsh"
+export BREW_PREFIX=$(brew --prefix)
 source $ZSH/oh-my-zsh.sh
+export SPACESHIP_CONFIG="$HOME/dotfiles/config/spaceshiprc.zsh"
+source $BREW_PREFIX/opt/spaceship/spaceship.zsh
 
 #=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# CONFIG
 CASE_SENSITIVE="true"
@@ -19,7 +21,6 @@ export THEME="dark"
 
 if type brew &>/dev/null; then
   FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
-
   autoload -Uz compinit
   compinit
 fi
@@ -31,52 +32,47 @@ compinit
 # Completion for kitty
 kitty + complete setup zsh | source /dev/stdin
 
-source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source $BREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $BREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 
 #=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# PATH
-fpath+=$HOME/.zsh/pure
+# fpath+=$HOME/.zsh/pure
 
 path+=$HOME/.local/bin
-path+=/opt/homebrew/opt/llvm/bin
-path+=/opt/homebrew/opt/make/libexec/gnubin
-path+=/opt/homebrew/opt/libxml2/bin
-path+=$HOME/mpri/m1/ens/SystReact/Lustre/lustre-v4-III-e-macosx/bin
+path+=$BREW_PREFIX/opt/llvm/bin
+path+=$BREW_PREFIX/opt/make/libexec/gnubin
+path+=$BREW_PREFIX/opt/libxml2/bin
+# path+=$HOME/mpri/m1/ens/SystReact/Lustre/lustre-v4-III-e-macosx/bin
 
-export LDFLAGS="-L/opt/homebrew/lib $LDFLAGS"
-export LDFLAGS="-L/opt/homebrew/opt/libxml2/lib $LDFLAGS"
+export LDFLAGS="-L$BREW_PREFIX/lib $LDFLAGS"
+export LDFLAGS="-L$BREW_PREFIX/opt/libxml2/lib $LDFLAGS"
 
-export CFLAGS="-I/opt/homebrew/include $CFLAGS"
+export CFLAGS="-I$BREW_PREFIX/include $CFLAGS"
 
-export CPPFLAGS="-I/opt/homebrew/include $CPPFLAGS"
-export CPPFLAGS="-I/opt/homebrew/opt/libxml2/include $CPPFLAGS"
+export CPPFLAGS="-I$BREW_PREFIX/include $CPPFLAGS"
+export CPPFLAGS="-I$BREW_PREFIX/opt/libxml2/include $CPPFLAGS"
 
-export PKG_CONFIG_PATH="/opt/homebrew/opt/openssl@3/lib/pkgconfig:$PKG_CONFIG_PATH"
-export PKG_CONFIG_PATH="/opt/homebrew/opt/libxml2/lib/pkgconfig:$PKG_CONFIG_PATH"
+export PKG_CONFIG_PATH="$BREW_PREFIX/opt/openssl@3/lib/pkgconfig:$PKG_CONFIG_PATH"
+export PKG_CONFIG_PATH="$BREW_PREFIX/opt/libxml2/lib/pkgconfig:$PKG_CONFIG_PATH"
 
-export LDFLAGS="-L/opt/homebrew/opt/openblas/lib $LDFLAGS"
-export CPPFLAGS="-I/opt/homebrew/opt/openblas/include $CPPFLAGS"
+export LDFLAGS="-L$BREW_PREFIX/opt/openblas/lib $LDFLAGS"
+export CPPFLAGS="-I$BREW_PREFIX/opt/openblas/include $CPPFLAGS"
 
-export PKG_CONFIG_PATH="/opt/homebrew/opt/openblas/lib/pkgconfig:$PKG_CONFIG_PATH"
+export PKG_CONFIG_PATH="$BREW_PREFIX/opt/openblas/lib/pkgconfig:$PKG_CONFIG_PATH"
 
-export PATH="/opt/homebrew/opt/openjdk@11/bin:$PATH"
-export CPPFLAGS="-I/opt/homebrew/opt/openjdk@11/include $CPPFLAGS"
-export PATH="/opt/homebrew/opt/openjdk@17/bin:$PATH"
-export CPPFLAGS="-I/opt/homebrew/opt/openjdk@17/include $CPPFLAGS"
+export PATH="$BREW_PREFIX/opt/openjdk@11/bin:$PATH"
+export CPPFLAGS="-I$BREW_PREFIX/opt/openjdk@11/include $CPPFLAGS"
+export PATH="$BREW_PREFIX/opt/openjdk@17/bin:$PATH"
+export CPPFLAGS="-I$BREW_PREFIX/opt/openjdk@17/include $CPPFLAGS"
 
 #=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# THEME
 
 ZSH_THEME=""
 
-autoload -U promptinit; promptinit
-
-PURE_PROMPT_SYMBOL="λ"
-# zstyle :prompt:pure:path color white
-# zstyle :prompt:pure:prompt:success color cyan
-# zstyle :prompt:pure:prompt:error color "#D73232"
-
-prompt pure
+# autoload -U promptinit; promptinit
+# PURE_PROMPT_SYMBOL="λ"
+# prompt pure
 
 getopam () {
     SW=$(opam switch show)
@@ -86,10 +82,8 @@ getopam () {
     fi
 }
 
-PROMPT='%(?.%F{white}$(getopam)%F{magenta}$.%F{red}▼)%f '
-
-# PROMPT='%(?.%F{white}$(opam switch show) %F{magenta}❯.%F{red}▲)%f '
-
+# PROMPT='%B(%~)%b %(?.%F{white}$(getopam)%B%F{magenta}➜.%B%F{red}✗)%f%b '
+# PROMPT='%(?.%F{white}$(getopam)%B%F{magenta}➜.%B%F{red}✗)%f%b '
 
 #=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# ALIAS
 ex () {
