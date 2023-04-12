@@ -3,6 +3,7 @@ SPACESHIP_PROMPT_ORDER=(
     dir
     git
     sudo
+    exec_time
     char
 )
 
