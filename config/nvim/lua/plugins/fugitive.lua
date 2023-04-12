@@ -3,6 +3,8 @@ return {
 
   config = function()
     vim.keymap.set("n", "<leader>gs", vim.cmd.Git, { desc = "[G]it + [S]tatus" })
+    vim.keymap.set("n", "<leader>tg", function() vim.cmd("tab Git") end, { desc = "[G]it + [S]tatus" })
+    vim.keymap.set("n", "<leader>gl", function() vim.cmd("tab Git log") end, { desc = "[G]it + [L]og" })
     vim.keymap.set("n", "<leader>gb", function() vim.cmd.Git("blame") end, { desc = "[G]it + [B]lame" })
 
     local fugitive_grp = vim.api.nvim_create_augroup("fugitive_grp", {clear = true})
