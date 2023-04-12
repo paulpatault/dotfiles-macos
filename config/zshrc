@@ -16,6 +16,7 @@ export KITTY_CONFIG_EDITOR=nvim
 export XDG_CONFIG_HOME=$HOME/.config
 export VIMRC=$HOME/.config/nvim/init.lua
 export THEME="dark"
+export COLORSCHEME="gruvbox"
 
 if type brew &>/dev/null; then
   FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
@@ -124,19 +125,27 @@ alias ls="exa -s type"
 alias zec="nvim $HOME/.config/zshrc --cmd 'cd $HOME/.config/'"
 alias vec="nvim ~/.config/nvim/init.lua --cmd 'cd $HOME/.config/nvim'"
 
-lightmod () {
+gruvbox_light () {
     rm -f ~/.config/kitty/theme.conf
     ln -s \
         ~/.config/kitty/themes/gruvbox-light-hard.conf \
         ~/.config/kitty/theme.conf
     export THEME="light"
+    export COLORSCHEME="gruvbox"
 }
-# ~/.config/kitty/themes/github-light.conf \
 
-darkmod () { # ctrl-cmd-,
+gruvbox () {
     rm -f ~/.config/kitty/theme.conf
     ln -s ~/.config/kitty/themes/gruvbox.conf ~/.config/kitty/theme.conf
     export THEME="dark"
+    export COLORSCHEME="gruvbox"
+}
+
+moonbow () {
+    rm -f ~/.config/kitty/theme.conf
+    ln -s ~/.config/kitty/themes/moonbow.conf ~/.config/kitty/theme.conf
+    export THEME="dark"
+    export COLORSCHEME="moonbow"
 }
 
 manp() { man -t "${1}" | open -f -a Skim }
@@ -149,13 +158,12 @@ lg() {
         echo -n "Not in a git repository. Create a new git repository? (y/n): "
         read REPLY
         case $REPLY in
-        [Yy]) git init;; # you can change what you do here for instance
+        [Yy]) git init;;
         [Nn]) echo "ok";;
         *) lg
         esac
     fi
 }
-
 
 # alias g="git"
 # alias lcom="git commit . -m"

@@ -29,6 +29,7 @@ return {
     "kyazdani42/nvim-web-devicons",
     "lilydjwg/colorizer",
     "folke/tokyonight.nvim",
+    "arturgoms/moonbow.nvim",
 
     -- Other
     "krady21/compiler-explorer.nvim",

@@ -4,7 +4,14 @@ vim.g.materialbox_contrast_light = "hard"
 vim.g.materialbox_invert_selection = false
 vim.g.gruvbox_invert_selection = false
 
-vim.cmd.colorscheme("gruvbox")
+
+local cs = os.getenv("COLORSCHEME")
+
+if cs ~= nil then
+  vim.cmd.colorscheme(cs)
+else
+  vim.cmd.colorscheme("gruvbox")
+end
 
 if os.getenv("THEME") == "dark" then
   vim.opt.background = "dark"
