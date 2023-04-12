@@ -34,6 +34,7 @@ mas
 imlib2
 imagemagick
 pandoc
+rlwrap
 )
 
 brew install neovim --HEAD
