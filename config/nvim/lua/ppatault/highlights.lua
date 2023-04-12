@@ -1,53 +1,52 @@
 
-local undergrp = vim.api.nvim_create_augroup("UndercurlDiags", {clear = true})
-
-local function set_hl(name, opts)
-  vim.api.nvim_set_hl(0, name, opts)
-end
+local function set_hl(name, opts) vim.api.nvim_set_hl(0, name, opts) end
 
 local function cocaml()
 
-  if vim.o.background ~= "dark" then return end
-  -- if 1 == 1 then return end
+  if (vim.o.background ~= "dark")
+     -- (vim.cmd.colorscheme ~= "gruvbox")
+  then return end
 
   set_hl("ocamlKeyword", { link = "GruvboxRedBold" })
-  -- set_hl("@function", { link = "GruvboxRedBold" })
-  -- set_hl("@function", { fg = "#d5c4a1" })
 
-  -- set_hl("ocamlOperator", { bold = true })
-  -- set_hl("ocamlArrow", { link = "GruvboxRedBold" })
   local strs = {
-    "ocamlModule";
-    "ocamlModPath";
-    "ocamlObject";
-    "ocamlModule";
-    "ocamlModParam1";
-    "ocamlGenMod";
-    "ocamlModType";
-    "ocamlMPRestr3";
     "ocamlFullMod";
     "ocamlFuncWith";
-    "ocamlModParam";
-    "ocamlModTypeRestr";
-    "ocamlWith";
+    "ocamlGenMod";
+    "ocamlMPRestr3";
     "ocamlMTDef";
-    "ocamlScript";
     "ocamlMethod";
+    "ocamlModParam";
+    "ocamlModParam1";
+    "ocamlModPath";
+    "ocamlModType";
+    "ocamlModTypeRestr";
+    "ocamlModule";
+    "ocamlObject";
+    "ocamlScript";
+    "ocamlWith";
   }
+
   for _, str in ipairs(strs) do
     set_hl(str, { fg = "#d5c4a1", bold = true, italic = true })
   end
 end
 
 local function ccoq()
-  if vim.o.background ~= "dark" then return end
-  set_hl("Keyword",    { link = "GruvboxRedBold" })
-  set_hl("PreProc",    { link = "GruvboxAquaBold" })
-  set_hl("Type",       { link = "GruvboxYellowBold" })
-  set_hl("Underlined", { link = "GruvboxBlueBold" })
-  set_hl("CoqtailSent",    { bg = vim.api.nvim_get_var("coq_sent_color")})
-  set_hl("CoqtailChecked", { bg = vim.api.nvim_get_var("coq_check_color")})
+  if os.getenv("THEME") == "dark" then
+    set_hl("Keyword",    { link = "GruvboxRedBold" })
+    set_hl("PreProc",    { link = "GruvboxAquaBold" })
+    set_hl("Type",       { link = "GruvboxYellowBold" })
+    set_hl("Underlined", { link = "GruvboxBlueBold" })
+    set_hl("CoqtailSent",    { bg = "#574300" })
+    set_hl("CoqtailChecked", { bg = "#30423c" })
+  else
+    set_hl("CoqtailSent",    { bg = "#fff6c0" })
+    set_hl("CoqtailChecked", { bg = "#bcffbe" })
+  end
 end
+
+local undergrp = vim.api.nvim_create_augroup("UndercurlDiags", {clear = true})
 
 vim.api.nvim_create_autocmd(
   "ColorScheme",
@@ -75,16 +74,14 @@ vim.api.nvim_create_autocmd(
   }
 )
 
-vim.api.nvim_create_autocmd(
-  "Filetype",
+vim.api.nvim_create_autocmd("Filetype",
   {
     group = undergrp,
     pattern = { "coq" },
     callback = ccoq
   })
 
-vim.api.nvim_create_autocmd(
-  { "Filetype" },
+vim.api.nvim_create_autocmd( { "Filetype" },
   {
     group = undergrp,
     pattern = { "scala" },
@@ -93,15 +90,12 @@ vim.api.nvim_create_autocmd(
       set_hl("scalaKeywordModifier", { link = "GruvboxRedBold" })
       set_hl("Keyword", { link = "GruvboxRedBold" })
     end
-  }
-)
+  })
 
-vim.api.nvim_create_autocmd(
-  { "Filetype" },
+vim.api.nvim_create_autocmd( { "Filetype" },
   {
     group = undergrp,
     pattern = { "ocaml", "ocaml.interface", "ocaml.ocamllex" },
     callback = cocaml
-  }
-)
+  })
 
