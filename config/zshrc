@@ -112,14 +112,13 @@ alias emacs=nvim
 alias vi=nvim
 alias vim=nvim
 alias diff=colordiff
-# alias t="tree"
 alias tree="exa -T"
 
 alias edt="open $HOME/mpri/m2/edt/EDT_M2.png"
 alias conf="cd ~/.config"
 
-alias l="exa -lah"
-alias ls="exa -G"
+alias l="exa -las type"
+alias ls="exa -s type"
 
 #=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# CONFIG EDIT \CE
 alias zec="nvim $HOME/.config/zshrc --cmd 'cd $HOME/.config/'"
