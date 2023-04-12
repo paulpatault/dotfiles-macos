@@ -1,6 +1,4 @@
-#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# OH-MY-ZSH
-# plugins=(git git-prompt vi-mode)
-
+#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# OH
 export ZSH="/Users/paulpatault/.oh-my-zsh"
 export BREW_PREFIX=$(brew --prefix)
 source $ZSH/oh-my-zsh.sh
@@ -73,17 +71,16 @@ ZSH_THEME=""
 # autoload -U promptinit; promptinit
 # PURE_PROMPT_SYMBOL="λ"
 # prompt pure
-
-getopam () {
-    SW=$(opam switch show)
-    if [ $SW = "default" ]
-    then echo ""
-    else echo "$SW "
-    fi
-}
-
-# PROMPT='%B(%~)%b %(?.%F{white}$(getopam)%B%F{magenta}➜.%B%F{red}✗)%f%b '
+# getopam () {
+#     SW=$(opam switch show)
+#     if [ $SW = "default" ]
+#     then echo ""
+#     else echo "$SW "
+#     fi
+# }
+#
 # PROMPT='%(?.%F{white}$(getopam)%B%F{magenta}➜.%B%F{red}✗)%f%b '
+
 
 #=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# ALIAS
 ex () {
@@ -121,9 +118,7 @@ alias tree="exa -T"
 alias edt="open $HOME/mpri/m2/edt/EDT_M2.png"
 alias conf="cd ~/.config"
 
-alias m="cd $HOME/mpri/m2"
-
-alias l="exa -la"
+alias l="exa -lah"
 alias ls="exa -G"
 
 #=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# CONFIG EDIT \CE
@@ -172,7 +167,6 @@ export FZF_DEFAULT_OPTS="--height 40% --layout=reverse --border"
 export FZF_COMPLETION_TRIGGER="**"
 
 #=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# AUTRE
-# alias upall="brew update && brew upgrade && opam update -y && opam upgrade -y"
 alias luamake=/Users/paulpatault/dotfiles/config/lua-language-server/3rd/luamake/luamake
 alias ibrew='arch -x86_64 /usr/local/bin/brew'
 
