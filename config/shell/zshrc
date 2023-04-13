@@ -91,9 +91,6 @@ ex () {
     fi
 }
 
-alias meteo3="curl wttr.in\?format=3"
-alias meteo="curl wttr.in"
-
 #=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# SAFE
 alias cp="cp -i"
 alias mv="mv -i"
@@ -102,6 +99,14 @@ alias rm="rm -i"
 #=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# KITTY
 alias ssh="kitty +kitten ssh"
 alias icat="kitty +kitten icat"
+
+#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# APPS
+alias meteo3="curl wttr.in\?format=3"
+alias meteo="curl wttr.in"
+alias firefox="open /Applications/Firefox.app/"
+alias mail="open /Applications/Thunderbird.app"
+alias slack="open /Applications/Slack.app"
+alias zulip="open /Applications/Zulip.app"
 
 #=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# SHORT
 alias turbocaml=nvim
@@ -116,14 +121,14 @@ alias diff=colordiff
 alias tree="exa -T"
 
 alias edt="open $HOME/mpri/m2/edt/EDT_M2.png"
-alias conf="cd ~/.config"
+alias conf="cd $HOME/.config"
 
 alias l="exa -las type"
 alias ls="exa -s type"
 
 #=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# CONFIG EDIT \CE
 alias zec="nvim $HOME/.config/shell/zshrc --cmd 'cd $HOME/.config/shell'"
-alias vec="nvim ~/.config/nvim/init.lua --cmd 'cd $HOME/.config/nvim'"
+alias vec="nvim $HOME/.config/nvim/init.lua --cmd 'cd $HOME/.config/nvim'"
 
 manp() { man -t "${1}" | open -f -a Skim }
 
@@ -168,7 +173,7 @@ lg () {
 # alias p="git push"
 
 #=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# FZF
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -f $HOME/.fzf.zsh ] && source $HOME/.fzf.zsh
 export FZF_DEFAULT_OPTS="--height 40% --layout=reverse --border"
 export FZF_COMPLETION_TRIGGER="**"
 
