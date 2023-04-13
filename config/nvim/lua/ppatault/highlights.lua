@@ -33,7 +33,7 @@ local function cocaml()
 end
 
 local function ccoq()
-  if os.getenv("THEME") == "dark" then
+  if os.getenv("THEME_BG") == "dark" then
     set_hl("Keyword",    { link = "GruvboxRedBold" })
     set_hl("PreProc",    { link = "GruvboxAquaBold" })
     set_hl("Type",       { link = "GruvboxYellowBold" })

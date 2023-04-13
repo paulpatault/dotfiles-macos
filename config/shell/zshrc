@@ -5,6 +5,8 @@ source $ZSH/oh-my-zsh.sh
 export SPACESHIP_CONFIG="$HOME/dotfiles/config/spaceshiprc.zsh"
 source $BREW_PREFIX/opt/spaceship/spaceship.zsh
 
+source $HOME/.config/shell/theme.zsh
+
 #=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# CONFIG
 CASE_SENSITIVE="true"
 
@@ -15,18 +17,17 @@ export OPAMEDITOR=nvim
 export KITTY_CONFIG_EDITOR=nvim
 export XDG_CONFIG_HOME=$HOME/.config
 export VIMRC=$HOME/.config/nvim/init.lua
-export THEME="dark"
+export THEME_BG="dark"
 export COLORSCHEME="gruvbox"
+source $HOME/.config/shell/theme_choice.zsh
+
+#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# PLUGINS
 
 if type brew &>/dev/null; then
   FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
   autoload -Uz compinit
   compinit
 fi
-
-#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# PLUGINS
-autoload -Uz compinit
-compinit
 
 # Completion for kitty
 kitty + complete setup zsh | source /dev/stdin
@@ -36,7 +37,6 @@ source $BREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 
 #=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# PATH
-# fpath+=$HOME/.zsh/pure
 
 path+=$HOME/.local/bin
 path+=$BREW_PREFIX/opt/llvm/bin
@@ -69,6 +69,7 @@ export CPPFLAGS="-I$BREW_PREFIX/opt/openjdk@17/include $CPPFLAGS"
 
 ZSH_THEME=""
 
+# fpath+=$HOME/.zsh/pure
 # autoload -U promptinit; promptinit
 # PURE_PROMPT_SYMBOL="λ"
 # prompt pure
@@ -81,7 +82,6 @@ ZSH_THEME=""
 # }
 #
 # PROMPT='%(?.%F{white}$(getopam)%B%F{magenta}➜.%B%F{red}✗)%f%b '
-
 
 #=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# ALIAS
 ex () {
@@ -122,36 +122,13 @@ alias l="exa -las type"
 alias ls="exa -s type"
 
 #=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# CONFIG EDIT \CE
-alias zec="nvim $HOME/.config/zshrc --cmd 'cd $HOME/.config/'"
+alias zec="nvim $HOME/.config/shell/zshrc --cmd 'cd $HOME/.config/shell'"
 alias vec="nvim ~/.config/nvim/init.lua --cmd 'cd $HOME/.config/nvim'"
-
-gruvbox_light () {
-    rm -f ~/.config/kitty/theme.conf
-    ln -s \
-        ~/.config/kitty/themes/gruvbox-light-hard.conf \
-        ~/.config/kitty/theme.conf
-    export THEME="light"
-    export COLORSCHEME="gruvbox"
-}
-
-gruvbox () {
-    rm -f ~/.config/kitty/theme.conf
-    ln -s ~/.config/kitty/themes/gruvbox.conf ~/.config/kitty/theme.conf
-    export THEME="dark"
-    export COLORSCHEME="gruvbox"
-}
-
-moonbow () {
-    rm -f ~/.config/kitty/theme.conf
-    ln -s ~/.config/kitty/themes/moonbow.conf ~/.config/kitty/theme.conf
-    export THEME="dark"
-    export COLORSCHEME="moonbow"
-}
 
 manp() { man -t "${1}" | open -f -a Skim }
 
 #=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# GIT
-lg() {
+lg () {
     if [ "$(git rev-parse --is-inside-work-tree 2>/dev/null)" ]; then
         nvim +"tab Git"
     else
@@ -164,6 +141,14 @@ lg() {
         esac
     fi
 }
+
+# f1 () {
+#     if defaults read -g AppleInterfaceStyle &>/dev/null; then
+#         echo "coucou"
+#     else
+#         echo "coucou2"
+#     fi
+# }
 
 # alias g="git"
 # alias lcom="git commit . -m"
