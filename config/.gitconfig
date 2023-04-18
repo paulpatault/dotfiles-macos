@@ -1,6 +1,7 @@
 [user]
     name = Paul Patault
     email = 43556190+paulpatault@users.noreply.github.com
+    login = paulpatault
 
 [core]
     filemode = false
@@ -23,13 +24,12 @@
 [alias]
     undo = reset --soft HEAD~1
     tree = log --graph --pretty=format:'%C(yellow)%h%C(cyan)%d%Creset %s %C(white)- %an, %ar%Creset'
+    br = branch
+    s = status -sb
+    ls = status . -s
 
 [help]
     autocorrect = 1
 
 [init]
     defaultBranch = main
-
-[alias]
-    br = branch
-    s = status -sb

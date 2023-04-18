@@ -71,3 +71,11 @@ alias gruvbox_light=theme_gruvbox_light
 alias moonbow=theme_moonbow
 alias tokyo=theme_tokyo
 alias tokyo_day=theme_tokyo_day
+
+# f1 () {
+#     if defaults read -g AppleInterfaceStyle &>/dev/null; then
+#         echo "coucou"
+#     else
+#         echo "coucou2"
+#     fi
+# }

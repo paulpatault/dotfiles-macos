@@ -141,7 +141,7 @@ local function inferIntf()
 end ]]
 
 lsp.ocamllsp.setup({
-  cmd = { "ocamllsp" };
+  cmd = { "ocamllsp", "--fallback-read-dot-merlin" };
   filetypes = {"ocaml", "ocaml.interface", "ocaml.ocamllex", "ocaml.menhir", "menhir"};
   root_dir = function(fname)
     return
