@@ -18,6 +18,7 @@ return {
     vim.keymap.set("n", "<leader>p",  builtin.builtin, { desc = "p (telescope base)" })
     vim.keymap.set("n", "<leader>pds", builtin.lsp_document_symbols, { desc = "p + [D]ocument + [S]ymbols" })
     vim.keymap.set("n", "<leader>pws", builtin.lsp_workspace_symbols, { desc = "p + [W]orkspace + [S]ymbols" })
+    vim.keymap.set("n", "<leader>pm", builtin.marks, { desc = "p + [M]arks" })
 
     vim.keymap.set("n", "<leader>pc", function() builtin.colorscheme({enable_preview=true}) end, { desc = "p + [C]olorscheme"})
 

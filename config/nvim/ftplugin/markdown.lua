@@ -1,4 +1,4 @@
-vim.keymap.set("v", "q", "<Plug>(sandwich-add)`", { desc = "quote visual selection" })
+vim.keymap.set("v", "<C-q>", "<Plug>(sandwich-add)`", { desc = "quote visual selection" })
 vim.keymap.set("n", "qiw", "viw<Plug>(sandwich-add)`", { desc = "quote inner word" })
 
 --[[ vim.keymap.set("v", "<localleader>b", "<Plug>(sandwich-add)*<Plug>(sandwich-add)*<cr>")
