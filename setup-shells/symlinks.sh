@@ -1,6 +1,7 @@
 #!/bin/zsh
 
-ln -s $HOME/dotfiles/config/.gitconfig $HOME/.gitconfig
-ln -s $HOME/dotfiles/config/zshrc $HOME/.zshrc
-ln -s $HOME/dotfiles/config/ $HOME/.config
-ln -s $HOME/dotfiles/config/utop/utoprc $HOME/.utoprc
+ln -s $HOME/d/github/dotfiles/config/ $HOME/.config
+
+ln -s $HOME/.config/.gitconfig $HOME/.gitconfig
+ln -s $HOME/.config/zshrc $HOME/.zshrc
+ln -s $HOME/.config/utop/utoprc $HOME/.utoprc
