@@ -5,7 +5,7 @@ theme_gruvbox_light () {
     export THEME_BG="light"
     export COLORSCHEME="gruvbox"
 
-    echo "macos_thicken_font 0.4" > $HOME/.config/kitty/kitty_aux.conf
+    echo "macos_thicken_font 0.3" > $HOME/.config/kitty/kitty_aux.conf
     echo "export COLORSCHEME=gruvbox" > $HOME/.config/shell/theme_choice.zsh
     echo "export THEME_BG=light" >> $HOME/.config/shell/theme_choice.zsh
 }
@@ -16,7 +16,7 @@ theme_gruvbox () {
     export THEME_BG="dark"
     export COLORSCHEME="gruvbox"
 
-    echo "macos_thicken_font 0.1" > $HOME/.config/kitty/kitty_aux.conf
+    echo "" > $HOME/.config/kitty/kitty_aux.conf
     echo "export COLORSCHEME=gruvbox" > $HOME/.config/shell/theme_choice.zsh
     echo "export THEME_BG=dark" >> $HOME/.config/shell/theme_choice.zsh
 }
@@ -27,7 +27,7 @@ theme_moonbow () {
     export THEME_BG="dark"
     export COLORSCHEME="moonbow"
 
-    echo "macos_thicken_font 0.1" > $HOME/.config/kitty/kitty_aux.conf
+    echo "" > $HOME/.config/kitty/kitty_aux.conf
     echo "export COLORSCHEME=moonbow" > $HOME/.config/shell/theme_choice.zsh
     echo "export THEME_BG=dark" >> $HOME/.config/shell/theme_choice.zsh
 }
@@ -38,7 +38,7 @@ theme_tokyo_day () {
     export THEME_BG="light"
     export COLORSCHEME="tokyonight-day"
 
-    echo "macos_thicken_font 0.4" > $HOME/.config/kitty/kitty_aux.conf
+    echo "macos_thicken_font 0.3" > $HOME/.config/kitty/kitty_aux.conf
     echo "export COLORSCHEME=tokyonight-day" > $HOME/.config/shell/theme_choice.zsh
     echo "export THEME_BG=light" >> $HOME/.config/shell/theme_choice.zsh
 }
@@ -49,7 +49,7 @@ theme_tokyo () {
     export THEME_BG="dark"
     export COLORSCHEME="tokyonight"
 
-    echo "macos_thicken_font 0.1" > $HOME/.config/kitty/kitty_aux.conf
+    echo "" > $HOME/.config/kitty/kitty_aux.conf
     echo "export COLORSCHEME=tokyonight" > $HOME/.config/shell/theme_choice.zsh
     echo "export THEME_BG=dark" >> $HOME/.config/shell/theme_choice.zsh
 }
@@ -60,7 +60,7 @@ theme_github () {
     export THEME_BG="light"
     export COLORSCHEME="github"
 
-    echo "macos_thicken_font 0.4" > $HOME/.config/kitty/kitty_aux.conf
+    echo "macos_thicken_font 0.3" > $HOME/.config/kitty/kitty_aux.conf
     echo "export COLORSCHEME=github" > $HOME/.config/shell/theme_choice.zsh
     echo "export THEME_BG=light" >> $HOME/.config/shell/theme_choice.zsh
 }
