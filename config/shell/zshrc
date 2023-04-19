@@ -2,7 +2,7 @@
 export ZSH="/Users/paulpatault/.oh-my-zsh"
 export BREW_PREFIX=$(brew --prefix)
 source $ZSH/oh-my-zsh.sh
-export SPACESHIP_CONFIG="$HOME/dotfiles/config/spaceshiprc.zsh"
+export SPACESHIP_CONFIG="$HOME/.config/spaceshiprc.zsh"
 source $BREW_PREFIX/opt/spaceship/spaceship.zsh
 
 source $HOME/.config/shell/theme.zsh
@@ -156,7 +156,7 @@ export FZF_DEFAULT_OPTS="--height 40% --layout=reverse --border"
 export FZF_COMPLETION_TRIGGER="**"
 
 #=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# AUTRE
-alias luamake=/Users/paulpatault/dotfiles/config/lua-language-server/3rd/luamake/luamake
+alias luamake=$HOME/.config/lua-language-server/3rd/luamake/luamake
 alias ibrew='arch -x86_64 /usr/local/bin/brew'
 
 #=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# OCAML
