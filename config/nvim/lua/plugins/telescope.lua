@@ -26,7 +26,6 @@ return {
 
     require('plenary.filetype').add_file({
       ['md']  = 'markdown',
-      ['mlw'] = 'why3',
       ['v']   = 'coq',
       ['lus'] = 'lustre',
       ['ept'] = 'lustre'})
@@ -81,4 +80,3 @@ return {
         pcall(telescope.load_extension, "fzy_native")
       end
     }
-

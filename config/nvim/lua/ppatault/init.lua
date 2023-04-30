@@ -9,7 +9,6 @@ require("ppatault.theme")
 
 local fts = {
   zsh = "sh",
-  mlw = "why3",
   mp  = "patmat",
   lus = "lustre",
   ept = "lustre",
