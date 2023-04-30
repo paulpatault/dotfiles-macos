@@ -13,10 +13,12 @@ return {
         group = fugitive_grp,
         pattern = "*",
         callback = function()
-            if vim.bo.ft ~= "fugitive" then
-                return
+
+            if vim.bo.ft == "fugitiveblame" or vim.bo.ft == "fugitive" then
+              vim.keymap.set("n", "q", function() vim.cmd.quit() end, opts)
             end
 
+            if vim.bo.ft ~= "fugitive" then return end
             local bufnr = vim.api.nvim_get_current_buf()
             local opts = { buffer = bufnr, remap = false }
 
@@ -34,8 +36,6 @@ return {
             vim.keymap.set("n", "<leader>P", function()
                 vim.cmd.Git({"pull",  "--rebase=true"})
             end, opts)
-
-            vim.keymap.set("n", "q", function() vim.cmd.quit() end, opts)
 
         end,
     })

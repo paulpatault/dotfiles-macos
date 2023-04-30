@@ -1,5 +1,7 @@
 local lsp = require("lspconfig")
 
+-------------------------------------------------------------- DIAGNOSTIC STYLE
+
 vim.cmd [[
   highlight! DiagnosticLineNrError guibg=#51202A guifg=#FF0000 gui=bold
   highlight! DiagnosticLineNrWarn  guibg=#51412A guifg=#FFA500 gui=bold
@@ -20,6 +22,8 @@ vim.diagnostic.config({
   virtual_text = false
   -- { format = function(_) return "" end }
 })
+
+---------------------------------------------------------------------- MAPPINGS
 
 local function gd(jump_type)
     local ok, _ = pcall(function()
@@ -48,8 +52,13 @@ local on_attach = function(client, bufnr)
   map("n", "dl",  function() vim.diagnostic.open_float()   end, "[D]iagnostic [L]ine")
   map("n", "dn",  function() vim.diagnostic.goto_next()    end, "[D]iagnostic [N]ext")
   map("n", "dN",  function() vim.diagnostic.goto_prev()    end, "[D]iagnostic [N]prev")
-  map("n", "do",  function() vim.diagnostic.enable()       end, "[D]iagnostic [O]n")
-  map("n", "df",  function() vim.diagnostic.disable()      end, "[D]iagnostic of[F]")
+  map("n", "dt",  function()
+    if vim.diagnostic.is_disabled() then
+      vim.diagnostic.enable()
+    else
+      vim.diagnostic.disable()
+    end
+  end, "[D]iagnostic [T]oogle")
 
   map("n", "<leader>dsh", function() vim.lsp.semantic_tokens.stop(bufnr, client["id"]) end, "[D]isable [S]emantic [H]ighlight")
   map("n", "<leader>esh", function() vim.lsp.semantic_tokens.start(bufnr, client["id"]) end, "[E]nable [S]emantic [H]ighlight")
@@ -66,15 +75,15 @@ local on_attach = function(client, bufnr)
      end,
      "[G]o [D]efinition")
 
+  -- disable semantic highlight
   client.server_capabilities.semanticTokensProvider = nil
 end
 
-
---------- Scala  ---------
+------------------------------------------------------------------------- Scala
 
 lsp.metals.setup({ on_attach = on_attach })
 
---------- C/C++  ---------
+------------------------------------------------------------------------- C/C++
 
 lsp.clangd.setup({
   default_config = {
@@ -88,11 +97,11 @@ lsp.clangd.setup({
   on_attach = on_attach
 })
 
---------- RUST ---------
+-------------------------------------------------------------------------- RUST
 
 lsp.rust_analyzer.setup({ on_attach = on_attach })
 
---------- OCAML ---------
+------------------------------------------------------------------------- OCAML
 
 --[[ local function switch_impl_int_splitcmd(splitcmd)
   local bufnr = vim.api.nvim_get_current_buf()
@@ -173,7 +182,7 @@ lsp.ocamllsp.setup({
   -- handlers=handlers
 })
 
---------- COQ ---------
+--------------------------------------------------------------------------- COQ
 
 --[[ vim.lsp.start({
   name = "coq_language_server";
@@ -183,7 +192,7 @@ lsp.ocamllsp.setup({
   root_dir = require("lspconfig").util.find_git_ancestor;
 }) ]]
 
---------- HTML ---------
+-------------------------------------------------------------------------- HTML
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
@@ -193,15 +202,15 @@ lsp.html.setup({
   capabilities = capabilities
 })
 
---------- LATEX ---------
+------------------------------------------------------------------------- LATEX
 
 lsp.texlab.setup({ on_attach = on_attach })
 
---------- LUA ---------
+--------------------------------------------------------------------------- LUA
 
-local home = os.getenv("HOME")
+local dev = os.getenv("DEV")
 
-local sumneko_root_path = home .. "/dotfiles/config/lua-language-server"
+local sumneko_root_path = dev .. "/dotfiles/config/lua-language-server"
 local sumneko_binary = sumneko_root_path.."/bin/lua-language-server"
 
 local runtime_path = vim.split(package.path, ";")
@@ -221,13 +230,13 @@ lsp.lua_ls.setup {
   },
 }
 
---------- PYTHON ---------
+------------------------------------------------------------------------ PYTHON
 lsp.pylsp.setup({ on_attach = on_attach })
 
---------- HASKELL ---------
+----------------------------------------------------------------------- HASKELL
 lsp.hls.setup({ on_attach = on_attach })
 
---------- JS -------------
+---------------------------------------------------------------------------- JS
 local on_attach_js = function(_, bufnr)
   on_attach(_, bufnr)
   vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
@@ -237,3 +246,14 @@ lsp.tsserver.setup({
     on_attach = on_attach_js;
     flags = {debounce_text_changes = 150}
 })
+
+-------------------------------------------------------------------------- WHY3
+
+local opts = {
+    cmd = { "/Users/paulpatault/d/git/whycode/extension/whycode" }, --path to executable
+    lspconfig = require("lspconfig.configs"),
+    lsp = require("lspconfig"),
+    on_attach = on_attach
+}
+
+require("whycode").setup(opts)

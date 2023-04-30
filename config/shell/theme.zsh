@@ -5,7 +5,7 @@ theme_gruvbox_light () {
     export THEME_BG="light"
     export COLORSCHEME="gruvbox"
 
-    echo "macos_thicken_font 0.3" > $HOME/.config/kitty/kitty_aux.conf
+    echo "macos_thicken_font 0.4" > $HOME/.config/kitty/kitty_aux.conf
     echo "export COLORSCHEME=gruvbox" > $HOME/.config/shell/theme_choice.zsh
     echo "export THEME_BG=light" >> $HOME/.config/shell/theme_choice.zsh
 }

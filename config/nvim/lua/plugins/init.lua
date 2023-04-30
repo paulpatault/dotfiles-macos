@@ -1,8 +1,9 @@
 return {
 
-    -- "nvim-treesitter/nvim-treesitter",
     -- LSP
     "neovim/nvim-lspconfig",
+    -- "nvim-treesitter/nvim-treesitter",
+    "paulpatault/whycode",
     "sublimelsp/LSP-pyls",
     "ocaml/ocaml-lsp",
     "scalameta/nvim-metals",

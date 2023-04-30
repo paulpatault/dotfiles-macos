@@ -1,27 +1,30 @@
-#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# OH
-export ZSH="/Users/paulpatault/.oh-my-zsh"
-export BREW_PREFIX=$(brew --prefix)
-source $ZSH/oh-my-zsh.sh
-export SPACESHIP_CONFIG="$HOME/.config/spaceshiprc.zsh"
-source $BREW_PREFIX/opt/spaceship/spaceship.zsh
-
-source $HOME/.config/shell/theme.zsh
-
-#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# CONFIG
-CASE_SENSITIVE="true"
-
+#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# VARS
 export EDITOR=nvim
 export SHELL=/bin/zsh
 export MANPAGER="nvim +Man!"
 export OPAMEDITOR=nvim
 export KITTY_CONFIG_EDITOR=nvim
+
+export DEV=$HOME/d/git
 export XDG_CONFIG_HOME=$HOME/.config
 export VIMRC=$HOME/.config/nvim/init.lua
 export THEME_BG="dark"
 export COLORSCHEME="gruvbox"
+export ZSH=$HOME/.oh-my-zsh
+export BREW_PREFIX=$(brew --prefix)
+export SPACESHIP_CONFIG=$HOME/.config/spaceshiprc.zsh
+export OCAMLRUNPARAM=b
+
+#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# OH
+#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# CONFIG
+source $ZSH/oh-my-zsh.sh
+source $BREW_PREFIX/opt/spaceship/spaceship.zsh
+source $HOME/.config/shell/theme.zsh
+
+CASE_SENSITIVE="true"
 source $HOME/.config/shell/theme_choice.zsh
 
-#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# PLUGINS
+FPATH=$DEV/why3/share/zsh/_why3:$FPATH
 
 if type brew &>/dev/null; then
   FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
@@ -35,7 +38,7 @@ kitty + complete setup zsh | source /dev/stdin
 source $BREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source $BREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
-
+#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# PLUGINS
 #=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# PATH
 
 path+=$HOME/.local/bin
@@ -122,6 +125,7 @@ alias vi=nvim
 alias vim=nvim
 alias diff=colordiff
 alias tree="exa -T"
+alias python@3="python3"
 
 alias edt="open $HOME/mpri/m2/edt/EDT_M2.png"
 alias conf="cd $HOME/.config"
@@ -163,7 +167,12 @@ alias ibrew='arch -x86_64 /usr/local/bin/brew'
 alias switch="bash $HOME/.config/scripts/switch.sh"
 alias cleanml="bash $HOME/.config/scripts/cleanml.sh"
 alias cleantex="bash $HOME/.config/scripts/cleantex.sh"
-export OCAMLRUNPARAM=b
 eval $(opam env)
 # -I$LD_LIBRARY_PATH -I$LDFLAGS
 # export LDFLAGS=/usr/local/include $LDFLAGS
+#
+
+#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# NVM
+export NVM_DIR="$HOME/.nvm"
+[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
