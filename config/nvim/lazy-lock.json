@@ -15,6 +15,7 @@
   "compiler-explorer.nvim": { "branch": "master", "commit": "6708947a47479bc922847432f0909cbeb19ee557" },
   "compit": { "branch": "main", "commit": "17210e7f52fb8a489ae341cb2c4c5deca926a546" },
   "conflicts.vim": { "branch": "master", "commit": "6ccb0451773198b4d8079de81129de48b045fa47" },
+  "coq-lsp.nvim": { "branch": "main", "commit": "9235e78cba8e40675b834bc5c1d6d5187bf9973d" },
   "diffview.nvim": { "branch": "main", "commit": "8c1702470fd5186cb401b21f9bf8bdfad6d5cc87" },
   "gruvbox.nvim": { "branch": "main", "commit": "df149bccb19a02c5c2b9fa6ec0716f0c0487feb0" },
   "haskell-vim": { "branch": "master", "commit": "f35d02204b4813d1dbe8b0e98cc39701a4b8e15e" },
@@ -56,6 +57,6 @@
   "vim-textobj-hydrogen": { "branch": "master", "commit": "e6f9a6b26a3524615bac347503c35327636fab72" },
   "vim-textobj-user": { "branch": "master", "commit": "41a675ddbeefd6a93664a4dc52f302fe3086a933" },
   "vimtex": { "branch": "master", "commit": "a7b1654ef59bfd8c15ab3e0eb27451319174a131" },
-  "whycode": { "branch": "master", "commit": "bfad4c3599be2b4042f92a162acd9f644d66e6e1" },
+  "whycode": { "branch": "master", "commit": "9d3efc76e585f410c48523f009635eacf8d1eff6" },
   "zen-mode.nvim": { "branch": "main", "commit": "6e6c963d70a8e47854fa656987666bfb863f9c4e" }
 }

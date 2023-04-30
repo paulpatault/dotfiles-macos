@@ -1,4 +1,5 @@
 local lsp = require("lspconfig")
+local configs = require("lspconfig.configs")
 
 -------------------------------------------------------------- DIAGNOSTIC STYLE
 
@@ -182,16 +183,6 @@ lsp.ocamllsp.setup({
   -- handlers=handlers
 })
 
---------------------------------------------------------------------------- COQ
-
---[[ vim.lsp.start({
-  name = "coq_language_server";
-  path = "/Users/paulpatault/.opam/coq/bin/coq-lsp";
-  filetypes = { "coq" };
-  cmd = { "coq-lsp" };
-  root_dir = require("lspconfig").util.find_git_ancestor;
-}) ]]
-
 -------------------------------------------------------------------------- HTML
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -208,16 +199,14 @@ lsp.texlab.setup({ on_attach = on_attach })
 
 --------------------------------------------------------------------------- LUA
 
-local dev = os.getenv("DEV")
-
-local sumneko_root_path = dev .. "/dotfiles/config/lua-language-server"
+local sumneko_root_path = os.getenv("DEV").."/dotfiles/config/lua-language-server"
 local sumneko_binary = sumneko_root_path.."/bin/lua-language-server"
 
 local runtime_path = vim.split(package.path, ";")
 table.insert(runtime_path, "lua/?.lua")
 table.insert(runtime_path, "lua/?/init.lua")
 
-lsp.lua_ls.setup {
+lsp.lua_ls.setup({
   on_attach = on_attach;
   cmd = {sumneko_binary, "-E", sumneko_root_path .. "/main.lua"};
   settings = {
@@ -228,7 +217,7 @@ lsp.lua_ls.setup {
       telemetry = { enable = false, },
     },
   },
-}
+})
 
 ------------------------------------------------------------------------ PYTHON
 lsp.pylsp.setup({ on_attach = on_attach })
@@ -251,9 +240,21 @@ lsp.tsserver.setup({
 
 local opts = {
     cmd = { "/Users/paulpatault/d/git/whycode/extension/whycode" }, --path to executable
-    lspconfig = require("lspconfig.configs"),
-    lsp = require("lspconfig"),
+    lspconfig = configs,
+    lsp = lsp,
     on_attach = on_attach
 }
 
 require("whycode").setup(opts)
+
+--------------------------------------------------------------------------- COQ
+
+require("coq-lsp").setup ({
+  coq_lsp_nvim = { },
+  lsp = {
+    on_attach = on_attach,
+    init_options = {
+      show_notices_as_diagnostics = true,
+    },
+  },
+})

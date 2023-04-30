@@ -5,6 +5,7 @@ return {
     -- "nvim-treesitter/nvim-treesitter",
     "paulpatault/whycode",
     "sublimelsp/LSP-pyls",
+    "tomtomjhj/coq-lsp.nvim",
     "ocaml/ocaml-lsp",
     "scalameta/nvim-metals",
 
