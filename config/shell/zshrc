@@ -160,13 +160,14 @@ export FZF_DEFAULT_OPTS="--height 40% --layout=reverse --border"
 export FZF_COMPLETION_TRIGGER="**"
 
 #=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# AUTRE
-alias luamake=$HOME/.config/lua-language-server/3rd/luamake/luamake
 alias ibrew='arch -x86_64 /usr/local/bin/brew'
 
 #=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# OCAML
-alias switch="bash $HOME/.config/scripts/switch.sh"
-alias cleanml="bash $HOME/.config/scripts/cleanml.sh"
-alias cleantex="bash $HOME/.config/scripts/cleantex.sh"
+export PATH="$HOME/.config/scripts:$PATH"
+# alias switch="bash $HOME/.config/scripts/switch.sh"
+# alias cleanml="bash $HOME/.config/scripts/cleanml.sh"
+# alias cleantex="bash $HOME/.config/scripts/cleantex.sh"
+
 eval $(opam env)
 # -I$LD_LIBRARY_PATH -I$LDFLAGS
 # export LDFLAGS=/usr/local/include $LDFLAGS
