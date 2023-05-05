@@ -32,6 +32,7 @@ return {
     "lilydjwg/colorizer",
     "folke/tokyonight.nvim",
     "arturgoms/moonbow.nvim",
+    "MTDL9/vim-log-highlighting",
 
     -- Other
     "krady21/compiler-explorer.nvim",

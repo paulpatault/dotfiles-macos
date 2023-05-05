@@ -46,6 +46,7 @@
   "vim-highlightedyank": { "branch": "master", "commit": "fa3f57b097e9521ce41a66b6c7cf5d9adea70ea3" },
   "vim-jasmin": { "branch": "master", "commit": "a5e85b6546b81bfba4976ec869b4251954ff85f6" },
   "vim-kitty": { "branch": "main", "commit": "11ed0c3f97596e402c9aef226535e2fefd65f3d7" },
+  "vim-log-highlighting": { "branch": "master", "commit": "1037e26f3120e6a6a2c0c33b14a84336dee2a78f" },
   "vim-menhir": { "branch": "master", "commit": "7e9ebe0c129e3c9eeb50b6beb09cf0feef131e8e" },
   "vim-obsession": { "branch": "master", "commit": "fe9d3e1a9a50171e7d316a52e1e56d868e4c1fe5" },
   "vim-ocaml": { "branch": "master", "commit": "4c907ef607810662c42795098d42f23a224fe6e7" },
@@ -57,5 +58,3 @@
   "vim-textobj-hydrogen": { "branch": "master", "commit": "e6f9a6b26a3524615bac347503c35327636fab72" },
   "vim-textobj-user": { "branch": "master", "commit": "41a675ddbeefd6a93664a4dc52f302fe3086a933" },
   "vimtex": { "branch": "master", "commit": "871ac461e9314598b5b26c3a1a9f5e36c17dff14" },
-  "zen-mode.nvim": { "branch": "main", "commit": "6e6c963d70a8e47854fa656987666bfb863f9c4e" }
-}
