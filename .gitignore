@@ -21,3 +21,6 @@ config/nvim/compit_cache
 config/spaceshiprc.zsh.zwc
 config/kitty/kitty_aux.conf
 config/shell/theme_choice.zsh
+
+config/nvim/lua/.luarc.json
+
