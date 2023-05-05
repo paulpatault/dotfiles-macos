@@ -1,5 +1,5 @@
 local lsp = require("lspconfig")
-local configs = require("lspconfig.configs")
+local util = require("lspconfig.util")
 
 -------------------------------------------------------------- DIAGNOSTIC STYLE
 
@@ -36,24 +36,25 @@ local function gd(jump_type)
     end
 end
 
-local on_attach = function(client, bufnr)
+local function map(bufnr, mod, key, f, desc)
+  vim.keymap.set(mod, key, f, { desc = "lsp - " .. desc, buffer = bufnr, remap = false })
+end
 
-  local map = function(mod, key, f, desc)
-    vim.keymap.set(mod, key, f, { desc = "lsp - " .. desc, buffer = bufnr, remap = false })
-  end
 
-  map("n", "<leader>ca", function() vim.lsp.buf.code_action() end, "[C]ode [A]ction")
-  map("n", "<leader>rn", function() vim.lsp.buf.rename()   end, "[R]e[N]ame")
-  map("n", "grf", function() vim.lsp.buf.references()      end, "[G]o [R]e[F]erences")
-  map("n", "gd",  function() vim.lsp.buf.definition()      end, "[G]o [D]efinition")
-  map("n", "gi",  function() vim.lsp.buf.implementation()  end, "[G]o [I]mplementation")
-  map("n", "gT",  function() vim.lsp.buf.type_definition() end, "[G]o [T]ype definition")
-  map("n", "dc",  function() vim.lsp.buf.hover()           end, "[D]iagnostic [C]heck type")
-  map("n", "ds",  function() vim.lsp.buf.signature_help()  end, "[D] [S]ignature_help")
-  map("n", "dl",  function() vim.diagnostic.open_float()   end, "[D]iagnostic [L]ine")
-  map("n", "dn",  function() vim.diagnostic.goto_next()    end, "[D]iagnostic [N]ext")
-  map("n", "dN",  function() vim.diagnostic.goto_prev()    end, "[D]iagnostic [N]prev")
-  map("n", "dt",  function()
+local function on_attach(client, bufnr)
+
+  map(bufnr, "n", "<leader>ca", function() vim.lsp.buf.code_action() end, "[C]ode [A]ction")
+  map(bufnr, "n", "<leader>rn", function() vim.lsp.buf.rename()   end, "[R]e[N]ame")
+  map(bufnr, "n", "grf", function() vim.lsp.buf.references()      end, "[G]o [R]e[F]erences")
+  map(bufnr, "n", "gd",  function() vim.lsp.buf.definition()      end, "[G]o [D]efinition")
+  map(bufnr, "n", "gi",  function() vim.lsp.buf.implementation()  end, "[G]o [I]mplementation")
+  map(bufnr, "n", "gT",  function() vim.lsp.buf.type_definition() end, "[G]o [T]ype definition")
+  map(bufnr, "n", "dc",  function() vim.lsp.buf.hover()           end, "[D]iagnostic [C]heck type")
+  map(bufnr, "n", "ds",  function() vim.lsp.buf.signature_help()  end, "[D] [S]ignature_help")
+  map(bufnr, "n", "dl",  function() vim.diagnostic.open_float()   end, "[D]iagnostic [L]ine")
+  map(bufnr, "n", "dn",  function() vim.diagnostic.goto_next()    end, "[D]iagnostic [N]ext")
+  map(bufnr, "n", "dN",  function() vim.diagnostic.goto_prev()    end, "[D]iagnostic [N]prev")
+  map(bufnr, "n", "dt",  function()
     if vim.diagnostic.is_disabled() then
       vim.diagnostic.enable()
     else
@@ -61,16 +62,16 @@ local on_attach = function(client, bufnr)
     end
   end, "[D]iagnostic [T]oogle")
 
-  map("n", "<leader>dsh", function() vim.lsp.semantic_tokens.stop(bufnr, client["id"]) end, "[D]isable [S]emantic [H]ighlight")
-  map("n", "<leader>esh", function() vim.lsp.semantic_tokens.start(bufnr, client["id"]) end, "[E]nable [S]emantic [H]ighlight")
+  map(bufnr, "n", "<leader>dsh", function() vim.lsp.semantic_tokens.stop(bufnr, client["id"]) end, "[D]isable [S]emantic [H]ighlight")
+  map(bufnr, "n", "<leader>esh", function() vim.lsp.semantic_tokens.start(bufnr, client["id"]) end, "[E]nable [S]emantic [H]ighlight")
 
-  map("n", "gdv", function()
+  map(bufnr, "n", "gdv", function()
          local ok, _ = pcall(function() gd("vsplit") end)
          if not ok then print("Internal Error") end
      end,
      "[G]o [D]efinition")
 
-  map("n", "gds", function()
+  map(bufnr, "n", "gds", function()
          local ok, _ = pcall(function() gd("split") end)
          if not ok then print("Internal Error") end
      end,
@@ -79,6 +80,37 @@ local on_attach = function(client, bufnr)
   -- disable semantic highlight
   client.server_capabilities.semanticTokensProvider = nil
 end
+
+-------------------------------------------------------------------------- WHY3
+vim.lsp.set_log_level("debug")
+
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+
+local function on_attach_why3(client, bufnr)
+  on_attach(client, bufnr)
+
+  map(bufnr, "n", "<C-R>", function()
+    local uri = client.workspace_folders[1].uri
+    local ok = vim.lsp.buf_notify(0, "proof/reloadSession", { uri })
+    if ok then
+      print("Session reloaded")
+    else
+      local err = string.format("[ERROR] Notification proof/reloadSession failed (with uri=%s)", uri)
+      error(err)
+    end
+  end, "[R]eload Session")
+
+end
+
+require("whycode").setup({
+  lsp = {
+    on_attach = on_attach_why3,
+    cmd = { "/Users/paulpatault/d/git/whycode/extension/whycode2" }, --path to executable
+    verbose = false,
+    capabilities = capabilities
+  },
+})
+
 
 ------------------------------------------------------------------------- Scala
 
@@ -91,7 +123,7 @@ lsp.clangd.setup({
     cmd = { "clangd", "--background-index" };
     filetypes = { "c", "cpp", "objc", "objcpp" };
     root_dir = function(fname)
-      return lsp.util.find_git_ancestor(fname) or vim.loop.os_homedir()
+      return util.find_git_ancestor(fname) or vim.loop.os_homedir()
     end;
     settings = {};
   };
@@ -155,9 +187,9 @@ lsp.ocamllsp.setup({
   filetypes = {"ocaml", "ocaml.interface", "ocaml.ocamllex", "ocaml.menhir", "menhir"};
   root_dir = function(fname)
     return
-    lsp.util.find_git_ancestor(fname)
+    util.find_git_ancestor(fname)
     or vim.loop.os_homedir()
-    or lsp.util.root_pattern("*.opam", ".git", "dune-project")
+    or util.root_pattern("*.opam", ".git", "dune-project")
   end;
   on_attach = on_attach;
   commands = {
@@ -198,23 +230,26 @@ lsp.html.setup({
 lsp.texlab.setup({ on_attach = on_attach })
 
 --------------------------------------------------------------------------- LUA
-
-local sumneko_root_path = os.getenv("DEV").."/dotfiles/config/lua-language-server"
-local sumneko_binary = sumneko_root_path.."/bin/lua-language-server"
-
-local runtime_path = vim.split(package.path, ";")
-table.insert(runtime_path, "lua/?.lua")
-table.insert(runtime_path, "lua/?/init.lua")
-
-lsp.lua_ls.setup({
-  on_attach = on_attach;
-  cmd = {sumneko_binary, "-E", sumneko_root_path .. "/main.lua"};
+lsp.lua_ls.setup ({
+  on_attach = on_attach,
   settings = {
     Lua = {
-      runtime = { version = "LuaJIT", path = runtime_path, },
-      diagnostics = { globals = {"vim"}, },
-      workspace = { library = vim.api.nvim_get_runtime_file("", true), },
-      telemetry = { enable = false, },
+      runtime = {
+        -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
+        version = "LuaJIT",
+      },
+      diagnostics = {
+        -- Get the language server to recognize the `vim` global
+        globals = {"vim"},
+      },
+      workspace = {
+        -- Make the server aware of Neovim runtime files
+        library = vim.api.nvim_get_runtime_file("", true),
+      },
+      -- Do not send telemetry data containing a randomized but unique identifier
+      telemetry = {
+        enable = false,
+      },
     },
   },
 })
@@ -235,17 +270,6 @@ lsp.tsserver.setup({
     on_attach = on_attach_js;
     flags = {debounce_text_changes = 150}
 })
-
--------------------------------------------------------------------------- WHY3
-
-local opts = {
-    cmd = { "/Users/paulpatault/d/git/whycode/extension/whycode" }, --path to executable
-    lspconfig = configs,
-    lsp = lsp,
-    on_attach = on_attach
-}
-
-require("whycode").setup(opts)
 
 --------------------------------------------------------------------------- COQ
 

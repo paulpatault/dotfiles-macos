@@ -1,8 +1,13 @@
 return {
   "lervag/vimtex",
+
   config = function()
 
-    vim.g['vimtex_log_ignore'] = ({ 'Underfull', 'Overfull', }) -- FIX
+    vim.g["vimtex_log_ignore"] = ({
+      ".*Underfull.*",
+      ".*Overfull.*"
+    }) -- FIX
+
 
     vim.g.tex_flavor = "latex"
     vim.g['vimtex_view_method'] = "skim"
