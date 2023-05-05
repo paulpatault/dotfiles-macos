@@ -33,6 +33,8 @@ defaults write NSGlobalDomain InitialKeyRepeat -int 15
 # tap to click
 defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
 
+defaults write NSGlobalDomain NSAutomaticWindowAnimationsEnabled -bool false
+
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # FINDER
 
 # affichage des dotfiles

@@ -20,6 +20,7 @@ jq
 colordiff
 python@3.10
 exa
+yabai
 )
 
 BREW_ALL=(
