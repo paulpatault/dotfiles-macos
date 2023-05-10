@@ -39,6 +39,9 @@ vim.keymap.set("n", "}", "}zz", { desc = "" })
 vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz", { desc = "" })
 vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz", { desc = "" })
 
+vim.keymap.set("n", "<f7>", "<cmd>cnext<CR>zz", { desc = "" })
+vim.keymap.set("n", "<f8>", "<cmd>cprev<CR>zz", { desc = "" })
+
 vim.keymap.set("n", "n", "nzz", { desc = "" })
 vim.keymap.set("n", "N", "Nzz", { desc = "" })
 
