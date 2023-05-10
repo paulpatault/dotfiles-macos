@@ -32,9 +32,11 @@ yabai -m config                                    \
          right_padding                3            \
          window_gap                   3
 
-yabai -m rule --add app="^System Information$" manage=off
 yabai -m rule --add app="^Réglages Système$" manage=off
-yabai -m rule --add app="^System Preferences$" manage=off
+yabai -m rule --add app="^GIMP$" manage=off
+yabai -m rule --add app="^Thunderbird$" manage=off
+yabai -m rule --add app="^Signal$" manage=off
+yabai -m rule --add app="^Zulip$" manage=off
 yabai -m rule --add title="Preferences$" manage=off
 
 

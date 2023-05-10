@@ -4,6 +4,7 @@ export SHELL=/bin/zsh
 export MANPAGER="nvim +Man!"
 export OPAMEDITOR=nvim
 export KITTY_CONFIG_EDITOR=nvim
+# export USER=paulpatault
 
 export DEV=$HOME/d/git
 export XDG_CONFIG_HOME=$HOME/.config
