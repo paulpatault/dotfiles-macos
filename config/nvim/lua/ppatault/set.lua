@@ -2,7 +2,8 @@
 ---------------------------------------------------------------------------------------------------
 
 vim.g.mapleader = " "
-vim.g.maplocalleader = "\\"
+-- vim.g.maplocalleader = "\\"
+vim.g.maplocalleader = "!"
 vim.g.langmenu = "en_US.UTF-8"
 vim.g.completeopt = "menuone,noinsert,noselect"
 vim.g.highlightedyank_highlight_duration = 100
@@ -48,7 +49,7 @@ vim.opt.lazyredraw = true
 vim.opt.splitbelow = true
 vim.opt.splitright = true
 vim.opt.encoding = "utf-8"
-vim.opt.spelllang = "en"
+vim.opt.spelllang = {"en", "fr"}
 vim.opt.termguicolors = true
 vim.opt.clipboard = "unnamed,unnamedplus"
 vim.opt.scrolloff = 8
