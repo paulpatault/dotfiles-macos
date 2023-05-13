@@ -116,6 +116,8 @@ alias brew+="brew update ; brew pin texlab ; brew upgrade ; brew unpin texlab"
 alias yabai+="yabai --stop-service ; brew upgrade yabai ; yabai --start-service"
 alias ds="fd -H .DS_Store -x rm {}"
 
+#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# GIT
+alias gst="git status"
 #=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# SHORT
 alias turbocaml=nvim
 alias :q=exit

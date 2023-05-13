@@ -79,12 +79,15 @@ local function on_attach(client, bufnr)
 
   -- disable semantic highlight
   client.server_capabilities.semanticTokensProvider = nil
+  -- client.server_capabilities.semanticTokens.serverCancelSupport = true
+  -- client.server_capabilities.semanticTokens.augmentsSyntaxTokens = false
+  -- vim.cmd([[normal \<leader>dsh]])
 end
 
 -------------------------------------------------------------------------- WHY3
 vim.lsp.set_log_level("debug")
 
-local capabilities = vim.lsp.protocol.make_client_capabilities()
+-- local capabilities = vim.lsp.protocol.make_client_capabilities()
 
 local function on_attach_why3(client, bufnr)
   on_attach(client, bufnr)
@@ -102,12 +105,25 @@ local function on_attach_why3(client, bufnr)
 
 end
 
+-- print (vim.inspect (capabilities))
+      --[[ augmentsSyntaxTokens = true,
+      dynamicRegistration = false,
+      formats = { "relative" },
+      multilineTokenSupport = false,
+      overlappingTokenSupport = true,
+      requests = {
+        full = {
+          delta = true
+        },
+        range = false
+      }, ]]
+
 require("whycode").setup({
   lsp = {
     on_attach = on_attach_why3,
     cmd = { "/Users/paulpatault/d/git/whycode/extension/whycode2" }, --path to executable
     verbose = false,
-    capabilities = capabilities
+    -- capabilities = capabilities
   },
 })
 
@@ -217,12 +233,12 @@ lsp.ocamllsp.setup({
 
 -------------------------------------------------------------------------- HTML
 
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities.textDocument.completion.completionItem.snippetSupport = true
+local hcap = vim.lsp.protocol.make_client_capabilities()
+hcap.textDocument.completion.completionItem.snippetSupport = true
 
 lsp.html.setup({
   on_attach = on_attach;
-  capabilities = capabilities
+  capabilities = hcap
 })
 
 ------------------------------------------------------------------------- LATEX

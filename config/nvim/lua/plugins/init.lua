@@ -41,15 +41,20 @@ return {
     "machakann/vim-swap",
     "tpope/vim-obsession",
 
-    -- { "unblevable/quick-scope", config = function() vim.g.qs_highlight_on_keys = {"f", "F", "t", "T"} end },
+    -- "gennaro-tedesco/nvim-peekup",
+    "junegunn/vim-peekaboo",
+    "jghauser/mkdir.nvim",
+    "famiu/bufdelete.nvim",
+    "alec-gibson/nvim-tetris",
 
     "machakann/vim-sandwich",
     "cohama/lexima.vim",
+
     "machakann/vim-highlightedyank",
-    { "sindrets/diffview.nvim", dependencies = "nvim-lua/plenary.nvim" },
+
+    "sindrets/diffview.nvim",
 
     { "GCBallesteros/vim-textobj-hydrogen", dependencies = "kana/vim-textobj-user" },
 
-    { "iamcco/markdown-preview.nvim", build = function() vim.fn["mkdp#util#install"]() end },
-
+    -- { "iamcco/markdown-preview.nvim", build = function() vim.fn["mkdp#util#install"]() end },
 }

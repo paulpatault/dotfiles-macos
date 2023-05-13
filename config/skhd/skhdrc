@@ -85,3 +85,5 @@ alt - f         : yabai -m window --toggle zoom-fullscreen
 
 # bzr
 shift + alt - space : yabai -m window --toggle float; yabai -m window --toggle border
+
+echo "skhd configuration loaded.."
