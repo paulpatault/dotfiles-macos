@@ -1,14 +1,4 @@
 .DS_Store
-undodir
-.config/coc
-.config/thefuck
-
-.config/nvim/_init.vim
-.config/htop/htoprc
-.config/gtk-2.0/gtkfilechooser.ini
-
-.config/nvim/plugin/packer_compiled.lua
-config/nvim/undo
 
 config/gtk-2.0
 config/lazygit
@@ -17,10 +7,13 @@ config/lua-language-server
 config/nvim/plugin
 config/gh
 config/nvim/compit_cache
-/config/jgit/
 config/spaceshiprc.zsh.zwc
 config/kitty/kitty_aux.conf
 config/shell/theme_choice.zsh
-
 config/nvim/lua/.luarc.json
 
+config/bat
+config/htop/
+config/himalaya/
+config/gtk-*/
+config/coq
