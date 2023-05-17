@@ -117,7 +117,12 @@ alias yabai+="yabai --stop-service ; brew upgrade yabai ; yabai --start-service"
 alias ds="fd -H .DS_Store -x rm {}"
 
 #=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# GIT
+alias gs="git s"
 alias gst="git status"
+alias gb="git br"
+alias gbr="git branch"
+alias gco="git checkout"
+
 #=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# SHORT
 alias turbocaml=nvim
 alias :q=exit
