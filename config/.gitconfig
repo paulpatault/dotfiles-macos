@@ -31,8 +31,8 @@
     reword = commit --allow-empty --amend --only -m
     ; squash = rebase --interactive --autostash --keep-empty --empty=keep --no-auto squash --rebase-merges HEAD~1
 
-[help]
-    autocorrect = 1
+; [help]
+;     autocorrect = 1
 
 [init]
     defaultBranch = main
