@@ -1,9 +1,10 @@
 return {
+  -- yrip / yR
   "urbainvaes/vim-ripple",
   config = function()
     vim.g.ripple_repls = {
       rml = {
-        command = "rmltop", -- yrip / yR
+        command = "rmltop",
         post = ";;",
         addcr  = 1
       },
@@ -18,7 +19,7 @@ return {
         addcr = 0
       }, ]]
       ocaml = {
-        command = "utop",
+        command = "ocaml",
         pre = "",
         post = ";;",
         addcr = 0

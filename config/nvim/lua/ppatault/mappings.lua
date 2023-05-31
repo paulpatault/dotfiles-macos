@@ -58,6 +58,8 @@ vim.keymap.set("v", "K", ":m '<-2<cr>gv=gv", { desc = "" })
 
 -- vim.keymap.set("n", "P", "\"_dP", { desc = "" })
 
+vim.keymap.set("n", "²", [["_]], { desc = "" })
+
 vim.keymap.set("n", "<esc><esc>", vim.cmd.nohlsearch, { desc = "[esc] hlsearch" })
 
 vim.keymap.set("n", "<right>", "xp", { desc = "move char [right]" })

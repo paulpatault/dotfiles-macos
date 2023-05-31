@@ -2,28 +2,26 @@ return {
 
     -- LSP
     "neovim/nvim-lspconfig",
-    -- "nvim-treesitter/nvim-treesitter",
+    "ocaml/ocaml-lsp",
     "paulpatault/whycode",
+    "scalameta/nvim-metals",
     "sublimelsp/LSP-pyls",
     "tomtomjhj/coq-lsp.nvim",
-    "ocaml/ocaml-lsp",
-    "scalameta/nvim-metals",
 
     -- Dependencies
     "nvim-lua/plenary.nvim",
 
-    -- OCaml
-    "ocaml/vim-ocaml",
-    "ELLIOTTCABLE/vim-menhir",
-    "bfontaine/conflicts.vim",
-    "whonore/Coqtail",
-
     -- Languages
-    "neovimhaskell/haskell-vim",
     "bohlender/vim-smt2",
     "fladson/vim-kitty",
     "isti115/agda.nvim",
+    "MTDL9/vim-log-highlighting",
+    "neovimhaskell/haskell-vim",
     "wreien/vim-jasmin",
+    "ELLIOTTCABLE/vim-menhir",
+    "bfontaine/conflicts.vim",
+    "ocaml/vim-ocaml",
+    "whonore/Coqtail",
 
     -- Colors
     "rafi/awesome-vim-colorschemes",
@@ -32,29 +30,24 @@ return {
     "lilydjwg/colorizer",
     "folke/tokyonight.nvim",
     "arturgoms/moonbow.nvim",
-    "MTDL9/vim-log-highlighting",
 
     -- Other
+    "alec-gibson/nvim-tetris",
+    "cohama/lexima.vim",
+    "famiu/bufdelete.nvim",
+    "jghauser/mkdir.nvim",
+    "junegunn/vim-peekaboo",
     "krady21/compiler-explorer.nvim",
-    "wellle/targets.vim",
     "lewis6991/impatient.nvim",
+    "machakann/vim-highlightedyank",
+    "machakann/vim-sandwich",
     "machakann/vim-swap",
     "tpope/vim-obsession",
+    "wellle/targets.vim",
 
-    -- "gennaro-tedesco/nvim-peekup",
-    "junegunn/vim-peekaboo",
-    "jghauser/mkdir.nvim",
-    "famiu/bufdelete.nvim",
-    "alec-gibson/nvim-tetris",
-
-    "machakann/vim-sandwich",
-    "cohama/lexima.vim",
-
-    "machakann/vim-highlightedyank",
 
     "sindrets/diffview.nvim",
+    -- "nvim-treesitter/nvim-treesitter",
 
     { "GCBallesteros/vim-textobj-hydrogen", dependencies = "kana/vim-textobj-user" },
-
-    -- { "iamcco/markdown-preview.nvim", build = function() vim.fn["mkdp#util#install"]() end },
 }

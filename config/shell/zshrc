@@ -122,6 +122,8 @@ alias gst="git status"
 alias gb="git br"
 alias gbr="git branch"
 alias gco="git checkout"
+alias gcl="git clone"
+alias gcl1="git clone --depth=1"
 
 #=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# SHORT
 alias turbocaml=nvim
@@ -191,3 +193,6 @@ export NVM_DIR="$HOME/.nvm"
 #=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# WHYCODE
 export WHY3DATA=/Users/paulpatault/d/git/whycode/extension/why-data 
 export WHY3LIB=/Users/paulpatault/d/git/whycode/extension/why-lib
+
+
+export BIBINPUTS=~/d/git/toccata/biblio:

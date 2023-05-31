@@ -1,5 +1,6 @@
 " Vim syntax file
 " Language: Kawa
+" Author: Paul Patault
 
 syn clear
 
