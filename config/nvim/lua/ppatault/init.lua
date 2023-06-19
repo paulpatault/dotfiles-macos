@@ -3,12 +3,12 @@ require("ppatault.lazy")
 require("impatient")
 require("ppatault.mappings")
 require("ppatault.globals")
-
 require("ppatault.highlights")
 require("ppatault.theme")
 
 local fts = {
   zsh = "sh",
+  mlw = "why3",
   mp  = "patmat",
   lus = "lustre",
   ept = "lustre",
@@ -46,22 +46,24 @@ vim.api.nvim_create_autocmd({"FileType","BufRead","BufNewFile"}, {
     callback = function()
       if vim.bo.ft ~= "tex" and vim.bo.ft ~= "markdown" and vim.bo.ft ~= "text" then
         vim.cmd("setlocal nospell")
-        vim.cmd.set("textwidth=0")
       else
         vim.cmd("setlocal spell")
-        vim.cmd.set("textwidth=80")
+        --[[ local ok, res = pcall(require("ppatault.utils").wrap_toogle)
+        if not ok then
+          print("WRAP ERROR")
+          print(res)
+        end ]]
       end
     end,
     group = options_group
 })
 
-vim.api.nvim_create_autocmd("FileType", {
+vim.api.nvim_create_autocmd({"FileType","BufRead","BufNewFile"}, {
     pattern = { "c", "latex", "cpp"},
     command = "set sw=4",
     group   = options_group
 })
-
-vim.api.nvim_create_autocmd("FileType", {
+vim.api.nvim_create_autocmd({"FileType","BufRead","BufNewFile"}, {
     pattern = { "markdown", "lua", "kawa", "ocaml", "why3", "lustre" },
     command = "set sw=2",
     group   = options_group
@@ -89,12 +91,3 @@ function R(name)
     require("plenary.reload").reload_module(name)
 end
 
-
---[[ vim.api.nvim_create_autocmd({"BufRead","BufWinEnter","FileType"}, {
-  group = vim.api.nvim_create_augroup("fopixGRP", {clear = true}),
-  pattern = { "*.fx" },
-  callback = function ()
-    vim.keymap.set("n", "<leader>j", function() vim.cmd("e %:r.j") end, { desc = "goto [J]asmin" })
-    vim.keymap.set("n", "<leader>k", function() vim.cmd("e %:r.k") end, { desc = "goto [K]ont-Jasmin" })
-  end
-}) ]]

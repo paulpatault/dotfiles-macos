@@ -7,6 +7,7 @@ vim.g.maplocalleader = "!"
 vim.g.langmenu = "en_US.UTF-8"
 vim.g.completeopt = "menuone,noinsert,noselect"
 vim.g.highlightedyank_highlight_duration = 100
+vim.g.columns = 80
 
 ---------------------------------------------------------------------------------------------------
 
@@ -18,6 +19,9 @@ vim.wo.relativenumber = true
 vim.wo.colorcolumn = "80"
 vim.wo.wrap = false
 vim.wo.list = false
+
+vim.wo.foldmethod = "marker"
+vim.wo.foldmarker = "{{{|,|}}}"
 
 ---------------------------------------------------------------------------------------------------
 
@@ -60,5 +64,7 @@ vim.opt.list = true
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 vim.opt.listchars = {tab = '▸ ', trail = '·', extends='❯',precedes='❮',nbsp='±'}
+
+vim.cmd.set("textwidth=0")
 
 ---------------------------------------------------------------------------------------------------

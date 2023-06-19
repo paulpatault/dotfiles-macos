@@ -191,8 +191,7 @@ export NVM_DIR="$HOME/.nvm"
 
 
 #=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# WHYCODE
-export WHY3DATA=/Users/paulpatault/d/git/whycode/extension/why-data 
-export WHY3LIB=/Users/paulpatault/d/git/whycode/extension/why-lib
-
+# export WHY3DATA=/Users/paulpatault/d/git/whycode/extension/why-data 
+# export WHY3LIB=/Users/paulpatault/d/git/whycode/extension/why-lib
 
 export BIBINPUTS=~/d/git/toccata/biblio:

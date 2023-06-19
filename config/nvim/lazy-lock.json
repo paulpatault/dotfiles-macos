@@ -17,6 +17,7 @@
   "compit": { "branch": "main", "commit": "17210e7f52fb8a489ae341cb2c4c5deca926a546" },
   "conflicts.vim": { "branch": "master", "commit": "6ccb0451773198b4d8079de81129de48b045fa47" },
   "coq-lsp.nvim": { "branch": "main", "commit": "28f7556897de393f1baae3af5934f3d8c0516c46" },
+  "countdown.nvim": { "branch": "main", "commit": "ae7bec55a01e16c70e3be3c62ec6e5746227f274" },
   "diffview.nvim": { "branch": "main", "commit": "1d6ea6ced1c3ec0f6464761a138bb35afd79ef63" },
   "gruvbox.nvim": { "branch": "main", "commit": "df149bccb19a02c5c2b9fa6ec0716f0c0487feb0" },
   "haskell-vim": { "branch": "master", "commit": "f35d02204b4813d1dbe8b0e98cc39701a4b8e15e" },

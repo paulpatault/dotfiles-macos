@@ -5,6 +5,10 @@ vim.g.markdown_fenced_languages = {
 vim.g.coqtail_noimap = true
 vim.g.coqtail_map_prefix = "<localleader>c"
 
+vim.g.netrw_liststyle = 3
+
+
+
 -- vim.g.qs_buftype_blacklist = {"terminal", "nofile"}
 -- vim.g.qs_max_chars=80
 
