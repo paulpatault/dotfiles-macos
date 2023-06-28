@@ -71,7 +71,7 @@ export CPPFLAGS="-I$BREW_PREFIX/opt/openjdk@17/include $CPPFLAGS"
 
 #=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# THEME
 
-ZSH_THEME=""
+# ZSH_THEME=""
 
 # fpath+=$HOME/.zsh/pure
 # autoload -U promptinit; promptinit

@@ -11,7 +11,7 @@ function M.wrap_toogle ()
         vim.keymap.set("v", "k", "gk", { desc = "auto" })
         vim.keymap.set("v", "0", "g0", { desc = "auto" })
         vim.keymap.set("v", "$", "g$", { desc = "auto" })
-        vim.cmd.let("&showbreak='❯❯❯ '")
+        vim.cmd.let("&showbreak=' ❯❯❯ '")
         vim.cmd.set("cpoptions+=n")
     else
         vim.keymap.del("n", "j")

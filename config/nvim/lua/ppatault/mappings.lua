@@ -26,8 +26,8 @@ vim.keymap.set("n", ")", ")zz")
 vim.keymap.set("n", "{", "{zz")
 vim.keymap.set("n", "}", "}zz", { desc = "" })
 
-vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz", { desc = "" })
-vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz", { desc = "" })
+vim.keymap.set("n", "<C-j>", "<cmd>cnext<CR>zz", { desc = "" })
+vim.keymap.set("n", "<C-k>", "<cmd>cprev<CR>zz", { desc = "" })
 
 vim.keymap.set("n", "<f7>", "<cmd>cnext<CR>zz", { desc = "" })
 vim.keymap.set("n", "<f8>", "<cmd>cprev<CR>zz", { desc = "" })
@@ -57,6 +57,13 @@ vim.keymap.set("n", "<left>", "xhhp", { desc = "move char [left]" })
 
 vim.keymap.set("v", "<Tab>",   ">gv", { desc = "indent" })
 vim.keymap.set("v", "<S-Tab>", "<gv", { desc = "unindent" })
+
+vim.keymap.set("n", "<leader>bib", function()
+  vim.cmd("tabnew")
+  local path = "~/d/git/toccata/biblio"
+  vim.cmd.tcd(path)
+  vim.cmd.e(path .. "/team.bib")
+end, { desc = "[BIB]tex toccata" })
 
 local putils = require("ppatault.utils")
 
