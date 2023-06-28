@@ -9,20 +9,21 @@ return {
     }) -- FIX
 
 
-    vim.g.tex_flavor = "latex"
-    vim.g['vimtex_view_method'] = "skim"
-    vim.g['vimtex_compiler_method'] = "latexmk"
+    -- vim.g.tex_flavor = "latex"
+    vim.g["vimtex_view_method"] = "skim"
+    -- vim.cmd [[ let g:vimtex_view_method = 'preview']]
+    vim.cmd [[ let g:vimtex_view_skim_sync = 1]]
+
+    vim.g["vimtex_compiler_method"] = "latexmk"
 
 
     vim.g['vimtex_compiler_latexmk'] = {
       -- executable = "lualatex",
-      build_dir  = "_build",
       engine = "lualatex",
-      -- build_dir  = 1,
       options = {
         -- "-pdf",
         -- "-lualatex",
-        -- "-output-directory=_build",
+        [[-output-directory="_build"]],
         "-shell-escape",
         "-verbose",
         "-file-line-error",
