@@ -18,3 +18,4 @@ config/himalaya/
 config/gtk-*/
 config/coq
 config/ocaml
+config/nvim/spell
