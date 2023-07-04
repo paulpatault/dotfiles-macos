@@ -53,7 +53,7 @@ vim.keymap.set("n", "²", [["_]], { desc = "" })
 vim.keymap.set("n", "<esc><esc>", vim.cmd.nohlsearch, { desc = "[esc] hlsearch" })
 
 vim.keymap.set("n", "<right>", "xp", { desc = "move char [right]" })
-vim.keymap.set("n", "<left>", "xhhp", { desc = "move char [left]" })
+vim.keymap.set("n", "<left>", "hxph", { desc = "move char [left]" })
 
 vim.keymap.set("v", "<Tab>",   ">gv", { desc = "indent" })
 vim.keymap.set("v", "<S-Tab>", "<gv", { desc = "unindent" })
