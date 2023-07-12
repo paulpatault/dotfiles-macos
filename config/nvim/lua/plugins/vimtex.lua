@@ -3,10 +3,10 @@ return {
 
   config = function()
 
-    vim.g["vimtex_log_ignore"] = ({
+    --[[ vim.g["vimtex_log_ignore"] = ({
       ".*Underfull.*",
       ".*Overfull.*"
-    }) -- FIX
+    }) -- FIX ]]
 
 
     -- vim.g.tex_flavor = "latex"
@@ -18,12 +18,11 @@ return {
 
 
     vim.g['vimtex_compiler_latexmk'] = {
-      -- executable = "lualatex",
       engine = "lualatex",
       options = {
         -- "-pdf",
         -- "-lualatex",
-        [[-output-directory="_build"]],
+        -- [[-output-directory="_build"]],
         "-shell-escape",
         "-verbose",
         "-file-line-error",

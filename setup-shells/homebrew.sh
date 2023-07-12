@@ -21,6 +21,7 @@ colordiff
 python@3.10
 exa
 yabai
+texlab
 )
 
 BREW_ALL=(

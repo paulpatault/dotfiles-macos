@@ -7,6 +7,7 @@ return {
     "hrsh7th/cmp-nvim-lsp",
     "hrsh7th/cmp-cmdline",
     "kdheepak/cmp-latex-symbols",
+    "petertriho/cmp-git",
   },
   config = function()
 
@@ -18,7 +19,6 @@ return {
         col ~= 0 and
         vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
     end
-
     cmp.setup ({
       formatting = {
         format = function(entry, vim_item)
@@ -29,9 +29,13 @@ return {
             path = "~path",
             spell = "~spell",
             latex_symbols = "~tex",
+            git = "~git",
           })[entry.source.name]
           return vim_item
         end
+      },
+      completion = {
+        keyword_pattern = [[\k\+]]
       },
       sources = {
         { name = "nvim_lsp" },
@@ -39,6 +43,7 @@ return {
         { name = "nvim_lua" },
         { name = "buffer", option = { keyword_pattern = [[\k\+]] }},
         { name = "latex_symbols" },
+        { name = "git" },
       },
       mapping = {
         ["<C-p>"] = cmp.mapping.select_prev_item(),
@@ -83,6 +88,8 @@ return {
         { name = "cmdline" }
       })
     })
+
+    require("cmp_git").setup()
 
   end
 }
