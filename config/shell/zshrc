@@ -1,5 +1,4 @@
-#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# VARS
-export EDITOR=nvim
+#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# VARS export EDITOR=nvim
 export SHELL=/bin/zsh
 export MANPAGER="nvim +Man!"
 export OPAMEDITOR=nvim
@@ -114,6 +113,7 @@ alias zulip="open /Applications/Zulip.app"
 
 alias brew+="brew update ; brew pin texlab ; brew upgrade ; brew unpin texlab"
 alias yabai+="yabai --stop-service ; brew upgrade yabai ; yabai --start-service"
+alias skhd+="skhd --stop-service ; brew upgrade skhd ; skhd --start-service"
 alias ds="fd -H .DS_Store -x rm {}"
 
 #=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# GIT
@@ -195,3 +195,4 @@ export NVM_DIR="$HOME/.nvm"
 # export WHY3LIB=/Users/paulpatault/d/git/whycode/extension/why-lib
 
 export BIBINPUTS=~/d/git/toccata/biblio:
+# neofetch
