@@ -141,8 +141,9 @@ alias python@3="python3"
 alias edt="open $HOME/mpri/m2/edt/EDT_M2.png"
 alias conf="cd $HOME/.config"
 
-alias l="exa -las type"
-alias ls="exa -s type"
+# alias l="ls -las type"
+# alias ls="exa -s type"
+# alias ls="ls -s type"
 
 #=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# CONFIG EDIT \CE
 alias zec="nvim $HOME/.config/shell/zshrc --cmd 'cd $HOME/.config/shell'"
