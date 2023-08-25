@@ -172,7 +172,7 @@ export FZF_DEFAULT_OPTS="--height 40% --layout=reverse --border"
 export FZF_COMPLETION_TRIGGER="**"
 
 #=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# AUTRE
-alias ibrew='arch -x86_64 /usr/local/bin/brew'
+alias ibrew="arch -x86_64 /usr/local/bin/brew"
 
 #=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# OCAML
 export PATH="$HOME/.config/scripts:$PATH"
