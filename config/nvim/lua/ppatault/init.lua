@@ -18,7 +18,9 @@ local fts = {
   anfix = "scala.no_lsp",
   conflicts = "conflicts",
   k = "jasmin",
-  proof = "proof", --mly = "ocaml.menhir",
+  proof = "proof",
+  mly = "menhir",
+  coma = "coma",
 }
 
 local options_group = vim.api.nvim_create_augroup("OptionsGroup", {clear = true})

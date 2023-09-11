@@ -17,6 +17,12 @@ return {
       single_line_comment_string = "--",
     })
 
+    kommentary_conf.configure_language("coma", {
+      prefer_multi_line_comments = false,
+      prefer_single_line_comments = true,
+      single_line_comment_string = "--",
+    })
+
     kommentary_conf.configure_language("jasmin", {
       prefer_multi_line_comments = false,
       prefer_single_line_comments = true,

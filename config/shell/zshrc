@@ -45,10 +45,18 @@ path+=$HOME/.local/bin
 path+=$BREW_PREFIX/opt/llvm/bin
 path+=$BREW_PREFIX/opt/make/libexec/gnubin
 path+=$BREW_PREFIX/opt/libxml2/bin
-# path+=$HOME/mpri/m1/ens/SystReact/Lustre/lustre-v4-III-e-macosx/bin
 
 export LDFLAGS="-L$BREW_PREFIX/lib $LDFLAGS"
-export LDFLAGS="-L$BREW_PREFIX/opt/libxml2/lib $LDFLAGS"
+# export LDFLAGS="-L$BREW_PREFIX/opt/libxml2/lib $LDFLAGS"
+# export LDFLAGS="-L$BREW_PREFIX/opt/gtksourceview3/lib $LDFLAGS"
+# export LDFLAGS="-L$BREW_PREFIX/opt/gtk+3/lib $LDFLAGS"
+# export LDFLAGS="-L$BREW_PREFIX/opt/harfbuzz/lib $LDFLAGS"
+# export LDFLAGS="-L$BREW_PREFIX/opt/gdk-pixbuf/lib $LDFLAGS"
+# export LDFLAGS="-L$BREW_PREFIX/opt/glib/lib $LDFLAGS"
+# export LDFLAGS="-L$BREW_PREFIX/opt/gtk+3/lib $LDFLAGS"
+# export LDFLAGS="-L$BREW_PREFIX/opt/harfbuzz/lib $LDFLAGS"
+# export LDFLAGS="-L$BREW_PREFIX/opt/gdk-pixbuf/lib $LDFLAGS"
+# export LDFLAGS="-L$BREW_PREFIX/opt/glib/lib $LDFLAGS"
 
 export CFLAGS="-I$BREW_PREFIX/include $CFLAGS"
 
@@ -57,11 +65,6 @@ export CPPFLAGS="-I$BREW_PREFIX/opt/libxml2/include $CPPFLAGS"
 
 export PKG_CONFIG_PATH="$BREW_PREFIX/opt/openssl@3/lib/pkgconfig:$PKG_CONFIG_PATH"
 export PKG_CONFIG_PATH="$BREW_PREFIX/opt/libxml2/lib/pkgconfig:$PKG_CONFIG_PATH"
-
-export LDFLAGS="-L$BREW_PREFIX/opt/openblas/lib $LDFLAGS"
-export CPPFLAGS="-I$BREW_PREFIX/opt/openblas/include $CPPFLAGS"
-
-export PKG_CONFIG_PATH="$BREW_PREFIX/opt/openblas/lib/pkgconfig:$PKG_CONFIG_PATH"
 
 export PATH="$BREW_PREFIX/opt/openjdk@11/bin:$PATH"
 export CPPFLAGS="-I$BREW_PREFIX/opt/openjdk@11/include $CPPFLAGS"
@@ -176,6 +179,7 @@ alias ibrew="arch -x86_64 /usr/local/bin/brew"
 
 #=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# OCAML
 export PATH="$HOME/.config/scripts:$PATH"
+export PATH="$HOME/d/git/why3/bin:$PATH"
 # alias switch="bash $HOME/.config/scripts/switch.sh"
 # alias cleanml="bash $HOME/.config/scripts/cleanml.sh"
 # alias cleantex="bash $HOME/.config/scripts/cleantex.sh"
