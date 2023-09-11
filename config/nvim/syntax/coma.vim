@@ -24,15 +24,14 @@ syn match comaOperator    "<="
 syn match comaOperator    "->" conceal cchar=→
 syn match comaDefinition  "\/ \<[a-zA-Z_][a-zA-Z0-9_]*\>"
 
-syn match  comaType   "'\<[a-zA-Z_][a-zA-Z0-9_]*\>"
-syn region comaTypes  start="<" end=">" contains=comaType
-syn match  comaOperator    "<>"
+syn match  comaType       "'\<[a-zA-Z_][a-zA-Z0-9_]*\>"
+syn region comaTypes      start="<" end=">" contains=comaType
+syn match  comaOperator   "<>"
 
 syn keyword comaTodo contained TODO
 " syn region  comaComment  start="(\*" end="\*)" contains=comaTodo
 syn match   comaComment  "--.*" contains=lusTodo
 
-" syn region  comaParam      start="{"  end="}" contains=comaConstant,comaOperator,comaKeyword,comaPrimitive,comaKeyword
 syn region  comaPrewrites  start="\["  end="\]"
 
 syn sync lines=250
@@ -56,6 +55,17 @@ if !exists("did_coma_syntax_inits")
   hi link comaBoxes          Keyword
   hi! link Conceal           Keyword
   set conceallevel=2
+
+  function! ToggleConcealLevel()
+      if &conceallevel == 0
+          setlocal conceallevel=2
+      else
+          setlocal conceallevel=0
+      endif
+  endfunction
+
+  nnoremap <silent> <C-c><C-y> :call ToggleConcealLevel()<CR>
+
 endif
 
 let b:current_syntax = "coma"
