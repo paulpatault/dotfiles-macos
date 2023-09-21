@@ -32,6 +32,7 @@ return {
     "arturgoms/moonbow.nvim",
 
     -- Other
+    "neomake/neomake",
     "alec-gibson/nvim-tetris",
     "cohama/lexima.vim",
     "famiu/bufdelete.nvim",

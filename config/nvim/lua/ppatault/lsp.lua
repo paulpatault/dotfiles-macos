@@ -87,7 +87,7 @@ local function on_attach(client, bufnr)
 end
 
 -------------------------------------------------------------------------- WHY3
--- vim.lsp.set_log_level("debug")
+vim.lsp.set_log_level("debug")
 
 -- local capabilities = vim.lsp.protocol.make_client_capabilities()
 

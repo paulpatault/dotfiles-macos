@@ -1,6 +1,6 @@
 #!/bin/zsh
 
-ln -s $HOME/d/github/dotfiles/config/ $HOME/.config
+ln -s $HOME/git/dotfiles/config/ $HOME/.config
 
 ln -s $HOME/.config/.gitconfig $HOME/.gitconfig
 ln -s $HOME/.config/.ocamlinit $HOME/.ocamlinit

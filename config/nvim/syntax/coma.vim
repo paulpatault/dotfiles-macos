@@ -1,6 +1,8 @@
 " Vim syntax file
-" Language: Coma
-" Author: Paul Patault paul.patault@ens-paris-saclay.fr
+" Language:  Coma
+" Filenames: *.coma
+" Author:    Paul Patault
+" Contact:   paul.patault@ens-paris-saclay.fr
 
 if exists("b:current_syntax")
   finish
@@ -12,12 +14,18 @@ syn case ignore
 
 syn keyword comaConstant    true false
 syn keyword comaOperator    and or not xor
-syn keyword comaKeyword     fun
+syn keyword comaKeyword     fun let as by
 syn keyword comaType        bool int list
-syn keyword comaPrimitive   unList div halt if assign any
+syn keyword comaPrimitive   any
+" unList div halt if assign
+syn keyword comaValue       cons nil rev sorted
+
 
 syn match comaBoxes "!" conceal cchar=↑
 syn match comaBoxes "?" conceal cchar=↓
+
+syn match  comaType       "'\<[a-zA-Z_][a-zA-Z0-9_]*\>"
+syn region comaTypes      start="<" end=">" contains=comaType
 
 syn match comaDelimiter   "[({})]"
 syn match comaIdentifier  "\<[a-zA-Z_][a-zA-Z0-9_]*\>"
@@ -25,16 +33,20 @@ syn match comaNumber      "\<[0-9]\+\>"
 syn match comaOperator    "[&+*=><^]"
 syn match comaOperator    ">="
 syn match comaOperator    "<="
+syn match comaOperator    "<>"
 syn match comaOperator    "->" conceal cchar=→
-syn match comaDefinition  "\/ \<[a-zA-Z_][a-zA-Z0-9_]*\>"
 
-syn match  comaType       "'\<[a-zA-Z_][a-zA-Z0-9_]*\>"
-syn region comaTypes      start="<" end=">" contains=comaType
-syn match  comaOperator   "<>"
+" syn match comaDotSlash "\." conceal cchar=/
+" syn match comaDotSlash "|"
+" syn match comaDotSlash "/"
 
-syn keyword comaTodo contained TODO
-" syn region  comaComment  start="(\*" end="\*)" contains=comaTodo
-syn match   comaComment  "--.*" contains=lusTodo
+" syn match comaDefinition  "\. \<[a-zA-Z_][a-zA-Z0-9_]*\>"
+" syn match comaDefinition  "| \<[a-zA-Z_][a-zA-Z0-9_]*\>"
+
+syn keyword comaTodo contained TODO FIXME
+syn region  comaComment  start="(\*" end="\*)" contains=comaTodo
+syn match   comaComment  "--.*" contains=comaTodo
+syn match   comaUse  "use.*"
 
 syn region  comaPrewrites  start="\["  end="\]"
 

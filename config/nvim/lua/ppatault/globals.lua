@@ -7,6 +7,8 @@ vim.g.coqtail_map_prefix = "<localleader>c"
 
 vim.g.netrw_liststyle = 3
 
+vim.g.neomake_open_list = 2
+
 
 
 -- vim.g.qs_buftype_blacklist = {"terminal", "nofile"}
