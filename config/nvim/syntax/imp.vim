@@ -40,23 +40,20 @@ syn keyword impFunction node function type const
 
 syn sync lines=250
 
-if !exists("did_imp_syntax_inits")
-  let did_imp_syntax_inits = 1
-  hi link impStatement      Statement
-  hi link impConditional    Conditional
-  hi link impRepeat         Repeat
-  hi link impTodo           Todo
-  hi link impConstant       Number
-  hi link impNumber         Number
-  hi link impFloat          Number
-  hi link impOperator       Operator
-  hi link impFunction       Function
-  hi link impType           Type
-  hi link impComment        Comment
-  hi link impStatement      Statement
-  hi link impPack           Type
-  hi link impDelimiter      Identifier
-endif
+hi link impStatement      Statement
+hi link impConditional    Conditional
+hi link impRepeat         Repeat
+hi link impTodo           Todo
+hi link impConstant       Number
+hi link impNumber         Number
+hi link impFloat          Number
+hi link impOperator       Operator
+hi link impFunction       Function
+hi link impType           Type
+hi link impComment        Comment
+hi link impStatement      Statement
+hi link impPack           Type
+hi link impDelimiter      Identifier
 
 let b:current_syntax = "imp"
 
