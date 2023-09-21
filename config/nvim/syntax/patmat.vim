@@ -2,6 +2,10 @@
 " Language: patmat
 " Author: Paul Patault
 
+if exists("b:current_syntax")
+  finish
+endif
+
 syn clear
 
 syn case ignore
@@ -18,17 +22,14 @@ syn region  patmatConstant   start='"'   end='"'
 
 syn sync lines=250
 
-if !exists("did_patmat_syntax_inits")
-  let did_patmat_syntax_inits = 1
-  hi link patmatStatement      Statement
-  hi link patmatConditional    Conditional
-  hi link patmatConstant       Number
-  hi link patmatOperator       Operator
-  hi link patmatFunction       Function
-  hi link patmatType           Type
-  hi link patmatComment        Comment
-  hi link patmatDelimiter      Identifier
-endif
+hi link patmatStatement      Statement
+hi link patmatConditional    Conditional
+hi link patmatConstant       Number
+hi link patmatOperator       Operator
+hi link patmatFunction       Function
+hi link patmatType           Type
+hi link patmatComment        Comment
+hi link patmatDelimiter      Identifier
 
 let b:current_syntax = "patmat"
 

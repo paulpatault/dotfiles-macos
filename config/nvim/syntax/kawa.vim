@@ -2,6 +2,10 @@
 " Language: Kawa
 " Author: Paul Patault
 
+if exists("b:current_syntax")
+  finish
+endif
+
 syn clear
 
 syn case ignore
@@ -37,24 +41,21 @@ syn keyword kawaFunction return putchar main putascii printf
 
 syn sync lines=250
 
-if !exists("did_kawa_syntax_inits")
-  let did_kawa_syntax_inits = 1
-  hi link kawaStatement      Statement
-  hi link kawaConditional    Conditional
-  hi link kawaTodo           Todo
-  hi link kawaConstant       Number
-  hi link kawaNumber         Number
-  hi link kawaFloat          Number
-  hi link kawaOperator       Operator
-  hi link kawaFunction       Function
-  hi link kawaKeyword        Keyword
-  hi link kawaType           Type
-  hi link kawaComment        Comment
-  hi link kawaStatement      Statement
-  hi link kawaPack           Type
-  hi link kawaDelimiter      Identifier
-  hi link kawaAnnotation     PreProc
-endif
+hi link kawaStatement      Statement
+hi link kawaConditional    Conditional
+hi link kawaTodo           Todo
+hi link kawaConstant       Number
+hi link kawaNumber         Number
+hi link kawaFloat          Number
+hi link kawaOperator       Operator
+hi link kawaFunction       Function
+hi link kawaKeyword        Keyword
+hi link kawaType           Type
+hi link kawaComment        Comment
+hi link kawaPack           Type
+hi link kawaDelimiter      Identifier
+hi link kawaAnnotation     PreProc
+
 
 let b:current_syntax = "kawa"
 
