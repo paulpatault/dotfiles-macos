@@ -6,7 +6,7 @@
 "              - 2022 Apr 04 - first very basic version included in OCaml syntax
 "
 " You can put this file in your .vim/syntax, and you have to modify (or create)
-" .vim/after/syntax/c.vim and copy these lines :
+" .vim/after/syntax/ocaml.vim and copy these lines :
 "
 " syn include @GOSPEL syntax/gospel.vim
 " syn region GospelComment matchgroup=GospelComment start="(\*@"rs=e-1 end="\*)" contains=@GOSPEL

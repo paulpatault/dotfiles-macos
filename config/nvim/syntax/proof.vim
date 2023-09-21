@@ -1,3 +1,7 @@
+if exists("b:current_syntax")
+  finish
+endif
+
 syn clear
 
 " Les mots-cles
@@ -6,11 +10,8 @@ syn keyword proofCommand      assume context define check eval exit type read ch
 
 syn sync lines=250
 
-if !exists("did_proof_syntax_inits")
-  let did_proof_syntax_inits = 1
-  hi link proofTerm         Type
-  hi link proofCommand      Statement
-endif
+hi link proofTerm         Type
+hi link proofCommand      Statement
 
 let b:current_syntax = "proof"
 

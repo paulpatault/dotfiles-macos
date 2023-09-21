@@ -2,6 +2,10 @@
 " Language: Lustre
 " Adapte de pascal.vim de Mario Eusebio <bio@dq.fct.unl.pt>
 
+if exists("b:current_syntax")
+  finish
+endif
+
 syn clear
 
 syn case ignore
@@ -69,35 +73,33 @@ syn keyword lusConditional if else then unless until continue fby pre
 
 syn sync lines=250
 
-if !exists("did_lus_syntax_inits")
-  let did_lus_syntax_inits = 1
-  " The default methods for highlighting.  Can be overridden later
-  hi link lusStatement      Statement
-  " hi link lusLabel          Label
-  hi link lusConditional    Conditional
-  hi link lusTodo           Todo
-  hi link lusSet            Todo
-  " hi link lusString               String
-  " hi link lusMatrixDelimiter      Identifier
-  hi link lusConstant       Number
-  hi link lusNumber         Number
-  hi link lusFloat          Number
-  " hi link lusByte           Number
-  hi link lusOperator       Operator
-  hi link lusFunction       Function
-  hi link lusType           Type
-  hi link lusComment        Comment
-  hi link lusStatement      Statement
+let did_lus_syntax_inits = 1
+" The default methods for highlighting.  Can be overridden later
+hi link lusStatement      Statement
+" hi link lusLabel          Label
+hi link lusConditional    Conditional
+hi link lusTodo           Todo
+hi link lusSet            Todo
+" hi link lusString               String
+" hi link lusMatrixDelimiter      Identifier
+hi link lusConstant       Number
+hi link lusNumber         Number
+hi link lusFloat          Number
+" hi link lusByte           Number
+hi link lusOperator       Operator
+hi link lusFunction       Function
+hi link lusType           Type
+hi link lusComment        Comment
+hi link lusStatement      Statement
 
-  hi link lusPack           Type
+hi link lusPack           Type
 
-  "optional highlighting
-  hi link lusDelimiter      Identifier
+"optional highlighting
+hi link lusDelimiter      Identifier
 
-  "hi link lusShowTab       Error
-  "hi link lusShowTabc      Error
-  "hi link lusIdentifier    Identifier
-endif
+"hi link lusShowTab       Error
+"hi link lusShowTabc      Error
+"hi link lusIdentifier    Identifier
 
 let b:current_syntax = "lus"
 

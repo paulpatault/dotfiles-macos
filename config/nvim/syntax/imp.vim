@@ -2,12 +2,17 @@
 " Language: Impopt
 " Adapte de pascal.vim de Mario Eusebio <bio@dq.fct.unl.pt>
 
+if exists("b:current_syntax")
+  finish
+endif
+
 syn clear
 
 syn case ignore
 
 syn keyword impStatement       return var putchar alloc addr write read staticwrite
-syn keyword impConditional     if else while
+syn keyword impConditional     if else
+syn keyword impRepeat          while
 
 syn keyword impTodo contained   TODO
 
@@ -39,6 +44,7 @@ if !exists("did_imp_syntax_inits")
   let did_imp_syntax_inits = 1
   hi link impStatement      Statement
   hi link impConditional    Conditional
+  hi link impRepeat         Repeat
   hi link impTodo           Todo
   hi link impConstant       Number
   hi link impNumber         Number

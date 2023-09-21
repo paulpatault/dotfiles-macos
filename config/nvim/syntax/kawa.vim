@@ -2,6 +2,10 @@
 " Language: Kawa
 " Author: Paul Patault
 
+if exists("b:current_syntax")
+  finish
+endif
+
 syn clear
 
 syn case ignore
