@@ -20,7 +20,7 @@ return {
     "wreien/vim-jasmin",
     "ELLIOTTCABLE/vim-menhir",
     "bfontaine/conflicts.vim",
-    "ocaml/vim-ocaml",
+    "paulpatault/vim-ocaml",
     "whonore/Coqtail",
 
     -- Colors

@@ -23,8 +23,8 @@ syn cluster comaAllErrs contains=comaBraceErr,comaBrackErr,comaParenErr,comaComm
 " Enclosing delimiters
 syn region comaEncl transparent matchgroup=comaDelimiter start="(" matchgroup=comaDelimiter end=")" contains=ALLBUT,comaParenErr
 syn region comaEncl transparent matchgroup=comaDelimiter start="{" matchgroup=comaDelimiter end="}" contains=ALLBUT,comaBraceErr
-" syn region comaEncl transparent start="\[" end="\]" contains=ALLBUT,@comaContained,comaBrackErr
-syn region comaPrewrites start="\[" end="\]"
+syn region comaEncl transparent start="\[" end="\]" contains=ALLBUT,@comaContained,comaBrackErr
+" syn region comaPrewrites start="\[" end="\]"
 
 " Keywords
 syn keyword comaConstant    true false
@@ -47,6 +47,7 @@ syn match comaOperator    ">="
 syn match comaOperator    "<="
 syn match comaOperator    "<>"
 syn match comaOperator    "->" conceal cchar=→
+syn match comaOperator    "<-" conceal cchar=←
 
 " todos
 syn keyword comaTodo contained TODO FIXME
@@ -80,7 +81,7 @@ hi link comaBrackErr       Error
 hi link comaParenErr       Error
 hi link comaCommentErr     Error
 hi! link Conceal           Keyword
-set conceallevel=2
+" set conceallevel=2
 
 function! ToggleConcealLevel()
     if &conceallevel == 0

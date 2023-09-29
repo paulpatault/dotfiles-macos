@@ -6,7 +6,8 @@ vim.keymap.set("n", "<leader>bs", "f;a<cr><esc>", { desc = "[B]reak on [S]emicol
 -- vim.keymap.set("n", "<leader>io", "ebb%beve%eeeebdbb*vepNbv%ed", { desc = "inline ocaml" })
 
 -- vim.keymap.set("n", "<leader>sp", function() vim.cmd.setlocal("spell!")() end)
--- vim.keymap.set("n", "<leader>m",  function() vim.cmd.make() end)
+vim.keymap.set("n", "<leader>m",  function() print("[make]") vim.cmd([[ Neomake! ]]) end)
+
 
 vim.keymap.set("t", "<esc>", "<c-\\><c-n>", { desc = "[esc] from terminal"})
 

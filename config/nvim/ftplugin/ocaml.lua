@@ -43,8 +43,8 @@ vim.api.nvim_create_autocmd( {"BufRead","BufWinEnter","FileType"}, {
     vim.keymap.set("n", "<localleader>i", function() vim.cmd("!ocaml %") end, { desc = "OCaml - [I]nterpret file" })
 
     -- switch
-    vim.keymap.set("n", "s", function() vim.call("OCaml_switch", 0) end)
-    vim.keymap.set("n", "S", function() vim.call("OCaml_switch", 1) end)
+    vim.keymap.set("n", "<localleader>s", function() vim.call("OCaml_switch", 0) end)
+    vim.keymap.set("n", "<localleader>S", function() vim.call("OCaml_switch", 1) end)
 
     vim.keymap.set("i", "<C-a>", " assert false", { desc = "OCaml - insert [A]ssert false" })
     -- vim.keymap.set("n", "<C-a>", "a assert false<ESC>", { desc = "OCaml - insert [A]ssert false" })
