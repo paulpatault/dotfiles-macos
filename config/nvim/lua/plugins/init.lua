@@ -22,6 +22,8 @@ return {
     "bfontaine/conflicts.vim",
     "paulpatault/vim-ocaml",
     "whonore/Coqtail",
+    "lepture/vim-jinja",
+    "mechatroner/rainbow_csv",
 
     -- Colors
     "rafi/awesome-vim-colorschemes",

@@ -1,26 +1,20 @@
-" syn include @GOSPEL syntax/gospel.vim
-" syn region GospelComment matchgroup=GospelComment start="(\*@"rs=e-1 end="\*)" contains=@GOSPEL
 
-" if exists('g:no_ocaml_conceal') || !has('conceal')
-"     finish
-" endif
+syn include @GOSPEL syntax/gospel.vim
+syn region GospelComment matchgroup=GospelComment start="(\*@"rs=e-1 end="\*)" contains=@GOSPEL
 
-" syntax keyword ocamlNiceKeyword fun conceal cchar=λ
-" syntax match ocamlNiceOperator "->" conceal cchar=→
-" syntax match ocamlNiceOperator "<=" conceal cchar=≲
-" " Make sure >>= isn't matched
-" syntax match ocamlNiceOperator /\s>=\s/ms=s+1,me=e-1 conceal cchar=≳
-" syntax match ocamlNiceOperator "<>" conceal cchar=≠
-" syntax match ocamlNiceOperator "\:\:" conceal cchar=∷
-" syntax match ocamlniceoperator "++" conceal cchar=⧺
 
-" syntax match ocamlNiceTypes "'a" conceal cchar=α
-" syntax match ocamlNiceTypes "'b" conceal cchar=β
-" syntax match ocamlNiceTypes "'c" conceal cchar=γ
-" syntax match ocamlNiceTypes "'d" conceal cchar=δ
-" syntax match ocamlNiceTypes "'e" conceal cchar=ε
+"""""""""""""""""""""""""""""""""""""""""""""""""""
+" due to new ocaml syntax file
 
-" hi link ocamlNiceOperator Operator
-" hi! link Conceal Operator
-" hi link ocamlNiceKeyword Keyword
-" set conceallevel=2
+syn region ocamlTypeDef
+\ matchgroup=ocamlKeyword start="\<type\>\(\_s\+\<nonrec\>\)\?\|\<constraint\>\|\<exception\>"
+\ matchgroup=NONE end="\(\<type\>\|\<exception\>\|\<val\>\|\<module\>\|\<class\>\|\<method\>\|\<constraint\>\|\<inherit\>\|\<object\>\|\<struct\>\|\<open\>\|\<include\>\|\<let\>\|\<external\>\|\<in\>\|\<end\>\|)\|]\|}\|;\|;;\)\@="
+\ contains=@ocamlTypeExpr,ocamlTypeEq,ocamlTypePrivate,ocamlTypeDefDots,ocamlTypeRecordDecl,ocamlTypeSumDecl,ocamlTypeDefAnd,ocamlComment,ocamlPpx,GospelComment
+
+syn region ocamlTypeAnnot matchgroup=ocamlKeyChar start=":\(>\|\_s*type\>\|[>:=]\@!\)"
+\ matchgroup=NONE end="\(\<type\>\|\<exception\>\|\<val\>\|\<module\>\|\<class\>\|\<method\>\|\<constraint\>\|\<inherit\>\|\<object\>\|\<struct\>\|\<open\>\|\<include\>\|\<let\>\|\<external\>\|\<in\>\|\<end\>\|)\|]\|}\|;\|;;\)\@="
+\ matchgroup=NONE end="\(;\|}\)\@="
+\ matchgroup=NONE end="\(=\|:>\)\@="
+\ contains=@ocamlTypeExpr,ocamlComment,ocamlPpx,GospelComment
+"
+"""""""""""""""""""""""""""""""""""""""""""""""""""

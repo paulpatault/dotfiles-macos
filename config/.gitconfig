@@ -24,7 +24,6 @@
 [alias]
     undo = reset --soft HEAD~1
     tree = log --graph --pretty=format:'%C(yellow)%h%C(cyan)%d%Creset %s %C(white)- %an, %ar%Creset'
-    ; br = branch
     br = branch --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(contents:subject) %(color:green)(%(committerdate:relative)) [%(authorname)]' --sort=-committerdate
     s = status -sb
     ls = status . -s
@@ -32,9 +31,5 @@
     rmupstream = rm -r --cached
     ; squash = rebase --interactive --autostash --keep-empty --empty=keep --no-auto squash --rebase-merges HEAD~1
 
-; [help]
-;     autocorrect = 1
-
 [init]
     defaultBranch = main
-

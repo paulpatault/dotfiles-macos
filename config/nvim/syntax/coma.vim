@@ -29,7 +29,7 @@ syn region comaEncl transparent start="\[" end="\]" contains=ALLBUT,@comaContain
 " Keywords
 syn keyword comaConstant    true false
 syn keyword comaOperator    and or not xor
-syn keyword comaKeyword     fun let as by
+syn keyword comaKeyword     fun let as by with rec
 syn keyword comaType        bool int list
 syn keyword comaPrimitive   any
 syn keyword comaValue       cons nil rev sorted

@@ -116,7 +116,7 @@ alias gb="git br"
 alias gbr="git branch"
 alias gco="git checkout"
 alias gcl="git clone"
-alias gcl1="git clone --depth=1"
+alias gspsp="git stash; git pull; git stash pop"
 
 #=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# SHORT
 alias turbocaml=nvim
@@ -130,6 +130,13 @@ alias vim=nvim
 alias diff=colordiff
 alias tree="exa -T"
 alias python@3="python3"
+
+alias fdf="fd --type f --strip-cwd-prefix"
+alias fdd="fd -H -I --type d --strip-cwd-prefix"
+
+cdz() { cd $(fdd | fzf) }
+
+vf() { nvim $(fd --type f --strip-cwd-prefix --exclude '*.pdf' | fzf) }
 
 alias conf="cd $XDG_CONFIG_HOME"
 
@@ -185,8 +192,8 @@ export NVM_DIR="$HOME/.nvm"
 
 
 #=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# WHYCODE
-# export WHY3DATA=/Users/paulpatault/d/git/whycode/extension/why-data 
-# export WHY3LIB=/Users/paulpatault/d/git/whycode/extension/why-lib
+# export WHY3DATA=/Users/paulpatault/git/whycode/extension/why-data
+# export WHY3LIB=/Users/paulpatault/git/whycode/extension/why-lib
 
 export BIBINPUTS=~/d/git/toccata/biblio:
 # neofetch

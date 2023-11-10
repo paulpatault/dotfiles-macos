@@ -10,6 +10,7 @@ local fts = {
   zsh = "sh",
   mlw = "why3",
   mp  = "patmat",
+  wh  = "why3",
   lus = "lustre",
   ept = "lustre",
   mll = "ocaml.ocamllex",
@@ -34,7 +35,6 @@ for k, v in pairs(fts) do
     }
   )
 end
-
 --[[ vim.api.nvim_create_autocmd({"FileType","BufRead","BufNewFile"}, {
     pattern = { "qf" },
     callback = function()
@@ -59,14 +59,13 @@ vim.api.nvim_create_autocmd({"FileType","BufRead","BufNewFile"}, {
     end,
     group = options_group
 })
-
 vim.api.nvim_create_autocmd({"FileType","BufRead","BufNewFile"}, {
-    pattern = { "c", "latex", "cpp"},
+    pattern = { "c", "cpp"},
     command = "set sw=4",
     group   = options_group
 })
 vim.api.nvim_create_autocmd({"FileType","BufRead","BufNewFile"}, {
-    pattern = { "markdown", "lua", "kawa", "ocaml", "why3", "lustre" },
+    pattern = { "markdown", "lua", "kawa", "ocaml", "why3", "lustre", "latex" },
     command = "set sw=2",
     group   = options_group
 })

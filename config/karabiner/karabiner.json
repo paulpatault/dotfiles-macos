@@ -375,51 +375,11 @@
             "simple_modifications": [
                 {
                     "from": {
-                        "key_code": "a"
-                    },
-                    "to": [
-                        {
-                            "key_code": "q"
-                        }
-                    ]
-                },
-                {
-                    "from": {
                         "key_code": "caps_lock"
                     },
                     "to": [
                         {
                             "key_code": "escape"
-                        }
-                    ]
-                },
-                {
-                    "from": {
-                        "key_code": "q"
-                    },
-                    "to": [
-                        {
-                            "key_code": "a"
-                        }
-                    ]
-                },
-                {
-                    "from": {
-                        "key_code": "w"
-                    },
-                    "to": [
-                        {
-                            "key_code": "z"
-                        }
-                    ]
-                },
-                {
-                    "from": {
-                        "key_code": "z"
-                    },
-                    "to": [
-                        {
-                            "key_code": "w"
                         }
                     ]
                 }

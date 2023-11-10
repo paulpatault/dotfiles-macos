@@ -31,7 +31,7 @@ vim.opt.grepformat = "%f:%l:%c:%m" ]]
 vim.opt.shortmess = "filnxtToOFS"
 vim.opt.guicursor = "i:block"
 vim.opt.autoindent = true
-vim.opt.modeline = false
+vim.opt.modeline = true
 
 vim.opt.swapfile = false
 vim.opt.backup = false

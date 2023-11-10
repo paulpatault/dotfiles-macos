@@ -46,23 +46,28 @@ local function on_attach(client, bufnr)
   map(bufnr, "n", "<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction")
   map(bufnr, "n", "<leader>rn", vim.lsp.buf.rename, "[R]e[N]ame")
   map(bufnr, "n", "gr", vim.lsp.buf.references, "[G]o [R]e[F]erences")
+
   map(bufnr, "n", "gd", vim.lsp.buf.definition, "[G]o [D]efinition")
   map(bufnr, "n", "gD", vim.lsp.buf.declaration, "[G]o [D]efinition")
   map(bufnr, "n", "gi", vim.lsp.buf.implementation, "[G]o [I]mplementation")
   map(bufnr, "n", "gT", vim.lsp.buf.type_definition, "[G]o [T]ype definition")
-  map(bufnr, "n", "dc",  vim.lsp.buf.hover, "[D]iagnostic [C]heck type")
+  map(bufnr, "n", "dc", vim.lsp.buf.hover, "[D]iagnostic [C]heck type")
   map(bufnr, "n", "ds", vim.lsp.buf.signature_help, "[D] [S]ignature_help")
   map(bufnr, "n", "dl", vim.diagnostic.open_float, "[D]iagnostic [L]ine")
   map(bufnr, "n", "dn", vim.diagnostic.goto_next, "[D]iagnostic [N]ext")
-  map(bufnr, "n", "[d", vim.diagnostic.goto_next, "[D]iagnostic [next")
-  map(bufnr, "n", "]d", vim.diagnostic.goto_prev, "[D]iagnostic ]prev")
-  map(bufnr, "n", "dt",  function()
+  map(bufnr, "n", "[d", vim.diagnostic.goto_prev, "[D]iagnostic [prev")
+  map(bufnr, "n", "]d", vim.diagnostic.goto_next, "[D]iagnostic ]next")
+  map(bufnr, "n", "<leader>d", function()
     if vim.diagnostic.is_disabled() then
       vim.diagnostic.enable()
     else
       vim.diagnostic.disable()
     end
   end, "[D]iagnostic [T]oogle")
+
+  map(bufnr, "n", "<leader>f", function()
+      vim.lsp.buf.format { async = true }
+    end, "[F]ormat")
 
   map(bufnr, "n", "<leader>dsh", function() vim.lsp.semantic_tokens.stop(bufnr, client["id"]) end, "[D]isable [S]emantic [H]ighlight")
   map(bufnr, "n", "<leader>esh", function() vim.lsp.semantic_tokens.start(bufnr, client["id"]) end, "[E]nable [S]emantic [H]ighlight")
@@ -89,9 +94,9 @@ end
 -------------------------------------------------------------------------- WHY3
 vim.lsp.set_log_level("debug")
 
--- local capabilities = vim.lsp.protocol.make_client_capabilities()
+local capabilities = vim.lsp.protocol.make_client_capabilities()
 
---[[ local function on_attach_why3(client, bufnr)
+local function on_attach_why3(client, bufnr)
   on_attach(client, bufnr)
 
   map(bufnr, "n", "<C-R>", function()
@@ -105,12 +110,12 @@ vim.lsp.set_log_level("debug")
     end
   end, "[R]eload Session")
 
-end ]]
+end
 
 --[[ require("whycode").setup({
   lsp = {
     on_attach = on_attach_why3,
-    cmd = { "/Users/paulpatault/d/git/whycode/extension/whycode2" }, --path to executable
+    cmd = { "/Users/paulpatault/git/whycode/extension/whycode2" }, --path to executable
     verbose = false,
     -- capabilities = capabilities
   },
@@ -225,10 +230,7 @@ lsp.ocamllsp.setup({
 local hcap = vim.lsp.protocol.make_client_capabilities()
 hcap.textDocument.completion.completionItem.snippetSupport = true
 
-lsp.html.setup({
-  on_attach = on_attach;
-  capabilities = hcap
-})
+lsp.html.setup({ on_attach = on_attach; capabilities = hcap })
 
 ------------------------------------------------------------------------- LATEX
 
@@ -239,22 +241,10 @@ lsp.lua_ls.setup ({
   on_attach = on_attach,
   settings = {
     Lua = {
-      runtime = {
-        -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
-        version = "LuaJIT",
-      },
-      diagnostics = {
-        -- Get the language server to recognize the `vim` global
-        globals = {"vim"},
-      },
-      workspace = {
-        -- Make the server aware of Neovim runtime files
-        library = vim.api.nvim_get_runtime_file("", true),
-      },
-      -- Do not send telemetry data containing a randomized but unique identifier
-      telemetry = {
-        enable = false,
-      },
+      runtime = { version = "LuaJIT", },
+      diagnostics = { globals = {"vim"}, },
+      workspace = { library = vim.api.nvim_get_runtime_file("", true), },
+      telemetry = { enable = false, },
     },
   },
 })
